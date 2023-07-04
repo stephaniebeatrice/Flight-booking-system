@@ -158,7 +158,7 @@ export const SearchForm = (props) => {
 							controlId="exampleForm.ControlSelect1"
 							className="form-group"
 						>
-							<label htmlFor="departure">Number of Passengers</label>
+							<label htmlFor="departure">Passengers</label>
 							<Form.Control
 								as="select"
 								name="numOfPassengers"
