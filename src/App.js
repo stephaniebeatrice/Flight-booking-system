@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import SearchForm from './container/search-form/search-form'
 import FlightsGrid from './components/flights-grid/flights-grid'
 import { getFlights } from './actions'
+import image from '../src/img/homepage.jpg'
 
 function App(props) {
 	useEffect(() => {
@@ -16,10 +17,18 @@ function App(props) {
 			<header className="App-header">
 				<h2>Flight Booking System</h2>
 			</header>
-			<section className="Main-container">
+			<div className="Login">
+				<p>Login</p>
+			</div>
+
+			<section
+				className="Main-container"
+				style={{ backgroundImage: `url(${image})` }}
+			>
 				<aside className="Search-section">
 					<SearchForm></SearchForm>
 				</aside>
+
 				<section className="Results-section">
 					{props.routes && props.routes.onwards && (
 						<FlightsGrid
