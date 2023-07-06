@@ -20,11 +20,13 @@ function App(props) {
 			<div className="Login">
 				<p>Login</p>
 			</div>
-
 			<section
 				className="Main-container"
 				style={{ backgroundImage: `url(${image})` }}
 			>
+				<div className="search-flight">
+					<p>Search Flight</p>
+				</div>
 				<aside className="Search-section">
 					<SearchForm></SearchForm>
 				</aside>
