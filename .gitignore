@@ -5,8 +5,7 @@ node_modules
 /node_modules
 /.pnp
 .pnp.js
-
-*lock
+*.lock
 
 # testing
 /coverage

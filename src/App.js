@@ -1,67 +1,35 @@
-import React, { useEffect } from 'react'
-import './App.css'
-import { connect } from 'react-redux'
-import SearchForm from './container/search-form/search-form'
-import FlightsGrid from './components/flights-grid/flights-grid'
-import { getFlights } from './actions'
-import image from '../src/img/homepage.jpg'
+import React, { useEffect } from "react";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 
+import { connect } from "react-redux";
+import "./App.css";
+import { getFlights } from "./actions";
+
+import { BookingPage } from "./pages/booking/booking";
+import { Home } from "./pages/Home/home";
 function App(props) {
-	useEffect(() => {
-		props.getFlights()
-	}, [(props.flights || []).length])
+  useEffect(() => {
+    props.getFlights();
+  }, [props]);
 
-	const { origin, destination, departureDate, returnDate } = props.filters || {}
-	return (
-		<div className="App">
-			<header className="App-header">
-				<h2>Flight Booking System</h2>
-			</header>
-			<div className="Login">
-				<p>Login</p>
-			</div>
-			<section
-				className="Main-container"
-				style={{ backgroundImage: `url(${image})` }}
-			>
-				<div className="search-flight">
-					<p>Search Flight</p>
-				</div>
-				<aside className="Search-section">
-					<SearchForm></SearchForm>
-				</aside>
-
-				<section className="Results-section">
-					{props.routes && props.routes.onwards && (
-						<FlightsGrid
-							flights={props.routes.onwards}
-							criteria={{ origin, destination, date: departureDate }}
-						></FlightsGrid>
-					)}
-					{props.routes && props.routes.return && (
-						<FlightsGrid
-							flights={props.routes.return}
-							criteria={{
-								origin: destination,
-								destination: origin,
-								date: returnDate
-							}}
-						></FlightsGrid>
-					)}
-				</section>
-			</section>
-		</div>
-	)
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Booking" element={<BookingPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-const mapStateToProps = (state) => ({
-	flights: state.flights,
-	routes: state.routes,
-	filters: state.filters 
-})
+const mapStateToProps = state => ({
+  flights: state.flights,
+  routes: state.routes,
+  filters: state.filters,
+});
 
 const mapDispatchToProps = {
-	getFlights
-}
+  getFlights,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);
