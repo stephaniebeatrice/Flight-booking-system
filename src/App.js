@@ -46,7 +46,7 @@ function App(props) {
 const mapStateToProps = (state) => ({
 	flights: state.flights,
 	routes: state.routes,
-	filters: state.filters
+	filters: state.filters 
 })
 
 const mapDispatchToProps = {
