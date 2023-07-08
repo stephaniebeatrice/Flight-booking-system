@@ -1,17 +1,11 @@
-import React, { useEffect } from "react";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import { connect } from "react-redux";
 import "./App.css";
-import { getFlights } from "./actions";
-
 import { BookingPage } from "./pages/booking/booking";
 import { Home } from "./pages/Home/home";
-function App(props) {
-  useEffect(() => {
-    props.getFlights();
-  }, [props]);
 
+function App() {
   return (
     <Router>
       <Routes>
@@ -22,14 +16,4 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => ({
-  flights: state.flights,
-  routes: state.routes,
-  filters: state.filters,
-});
-
-const mapDispatchToProps = {
-  getFlights,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

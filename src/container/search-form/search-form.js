@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
+import { Typeahead } from "react-bootstrap-typeahead";
+import "react-bootstrap-typeahead/css/Typeahead.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Typeahead } from "react-bootstrap-typeahead";
-import { connect } from "react-redux";
+import Form from "react-bootstrap/Form";
 import "./search-form.css";
-import "react-bootstrap-typeahead/css/Typeahead.css";
-import { findFlights } from "./../../actions";
 
 const airports = ["Nairobi (NRB)", "Delhi (DEL)", "Bengaluru (BLR)", "Mumbai (BOM)"];
 
@@ -136,12 +134,4 @@ export const SearchForm = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  flights: state.flights,
-});
-
-const mapDispatchToProps = {
-  findFlights,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
+export default SearchForm;
