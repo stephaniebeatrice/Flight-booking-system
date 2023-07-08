@@ -2,6 +2,7 @@ import React from "react";
 import SearchForm from "../../container/search-form/search-form";
 import { Link } from "react-router-dom";
 import image from "../../img/homepage.jpg";
+import FlightsGrid from "../../components/flights-grid/flights-grid";
 export const Home = () => {
   return (
     <div className="App">
@@ -21,21 +22,10 @@ export const Home = () => {
           <SearchForm />
         </aside>
 
-        {/* <section className="Results-section">
-          {props.routes && props.routes.onwards && (
-            <FlightsGrid flights={props.routes.onwards} criteria={{ origin, destination, date: departureDate }}></FlightsGrid>
-          )}
-          {props.routes && props.routes.return && (
-            <FlightsGrid
-              flights={props.routes.return}
-              criteria={{
-                origin: destination,
-                destination: origin,
-                date: returnDate,
-              }}
-            ></FlightsGrid>
-          )}
-        </section> */}
+        <section className="Results-section">
+          {<FlightsGrid></FlightsGrid>}
+          {<FlightsGrid></FlightsGrid>}
+        </section>
       </section>
     </div>
   );

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { persistCombineReducers, persistStore } from "redux-persist";
 import localStorage from "redux-persist/lib/storage";
-import { bookingReducer } from "./bookingFlight";
+import { bookingReducer } from "./bookingSlice";
 
 const persistConfig = { key: "root", version: 1, storage: localStorage };
 const rootReducer = {
