@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.css'
 
 export const BookingForm = () => {
   return (
@@ -538,7 +539,7 @@ export const BookingForm = () => {
                         traveling with Children (18-)
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/South_Africa_Immigration_Rule_for_pax_travelling_with_Children.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a>
                       </p>
                     </div>
@@ -552,7 +553,7 @@ export const BookingForm = () => {
                         You might be redirected to kiwi
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/South_Africa_Immigration_Rule_for_pax_travelling_with_Children.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a >
                       </p>
                     </div>
@@ -567,7 +568,7 @@ export const BookingForm = () => {
                         notice.
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a  >
                       </p>
                     </div>
@@ -582,7 +583,7 @@ export const BookingForm = () => {
                         notice.
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a >
                       </p>
                     </div>
@@ -597,7 +598,7 @@ export const BookingForm = () => {
                         notice.
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a >
                       </p>
                     </div>
@@ -612,7 +613,7 @@ export const BookingForm = () => {
                         notice.
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a >
                       </p>
                     </div>
@@ -1034,7 +1035,7 @@ export const BookingForm = () => {
                         traveling with Children (18-)
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/South_Africa_Immigration_Rule_for_pax_travelling_with_Children.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a >
                       </p>
                     </div>
@@ -1048,7 +1049,7 @@ export const BookingForm = () => {
                         You may be redirected to KIWI.com
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/South_Africa_Immigration_Rule_for_pax_travelling_with_Children.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a>
                       </p>
                     </div>
@@ -1063,7 +1064,7 @@ export const BookingForm = () => {
                         notice.
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a>
                       </p>
                     </div>
@@ -1078,7 +1079,7 @@ export const BookingForm = () => {
                         notice.
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a>
                       </p>
                     </div>
@@ -1093,7 +1094,7 @@ export const BookingForm = () => {
                         notice.
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a>
                       </p>
                     </div>
@@ -1108,7 +1109,7 @@ export const BookingForm = () => {
                         notice.
                         <a
                           href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank"
+                          target="_blank" rel="noreferrer"
                           >Read more</a >
                       </p>
                     </div>
@@ -1152,7 +1153,7 @@ export const BookingForm = () => {
                   role="tab"
                   aria-controls="checkIn"
                   aria-selected="true"
-                  target="_blank"
+                  target="_blank" rel="noreferrer"
                   >Online Check-in Exemptions</a >
               </div>
               <div id="checkIn" className="active" style={{padding: "14px 0 0 0"}}>
