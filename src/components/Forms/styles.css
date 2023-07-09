@@ -8,6 +8,8 @@
   box-sizing: border-box;
   
 }
+
+
 article,
 aside,
 footer,
@@ -201,9 +203,13 @@ body .bfriday h2 .section-title {
 }
 body {
   color: #1e1e1e;
-  background-color: #fff;
+  /* background-color: #fafafa; */
+  
+  /* background-repeat: no-repeat;
+  background-size: cover; */
   /* font-family: "Interstate Lt", sans-serif; */
   font-size: 14px;
+  /* padding-top: 124px; */
 }
 
 h1,
@@ -266,12 +272,15 @@ img {
 .wrapper {
   max-width: 1218px;
   width: 100%;
-  padding: 0 20px;
+  padding: 160px 20px;
   margin: 0 auto;
 }
 .content-wrapper {
   padding: 50px 0;
-  border-bottom: 1px solid #dfdfdf;
+  background-image: url(../../img/bg.jpg);
+ background-position: center;
+ background-size: cover;
+  /* border-bottom: 1px solid #dfdfdf; */
 }
 .content-wrapper.dark {
   background-color: #fafafa;
@@ -363,7 +372,7 @@ div.msk.loading.initial {
   min-width: 150px;
   height: 42px;
   line-height: 41px;
-  background-color: #4caf50;
+  background-color: #1d94f7;
   color: #fff;
   text-align: center;
   cursor: pointer;
@@ -372,7 +381,6 @@ div.msk.loading.initial {
   display: inline-block;
   font-family: "LucidaSan-Dem", sans-serif;
   border: 0 none;
-  margin: 0;
 }
 .btn-primary.small {
   min-width: 138px;
@@ -382,7 +390,7 @@ div.msk.loading.initial {
 }
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #108043;
+  background-color: rgb(4, 110, 196);
 }
 .btn-primary:focus {
   outline-style: solid;
@@ -3618,7 +3626,8 @@ header .btn-menu {
   border: 1px solid #dfdfdf;
   border-radius: 10px;
   position: relative;
-  background-color: #fff;
+  background-color: rgb(252, 252, 252, 0.8);
+  ;
   z-index: 50;
   margin-top: -111px;
 }
@@ -3676,7 +3685,7 @@ body.booking-widget-visible .booking-widget {
   background-color: #dfdfdf;
 }
 .booking-tabs a.active {
-  background-color: #4caf50;
+  background-color: #1d94f7;
   color: #fff;
 }
 .booking-tabs a.active span {
@@ -3734,6 +3743,10 @@ body.booking-widget-visible .booking-widget {
 }
 .pill-tab-content.active {
   display: block;
+}
+
+.booking-form{
+  margin-bottom: 40px;
 }
 
 .booking-form .fieldset {
@@ -4050,8 +4063,10 @@ body.booking-widget-visible .booking-widget {
   font-size: 22px;
   line-height: 45px;
   /* position: relative; */
-  top: 21px;
+  /* top: 15px; */
+  float: right;
   border-radius: 8px;
+  margin-top: 10px;
 }
 .booking-form .btn-primary:disabled {
   background-color: #dfdfdf;
@@ -6047,9 +6062,9 @@ header .btn-change-booking.active {
 }
 
 @media only screen and (max-width: 1260px) {
-  body {
+  /* body {
     padding-top: 124px;
-  }
+  } */
   header {
     position: fixed;
     width: 100%;
