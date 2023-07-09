@@ -14,7 +14,7 @@ export const BookingForm = () => {
             aria-controls="bkFlight"
             aria-selected="true"
           >
-            <span>Book Flight</span>
+            <span>Basic info</span>
           </a>
           <a
             href="#chkIn"
@@ -23,7 +23,7 @@ export const BookingForm = () => {
             aria-controls="chkIn"
             aria-selected="false"
           >
-            <span>Check In</span>
+            <span>Seat selection</span>
           </a>
           <a
             href="#mngBooking"
@@ -32,7 +32,7 @@ export const BookingForm = () => {
             aria-controls="mngBooking"
             aria-selected="false"
           >
-            <span>Manage Booking</span>
+            <span>Services</span>
           </a>
           <a
             href="#flightStatus"
@@ -41,19 +41,9 @@ export const BookingForm = () => {
             aria-controls="flightStatus"
             aria-selected="false"
           >
-            <span>Flight Status</span>
-          </a>
-          <a
-            href="#flightTimetable"
-            className="icon-calendar"
-            role="tab"
-            aria-controls="flightTimetable"
-            aria-selected="false"
-          >
-            <span>Flight Timetable</span>
+            <span>Payment</span>
           </a>
         </div>
-
         <div className="booking-form">
           <span
             id="ctl00_ctBody_Web_Content_Home_BookingEngine_ReturnOneWay_ekapi_language"
@@ -65,134 +55,84 @@ export const BookingForm = () => {
                 role="button"
                 className="icon-close btn-close"
                 aria-label="Close"
-              ></a  ><span>Book Flight</span>
+              ></a  ><span>Basic Info</span> 
             </div>
             <div className="tab-wrapper">
-              <div className="pill-tabs" role="tablist">
-                <a
-                  href="#rndTrip"
-                  id="pillRnd"
-                  className="active"
-                  role="tab"
-                  aria-controls="rndTrip"
-                  aria-selected="true"
-                  >Round Trip</a>
-                <a
-                  href="#oneWay"
-                  id="pillOneWay"
-                  role="tab"
-                  aria-controls="oneWay"
-                  aria-selected="false"
-                  >One Way</a >
-                <a
-                  href="/Multidestination/en/"
-                  id="lnk_multidestination"
-                  role="tab"
-                  aria-controls="mltCity"
-                  aria-selected="false"
-                  aria-label="Multi-City - Opens in new page"
-                  >Multi-City</a >
-              </div>
               <div id="rndTrip" className="pill-tab-content active">
+                <p>Please make sure that you fill in the name that is in your passport.</p>
                 <div className="fieldset quarter">
                   <div className="field">
                     <label
                       id="lbl_rndTripFrom"
                       aria-label="From"
-                      >From*</label>
-                    <div className="input-wrapper dd icon-from">
+                      >Title</label>
+                    <div className="input-wrapper">
                       <input
-                        name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$rndTripFrom"
+                        name="title"
                         type="text"
                         id="rndTripFrom"
-                        className="rndTripFrom select2-hidden-accessible"
+                        className="rndTripTo select2-hidden-accessible"
                         style={{width: '100%'}}
-                        data-select2-id="rndTripFrom"
                         tabIndex={-1}
-                        aria-hidden="true"
-                      /><span
-                        className="select2 select2-container select2-container--default"
-                        dir="ltr"
-                        data-select2-id="689"
-                        style={{width: "100%"}}
-                        ><span className="selection"
-                          ><span
-                            className="select2-selection select2-selection--single"
-                            role="combobox"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            tabIndex= {0}
-                            aria-labelledby="select2-rndTripFrom-container"
-                            ><span
-                              className="select2-selection__rendered"
-                              id="select2-rndTripFrom-container"
-                              role="textbox"
-                              aria-readonly="true"
-                              title="Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya"
-                              >Nairobi - Nairobi Jomo Kenyatta International
-                              (NBO), Kenya</span ><span
-                              className="select2-selection__arrow"
-                              role="presentation"
-                              ><b role="presentation"></b></span></span></span><span
-                          className="dropdown-wrapper"
-                          aria-hidden="true"
-                        ></span></span>
+                        aria-hidden="false"
+                      />
+                      <select>
+                      <option >Mr</option>
+                      <option>Mrs</option>
+                      <option>Miss</option>
+                      <option>Dr</option>
+                      <option>Prof</option>
+                      </select>
                     </div>
                   </div>
+
                   <div className="field">
                     <label id="lbl_rndTripTo" aria-label="To"
-                      >To*</label>
-                    <div className="input-wrapper dd icon-to">
+                      >First Name*</label>
+                    <div className="input-wrapper">
                       <input
-                        name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$rndTripTo"
+                        name="firstName"
                         type="text"
                         id="rndTripTo"
-                        className="rndTripTo select2-hidden-accessible"
+                        className="textbox txtpromo"
+                        placeholder="John"
+                        style={{width: "100%"}}
+                        data-select2-id="rndTripTo"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <label id="lbl_rndTripTo" aria-label="To"
+                      >Last Name*</label>
+                    <div className="input-wrapper">
+                      <input
+                        name="lastName"
+                        type="text"
+                        id="rndTripTo"
+                        className="textbox txtpromo"
+                        placeholder="Doe"
                         style={{width: "100%"}}
                         data-select2-id="rndTripTo"
                         tabIndex={-1}
                         aria-hidden="true"
-                      /><span
-                        className="select2 select2-container select2-container--default"
-                        dir="ltr"
-                        data-select2-id="1369"
-                        style={{width: "100%"}}
-                        ><span className="selection"
-                          ><span
-                            className="select2-selection select2-selection--single"
-                            role="combobox"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            tabIndex={0}
-                            aria-labelledby="select2-rndTripTo-container"
-                            ><span
-                              className="select2-selection__rendered"
-                              id="select2-rndTripTo-container"
-                              role="textbox"
-                              aria-readonly="true"
-                              ><span className="select2-selection__placeholder"
-                                >City or Airport</span></span ><span
-                              className="select2-selection__arrow"
-                              role="presentation"
-                              ><b role="presentation"></b></span></span></span ><span
-                          className="dropdown-wrapper"
-                          aria-hidden="true"
-                        ></span></span>
+                      />
                     </div>
                   </div>
                   <div className="field date-field">
                     <label
                       id="lbl_rndTripDates"
                       aria-label="Date"
-                      >Dates*</label>
-                    <div className="input-wrapper dates has-arrow icon-calendar">
+                      >Date of Birth*</label>
+                    <div className="input-wrapper dates has-arrow ">
                       <div className="date-field-wrapper date-depart">
                         <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$rndTripDepart"
-                          type="component"
+                          name="DateOfBirth"
+                          type="date"
                           id="rndTripDepart"
                           autoComplete="off"
-                          placeholder="Departing"
+                          placeholder="DD-MM-YYYY"
+                          style={{textTransform: 'uppercase'}}
                           className="textbox date-value depart"
                           readOnly
                           aria-expanded="false"
@@ -200,445 +140,76 @@ export const BookingForm = () => {
                           aria-describedby="rndTripDepartDesc"
                           aria-required="true"
                         />
-                        <span
-                          className="hidden_description"
-                          id="rndTripDepartDesc"
-                          >Please choose your departure date. Use arrow keys
-                          to select the dates.</span>
-                      </div>
-                      <div className="date-field-wrapper date-return">
-                        <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$rndTripReturn"
-                          type="component"
-                          id="rndTripReturn"
-                          autoComplete="off"
-                          placeholder="Returning"
-                          className="textbox date-value return"
-                          readOnly
-                          aria-expanded="false"
-                          aria-labelledby="lbl_rndTripDates"
-                          aria-describedby="rndTripReturnDesc"
-                          aria-required="true"
-                        />
-                        <span
-                          className="hidden_description"
-                          id="rndTripReturnDesc"
-                          >When would you like to return? Use arrow keys to
-                          select the dates.</span >
                       </div>
                     </div>
                     <div className="date-picker-popup">
                       <div className="date-picker-container-depart">
                         <h2 className="icon-from picker-header">
-                          <span>Please choose your departure date</span>
+                          <span>Please choose your date of birth</span>
                         </h2>
                         <div
                           className="pika-single is-hidden is-bound"
                           style={{position: "static", left: "auto", top: "auto"}}></div>
                       </div>
-                      <div className="date-picker-container-return">
-                        <h2 className="icon-to picker-header">
-                          <span>When would you like to return?</span>
-                        </h2>
-                        <div
-                          className="pika-single is-hidden is-bound"
-                          style={{position: "static", left: "auto", top: "auto"}}
-                        ></div>
-                      </div>
                     </div>
                   </div>
-                  <div className="field passengers-field">
-                    <label
-                      id="lbl_rndTripPassengers"
-                      aria-label="Passengers &amp; Cabin"
-                      >Passengers &amp; Cabin*</label >
-                    <div className="input-wrapper has-arrow icon-passenger">
-                      <input
-                        name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$rndTripPassengers"
-                        type="component"
-                        id="rndTripPassengers"
-                        className="textbox passengers-value"
-                        aria-describedby=""
-                        readOnly
-                        aria-readonly="true"
-                        aria-expanded="false"
-                        aria-labelledby="lbl_rndTripPassengers"
-                        value="1 Passenger Economy"
-                      />
-                      <span
-                        className="hidden_description"
-                        id="rndTripPassengersDesc"
-                        >This section is to increase and decrease all
-                        passenger categories. Use only tab key to navigate
-                        between increase and decrease buttons of each
-                        passenger type. Use buttons by pressing Enter key.
-                        Please note: You can book a maximum of nine passengers
-                        per booking.</span >
-                    </div>
-                    <div className="passengers-popup">
-                      <a
-                        href="#"
-                        role="button"
-                        className="btn-close-passengers icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <h3>Passengers</h3>
-                      <div className="error-msg">
-                        <p></p>
-                      </div>
-                      <div
-                        id="rndTripAdults"
-                        className="number-stepper adults clearfloat"
-                        data-valuemin="0"
-                        data-valuemax="9"
-                        data-valuenow="1"
-                      >
-                        <button
-                          type="button"
-                          className="btn-passenger-plus adult-plus icon-plus"
-                          aria-label="Add Adult Ages Above 16"
-                        ></button>
-                        <div className="number-stepper-text">
-                          <label className="number-stepper-label"
-                            ><span
-                              id="adultvalue"
-                              className="passenger-value adult-value"
-                              >1</span >
-                            <span
-                              className="passenger-type"
-                              data-singular="Adult"
-                              data-plural="Adults"
-                              >Adult</span>
-                          </label>
-                          <span className="number-stepper-detail"
-                            >Ages Above 16</span >
-                        </div>
-                        <button
-                          type="button"
-                          className="btn-passenger-minus adult-minus icon-minus"
-                          aria-label="Subtract Adult Ages Above 16"
-                        ></button>
-                      </div>
-                      <div
-                        id="rndTripYouth"
-                        className="number-stepper youth clearfloat"
-                        data-valuemin="0"
-                        data-valuemax="9"
-                        data-valuenow="0"
-                      >
-                        <button
-                          type="button"
-                          className="btn-passenger-plus youth-plus icon-plus"
-                          aria-label="Add Youth Ages 12-16"
-                        ></button>
-                        <div className="number-stepper-text">
-                          <label className="number-stepper-label"
-                            ><span
-                              id="youthvalue"
-                              className="passenger-value youth-value"
-                              >0</span >
-                            <span
-                              className="passenger-type"
-                              data-singular="Youth"
-                              data-plural="Youths"
-                              >Youth</span >
-                          </label>
-                          <span className="number-stepper-detail"
-                            >Ages 12-16</span >
-                        </div>
-                        <button
-                          type="button"
-                          className="btn-passenger-minus youth-minus icon-minus"
-                          aria-label="Subtract Youth Ages 12-16"
-                          disabled
-                        ></button>
-                      </div>
-                      <div
-                        id="rndTripChild"
-                        className="number-stepper child clearfloat"
-                        data-valuemin="0"
-                        data-valuemax="8"
-                        data-valuenow="0"
-                      >
-                        <button
-                          type="button"
-                          className="btn-passenger-plus child-plus icon-plus"
-                          aria-label="Add Child Ages 2-11"
-                        ></button>
-                        <div className="number-stepper-text">
-                          <label className="number-stepper-label"
-                            ><span
-                              id="childvalue"
-                              className="passenger-value child-value"
-                              >0</span >
-                            <span
-                              className="passenger-type"
-                              data-singular="Child"
-                              data-plural="Children"
-                              >Child</span>
-                          </label>
-                          <span className="number-stepper-detail">Ages 2-11</span>
-                        </div>
-                        <button
-                          type="button"
-                          className="btn-passenger-minus child-minus icon-minus"
-                          aria-label="Subtract Child Ages 2-11"
-                          disabled
-                        ></button>
-                      </div>
-                      <div
-                        id="rndTripInfant"
-                        className="number-stepper infant clearfloat"
-                        data-valuemin="0"
-                        data-valuemax="1"
-                        data-valuenow="0"
-                      >
-                        <button
-                          type="button"
-                          className="btn-passenger-plus infant-plus icon-plus"
-                          aria-label="Add Infant Ages 0-1, On Lap"
-                        ></button>
-                        <div className="number-stepper-text">
-                          <label className="number-stepper-label"
-                            ><span
-                              id="infantvalue"
-                              className="passenger-value infant-value"
-                              >0</span >
-                            <span
-                              className="passenger-type"
-                              data-singular="Infant"
-                              data-plural="Infants"
-                              >Infant</span>
-                          </label>
-                          <span className="number-stepper-detail"
-                            >Ages 0-1, On Lap</span >
-                        </div>
-                        <button
-                          type="button"
-                          className="btn-passenger-minus infant-minus icon-minus"
-                          aria-label="Subtract Infant Ages 0-1, On Lap"
-                          disabled
-                        ></button>
-                      </div>
-                      <h3>Cabin className</h3>
-                      <div className="cabin-field rndtrip-cabin">
-                        <div className="input-wrapper icon-user">
-                          <select
-                            name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$rndTripCabin"
-                            id="rndTripCabin"
-                            aria-label="Cabin className"
-                            aria-required="true"
-                            style={{width: "100%"}}
-                            data-select2-id="rndTripCabin"
-                            tabIndex={-1}
-                            className="select2-hidden-accessible"
-                            aria-hidden="true"
-                          >
-                            <option value="E" data-select2-id="4">
-                              Economy
-                            </option>
-                            <option value="B">Business</option></select ><span
-                            className="select2 select2-container select2-container--default"
-                            dir="ltr"
-                            data-select2-id="3"
-                            style={{width: "100%"}}
-                            ><span className="selection"
-                              ><span
-                                className="select2-selection select2-selection--single"
-                                role="combobox"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                tabIndex={0}
-                                aria-labelledby="select2-rndTripCabin-container"
-                                ><span
-                                  className="select2-selection__rendered"
-                                  id="select2-rndTripCabin-container"
-                                  role="textbox"
-                                  aria-readonly="true"
-                                  title="Economy"
-                                  >Economy</span ><span
-                                  className="select2-selection__arrow"
-                                  role="presentation"
-                                  ><b
-                                    role="presentation"
-                                  ></b></span></span></span><span
-                              className="dropdown-wrapper"
-                              aria-hidden="true"
-                            ></span></span>
-                        </div>
-                      </div>
-                      <div className="confirm-field">
-                        <button
-                          type="button"
-                          className="btn-primary btn-confirm-passengers"
-                        >
-                          Confirm
-                          <span className="passengers-final">1 Passenger</span> in
-                          <span className="cabin-final">Economy</span>
-                        </button>
-                        <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$adultCount"
-                          type="text"
-                          id="adultCount"
-                          className="adult-count"
-                        />
-                        <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$youthCount"
-                          type="text"
-                          id="youthCount"
-                          className="youth-count"
-                        />
-                        <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$childCount"
-                          type="text"
-                          id="childCount"
-                          className="child-count"
-                        />
-                        <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$infantCount"
-                          type="text"
-                          id="infantCount"
-                          className="infant-count"
-                        />
-                        <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$cabinclassName"
-                          type="text"
-                          id="cabinclassName"
-                          className="cabin-className"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="fieldset half">
-                  <div className="field">
-                    <label
-                      id="lbl_rndTripPromoCode"
-                      aria-label="Promo Code"
-                      >Promo Code</label >
-                    <div className="input-wrapper icon-plus">
-                      <input
-                        name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$rndTripPromoCode"
-                        type="text"
-                        id="rndTripPromoCode"
-                        autoComplete="off"
-                        className="textbox txtpromo"
-                        aria-labelledby="lbl_rndTripPromoCode"
-                      />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="booking-notification sa">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Read South Africa immigration regulations when
-                        traveling with Children (18-)
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/South_Africa_Immigration_Rule_for_pax_travelling_with_Children.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a>
-                      </p>
-                    </div>
-                    <div className="booking-notification kiwi">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        You might be redirected to kiwi
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/South_Africa_Immigration_Rule_for_pax_travelling_with_Children.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a >
-                      </p>
-                    </div>
-                    <div className="booking-notification tz">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Be in the Know on the recent Tanzania plastic bag ban
-                        notice.
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a  >
-                      </p>
-                    </div>
-                    <div className="booking-notification tz1">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Be in the Know on the recent Tanzania plastic bag ban
-                        notice.
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a >
-                      </p>
-                    </div>
-                    <div className="booking-notification tz2">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Be in the Know on the recent Tanzania plastic bag ban
-                        notice.
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a >
-                      </p>
-                    </div>
-                    <div className="booking-notification tz3">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Be in the Know on the recent Tanzania plastic bag ban
-                        notice.
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a >
-                      </p>
-                    </div>
-                    <input
-                      type="submit"
-                      name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$round_trip_btn"
-                      value="Book Now"
-                      id="round_trip_btn"
-                      className="btn-primary btn-submit-form btn-rnd-trip"
-                    />
-                  </div>
-                </div>
-                <span className="required-note"
-                  >All fields with * are mandatory</span >
-                <div className="general-error">
-                  <p></p>
                 </div>
               </div>
+            </div>
+
+            <div className="fieldset half">
+              <div className="field">
+                <label
+                  id="lbl_rndTripPromoCode"
+                  aria-label="Promo Code"
+                  >Phone number</label >
+                <div className="input-wrapper">
+                  <input
+                    name="phoneNumber"
+                    type="tel"
+                    id="rndTripPromoCode"
+                    autoComplete="off"
+                    className="textbox txtpromo"
+                    aria-labelledby="lbl_rndTripPromoCode"
+                  />
+                </div>
+              </div>
+              <div className="field">
+              <label
+                id="lbl_rndTripPromoCode"
+                aria-label="Promo Code"
+                >Email</label >
+              <div className="input-wrapper">
+                <input
+                  name="email"
+                  type="email"
+                  id="rndTripPromoCode"
+                  placeholder="eg. johndoe@gmail.com"
+                  autoComplete="off"
+                  className="textbox txtpromo"
+                  aria-labelledby="lbl_rndTripPromoCode"
+                />
+              </div>
+              </div>
+            </div>
+            <input
+              type="submit"
+              name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$round_trip_btn"
+              value="Next"
+              id="round_trip_btn"
+              className="btn-primary btn-submit-form btn-rnd-trip"
+            />
+            <div className="general-error">
+              <p></p>
+            
+
               <div id="oneWay" className="pill-tab-content">
                 <div className="fieldset quarter">
                   <div className="field">
                     <label
                       id="lbl_oneWayFrom"
                       aria-label="From"
-                      >From*</label>
+                      >First name*</label>
                     <div className="input-wrapper dd icon-from">
                       <input
                         name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$oneWayFrom"
@@ -1006,122 +577,6 @@ export const BookingForm = () => {
                     </div>
                   </div>
                 </div>
-                <div className="fieldset half">
-                  <div className="field">
-                    <label
-                      id="lbl_oneWayPromoCode"
-                      aria-label="Promo Code"
-                      >Promo Code</label >
-                    <div className="input-wrapper icon-plus">
-                      <input
-                        name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$oneWayPromoCode"
-                        type="text"
-                        id="ctl00_ctBody_Web_Content_Home_BookingEngine_ReturnOneWay_oneWayPromoCode"
-                        autoComplete="off"
-                        className="textbox txtpromo"
-                        aria-labelledby="lbl_oneWayPromoCode"
-                      />
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="booking-notification sa">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Read South Africa immigration regulations when
-                        traveling with Children (18-)
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/South_Africa_Immigration_Rule_for_pax_travelling_with_Children.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a >
-                      </p>
-                    </div>
-                    <div className="booking-notification kiwi">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        You may be redirected to KIWI.com
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/South_Africa_Immigration_Rule_for_pax_travelling_with_Children.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a>
-                      </p>
-                    </div>
-                    <div className="booking-notification tz">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Be in the Know on the recent Tanzania plastic bag ban
-                        notice.
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a>
-                      </p>
-                    </div>
-                    <div className="booking-notification tz1">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Be in the Know on the recent Tanzania plastic bag ban
-                        notice.
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a>
-                      </p>
-                    </div>
-                    <div className="booking-notification tz2">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Be in the Know on the recent Tanzania plastic bag ban
-                        notice.
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a>
-                      </p>
-                    </div>
-                    <div className="booking-notification tz3">
-                      <a
-                        href="#"
-                        className="btn-close-note icon-close"
-                        aria-label="Close"
-                      ></a>
-                      <p>
-                        Be in the Know on the recent Tanzania plastic bag ban
-                        notice.
-                        <a
-                          href="//www.kenya-airways.com/uploadedFiles/PLASTIC BAN TZ NOTICE.pdf"
-                          target="_blank" rel="noreferrer"
-                          >Read more</a >
-                      </p>
-                    </div>
-                    <input
-                      type="submit"
-                      name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$btn_OneWay"
-                      value="Book Now"
-                      id="ctl00_ctBody_Web_Content_Home_BookingEngine_ReturnOneWay_btn_OneWay"
-                      className="btn-primary btn-submit-form btn-one-way"
-                    />
-                  </div>
-                </div>
                 <span className="required-note"
                   >All fields with * are mandatory</span>
                 <div className="general-error" id="oneWayErr">
@@ -1129,6 +584,7 @@ export const BookingForm = () => {
                 </div>
               </div>
             </div>
+          </div>
           </div>
           <div id="chkIn" className="booking-tab-content">
             <div className="tab-header icon-check-in">
@@ -1781,9 +1237,7 @@ export const BookingForm = () => {
                               id="select2-fltTimeDepart-container"
                               role="textbox"
                               aria-readonly="true"
-                              title="Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya"
-                              >Nairobi - Nairobi Jomo Kenyatta International
-                              (NBO), Kenya</span><span
+                              ></span><span
                               className="select2-selection__arrow"
                               role="presentation"
                               ><b role="presentation"></b></span></span></span><span
@@ -2007,8 +1461,7 @@ export const BookingForm = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+  </div>
   </section>
   )
 }
