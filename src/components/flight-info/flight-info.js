@@ -8,7 +8,7 @@ import { getTimeDifferece } from "./../../lib/utils";
 import "./flight-info.css";
 
 const FlightLogo = props => {
-  return <img src={nonStopFlightLogo} width="12" height="12"></img>;
+  return <img src={nonStopFlightLogo} width="12" height="12" />;
 };
 
 export const FlightInfo = props => {

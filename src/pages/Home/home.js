@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchForm from "../../container/search-form/search-form";
 import { Link } from "react-router-dom";
 import image from "../../img/homepage.jpg";
 import FlightsGrid from "../../components/flights-grid/flights-grid";
 export const Home = () => {
+  const [flights, setFlights] = useState([]);
+  console.log("========================FLIGHTS================");
+  console.log(flights);
   return (
     <div className="App">
       <header className="App-header">
@@ -19,12 +22,12 @@ export const Home = () => {
           <p>Search Flight</p>
         </div>
         <aside className="Search-section">
-          <SearchForm />
+          <SearchForm setFlights={setFlights} />
         </aside>
 
         <section className="Results-section">
-          {<FlightsGrid></FlightsGrid>}
-          {<FlightsGrid></FlightsGrid>}
+          {<FlightsGrid flights={flights} />}
+          {<FlightsGrid flights={flights} />}
         </section>
       </section>
     </div>
