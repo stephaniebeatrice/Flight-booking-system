@@ -6,6 +6,7 @@
   vertical-align: baseline;
   background: transparent;
   box-sizing: border-box;
+  
 }
 article,
 aside,
@@ -201,7 +202,7 @@ body .bfriday h2 .section-title {
 body {
   color: #1e1e1e;
   background-color: #fff;
-  font-family: "Interstate Lt", sans-serif;
+  /* font-family: "Interstate Lt", sans-serif; */
   font-size: 14px;
 }
 
@@ -360,10 +361,10 @@ div.msk.loading.initial {
 
 /*---------- BUTTONS ----------*/
 .btn-primary {
-  min-width: 216px;
+  min-width: 150px;
   height: 42px;
   line-height: 41px;
-  background-color: #e20714;
+  background-color: #4caf50;
   color: #fff;
   text-align: center;
   cursor: pointer;
@@ -3616,6 +3617,7 @@ header .btn-menu {
 /*---------- BOOKING WIDGET ----------*/
 .booking-widget {
   border: 1px solid #dfdfdf;
+  border-radius: 10px;
   position: relative;
   background-color: #fff;
   z-index: 50;
@@ -3650,6 +3652,7 @@ body.booking-widget-visible .booking-widget {
 }
 .booking-tabs a:first-child {
   border-left: 0 none;
+  border-radius: 10px 0 0 0 ;
 }
 .booking-tabs a span {
   font-size: 16px;
@@ -3674,7 +3677,7 @@ body.booking-widget-visible .booking-widget {
   background-color: #dfdfdf;
 }
 .booking-tabs a.active {
-  background-color: #ec0921;
+  background-color: #4caf50;
   color: #fff;
 }
 .booking-tabs a.active span {
@@ -3720,9 +3723,9 @@ body.booking-widget-visible .booking-widget {
   background-color: #dfdfdf;
 }
 .pill-tabs a.active {
-  background-color: #ec0921;
+  background-color: #0177ff;
   color: #fff;
-  border-color: #ec0921;
+  border-color: #0177ff;
   font-family: "LucidaSan-Dem", sans-serif;
 }
 
@@ -3858,13 +3861,14 @@ body.booking-widget-visible .booking-widget {
   display: block;
   font-family: "LucidaSan-Dem", sans-serif;
   color: #1e1e1e;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.58;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin-bottom: 3px;
 }
 .booking-form .input-wrapper {
-  border: 1px solid #1e1e1e;
+  border: 1px solid #aaa;
+  border-radius: 5px;
   height: 45px;
   position: relative;
   font-size: 15px;
@@ -3947,25 +3951,30 @@ body.booking-widget-visible .booking-widget {
   width: 100%;
   height: 43px;
   background-color: transparent;
-  padding: 0 12px 0 50px;
+  padding: 0 12px 0 15px;
   font-family: "LucidaSan-Dem", sans-serif;
-  color: #1e1e1e;
+  color: #495057;
   border: 0 none;
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
+}
+
+.booking-form .input-wrapper option{
+  color: #1b1b1b;
+  font-weight: 200px;
 }
 
 .textbox::-webkit-input-placeholder {
-  font-size: 12px;
+  font-size: 16px;
 }
 .textbox::-moz-placeholder {
-  font-size: 12px;
+  font-size: 16px;
 }
 .textbox:-moz-placeholder {
-  font-size: 12px;
+  font-size: 16px;
 }
 .textbox:-ms-input-placeholder {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .booking-form .input-wrapper select {
@@ -3977,7 +3986,7 @@ body.booking-widget-visible .booking-widget {
 .booking-form .input-wrapper .txtpromo,
 .booking-form .input-wrapper .txtBRN,
 .booking-form .input-wrapper .txtETN {
-  text-transform: uppercase;
+  font-size: 15px;
 }
 .booking-form .inline-field.etncode {
   width: 120px;
@@ -4039,11 +4048,11 @@ body.booking-widget-visible .booking-widget {
 .booking-form .btn-primary {
   height: 45px;
   display: block;
-  width: 100%;
   font-size: 22px;
   line-height: 45px;
-  position: relative;
+  /* position: relative; */
   top: 21px;
+  border-radius: 8px;
 }
 .booking-form .btn-primary:disabled {
   background-color: #dfdfdf;
