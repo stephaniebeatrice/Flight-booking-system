@@ -1,5 +1,10 @@
 import React from "react";
 import "./styles.css";
+import "./bootstrap.min.css";
+import food from "../../img/food.jpg";
+import luggage from "../../img/luggage.jpg";
+import priority from "../../img/priority.jpg";
+import wifi from "../../img/wifi.jpg";
 
 export const BookingForm = () => {
   return (
@@ -13,10 +18,22 @@ export const BookingForm = () => {
             <a href="#chkIn" className="icon-check-in" role="tab" aria-controls="chkIn" aria-selected="false">
               <span>Seat selection</span>
             </a>
-            <a href="#mngBooking" className="icon-manage-booking" role="tab" aria-controls="mngBooking" aria-selected="false">
+            <a
+              href="#services"
+              className="icon-manage-booking"
+              role="tab"
+              aria-controls="mngBooking"
+              aria-selected="false"
+            >
               <span>Services</span>
             </a>
-            <a href="#flightStatus" className="icon-flight-info" role="tab" aria-controls="flightStatus" aria-selected="false">
+            <a
+              href="#flightTimetable"
+              className="icon-flight-info"
+              role="tab"
+              aria-controls="flightStatus"
+              aria-selected="false"
+            >
               <span>Payment</span>
             </a>
           </div>
@@ -90,7 +107,7 @@ export const BookingForm = () => {
                         />
                       </div>
                     </div>
-                    <div className="field date-field">
+                     <div className="field date-field">
                       <label id="lbl_rndTripDates" aria-label="Date">
                         Date of Birth*
                       </label>
@@ -124,7 +141,18 @@ export const BookingForm = () => {
                           ></div>
                         </div>
                       </div>
-                    </div>
+                    </div> 
+                    {/* <label
+                      id="date-picker-left-continer"
+                      class="date1 date-as-calendar inline-flex std-rad validator0"
+                      style="border-color: rgb(221, 221, 221);"
+                      placeholder="DD-MM-YYYY"
+                    >
+                      <span class="departure-date d-block">Departure date</span>
+                      <span class="ps-3 date-text-container">
+                        <i class="far fa-calendar-alt pop-date-stay float-end date-picker-icon"></i>
+                      </span>
+                    </label> */}
                   </div>
 
                   <div className="fieldset half">
@@ -168,336 +196,9 @@ export const BookingForm = () => {
                     id="round_trip_btn"
                     className="btn-primary btn-submit-form btn-rnd-trip"
                   />
-                  <span className="required-note">All fields with * are mandatory</span>
-                  <div className="general-error" id="oneWayErr">
-                    <p></p>
-                  </div>
-                </div>
-
-                <div id="oneWay" className="pill-tab-content">
-                  <div className="fieldset quarter">
-                    <div className="field">
-                      <label id="lbl_oneWayFrom" aria-label="From">
-                        First name*
-                      </label>
-                      <div className="input-wrapper dd icon-from">
-                        <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$oneWayFrom"
-                          type="text"
-                          id="oneWayFrom"
-                          className="oneWayFrom select2-hidden-accessible"
-                          style={{ width: "100%" }}
-                          data-select2-id="oneWayFrom"
-                          tabIndex={-1}
-                          aria-hidden="true"
-                        />
-                        <span
-                          className="select2 select2-container select2-container--default"
-                          dir="ltr"
-                          data-select2-id="2049"
-                          style={{ width: "100%" }}
-                        >
-                          <span className="selection">
-                            <span
-                              className="select2-selection select2-selection--single"
-                              role="combobox"
-                              aria-controls=""
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                              tabIndex={0}
-                              aria-labelledby="select2-oneWayFrom-container"
-                            >
-                              <span
-                                className="select2-selection__rendered"
-                                id="select2-oneWayFrom-container"
-                                role="textbox"
-                                aria-readonly="true"
-                                title="Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya"
-                              >
-                                Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya
-                              </span>
-                              <span className="select2-selection__arrow" role="presentation">
-                                <b role="presentation"></b>
-                              </span>
-                            </span>
-                          </span>
-                          <span className="dropdown-wrapper" aria-hidden="true"></span>
-                        </span>
-                      </div>
-                    </div>
-                    <div className="field">
-                      <label id="lbl_oneWayTo" aria-label="To">
-                        To*
-                      </label>
-                      <div className="input-wrapper dd icon-to">
-                        <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$oneWayTo"
-                          type="text"
-                          id="oneWayTo"
-                          className="oneWayTo select2-hidden-accessible"
-                          style={{ width: "100%" }}
-                          data-select2-id="oneWayTo"
-                          tabIndex={-1}
-                          aria-hidden="true"
-                        />
-                        <span
-                          className="select2 select2-container select2-container--default"
-                          dir="ltr"
-                          data-select2-id="2729"
-                          style={{ width: "100%" }}
-                        >
-                          <span className="selection">
-                            <span
-                              className="select2-selection select2-selection--single"
-                              role="combobox"
-                              aria-controls=""
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                              tabIndex={0}
-                              aria-labelledby="select2-oneWayTo-container"
-                            >
-                              <span className="select2-selection__rendered" id="select2-oneWayTo-container" role="textbox" aria-readonly="true">
-                                <span className="select2-selection__placeholder">City or Airport</span>
-                              </span>
-                              <span className="select2-selection__arrow" role="presentation">
-                                <b role="presentation"></b>
-                              </span>
-                            </span>
-                          </span>
-                          <span className="dropdown-wrapper" aria-hidden="true"></span>
-                        </span>
-                      </div>
-                    </div>
-                    <div className="field date-field">
-                      <label id="lbl_oneWayDate" aria-label="Date">
-                        Date*
-                      </label>
-                      <div className="input-wrapper dates has-arrow icon-calendar">
-                        <input
-                          name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$oneWayDepart"
-                          type="component"
-                          id="oneWayDepart"
-                          autoComplete="off"
-                          placeholder="Departing"
-                          className="textbox date-value"
-                          readOnly
-                          ariaExpanded="false"
-                          aria-labelledby="lbl_oneWayDate"
-                          aria-describedby="oneWayDateDesc"
-                          aria-required="true"
-                        />
-                      </div>
-                      <div className="date-picker-popup">
-                        <h2 className="icon-from">
-                          <span>Please choose your departure date</span>
-                        </h2>
-                        <div id="date-picker-container" className="date-picker-container">
-                          <div
-                            className="pika-single is-hidden is-bound"
-                            style={{
-                              position: "static",
-                              left: "auto",
-                              top: "auto",
-                            }}
-                          ></div>
-                        </div>
-                      </div>
-                      <span className="hidden_description" id="oneWayDateDesc">
-                        Please choose your departure date. Use arrow keys to select the dates.
-                      </span>
-                    </div>
-                    <div className="field passengers-field">
-                      <label id="lbl_oneWayPassengers" aria-label="Passengers &amp; Cabin">
-                        Passengers &amp; Cabin*
-                      </label>
-                      <div className="input-wrapper has-arrow icon-passenger">
-                        <input
-                          className="textbox passengers-value"
-                          type="component"
-                          id="oneWayPassengers"
-                          name="oneWayPassengers"
-                          aria-describedby="oneWayPassengersDesc"
-                          readOnly
-                          aria-readonly="true"
-                          ariaExpanded="false"
-                          ariaLabelledby="lbl_oneWayPassengers"
-                          value="1 Passenger Economy"
-                        />
-                        <span className="hidden_description" id="oneWayPassengersDesc">
-                          This section is to increase and decrease all passenger categories. Use only tab key to navigate between increase and
-                          decrease buttons of each passenger type. Use buttons by pressing Enter key. Please note: You can book a maximum of nine
-                          passengers per booking.
-                        </span>
-                      </div>
-                      <div className="passengers-popup">
-                        <a href="#" role="button" className="btn-close-passengers icon-close" aria-label="Close"></a>
-                        <h3>Passengers</h3>
-                        <div className="error-msg">
-                          <p></p>
-                        </div>
-                        <div id="oneWayAdults" className="number-stepper adults clearfloat" data-valuemin="0" data-valuemax="9" data-valuenow="1">
-                          <button type="button" className="btn-passenger-plus adult-plus icon-plus" aria-label="Add Adult Ages Above 16"></button>
-                          <div className="number-stepper-text">
-                            <label className="number-stepper-label">
-                              <span className="passenger-value adult-value">1</span>
-                              <span className="passenger-type" data-singular="Adult" data-plural="Adults">
-                                Adult
-                              </span>
-                            </label>
-                            <span className="number-stepper-detail">Ages Above 16</span>
-                          </div>
-                          <button
-                            type="button"
-                            className="btn-passenger-minus adult-minus icon-minus"
-                            aria-label="Subtract Adult Ages Above 16"
-                          ></button>
-                        </div>
-                        <div id="oneWayYouth" className="number-stepper youth clearfloat" data-valuemin="0" data-valuemax="9" data-valuenow="0">
-                          <button type="button" className="btn-passenger-plus youth-plus icon-plus" aria-label="Add Youth Ages 12-16"></button>
-                          <div className="number-stepper-text">
-                            <label className="number-stepper-label">
-                              <span className="passenger-value youth-value">0</span>
-                              <span className="passenger-type" data-singular="Youth" data-plural="Youths">
-                                Youth
-                              </span>
-                            </label>
-                            <span className="number-stepper-detail">Ages 12-16</span>
-                          </div>
-                          <button
-                            type="button"
-                            className="btn-passenger-minus youth-minus icon-minus"
-                            aria-label="Subtract Youth Ages 12-16"
-                            disabled
-                          ></button>
-                        </div>
-                        <div id="oneWayChild" className="number-stepper child clearfloat" data-valuemin="0" data-valuemax="8" data-valuenow="0">
-                          <button type="button" className="btn-passenger-plus child-plus icon-plus" aria-label="Add Child Ages 2-11"></button>
-                          <div className="number-stepper-text">
-                            <label className="number-stepper-label">
-                              <span className="passenger-value child-value">0</span>
-                              <span className="passenger-type" data-singular="Child" data-plural="Children">
-                                Child
-                              </span>
-                            </label>
-                            <span className="number-stepper-detail">Ages 2-11</span>
-                          </div>
-                          <button
-                            type="button"
-                            className="btn-passenger-minus child-minus icon-minus"
-                            aria-label="Subtract Child Ages 2-11"
-                            disabled
-                          ></button>
-                        </div>
-                        <div id="oneWayInfant" className="number-stepper infant clearfloat" data-valuemin="0" data-valuemax="1" data-valuenow="0">
-                          <button
-                            type="button"
-                            className="btn-passenger-plus infant-plus icon-plus"
-                            aria-label="Add Infant Ages 0-1, On Lap"
-                          ></button>
-                          <div className="number-stepper-text">
-                            <label className="number-stepper-label">
-                              <span className="passenger-value infant-value">0</span>
-                              <span className="passenger-type" data-singular="Infant" data-plural="Infants">
-                                Infant
-                              </span>
-                            </label>
-                            <span className="number-stepper-detail">Ages 0-1, On Lap</span>
-                          </div>
-                          <button
-                            type="button"
-                            className="btn-passenger-minus infant-minus icon-minus"
-                            aria-label="Subtract Infant Ages 0-1, On Lap"
-                            disabled
-                          ></button>
-                        </div>
-                        <h3>Cabin className</h3>
-                        <div className="cabin-field oneway-cabin">
-                          <div className="input-wrapper icon-user">
-                            <select
-                              name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$oneWayCabin"
-                              id="oneWayCabin"
-                              aria-label="Cabin className"
-                              aria-required="true"
-                              style={{ width: "100%" }}
-                              data-select2-id="oneWayCabin"
-                              tabIndex={-1}
-                              className="select2-hidden-accessible"
-                              aria-hidden="true"
-                            >
-                              <option value="E" data-select2-id="2">
-                                Economy
-                              </option>
-                              <option value="B">Business</option>
-                            </select>
-                            <span
-                              className="select2 select2-container select2-container--default"
-                              dir="ltr"
-                              data-select2-id="1"
-                              style={{ width: "100%" }}
-                            >
-                              <span className="selection">
-                                <span
-                                  className="select2-selection select2-selection--single"
-                                  role="combobox"
-                                  aria-controls=""
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                  tabIndex={0}
-                                  aria-labelledby="select2-oneWayCabin-container"
-                                >
-                                  <span
-                                    className="select2-selection__rendered"
-                                    id="select2-oneWayCabin-container"
-                                    role="textbox"
-                                    aria-readonly="true"
-                                    title="Economy"
-                                  >
-                                    Economy
-                                  </span>
-                                  <span className="select2-selection__arrow" role="presentation">
-                                    <b role="presentation"></b>
-                                  </span>
-                                </span>
-                              </span>
-                              <span className="dropdown-wrapper" aria-hidden="true"></span>
-                            </span>
-                          </div>
-                        </div>
-                        <div className="confirm-field">
-                          <button type="button" className="btn-primary btn-confirm-passengers">
-                            Confirm
-                            <span className="passengers-final">1 Passenger</span> in
-                            <span className="cabin-final">Economy</span>
-                          </button>
-                          <input
-                            name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$onewayAdult"
-                            type="text"
-                            id="onewayAdult"
-                            className="adult-count"
-                          />
-                          <input
-                            name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$onewayYouth"
-                            type="text"
-                            id="onewayYouth"
-                            className="youth-count"
-                          />
-                          <input
-                            name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$onewayChild"
-                            type="text"
-                            id="onewayChild"
-                            className="child-count"
-                          />
-                          <input
-                            name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$onewayInfant"
-                            type="text"
-                            id="onewayInfant"
-                            className="infant-count"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <span className="required-note">All fields with * are mandatory</span>
+                  <span className="required-note">
+                    All fields with * are mandatory
+                  </span>
                   <div className="general-error" id="oneWayErr">
                     <p></p>
                   </div>
@@ -865,179 +566,126 @@ export const BookingForm = () => {
             </div>
           </div>
 
-          <div id="flightStatus" className="booking-tab-content">
-            <div className="tab-header icon-flight-info">
-              <a href="#" role="button" className="icon-close btn-close" aria-label="Close"></a>
-              <span>Flight Status</span>
+          <div id="services" className="booking-tab-content ">
+        <div className="sec-wp">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="sec-title ">
+                            <p className="sec-sub-title ">Enjoy these extra services brought to you by our airline</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div className="tab-wrapper">
-              <div className="pill-tabs" role="tablist">
-                <a href="#fltStatus" className="active" role="tab" aria-controls="fltStatus" aria-selected="true">
-                  Flight Status
-                </a>
-              </div>
-              <div id="fltStatus" className="pill-tab-content active">
-                <div className="fieldset fifth">
-                  <div className="field one">
-                    <label id="lbl_fltStatusDepart" aria-label="Departure City">
-                      Departure City*
-                    </label>
-                    <div className="input-wrapper dd icon-from">
-                      <input
-                        name="ctl00$ctBody$Web_Content_Home$BookingEngine$FlightStatus$fltStatusDepart"
-                        type="text"
-                        id="fltStatusDepart"
-                        className="fltStatusDepart select2-hidden-accessible"
-                        style={{ width: "100%" }}
-                        data-select2-id="fltStatusDepart"
-                        tabIndex={-1}
-                        aria-hidden="true"
-                      />
-                      <span
-                        className="select2 select2-container select2-container--default"
-                        dir="ltr"
-                        data-select2-id="3411"
-                        style={{ width: "100%" }}
-                      >
-                        <span className="selection">
-                          <span
-                            className="select2-selection select2-selection--single"
-                            role="combobox"
-                            aria-controls=""
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            tabIndex={0}
-                            aria-labelledby="select2-fltStatusDepart-container"
-                          >
-                            <span
-                              className="select2-selection__rendered"
-                              id="select2-fltStatusDepart-container"
-                              role="textbox"
-                              aria-readonly="true"
-                              title="Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya"
-                            >
-                              Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya
-                            </span>
-                            <span className="select2-selection__arrow" role="presentation">
-                              <b role="presentation"></b>
-                            </span>
-                          </span>
-                        </span>
-                        <span className="dropdown-wrapper" aria-hidden="true"></span>
-                      </span>
+            <div className="services-list-row">
+                <div className="container">
+                    <div className="row g-xxl-5 bydefault_show" id="services-service">
+                        <div className="col-lg-6 col-sm-6 service-box-wp breakfast" data-cat="breakfast">
+                            <div className="service-box text-center">
+                                <h3 className="h3-title"> Meal</h3>
+                                <div className="dist-img">
+                                return <img src={food} alt="food" />
+                                </div>
+                                <div className="service-title">
+                                    <p>Get served with a delicous meal during the flight</p>
+                                </div>
+                                <div className="service-info">
+                                    <ul>
+                                        <li>
+                                            <p>At $ 2.50 Only </p>
+                                        </li>
+                                        <li>
+                                            <p>Per person, per flight</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="btn">
+                                     <button className="service-add-btn"><a href="order.html"> Select </a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6 col-sm-6 service-box-wp breakfast" data-cat="breakfast">
+                            <div className="service-box text-center">
+                                <h3 className="h3-title"> Luggage</h3>
+                                <div className="dist-img">
+                                return <img src={luggage} alt=" " />
+                                </div>
+                                <div className="service-title">
+                                    <p>Carry extra baggage with no worries</p>
+                                </div>
+                                <div className="service-info">
+                                    <ul>
+                                        <li>
+                                            <p>At $ 14.50 Only </p>
+                                        </li>
+                                        <li>
+                                            <p>Per extra bag,per flight</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="btn">
+                                     <button className="service-add-btn"><a href="order.html"> Select </a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6 col-sm-6 service-box-wp breakfast" data-cat="breakfast">
+                            <div className="service-box text-center">
+                                <h3 className="h3-title"> Wifi</h3>
+                                <div className="dist-img">
+                                return <img src={wifi} alt="react logo" />
+                                </div>
+                                <div className="service-title">
+                                    <p>Stay connected with friends and family while onboard</p>
+                                </div>
+                                <div className="service-info">
+                                    <ul>
+                                        <li>
+                                            <p> Free </p>
+                                        </li>
+                                        <li>
+                                            <p>All flights</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="btn">
+                                     <button className="service-add-btn"><a href="order.html"> Select </a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6 col-sm-6 service-box-wp lunch" data-cat="lunch">
+                            <div className="service-box text-center">
+                                <h3 className="h3-title">Priority Passenger</h3>
+                                <div className="dist-img">
+                                return <img src={priority} alt=" " />
+                                </div>
+                                <div className="service-title">
+                                    <p>Avoid queing at check-points and onboarding</p>
+                                </div>
+                                <div className="service-info">
+                                    <ul>
+                                        <li>
+                                            <p>At $ 40.50 Only </p>
+                                        </li>
+                                        <li>
+                                            <p>Per person, per flight</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="btn">
+                                     <button className="service-add-btn"><a href="order.html"> Select </a></button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                  </div>
-                  <div className="field two">
-                    <label id="lbl_fltStatusArrival" aria-label="Arival City">
-                      Arrival City*
-                    </label>
-                    <div className="input-wrapper dd icon-to">
-                      <input
-                        name="ctl00$ctBody$Web_Content_Home$BookingEngine$FlightStatus$fltStatusArrival"
-                        type="text"
-                        id="fltStatusArrival"
-                        className="fltStatusArrival select2-hidden-accessible"
-                        style={{ width: "100%" }}
-                        data-select2-id="fltStatusArrival"
-                        tabIndex={-1}
-                        aria-hidden="true"
-                      />
-                      <span
-                        className="select2 select2-container select2-container--default"
-                        dir="ltr"
-                        data-select2-id="4091"
-                        style={{ width: "100%" }}
-                      >
-                        <span className="selection">
-                          <span
-                            className="select2-selection select2-selection--single"
-                            role="combobox"
-                            aria-controls=""
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            tabIndex={0}
-                            aria-labelledby="select2-fltStatusArrival-container"
-                          >
-                            <span className="select2-selection__rendered" id="select2-fltStatusArrival-container" role="textbox" aria-readonly="true">
-                              <span className="select2-selection__placeholder">City or Airport</span>
-                            </span>
-                            <span className="select2-selection__arrow" role="presentation">
-                              <b role="presentation"></b>
-                            </span>
-                          </span>
-                        </span>
-                        <span className="dropdown-wrapper" aria-hidden="true"></span>
-                      </span>
-                    </div>
-                  </div>
-                  <div className="field three">
-                    <label id="lbl_fltStatusFlightNumber" aria-label="Flight Number">
-                      Flight Number*
-                    </label>
-                    <div className="input-wrapper icon-book-flight">
-                      <input
-                        name="ctl00$ctBody$Web_Content_Home$BookingEngine$FlightStatus$fltStatusFlightNumber"
-                        type="text"
-                        id="fltStatusFlightNumber"
-                        className="textbox txtBRN fltStatusFlightNumber"
-                        aria-labelledby="lbl_fltStatusFlightNumber"
-                        placeholder="eg.KQ600"
-                      />
-                    </div>
-                  </div>
-                  <div className="field four date-field">
-                    <label id="lbl_fltStatusDate" aria-label="Date">
-                      Date*
-                    </label>
-                    <div className="input-wrapper dates has-arrow icon-calendar">
-                      <input
-                        name="ctl00$ctBody$Web_Content_Home$BookingEngine$FlightStatus$fltStatusDepartDate"
-                        type="component"
-                        id="fltStatusDepartDate"
-                        autoComplete="off"
-                        placeholder="Departing"
-                        className="textbox date-value"
-                        readOnly
-                        required={true}
-                      />
-                    </div>
-                    <div className="date-picker-popup">
-                      <h2 className="icon-from">
-                        <span>Please choose your departure date</span>
-                      </h2>
-                      <div className="date-picker-container flt-status">
-                        <div
-                          className="pika-single is-hidden is-bound"
-                          style={{
-                            position: "static",
-                            left: "auto",
-                            top: "auto",
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                    <span className="hidden_description" id="fltStatusDateDesc">
-                      Please choose your departure date. Use arrow keys to select the dates.
-                    </span>
-                  </div>
-                  <div className="field five">
-                    <input
-                      type="submit"
-                      name="ctl00$ctBody$Web_Content_Home$BookingEngine$FlightStatus$flight_status_btn"
-                      value="Search"
-                      id="flight_status_btn"
-                      className="btn-primary btn-flt-status"
-                    />
-                  </div>
                 </div>
-                <span className="required-note">All fields with * are mandatory</span>
-                <div className="general-error">
-                  <p></p>
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
+    </div>
 
           <span id="ctl00_ctBody_Web_Content_Home_BookingEngine_FlightTimeTable_ekapi_language"></span>
 
