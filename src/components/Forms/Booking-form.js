@@ -7,40 +7,16 @@ export const BookingForm = () => {
       <div className="wrapper">
         <div className="booking-widget">
           <div className="booking-tabs" role="tablist">
-            <a
-              href="#bkFlight"
-              className="active icon-book-flight"
-              role="tab"
-              aria-controls="bkFlight"
-              aria-selected="true"
-            >
+            <a href="#bkFlight" className="active icon-book-flight" role="tab" aria-controls="bkFlight" aria-selected="true">
               <span>Personal info</span>
             </a>
-            <a
-              href="#chkIn"
-              className="icon-check-in"
-              role="tab"
-              aria-controls="chkIn"
-              aria-selected="false"
-            >
+            <a href="#chkIn" className="icon-check-in" role="tab" aria-controls="chkIn" aria-selected="false">
               <span>Seat selection</span>
             </a>
-            <a
-              href="#mngBooking"
-              className="icon-manage-booking"
-              role="tab"
-              aria-controls="mngBooking"
-              aria-selected="false"
-            >
+            <a href="#mngBooking" className="icon-manage-booking" role="tab" aria-controls="mngBooking" aria-selected="false">
               <span>Services</span>
             </a>
-            <a
-              href="#flightStatus"
-              className="icon-flight-info"
-              role="tab"
-              aria-controls="flightStatus"
-              aria-selected="false"
-            >
+            <a href="#flightStatus" className="icon-flight-info" role="tab" aria-controls="flightStatus" aria-selected="false">
               <span>Payment</span>
             </a>
           </div>
@@ -48,20 +24,12 @@ export const BookingForm = () => {
             <span id="ctl00_ctBody_Web_Content_Home_BookingEngine_ReturnOneWay_ekapi_language"></span>
             <div id="bkFlight" className="booking-tab-content active">
               <div className="tab-header icon-book-flight">
-                <a
-                  href="#"
-                  role="button"
-                  className="icon-close btn-close"
-                  aria-label="Close"
-                ></a>
+                <a href="#" role="button" className="icon-close btn-close" aria-label="Close"></a>
                 <span>Basic Info</span>
               </div>
               <div className="tab-wrapper">
                 <div id="rndTrip" className="pill-tab-content active">
-                  <p>
-                    Please make sure that you fill in the name that is in your
-                    passport.
-                  </p>
+                  <p>Please make sure that you fill in the name that is in your passport.</p>
                   <div className="fieldset quarter">
                     <div className="field">
                       <label id="lbl_rndTripFrom" aria-label="From">
@@ -137,10 +105,7 @@ export const BookingForm = () => {
                             style={{ textTransform: "uppercase" }}
                             className="textbox date-value depart"
                             readOnly
-                            aria-expanded="false"
-                            aria-labelledby="lbl_rndTripDates"
-                            aria-describedby="rndTripDepartDesc"
-                            aria-required="true"
+                            required={true}
                           />
                         </div>
                       </div>
@@ -195,21 +160,18 @@ export const BookingForm = () => {
                       </div>
                     </div>
                   </div>
-                 
+
                   <input
-                      type="submit"
-                      name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$round_trip_btn"
-                      value="Next"
-                      id="round_trip_btn"
-                      className="btn-primary btn-submit-form btn-rnd-trip"
-                    />
-                    <span className="required-note">
-                      All fields with * are mandatory
-                    </span>
-                    <div className="general-error" id="oneWayErr">
-                      <p></p>
-                    </div>
-      
+                    type="submit"
+                    name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$round_trip_btn"
+                    value="Next"
+                    id="round_trip_btn"
+                    className="btn-primary btn-submit-form btn-rnd-trip"
+                  />
+                  <span className="required-note">All fields with * are mandatory</span>
+                  <div className="general-error" id="oneWayErr">
+                    <p></p>
+                  </div>
                 </div>
 
                 <div id="oneWay" className="pill-tab-content">
@@ -239,6 +201,7 @@ export const BookingForm = () => {
                             <span
                               className="select2-selection select2-selection--single"
                               role="combobox"
+                              aria-controls=""
                               aria-haspopup="true"
                               aria-expanded="false"
                               tabIndex={0}
@@ -251,21 +214,14 @@ export const BookingForm = () => {
                                 aria-readonly="true"
                                 title="Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya"
                               >
-                                Nairobi - Nairobi Jomo Kenyatta International
-                                (NBO), Kenya
+                                Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya
                               </span>
-                              <span
-                                className="select2-selection__arrow"
-                                role="presentation"
-                              >
+                              <span className="select2-selection__arrow" role="presentation">
                                 <b role="presentation"></b>
                               </span>
                             </span>
                           </span>
-                          <span
-                            className="dropdown-wrapper"
-                            aria-hidden="true"
-                          ></span>
+                          <span className="dropdown-wrapper" aria-hidden="true"></span>
                         </span>
                       </div>
                     </div>
@@ -294,33 +250,21 @@ export const BookingForm = () => {
                             <span
                               className="select2-selection select2-selection--single"
                               role="combobox"
+                              aria-controls=""
                               aria-haspopup="true"
                               aria-expanded="false"
                               tabIndex={0}
                               aria-labelledby="select2-oneWayTo-container"
                             >
-                              <span
-                                className="select2-selection__rendered"
-                                id="select2-oneWayTo-container"
-                                role="textbox"
-                                aria-readonly="true"
-                              >
-                                <span className="select2-selection__placeholder">
-                                  City or Airport
-                                </span>
+                              <span className="select2-selection__rendered" id="select2-oneWayTo-container" role="textbox" aria-readonly="true">
+                                <span className="select2-selection__placeholder">City or Airport</span>
                               </span>
-                              <span
-                                className="select2-selection__arrow"
-                                role="presentation"
-                              >
+                              <span className="select2-selection__arrow" role="presentation">
                                 <b role="presentation"></b>
                               </span>
                             </span>
                           </span>
-                          <span
-                            className="dropdown-wrapper"
-                            aria-hidden="true"
-                          ></span>
+                          <span className="dropdown-wrapper" aria-hidden="true"></span>
                         </span>
                       </div>
                     </div>
@@ -337,7 +281,7 @@ export const BookingForm = () => {
                           placeholder="Departing"
                           className="textbox date-value"
                           readOnly
-                          aria-expanded="false"
+                          ariaExpanded="false"
                           aria-labelledby="lbl_oneWayDate"
                           aria-describedby="oneWayDateDesc"
                           aria-required="true"
@@ -347,10 +291,7 @@ export const BookingForm = () => {
                         <h2 className="icon-from">
                           <span>Please choose your departure date</span>
                         </h2>
-                        <div
-                          id="date-picker-container"
-                          className="date-picker-container"
-                        >
+                        <div id="date-picker-container" className="date-picker-container">
                           <div
                             className="pika-single is-hidden is-bound"
                             style={{
@@ -362,15 +303,11 @@ export const BookingForm = () => {
                         </div>
                       </div>
                       <span className="hidden_description" id="oneWayDateDesc">
-                        Please choose your departure date. Use arrow keys to
-                        select the dates.
+                        Please choose your departure date. Use arrow keys to select the dates.
                       </span>
                     </div>
                     <div className="field passengers-field">
-                      <label
-                        id="lbl_oneWayPassengers"
-                        aria-label="Passengers &amp; Cabin"
-                      >
+                      <label id="lbl_oneWayPassengers" aria-label="Passengers &amp; Cabin">
                         Passengers &amp; Cabin*
                       </label>
                       <div className="input-wrapper has-arrow icon-passenger">
@@ -382,60 +319,32 @@ export const BookingForm = () => {
                           aria-describedby="oneWayPassengersDesc"
                           readOnly
                           aria-readonly="true"
-                          aria-expanded="false"
-                          aria-labelledby="lbl_oneWayPassengers"
+                          ariaExpanded="false"
+                          ariaLabelledby="lbl_oneWayPassengers"
                           value="1 Passenger Economy"
                         />
-                        <span
-                          className="hidden_description"
-                          id="oneWayPassengersDesc"
-                        >
-                          This section is to increase and decrease all passenger
-                          categories. Use only tab key to navigate between
-                          increase and decrease buttons of each passenger type.
-                          Use buttons by pressing Enter key. Please note: You
-                          can book a maximum of nine passengers per booking.
+                        <span className="hidden_description" id="oneWayPassengersDesc">
+                          This section is to increase and decrease all passenger categories. Use only tab key to navigate between increase and
+                          decrease buttons of each passenger type. Use buttons by pressing Enter key. Please note: You can book a maximum of nine
+                          passengers per booking.
                         </span>
                       </div>
                       <div className="passengers-popup">
-                        <a
-                          href="#"
-                          role="button"
-                          className="btn-close-passengers icon-close"
-                          aria-label="Close"
-                        ></a>
+                        <a href="#" role="button" className="btn-close-passengers icon-close" aria-label="Close"></a>
                         <h3>Passengers</h3>
                         <div className="error-msg">
                           <p></p>
                         </div>
-                        <div
-                          id="oneWayAdults"
-                          className="number-stepper adults clearfloat"
-                          data-valuemin="0"
-                          data-valuemax="9"
-                          data-valuenow="1"
-                        >
-                          <button
-                            type="button"
-                            className="btn-passenger-plus adult-plus icon-plus"
-                            aria-label="Add Adult Ages Above 16"
-                          ></button>
+                        <div id="oneWayAdults" className="number-stepper adults clearfloat" data-valuemin="0" data-valuemax="9" data-valuenow="1">
+                          <button type="button" className="btn-passenger-plus adult-plus icon-plus" aria-label="Add Adult Ages Above 16"></button>
                           <div className="number-stepper-text">
                             <label className="number-stepper-label">
-                              <span className="passenger-value adult-value">
-                                1
-                              </span>
-                              <span
-                                className="passenger-type"
-                                data-singular="Adult"
-                                data-plural="Adults"
-                              >
+                              <span className="passenger-value adult-value">1</span>
+                              <span className="passenger-type" data-singular="Adult" data-plural="Adults">
                                 Adult
                               </span>
                             </label>
-                            <span className="number-stepper-detail">
-                              Ages Above 16
-                            </span>
+                            <span className="number-stepper-detail">Ages Above 16</span>
                           </div>
                           <button
                             type="button"
@@ -443,34 +352,16 @@ export const BookingForm = () => {
                             aria-label="Subtract Adult Ages Above 16"
                           ></button>
                         </div>
-                        <div
-                          id="oneWayYouth"
-                          className="number-stepper youth clearfloat"
-                          data-valuemin="0"
-                          data-valuemax="9"
-                          data-valuenow="0"
-                        >
-                          <button
-                            type="button"
-                            className="btn-passenger-plus youth-plus icon-plus"
-                            aria-label="Add Youth Ages 12-16"
-                          ></button>
+                        <div id="oneWayYouth" className="number-stepper youth clearfloat" data-valuemin="0" data-valuemax="9" data-valuenow="0">
+                          <button type="button" className="btn-passenger-plus youth-plus icon-plus" aria-label="Add Youth Ages 12-16"></button>
                           <div className="number-stepper-text">
                             <label className="number-stepper-label">
-                              <span className="passenger-value youth-value">
-                                0
-                              </span>
-                              <span
-                                className="passenger-type"
-                                data-singular="Youth"
-                                data-plural="Youths"
-                              >
+                              <span className="passenger-value youth-value">0</span>
+                              <span className="passenger-type" data-singular="Youth" data-plural="Youths">
                                 Youth
                               </span>
                             </label>
-                            <span className="number-stepper-detail">
-                              Ages 12-16
-                            </span>
+                            <span className="number-stepper-detail">Ages 12-16</span>
                           </div>
                           <button
                             type="button"
@@ -479,34 +370,16 @@ export const BookingForm = () => {
                             disabled
                           ></button>
                         </div>
-                        <div
-                          id="oneWayChild"
-                          className="number-stepper child clearfloat"
-                          data-valuemin="0"
-                          data-valuemax="8"
-                          data-valuenow="0"
-                        >
-                          <button
-                            type="button"
-                            className="btn-passenger-plus child-plus icon-plus"
-                            aria-label="Add Child Ages 2-11"
-                          ></button>
+                        <div id="oneWayChild" className="number-stepper child clearfloat" data-valuemin="0" data-valuemax="8" data-valuenow="0">
+                          <button type="button" className="btn-passenger-plus child-plus icon-plus" aria-label="Add Child Ages 2-11"></button>
                           <div className="number-stepper-text">
                             <label className="number-stepper-label">
-                              <span className="passenger-value child-value">
-                                0
-                              </span>
-                              <span
-                                className="passenger-type"
-                                data-singular="Child"
-                                data-plural="Children"
-                              >
+                              <span className="passenger-value child-value">0</span>
+                              <span className="passenger-type" data-singular="Child" data-plural="Children">
                                 Child
                               </span>
                             </label>
-                            <span className="number-stepper-detail">
-                              Ages 2-11
-                            </span>
+                            <span className="number-stepper-detail">Ages 2-11</span>
                           </div>
                           <button
                             type="button"
@@ -515,13 +388,7 @@ export const BookingForm = () => {
                             disabled
                           ></button>
                         </div>
-                        <div
-                          id="oneWayInfant"
-                          className="number-stepper infant clearfloat"
-                          data-valuemin="0"
-                          data-valuemax="1"
-                          data-valuenow="0"
-                        >
+                        <div id="oneWayInfant" className="number-stepper infant clearfloat" data-valuemin="0" data-valuemax="1" data-valuenow="0">
                           <button
                             type="button"
                             className="btn-passenger-plus infant-plus icon-plus"
@@ -529,20 +396,12 @@ export const BookingForm = () => {
                           ></button>
                           <div className="number-stepper-text">
                             <label className="number-stepper-label">
-                              <span className="passenger-value infant-value">
-                                0
-                              </span>
-                              <span
-                                className="passenger-type"
-                                data-singular="Infant"
-                                data-plural="Infants"
-                              >
+                              <span className="passenger-value infant-value">0</span>
+                              <span className="passenger-type" data-singular="Infant" data-plural="Infants">
                                 Infant
                               </span>
                             </label>
-                            <span className="number-stepper-detail">
-                              Ages 0-1, On Lap
-                            </span>
+                            <span className="number-stepper-detail">Ages 0-1, On Lap</span>
                           </div>
                           <button
                             type="button"
@@ -580,6 +439,7 @@ export const BookingForm = () => {
                                 <span
                                   className="select2-selection select2-selection--single"
                                   role="combobox"
+                                  aria-controls=""
                                   aria-haspopup="true"
                                   aria-expanded="false"
                                   tabIndex={0}
@@ -594,31 +454,19 @@ export const BookingForm = () => {
                                   >
                                     Economy
                                   </span>
-                                  <span
-                                    className="select2-selection__arrow"
-                                    role="presentation"
-                                  >
+                                  <span className="select2-selection__arrow" role="presentation">
                                     <b role="presentation"></b>
                                   </span>
                                 </span>
                               </span>
-                              <span
-                                className="dropdown-wrapper"
-                                aria-hidden="true"
-                              ></span>
+                              <span className="dropdown-wrapper" aria-hidden="true"></span>
                             </span>
                           </div>
                         </div>
                         <div className="confirm-field">
-                          <button
-                            type="button"
-                            className="btn-primary btn-confirm-passengers"
-                          >
+                          <button type="button" className="btn-primary btn-confirm-passengers">
                             Confirm
-                            <span className="passengers-final">
-                              1 Passenger
-                            </span>{" "}
-                            in
+                            <span className="passengers-final">1 Passenger</span> in
                             <span className="cabin-final">Economy</span>
                           </button>
                           <input
@@ -649,9 +497,7 @@ export const BookingForm = () => {
                       </div>
                     </div>
                   </div>
-                  <span className="required-note">
-                    All fields with * are mandatory
-                  </span>
+                  <span className="required-note">All fields with * are mandatory</span>
                   <div className="general-error" id="oneWayErr">
                     <p></p>
                   </div>
@@ -661,18 +507,12 @@ export const BookingForm = () => {
           </div>
           <div id="chkIn" className="booking-tab-content">
             <div className="tab-header icon-check-in">
-              <a
-                href="#"
-                role="button"
-                className="icon-close btn-close"
-                aria-label="Close"
-              ></a>
+              <a href="#" role="button" className="icon-close btn-close" aria-label="Close"></a>
               <span>Check In</span>
             </div>
             <div className="tab-wrapper">
               <div className="custom-alert">
-                Please note, we have temporarily suspended online check-in for
-                flights to Lilongwe(LLW). Alternatively, you may check-in at the
+                Please note, we have temporarily suspended online check-in for flights to Lilongwe(LLW). Alternatively, you may check-in at the
                 airport.We apologise for incovenience caused.
               </div>
               <div className="pill-tabs" role="tablist">
@@ -688,17 +528,10 @@ export const BookingForm = () => {
                   Online Check-in Exemptions
                 </a>
               </div>
-              <div
-                id="checkIn"
-                className="active"
-                style={{ padding: "14px 0 0 0" }}
-              >
+              <div id="checkIn" className="active" style={{ padding: "14px 0 0 0" }}>
                 <div className="fieldset third">
                   <div className="field">
-                    <label
-                      id="lbl_chkInBRN"
-                      aria-label="Booking Reference Number"
-                    >
+                    <label id="lbl_chkInBRN" aria-label="Booking Reference Number">
                       Booking Reference Number
                     </label>
                     <div className="input-wrapper icon-book-flight">
@@ -718,10 +551,7 @@ export const BookingForm = () => {
                     <div className="inline-fields">
                       <div className="or inline-field">Or</div>
                       <div className="inline-field">
-                        <label
-                          id="lbl_chkInETNCode"
-                          aria-label="E-Ticket Number"
-                        >
+                        <label id="lbl_chkInETNCode" aria-label="E-Ticket Number">
                           E-Ticket Number
                         </label>
                         <div className="inline-fields">
@@ -761,10 +591,7 @@ export const BookingForm = () => {
                     <div className="inline-fields">
                       <div className="or inline-field">Or</div>
                       <div className="inline-field">
-                        <label
-                          id="lbl_chkInFFN"
-                          aria-label="Frequent Flyer Number"
-                        >
+                        <label id="lbl_chkInFFN" aria-label="Frequent Flyer Number">
                           Frequent Flyer Number
                         </label>
                         <div className="inline-fields">
@@ -780,11 +607,7 @@ export const BookingForm = () => {
                                 tabIndex={-1}
                                 aria-hidden="true"
                               >
-                                <option
-                                  value=""
-                                  aria-label="Empty"
-                                  data-select2-id="2731"
-                                ></option>
+                                <option value="" aria-label="Empty" data-select2-id="2731"></option>
                                 <option value="1" label="Kenya Airways - KQ">
                                   Kenya Airways - KQ
                                 </option>
@@ -797,10 +620,7 @@ export const BookingForm = () => {
                                 <option value="4" label="Aeroflot - SU">
                                   Aeroflot - SU
                                 </option>
-                                <option
-                                  value="5"
-                                  label="Aerolineas Argentinas - AR"
-                                >
+                                <option value="5" label="Aerolineas Argentinas - AR">
                                   Aerolineas Argentinas - AR
                                 </option>
                                 <option value="6" label="Aero Mexico - AM">
@@ -812,10 +632,7 @@ export const BookingForm = () => {
                                 <option value="8" label="China Airlines - CI">
                                   China Airlines - CI
                                 </option>
-                                <option
-                                  value="9"
-                                  label="China Eastern Airlines - MU"
-                                >
+                                <option value="9" label="China Eastern Airlines - MU">
                                   China Eastern Airlines - MU
                                 </option>
                                 <option value="10" label="China Southern - CZ">
@@ -827,10 +644,7 @@ export const BookingForm = () => {
                                 <option value="12" label="Delta - DL">
                                   Delta - DL
                                 </option>
-                                <option
-                                  value="13"
-                                  label="Garuda Indonesia - GA"
-                                >
+                                <option value="13" label="Garuda Indonesia - GA">
                                   Garuda Indonesia - GA
                                 </option>
                                 <option value="14" label="Korean Air - KE">
@@ -839,25 +653,16 @@ export const BookingForm = () => {
                                 <option value="15" label="KLM - KL">
                                   KLM - KL
                                 </option>
-                                <option
-                                  value="16"
-                                  label="Middle East Airlines - ME"
-                                >
+                                <option value="16" label="Middle East Airlines - ME">
                                   Middle East Airlines - ME
                                 </option>
-                                <option
-                                  value="17"
-                                  label="Saudi Arabian Airlines - SV"
-                                >
+                                <option value="17" label="Saudi Arabian Airlines - SV">
                                   Saudi Arabian Airlines - SV
                                 </option>
                                 <option value="18" label="Tarom - RO">
                                   Tarom - RO
                                 </option>
-                                <option
-                                  value="19"
-                                  label="Vietnam Airlines - VN"
-                                >
+                                <option value="19" label="Vietnam Airlines - VN">
                                   Vietnam Airlines - VN
                                 </option>
                                 <option value="20" label="Virgin Atlantic- VS">
@@ -877,6 +682,7 @@ export const BookingForm = () => {
                                   <span
                                     className="select2-selection select2-selection--single"
                                     role="combobox"
+                                    aria-controls=""
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                     tabIndex={0}
@@ -888,22 +694,14 @@ export const BookingForm = () => {
                                       role="textbox"
                                       aria-readonly="true"
                                     >
-                                      <span className="select2-selection__placeholder">
-                                        Frequent Flyer Airline
-                                      </span>
+                                      <span className="select2-selection__placeholder">Frequent Flyer Airline</span>
                                     </span>
-                                    <span
-                                      className="select2-selection__arrow"
-                                      role="presentation"
-                                    >
+                                    <span className="select2-selection__arrow" role="presentation">
                                       <b role="presentation"></b>
                                     </span>
                                   </span>
                                 </span>
-                                <span
-                                  className="dropdown-wrapper"
-                                  aria-hidden="true"
-                                ></span>
+                                <span className="dropdown-wrapper" aria-hidden="true"></span>
                               </span>
                             </div>
                           </div>
@@ -936,9 +734,9 @@ export const BookingForm = () => {
                         id="chkLastName"
                         aria-required="true"
                         className="textbox"
-                        aria-expanded="false"
-                        aria-describedby="chkLastNameDesc"
-                        aria-labelledby="lbl_chklastName"
+                        ariaExpanded="false"
+                        ariaDescribedby="chkLastNameDesc"
+                        ariaLabelledby="lbl_chklastName"
                       />
                     </div>
                   </div>
@@ -952,9 +750,7 @@ export const BookingForm = () => {
                     />
                   </div>
                 </div>
-                <span className="required-note">
-                  Al fields with * are mandatory
-                </span>
+                <span className="required-note">Al fields with * are mandatory</span>
                 <div className="general-error">
                   <p></p>
                 </div>
@@ -964,24 +760,13 @@ export const BookingForm = () => {
           <span id="ctl00_ctBody_Web_Content_Home_BookingEngine_ManageMyBooking_ekapi_language"></span>
           <div id="mngBooking" className="booking-tab-content">
             <div className="tab-header icon-manage-booking">
-              <a
-                href="#"
-                role="button"
-                className="icon-close btn-close"
-                aria-label="Close"
-              ></a>
+              <a href="#" role="button" className="icon-close btn-close" aria-label="Close"></a>
               <span>Manage Booking</span>
             </div>
 
             <div className="tab-wrapper">
               <div className="pill-tabs" role="tablist">
-                <a
-                  href="#manageBooking"
-                  className="active"
-                  role="tab"
-                  aria-controls="manageBooking"
-                  aria-selected="true"
-                >
+                <a href="#manageBooking" className="active" role="tab" aria-controls="manageBooking" aria-selected="true">
                   Manage Booking
                 </a>
               </div>
@@ -991,10 +776,7 @@ export const BookingForm = () => {
                   <div className="field">
                     <div className="inline-fields">
                       <div className="inline-field">
-                        <label
-                          id="lbl_mngBookingLastName"
-                          aria-label="Last Name"
-                        >
+                        <label id="lbl_mngBookingLastName" aria-label="Last Name">
                           Last Name*
                         </label>
                         <div className="input-wrapper icon-passenger">
@@ -1009,10 +791,7 @@ export const BookingForm = () => {
                         </div>
                       </div>
                       <div className="inline-field mngBkBRN">
-                        <label
-                          id="lbl_mngBookingBRN"
-                          aria-label="Booking Reference Number"
-                        >
+                        <label id="lbl_mngBookingBRN" aria-label="Booking Reference Number">
                           Booking Reference Number
                         </label>
                         <div className="input-wrapper icon-book-flight">
@@ -1034,10 +813,7 @@ export const BookingForm = () => {
                     <div className="inline-fields">
                       <div className="or inline-field">Or</div>
                       <div className="inline-field">
-                        <label
-                          id="lbl_mngBookingETNCode"
-                          aria-label="E-Ticket Number"
-                        >
+                        <label id="lbl_mngBookingETNCode" aria-label="E-Ticket Number">
                           E-Ticket Number
                         </label>
                         <div className="inline-fields">
@@ -1081,9 +857,7 @@ export const BookingForm = () => {
                     </div>
                   </div>
                 </div>
-                <span className="required-note">
-                  All fields with * are mandatory
-                </span>
+                <span className="required-note">All fields with * are mandatory</span>
                 <div className="general-error">
                   <p></p>
                 </div>
@@ -1093,24 +867,13 @@ export const BookingForm = () => {
 
           <div id="flightStatus" className="booking-tab-content">
             <div className="tab-header icon-flight-info">
-              <a
-                href="#"
-                role="button"
-                className="icon-close btn-close"
-                aria-label="Close"
-              ></a>
+              <a href="#" role="button" className="icon-close btn-close" aria-label="Close"></a>
               <span>Flight Status</span>
             </div>
 
             <div className="tab-wrapper">
               <div className="pill-tabs" role="tablist">
-                <a
-                  href="#fltStatus"
-                  className="active"
-                  role="tab"
-                  aria-controls="fltStatus"
-                  aria-selected="true"
-                >
+                <a href="#fltStatus" className="active" role="tab" aria-controls="fltStatus" aria-selected="true">
                   Flight Status
                 </a>
               </div>
@@ -1141,6 +904,7 @@ export const BookingForm = () => {
                           <span
                             className="select2-selection select2-selection--single"
                             role="combobox"
+                            aria-controls=""
                             aria-haspopup="true"
                             aria-expanded="false"
                             tabIndex={0}
@@ -1153,21 +917,14 @@ export const BookingForm = () => {
                               aria-readonly="true"
                               title="Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya"
                             >
-                              Nairobi - Nairobi Jomo Kenyatta International
-                              (NBO), Kenya
+                              Nairobi - Nairobi Jomo Kenyatta International (NBO), Kenya
                             </span>
-                            <span
-                              className="select2-selection__arrow"
-                              role="presentation"
-                            >
+                            <span className="select2-selection__arrow" role="presentation">
                               <b role="presentation"></b>
                             </span>
                           </span>
                         </span>
-                        <span
-                          className="dropdown-wrapper"
-                          aria-hidden="true"
-                        ></span>
+                        <span className="dropdown-wrapper" aria-hidden="true"></span>
                       </span>
                     </div>
                   </div>
@@ -1196,41 +953,26 @@ export const BookingForm = () => {
                           <span
                             className="select2-selection select2-selection--single"
                             role="combobox"
+                            aria-controls=""
                             aria-haspopup="true"
                             aria-expanded="false"
                             tabIndex={0}
                             aria-labelledby="select2-fltStatusArrival-container"
                           >
-                            <span
-                              className="select2-selection__rendered"
-                              id="select2-fltStatusArrival-container"
-                              role="textbox"
-                              aria-readonly="true"
-                            >
-                              <span className="select2-selection__placeholder">
-                                City or Airport
-                              </span>
+                            <span className="select2-selection__rendered" id="select2-fltStatusArrival-container" role="textbox" aria-readonly="true">
+                              <span className="select2-selection__placeholder">City or Airport</span>
                             </span>
-                            <span
-                              className="select2-selection__arrow"
-                              role="presentation"
-                            >
+                            <span className="select2-selection__arrow" role="presentation">
                               <b role="presentation"></b>
                             </span>
                           </span>
                         </span>
-                        <span
-                          className="dropdown-wrapper"
-                          aria-hidden="true"
-                        ></span>
+                        <span className="dropdown-wrapper" aria-hidden="true"></span>
                       </span>
                     </div>
                   </div>
                   <div className="field three">
-                    <label
-                      id="lbl_fltStatusFlightNumber"
-                      aria-label="Flight Number"
-                    >
+                    <label id="lbl_fltStatusFlightNumber" aria-label="Flight Number">
                       Flight Number*
                     </label>
                     <div className="input-wrapper icon-book-flight">
@@ -1257,10 +999,7 @@ export const BookingForm = () => {
                         placeholder="Departing"
                         className="textbox date-value"
                         readOnly
-                        aria-expanded="false"
-                        aria-labelledby="lbl_fltStatusDate"
-                        aria-describedby="fltStatusDateDesc"
-                        aria-required="true"
+                        required={true}
                       />
                     </div>
                     <div className="date-picker-popup">
@@ -1279,8 +1018,7 @@ export const BookingForm = () => {
                       </div>
                     </div>
                     <span className="hidden_description" id="fltStatusDateDesc">
-                      Please choose your departure date. Use arrow keys to
-                      select the dates.
+                      Please choose your departure date. Use arrow keys to select the dates.
                     </span>
                   </div>
                   <div className="field five">
@@ -1293,9 +1031,7 @@ export const BookingForm = () => {
                     />
                   </div>
                 </div>
-                <span className="required-note">
-                  All fields with * are mandatory
-                </span>
+                <span className="required-note">All fields with * are mandatory</span>
                 <div className="general-error">
                   <p></p>
                 </div>
@@ -1307,24 +1043,13 @@ export const BookingForm = () => {
 
           <div id="flightTimetable" className="booking-tab-content">
             <div className="tab-header icon-flight-info">
-              <a
-                href="#"
-                role="button"
-                className="icon-close btn-close"
-                aria-label="Close"
-              ></a>
+              <a href="#" role="button" className="icon-close btn-close" aria-label="Close"></a>
               <span>Flight Timetable</span>
             </div>
 
             <div className="tab-wrapper">
               <div className="pill-tabs" role="tablist">
-                <a
-                  href="#fltTimetable"
-                  className="active"
-                  role="tab"
-                  aria-controls="fltTimetable"
-                  aria-selected="true"
-                >
+                <a href="#fltTimetable" className="active" role="tab" aria-controls="fltTimetable" aria-selected="true">
                   Flight Timetable
                 </a>
               </div>
@@ -1356,6 +1081,7 @@ export const BookingForm = () => {
                           <span
                             className="select2-selection select2-selection--single"
                             role="combobox"
+                            aria-controls=""
                             aria-haspopup="true"
                             aria-expanded="false"
                             tabIndex={0}
@@ -1367,18 +1093,12 @@ export const BookingForm = () => {
                               role="textbox"
                               aria-readonly="true"
                             ></span>
-                            <span
-                              className="select2-selection__arrow"
-                              role="presentation"
-                            >
+                            <span className="select2-selection__arrow" role="presentation">
                               <b role="presentation"></b>
                             </span>
                           </span>
                         </span>
-                        <span
-                          className="dropdown-wrapper"
-                          aria-hidden="true"
-                        ></span>
+                        <span className="dropdown-wrapper" aria-hidden="true"></span>
                       </span>
                     </div>
                   </div>
@@ -1407,33 +1127,21 @@ export const BookingForm = () => {
                           <span
                             className="select2-selection select2-selection--single"
                             role="combobox"
+                            aria-controls=""
                             aria-haspopup="true"
                             aria-expanded="false"
                             tabIndex={0}
                             aria-labelledby="select2-fltTimeArrival-container"
                           >
-                            <span
-                              className="select2-selection__rendered"
-                              id="select2-fltTimeArrival-container"
-                              role="textbox"
-                              aria-readonly="true"
-                            >
-                              <span className="select2-selection__placeholder">
-                                City or Airport
-                              </span>
+                            <span className="select2-selection__rendered" id="select2-fltTimeArrival-container" role="textbox" aria-readonly="true">
+                              <span className="select2-selection__placeholder">City or Airport</span>
                             </span>
-                            <span
-                              className="select2-selection__arrow"
-                              role="presentation"
-                            >
+                            <span className="select2-selection__arrow" role="presentation">
                               <b role="presentation"></b>
                             </span>
                           </span>
                         </span>
-                        <span
-                          className="dropdown-wrapper"
-                          aria-hidden="true"
-                        ></span>
+                        <span className="dropdown-wrapper" aria-hidden="true"></span>
                       </span>
                     </div>
                   </div>
@@ -1467,6 +1175,7 @@ export const BookingForm = () => {
                           <span
                             className="select2-selection select2-selection--single"
                             role="combobox"
+                            aria-controls=""
                             aria-haspopup="true"
                             aria-expanded="false"
                             tabIndex={0}
@@ -1481,18 +1190,12 @@ export const BookingForm = () => {
                             >
                               Return
                             </span>
-                            <span
-                              className="select2-selection__arrow"
-                              role="presentation"
-                            >
+                            <span className="select2-selection__arrow" role="presentation">
                               <b role="presentation"></b>
                             </span>
                           </span>
                         </span>
-                        <span
-                          className="dropdown-wrapper"
-                          aria-hidden="true"
-                        ></span>
+                        <span className="dropdown-wrapper" aria-hidden="true"></span>
                       </span>
                     </div>
                   </div>
@@ -1510,17 +1213,13 @@ export const BookingForm = () => {
                           placeholder="Departing"
                           className="textbox date-value depart"
                           readOnly
-                          aria-expanded="false"
+                          ariaExpanded="false"
                           aria-labelledby="lbl_fltTimeDates"
                           aria-describedby="fltTimeDepartDesc"
                           aria-required="true"
                         />
-                        <span
-                          className="hidden_description"
-                          id="fltTimeDepartDesc"
-                        >
-                          Please choose your departure date. Use arrow keys to
-                          select the dates.
+                        <span className="hidden_description" id="fltTimeDepartDesc">
+                          Please choose your departure date. Use arrow keys to select the dates.
                         </span>
                       </div>
                       <div className="date-field-wrapper date-return">
@@ -1532,17 +1231,13 @@ export const BookingForm = () => {
                           placeholder="Returning"
                           className="textbox date-value return"
                           readOnly
-                          aria-expanded="false"
+                          ariaExpanded="false"
                           aria-labelledby="lbl_fltTimeDates"
                           aria-describedby="fltTimeReturnDesc"
                           aria-required="true"
                         />
-                        <span
-                          className="hidden_description"
-                          id="fltTimeReturnDesc"
-                        >
-                          When would you like to return? Use arrow keys to
-                          select the dates.
+                        <span className="hidden_description" id="fltTimeReturnDesc">
+                          When would you like to return? Use arrow keys to select the dates.
                         </span>
                       </div>
                     </div>
@@ -1588,7 +1283,7 @@ export const BookingForm = () => {
                         placeholder="Departing"
                         className="textbox date-value"
                         readOnly
-                        aria-expanded="false"
+                        ariaExpanded="false"
                         aria-labelledby="lbl_fltTimeDate"
                         aria-describedby="fltTimeDateDesc"
                         aria-required="true"
@@ -1609,13 +1304,8 @@ export const BookingForm = () => {
                         ></div>
                       </div>
                     </div>
-                    <span
-                      hidden
-                      className="hidden_description"
-                      id="fltTimeDateDesc"
-                    >
-                      Please choose your departure date. Use arrow keys to
-                      select the dates.
+                    <span hidden className="hidden_description" id="fltTimeDateDesc">
+                      Please choose your departure date. Use arrow keys to select the dates.
                     </span>
                   </div>
                   <div className="field five">
@@ -1628,9 +1318,7 @@ export const BookingForm = () => {
                     />
                   </div>
                 </div>
-                <span className="required-note">
-                  All fields with * are mandatory
-                </span>
+                <span className="required-note">All fields with * are mandatory</span>
                 <div className="general-error">
                   <p></p>
                 </div>

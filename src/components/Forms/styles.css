@@ -6,9 +6,7 @@
   vertical-align: baseline;
   background: transparent;
   box-sizing: border-box;
-  
 }
-
 
 article,
 aside,
@@ -32,6 +30,7 @@ textarea {
 }
 input {
   -webkit-appearance: none;
+  appearance: none;
 }
 body {
   -webkit-text-size-adjust: none;
@@ -84,9 +83,11 @@ table {
 }
 input[type="checkbox"] {
   -webkit-appearance: checkbox;
+  appearance: checkbox;
 }
 input[type="radio"] {
   -webkit-appearance: radio;
+  appearance: radio;
 }
 
 [class^="icon-"],
@@ -204,7 +205,7 @@ body .bfriday h2 .section-title {
 body {
   color: #1e1e1e;
   /* background-color: #fafafa; */
-  
+
   /* background-repeat: no-repeat;
   background-size: cover; */
   /* font-family: "Interstate Lt", sans-serif; */
@@ -277,9 +278,9 @@ img {
 }
 .content-wrapper {
   padding: 50px 0;
-  background-image: url(../../img/bg.jpg);
- background-position: center;
- background-size: cover;
+  /* background-image: url(../../img/bg.jpg); */
+  background-position: center;
+  background-size: cover;
   /* border-bottom: 1px solid #dfdfdf; */
 }
 .content-wrapper.dark {
@@ -418,6 +419,7 @@ div.msk.loading.initial {
   -ms-touch-action: pan-Y;
   touch-action: manipulation;
   -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .owl-carousel .owl-stage:after {
   content: ".";
@@ -431,20 +433,24 @@ div.msk.loading.initial {
   position: relative;
   overflow: hidden;
   -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 .owl-carousel .owl-item,
 .owl-carousel .owl-wrapper {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 .owl-carousel .owl-item {
   min-height: 1px;
   float: left;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-touch-callout: none;
 }
 .owl-carousel .owl-item img {
@@ -558,6 +564,7 @@ div.msk.loading.initial {
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: transform 0.1s ease;
 }
 .owl-carousel .owl-video-play-icon:hover {
@@ -706,6 +713,7 @@ body.compensate-for-scrollbar {
   direction: ltr;
   overflow: visible;
   -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   z-index: 99994;
 }
 .fancybox-is-open .fancybox-stage {
@@ -1650,6 +1658,7 @@ body.compensate-for-scrollbar {
   outline: 0;
   box-shadow: none;
   -webkit-appearance: textfield;
+  appearance: textfield;
 }
 .select2-container--default .select2-results > .select2-results__options {
   max-height: 200px;
@@ -1983,7 +1992,7 @@ body.compensate-for-scrollbar {
   clear: both;
 }
 .pika-single {
-  *zoom: 1;
+  zoom: 1;
 }
 .pika-single.is-hidden {
   display: none;
@@ -2003,7 +2012,7 @@ body.compensate-for-scrollbar {
 }
 .pika-label {
   display: inline-block;
-  *display: inline;
+  display: inline;
   position: relative;
   z-index: 9999;
   overflow: hidden;
@@ -2044,8 +2053,8 @@ body.compensate-for-scrollbar {
   background-repeat: no-repeat;
   background-size: 75% 75%;
   opacity: 0.5;
-  *position: absolute;
-  *top: 0;
+  position: absolute;
+  top: 0;
 }
 
 .pika-prev:hover,
@@ -2065,7 +2074,7 @@ body.compensate-for-scrollbar {
 .is-rtl .pika-prev {
   float: right;
   /* background-image: url("/uploadedimages/forward.png"); */
-  *right: 0;
+  right: 0;
 }
 
 .pika-prev.is-disabled,
@@ -2076,7 +2085,7 @@ body.compensate-for-scrollbar {
 
 .pika-select {
   display: inline-block;
-  *display: inline;
+  display: inline;
 }
 
 .pika-table {
@@ -3398,7 +3407,7 @@ header .btn-menu {
   position: relative;
   z-index: 1;
 }
-..mobile-banner:after {
+.mobile-banner:after {
   content: "";
   position: absolute;
   left: 0;
@@ -3627,7 +3636,6 @@ header .btn-menu {
   border-radius: 10px;
   position: relative;
   background-color: rgb(252, 252, 252, 0.8);
-  ;
   z-index: 50;
   margin-top: -111px;
 }
@@ -3660,7 +3668,7 @@ body.booking-widget-visible .booking-widget {
 }
 .booking-tabs a:first-child {
   border-left: 0 none;
-  border-radius: 10px 0 0 0 ;
+  border-radius: 10px 0 0 0;
 }
 .booking-tabs a span {
   font-size: 16px;
@@ -3745,7 +3753,7 @@ body.booking-widget-visible .booking-widget {
   display: block;
 }
 
-.booking-form{
+.booking-form {
   margin-bottom: 40px;
 }
 
@@ -3971,7 +3979,7 @@ body.booking-widget-visible .booking-widget {
   font-size: 14px;
 }
 
-.booking-form .input-wrapper option{
+.booking-form .input-wrapper option {
   color: #1b1b1b;
   font-weight: 200px;
 }
