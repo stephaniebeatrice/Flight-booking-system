@@ -6,12 +6,7 @@ import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import './search-form.css'
 
-const airports = [
-	'Nairobi (NRB)',
-	'Delhi (DEL)',
-	'Bengaluru (BLR)',
-	'Mumbai (BOM)'
-]
+const airports = ['kenya', 'Indonesia', 'Bengaluru (BLR)', 'Mumbai (BOM)']
 
 const isDate = (date) => {
 	return new Date(date) !== 'Invalid Date' && !isNaN(new Date(date))
@@ -22,51 +17,31 @@ const ErrorLabel = (props) => {
 }
 
 export const SearchForm = (props) => {
-	let origin, destination
 	const [isReturn, setFlightType] = useState(false)
 	const [status, setFormValid] = useState({ isValid: false })
-	let invalidFields = {}
+	const [form, setForm] = useState({
+		origin: '',
+		destination: '',
+		passengers: 0,
+		arrivalTime: '',
+		departureTime: ''
+	})
+
 	//const isReturn = true;
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault()
-		//const { flights } = props
-		invalidFields = {}
-		const criteria = {
-			origin: origin.state.text,
-			destination: destination.state.text,
-			departureDate: event.target.dateOfDep.value,
-			numOfPassengers: event.target.numOfPassengers.value
-		}
-
-		if (event.target.flightType[1].checked) {
-			criteria.returnDate = event.target.dateOfReturn.value
-			if (!isDate(event.target.dateOfReturn.value)) {
-				invalidFields.returnDate = true
+		console.log('================FORM======================')
+		console.log(form)
+		const res = await fetch(
+			'https://flight-booking-server-mu.vercel.app/flight/search',
+			{
+				method: 'POST',
+				body: JSON.stringify(form),
+				headers: { 'Content-Type': 'application/json' }
 			}
-		}
-
-		if (!airports.includes(criteria.origin)) {
-			invalidFields.origin = true
-		}
-		if (
-			!airports.includes(criteria.destination) ||
-			criteria.origin === criteria.destination
-		) {
-			invalidFields.destination = true
-		}
-		if (!isDate(criteria.departureDate)) {
-			invalidFields.departureDate = true
-		}
-		if (!isDate(criteria.departureDate)) {
-			invalidFields.departureDate = true
-		}
-		if (Object.keys(invalidFields).length > 0) {
-			setFormValid({ isValid: false, ...invalidFields })
-			return
-		}
-
-		// 	setFormValid({ isValid: true })
-		// 	props.findFlights({ flights, criteria })
+		)
+		const data = await res.json()
+		if (data.flight) props.setFlights(data.flight.flights)
 	}
 
 	return (
@@ -102,8 +77,13 @@ export const SearchForm = (props) => {
 							<Typeahead
 								labelKey="origin"
 								options={airports}
+								id="origin"
 								placeholder="Select Origin"
-								ref={(ref) => (origin = ref)}
+								onChange={(e) =>
+									setForm((prev) => {
+										return { ...prev, origin: e[0] }
+									})
+								}
 							/>
 							{status.origin && (
 								<ErrorLabel message="Please enter a valid airport"></ErrorLabel>
@@ -115,8 +95,13 @@ export const SearchForm = (props) => {
 							<Typeahead
 								labelKey="destination"
 								options={airports}
+								id="destination"
 								placeholder="Select Destination"
-								ref={(ref) => (destination = ref)}
+								onChange={(e) =>
+									setForm((prev) => {
+										return { ...prev, destination: e[0] }
+									})
+								}
 							/>
 							{status.destination && (
 								<ErrorLabel message="Please enter a valid airport but not same as origin"></ErrorLabel>
@@ -130,6 +115,11 @@ export const SearchForm = (props) => {
 								name="dateOfDep"
 								placeholder="yyyy-mm-dd"
 								required
+								onChange={(e) =>
+									setForm((prev) => {
+										return { ...prev, departureTime: e.target.value }
+									})
+								}
 							/>
 							{status.departureDate && (
 								<ErrorLabel message="Please enter a valid departure date"></ErrorLabel>
@@ -165,6 +155,28 @@ export const SearchForm = (props) => {
 								placeholder="Number of Passengers"
 							>
 								<option>1 adult, Economy</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</Form.Control>
+						</Form.Group>
+						<Form.Group
+							controlId="exampleForm.ControlSelect1"
+							className="form-group"
+						>
+							<label htmlFor="departure">Passengers</label>
+							<Form.Control
+								as="select"
+								name="numOfPassengers"
+								placeholder="Number of Passengers"
+								onChange={(e) =>
+									setForm((prev) => {
+										return { ...prev, passengers: e.target.value }
+									})
+								}
+							>
+								<option>1</option>
 								<option>2</option>
 								<option>3</option>
 								<option>4</option>
