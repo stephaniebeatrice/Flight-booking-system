@@ -77,12 +77,10 @@ export const BookingForm = () => {
                           name="title"
                           type="text"
                           id="rndTripFrom"
-                          className="rndTripTo select2-hidden-accessible"
+                          className="form-control"
                           style={{ width: "100%" }}
-                          tabIndex={-1}
-                          aria-hidden="false"
                         />
-                        <select>
+                        <select >
                           <option>Mr</option>
                           <option>Mrs</option>
                           <option>Miss</option>
@@ -101,7 +99,7 @@ export const BookingForm = () => {
                           name="firstName"
                           type="text"
                           id="rndTripTo"
-                          className="textbox txtpromo"
+                          className="form-control"
                           placeholder="John"
                           style={{ width: "100%" }}
                           data-select2-id="rndTripTo"
@@ -118,12 +116,10 @@ export const BookingForm = () => {
                           name="lastName"
                           type="text"
                           id="rndTripTo"
-                          className="textbox txtpromo"
+                          className= 'form-control'
                           placeholder="Doe"
                           style={{ width: "100%" }}
                           data-select2-id="rndTripTo"
-                          tabIndex={-1}
-                          aria-hidden="true"
                         />
                       </div>
                     </div>
@@ -131,51 +127,17 @@ export const BookingForm = () => {
                       <label id="lbl_rndTripDates" aria-label="Date">
                         Date of Birth*
                       </label>
-                      <div className="input-wrapper ">
-                        <div className="date-field-wrapper date-depart">
-                          <input
-                            name="DateOfBirth"
-                            type="date"
-                            id="rndTripDepart"
-                            autoComplete="off"
-                            placeholder="DD-MM-YYYY"
-                            style={{ textTransform: "uppercase" }}
-                            className="textbox date-value depart"
-                            readOnly
-                            aria-expanded="false"
-                            aria-labelledby="lbl_rndTripDates"
-                            aria-describedby="rndTripDepartDesc"
-                            aria-required="true"
-                          />
-                        </div>
-                      </div>
-                      <div className="date-picker-popup">
-                        <div className="date-picker-container-depart">
-                          <h2 className="icon-from picker-header">
-                            <span>Please choose your date of birth</span>
-                          </h2>
-                          <div
-                            className="pika-single is-hidden is-bound"
-                            style={{
-                              position: "static",
-                              left: "auto",
-                              top: "auto",
-                            }}
-                          ></div>
-                        </div>
+                      <div className="input-wrapper ">                        
+                      <input
+                        name="dateOfBirth" 
+                        placeholder="mm-dd-yyyy" 
+                        required="" type="date" 
+                        id="DOB" 
+                        className="form-control"
+                        style={{textTransform: "uppercase"}}
+                      />
                       </div>
                     </div> 
-                    {/* <label
-                      id="date-picker-left-continer"
-                      class="date1 date-as-calendar inline-flex std-rad validator0"
-                      style="border-color: rgb(221, 221, 221);"
-                      placeholder="DD-MM-YYYY"
-                    >
-                      <span class="departure-date d-block">Departure date</span>
-                      <span class="ps-3 date-text-container">
-                        <i class="far fa-calendar-alt pop-date-stay float-end date-picker-icon"></i>
-                      </span>
-                    </label> */}
                   </div>
 
                   <div className="fieldset half">
@@ -189,7 +151,7 @@ export const BookingForm = () => {
                           type="tel"
                           id="rndTripPromoCode"
                           autoComplete="off"
-                          className="textbox txtpromo"
+                          className="form-control"
                           aria-labelledby="lbl_rndTripPromoCode"
                         />
                       </div>
@@ -205,7 +167,7 @@ export const BookingForm = () => {
                           id="rndTripPromoCode"
                           placeholder="eg. johndoe@gmail.com"
                           autoComplete="off"
-                          className="textbox txtpromo"
+                          className="form-control"
                           aria-labelledby="lbl_rndTripPromoCode"
                         />
                       </div>
@@ -214,7 +176,7 @@ export const BookingForm = () => {
 
                   <input
                     type="submit"
-                    name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$round_trip_btn"
+                    name="btn-primary"
                     value="Next"
                     id="round_trip_btn"
                     className="btn-primary btn-submit-form btn-rnd-trip"
