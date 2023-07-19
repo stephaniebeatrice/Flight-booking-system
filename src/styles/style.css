@@ -250,6 +250,7 @@ input:focus {
 p {
   margin-bottom: 20px;
   line-height: 1.5;
+  color: #1e1e1e;
 }
 img {
   width: 100%;
@@ -278,7 +279,7 @@ img {
 }
 .content-wrapper {
   padding: 50px 0;
-  /* background-image: url(../../img/bg.jpg); */
+  background-image: url(../img/bg.jpg);
   background-position: center;
   background-size: cover;
   /* border-bottom: 1px solid #dfdfdf; */
@@ -3639,6 +3640,7 @@ header .btn-menu {
   background-color: rgb(252, 252, 252, 0.8);
   z-index: 50;
   margin-top: -111px;
+  overflow: auto;
 }
 body.booking-widget-visible:after {
   visibility: visible;
@@ -3665,8 +3667,8 @@ body.booking-widget-visible .booking-widget {
   color: #1e1e1e;
   position: relative;
   outline-offset: 0;
-  -webkit-transition: none;
-  transition: none;
+  /* -webkit-transition: none;
+  transition: none; */
 }
 .booking-tabs a:first-child {
   border-left: 0 none;
@@ -3985,7 +3987,7 @@ body.booking-widget-visible .booking-widget {
   color: #1b1b1b;
   font-weight: 200px;
   position: absolute;
-  top: -2%;
+  top: -20%;
   
 }
 
@@ -4004,6 +4006,8 @@ body.booking-widget-visible .booking-widget {
 
 .booking-form .input-wrapper select {
   width: 100% !important;
+  position: absolute;
+  top: -2px;
 }
 .booking-form .input-wrapper.no-icon .textbox {
   padding: 0 12px;
@@ -5408,7 +5412,7 @@ header .btn-change-booking.active {
     display: inline-block;
     padding-top: 0;
   }
-  .booking-form #bkFlight .select2-dropdown {
+  .booking-form #psnlInfo .select2-dropdown {
     width: 446px !important;
   }
   .booking-form #multi_flight .select2-dropdown {
@@ -5612,7 +5616,7 @@ header .btn-change-booking.active {
     font-size: 20px;
   }
 
-  .booking-form #bkFlight .select2-dropdown {
+  .booking-form #psnlInfo .select2-dropdown {
     width: 414px !important;
   }
   .booking-form #fltInfo .select2-dropdown {
@@ -5925,11 +5929,11 @@ header .btn-change-booking.active {
   .banner h1 {
     font-size: 30px;
   }
-  .booking-form #bkFlight .select2-dropdown {
+  .booking-form #psnlInfo .select2-dropdown {
     width: 354px !important;
     left: -1px;
   }
-  .booking-form #bkFlight .cabin-field .select2-dropdown {
+  .booking-form #psnlInfo .cabin-field .select2-dropdown {
     width: 330px !important;
   }
   .booking-form #multi_flight .select2-dropdown {
@@ -5938,7 +5942,7 @@ header .btn-change-booking.active {
   .booking-form #mltCity .multi-cabin .select2-dropdown {
     width: 330px !important;
   }
-  .booking-form #chkIn .select2-dropdown {
+  .booking-form #seatSelect .select2-dropdown {
     width: 283.3px !important;
     left: -1px;
   }
@@ -6165,11 +6169,11 @@ header .btn-change-booking.active {
   .section-title {
     font-size: 24px;
   }
-  .booking-form #bkFlight .select2-dropdown {
+  .booking-form #psnlInfo .select2-dropdown {
     width: 270px !important;
     left: -1px;
   }
-  .booking-form #bkFlight .cabin-field .select2-dropdown {
+  .booking-form #psnlInfo .cabin-field .select2-dropdown {
     width: 264px !important;
   }
   .booking-form #multi_flight .select2-dropdown {
@@ -6178,7 +6182,7 @@ header .btn-change-booking.active {
   .booking-form #mltCity .multi-cabin .select2-dropdown {
     width: 264px !important;
   }
-  .booking-form #chkIn .select2-dropdown {
+  .booking-form #seatSelect .select2-dropdown {
     width: 283.3px !important;
     left: -1px;
   }
@@ -6458,11 +6462,11 @@ header .btn-change-booking.active {
     top: 0;
     margin-top: 14px;
   }
-  .booking-form #bkFlight .select2-dropdown {
+  .booking-form #psnlInfo .select2-dropdown {
     width: 280px !important;
     left: -1px;
   }
-  .booking-form #bkFlight .cabin-field .select2-dropdown {
+  .booking-form #psnlInfo .cabin-field .select2-dropdown {
     width: 254px !important;
   }
   .booking-form #multi_flight .select2-dropdown {
@@ -6471,7 +6475,7 @@ header .btn-change-booking.active {
   .booking-form #mltCity .multi-cabin .select2-dropdown {
     width: 254px !important;
   }
-  .booking-form #chkIn .select2-dropdown {
+  .booking-form #seatSelect .select2-dropdown {
     width: 283.3px !important;
     left: -1px;
   }
@@ -7891,216 +7895,3 @@ header .btn-change-booking.active {
   text-decoration: underline;
 }
 
-#services {
-  background-color: #d8d8d8;
-  background-size: cover;
-}
-
-.sec-title p {
-  color: black;
-  font-size: 30px;
-  margin: 0px 25px 0px 30px;
-  padding-top: 70px;
-}
-
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
-.sec-title-shape img {
-  max-width: 100%;
-}
-
-.services-list-row .bydefault_show .service-box-wp {
-  display: inline-block !important;
-}
-
-.service-box-wp {
-  display: none;
-}
-
-.service-box {
-  border-radius: 30px;
-  /* border: 1px solid orange; */
-  background-color: white;
-  display: flow-root;
-  color: white;
-  padding: 0 40px 30px;
-  padding-top: 0;
-  margin: 30px;
-  transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
-}
-
-.service-box:hover {
-  border: 1.5px solid #1d94f7;
-  /* transform: scale(1.03); */
-}
-
-.service-box .h3-title {
-  margin: 20px 0;
-  font-weight: bold;
-  font-size: 40px;
-  color: #1d94f7;
-  transition: 0.3s;
-  overflow: hidden;
-  font-weight: 500;
-}
-
-.dist-img {
-  margin-bottom: 30px;
-}
-
-.dist-img img {
-  /* box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff; */
-  /* border-radius: 50%; */
-  overflow: hidden;
-  height: 400px;
-  width: 420px;
-}
-@media (max-width: 767px) {
-  .service-box {
-    padding: 0 30px 10px 30px;
-    padding-top: 0;
-  }
-  .service-title {
-    padding: 0;
-  }
-
-  .h3-title {
-    font-size: 25px;
-    font-weight: 300;
-    min-height: 0;
-  }
-
-  .service-title p {
-    font-size: 15px;
-  }
-  .service-info ul li p {
-    margin: 0;
-    font-size: 13px;
-  }
-
-  .service-info,
-  .dist-bottom-row {
-    padding: 0 30px;
-  }
-
-  .service-info {
-    margin: 15px 0 15px;
-  }
-
-  .dish-add-btn {
-    width: 80px;
-    height: 30px;
-    font-size: 15px;
-  }
-  .dist-img {
-    margin-bottom: 10px;
-  }
-
-  .dist-img img {
-    height: 200px;
-    width: 220px;
-  }
-  @media (max-width: 1199px) {
-  }
-  .dist-img img {
-    width: 220px;
-  }
-}
-
-.service-rating {
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
-.service-title {
-  padding: 0;
-}
-
-.service-title p {
-  color: black;
-  font-size: 18px;
-}
-
-.service-info ul,
-.dist-bottom-row ul {
-  display: flex;
-  /* justify-content: space-between; */
-  text-align: left;
-}
-
-.service-info ul li {
-  display: inline-block;
-  /* flex: 1; */
-}
-
-.service-info ul li:last-child {
-  text-align: right;
-  border-left: 2px solid rgb(204 204 204 / 30%);
-}
-
-.dist-bottom-row ul li:last-child {
-  text-align: right;
-}
-.service-info ul li p {
-  font-size: 18px;
-  text-transform: capitalize;
-  margin: 2px 20px;
-}
-
-.service-info ul li b {
-  /* font-weight: 600; */
-  font-size: 20px;
-}
-
-.service-info,
-.dist-bottom-row {
-  padding: 0 30px;
-}
-
-.service-info {
-  border: 2px solid rgb(204 204 204 / 30%);
-  border-radius: 10px;
-  margin: 30px 0 30px;
-  padding: 20px;
-  color: black;
-}
-
-.dist-bottom-row ul li {
-  display: flex;
-  align-items: center;
-}
-
-.dist-bottom-row ul li b {
-  font-size: 30px;
-  color: white;
-}
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.service-add-btn {
-  width: 100px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  text-align: center;
-  font-size: 18px;
-  transition: 0.3s;
-  background: linear-gradient(145deg, #5fb6fd, #1d94f7);
-  /* box-shadow: inset 4px 4px 8px #1d94f7, inset -4px -4px 8px #5fb6fd; */
-}
-
-.service-add-btn a {
-  color: white;
-  text-decoration: none;
-}
-
-.service-add-btn:hover {
-  background: linear-gradient(145deg, #00325a, #00325a);
-  color: white;
-  transform: scale(1.06);
-}
