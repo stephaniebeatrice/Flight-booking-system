@@ -15,3 +15,4 @@ createRoot(rootElement).render(
 		</Provider>
 	</React.StrictMode>
 )
+import React from 'react'
