@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "../../styles/style.css";
 import "./bootstrap.min.css";
 import food from "../../img/food.jpg";
 import luggage from "../../img/luggage.jpg";
@@ -18,22 +18,10 @@ export const BookingForm = () => {
             <a href="#chkIn" className="icon-check-in" role="tab" aria-controls="chkIn" aria-selected="false">
               <span>Seat selection</span>
             </a>
-            <a
-              href="#services"
-              className="icon-manage-booking"
-              role="tab"
-              aria-controls="mngBooking"
-              aria-selected="false"
-            >
+            <a href="#services" className="icon-manage-booking" role="tab" aria-controls="mngBooking" aria-selected="false">
               <span>Services</span>
             </a>
-            <a
-              href="#flightTimetable"
-              className="icon-flight-info"
-              role="tab"
-              aria-controls="flightStatus"
-              aria-selected="false"
-            >
+            <a href="#flightTimetable" className="icon-flight-info" role="tab" aria-controls="flightStatus" aria-selected="false">
               <span>Payment</span>
             </a>
           </div>
@@ -107,7 +95,7 @@ export const BookingForm = () => {
                         />
                       </div>
                     </div>
-                     <div className="field date-field">
+                    <div className="field date-field">
                       <label id="lbl_rndTripDates" aria-label="Date">
                         Date of Birth*
                       </label>
@@ -141,7 +129,7 @@ export const BookingForm = () => {
                           ></div>
                         </div>
                       </div>
-                    </div> 
+                    </div>
                     {/* <label
                       id="date-picker-left-continer"
                       class="date1 date-as-calendar inline-flex std-rad validator0"
@@ -196,9 +184,7 @@ export const BookingForm = () => {
                     id="round_trip_btn"
                     className="btn-primary btn-submit-form btn-rnd-trip"
                   />
-                  <span className="required-note">
-                    All fields with * are mandatory
-                  </span>
+                  <span className="required-note">All fields with * are mandatory</span>
                   <div className="general-error" id="oneWayErr">
                     <p></p>
                   </div>
@@ -567,125 +553,132 @@ export const BookingForm = () => {
           </div>
 
           <div id="services" className="booking-tab-content ">
-        <div className="sec-wp">
-            <div className="container">
+            <div className="sec-wp">
+              <div className="container">
                 <div className="row">
-                    <div className="col-lg-12">
-                        <div className="sec-title ">
-                            <p className="sec-sub-title ">Enjoy these extra services brought to you by our airline</p>
-                        </div>
+                  <div className="col-lg-12">
+                    <div className="sec-title ">
+                      <p className="sec-sub-title ">Enjoy these extra services brought to you by our airline</p>
                     </div>
+                  </div>
                 </div>
-            </div>
+              </div>
 
-            <div className="services-list-row">
+              <div className="services-list-row">
                 <div className="container">
-                    <div className="row g-xxl-5 bydefault_show" id="services-service">
-                        <div className="col-lg-6 col-sm-6 service-box-wp breakfast" data-cat="breakfast">
-                            <div className="service-box text-center">
-                                <h3 className="h3-title"> Meal</h3>
-                                <div className="dist-img">
-                                return <img src={food} alt="food" />
-                                </div>
-                                <div className="service-title">
-                                    <p>Get served with a delicous meal during the flight</p>
-                                </div>
-                                <div className="service-info">
-                                    <ul>
-                                        <li>
-                                            <p>At $ 2.50 Only </p>
-                                        </li>
-                                        <li>
-                                            <p>Per person, per flight</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="btn">
-                                     <button className="service-add-btn"><a href="order.html"> Select </a></button>
-                                </div>
-                            </div>
+                  <div className="row g-xxl-5 bydefault_show" id="services-service">
+                    <div className="col-lg-6 col-sm-6 service-box-wp breakfast" data-cat="breakfast">
+                      <div className="service-box text-center">
+                        <h3 className="h3-title"> Meal</h3>
+                        <div className="dist-img">
+                          return <img src={food} alt="food" />
                         </div>
-
-                        <div className="col-lg-6 col-sm-6 service-box-wp breakfast" data-cat="breakfast">
-                            <div className="service-box text-center">
-                                <h3 className="h3-title"> Luggage</h3>
-                                <div className="dist-img">
-                                return <img src={luggage} alt=" " />
-                                </div>
-                                <div className="service-title">
-                                    <p>Carry extra baggage with no worries</p>
-                                </div>
-                                <div className="service-info">
-                                    <ul>
-                                        <li>
-                                            <p>At $ 14.50 Only </p>
-                                        </li>
-                                        <li>
-                                            <p>Per extra bag,per flight</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="btn">
-                                     <button className="service-add-btn"><a href="order.html"> Select </a></button>
-                                </div>
-                            </div>
+                        <div className="service-title">
+                          <p>Get served with a delicous meal during the flight</p>
                         </div>
-
-                        <div className="col-lg-6 col-sm-6 service-box-wp breakfast" data-cat="breakfast">
-                            <div className="service-box text-center">
-                                <h3 className="h3-title"> Wifi</h3>
-                                <div className="dist-img">
-                                return <img src={wifi} alt="react logo" />
-                                </div>
-                                <div className="service-title">
-                                    <p>Stay connected with friends and family while onboard</p>
-                                </div>
-                                <div className="service-info">
-                                    <ul>
-                                        <li>
-                                            <p> Free </p>
-                                        </li>
-                                        <li>
-                                            <p>All flights</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="btn">
-                                     <button className="service-add-btn"><a href="order.html"> Select </a></button>
-                                </div>
-                            </div>
+                        <div className="service-info">
+                          <ul>
+                            <li>
+                              <p>At $ 2.50 Only </p>
+                            </li>
+                            <li>
+                              <p>Per person, per flight</p>
+                            </li>
+                          </ul>
                         </div>
-
-                        <div className="col-lg-6 col-sm-6 service-box-wp lunch" data-cat="lunch">
-                            <div className="service-box text-center">
-                                <h3 className="h3-title">Priority Passenger</h3>
-                                <div className="dist-img">
-                                return <img src={priority} alt=" " />
-                                </div>
-                                <div className="service-title">
-                                    <p>Avoid queing at check-points and onboarding</p>
-                                </div>
-                                <div className="service-info">
-                                    <ul>
-                                        <li>
-                                            <p>At $ 40.50 Only </p>
-                                        </li>
-                                        <li>
-                                            <p>Per person, per flight</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="btn">
-                                     <button className="service-add-btn"><a href="order.html"> Select </a></button>
-                                </div>
-                            </div>
+                        <div className="btn">
+                          <button className="service-add-btn">
+                            <a href="order.html"> Select </a>
+                          </button>
                         </div>
-
+                      </div>
                     </div>
+
+                    <div className="col-lg-6 col-sm-6 service-box-wp breakfast" data-cat="breakfast">
+                      <div className="service-box text-center">
+                        <h3 className="h3-title"> Luggage</h3>
+                        <div className="dist-img">
+                          return <img src={luggage} alt=" " />
+                        </div>
+                        <div className="service-title">
+                          <p>Carry extra baggage with no worries</p>
+                        </div>
+                        <div className="service-info">
+                          <ul>
+                            <li>
+                              <p>At $ 14.50 Only </p>
+                            </li>
+                            <li>
+                              <p>Per extra bag,per flight</p>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="btn">
+                          <button className="service-add-btn">
+                            <a href="order.html"> Select </a>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-lg-6 col-sm-6 service-box-wp breakfast" data-cat="breakfast">
+                      <div className="service-box text-center">
+                        <h3 className="h3-title"> Wifi</h3>
+                        <div className="dist-img">
+                          return <img src={wifi} alt="react logo" />
+                        </div>
+                        <div className="service-title">
+                          <p>Stay connected with friends and family while onboard</p>
+                        </div>
+                        <div className="service-info">
+                          <ul>
+                            <li>
+                              <p> Free </p>
+                            </li>
+                            <li>
+                              <p>All flights</p>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="btn">
+                          <button className="service-add-btn">
+                            <a href="order.html"> Select </a>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-lg-6 col-sm-6 service-box-wp lunch" data-cat="lunch">
+                      <div className="service-box text-center">
+                        <h3 className="h3-title">Priority Passenger</h3>
+                        <div className="dist-img">
+                          return <img src={priority} alt=" " />
+                        </div>
+                        <div className="service-title">
+                          <p>Avoid queing at check-points and onboarding</p>
+                        </div>
+                        <div className="service-info">
+                          <ul>
+                            <li>
+                              <p>At $ 40.50 Only </p>
+                            </li>
+                            <li>
+                              <p>Per person, per flight</p>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="btn">
+                          <button className="service-add-btn">
+                            <a href="order.html"> Select </a>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
+          </div>
 
           <span id="ctl00_ctBody_Web_Content_Home_BookingEngine_FlightTimeTable_ekapi_language"></span>
 
