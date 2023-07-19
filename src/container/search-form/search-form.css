@@ -38,7 +38,7 @@
   margin-left: 0;
 }
 .form-group {
-  margin: 1rem 2rem;
+  margin: 1rem;
 }
 .form-group label {
   /* display: block; */
@@ -51,7 +51,11 @@
   justify-content: flex-end;
   /* right: 0; */
 }
-
+.active-btn {
+  background-color: transparent;
+  color: "#000";
+  border: "1px solid black";
+}
 button[type="submit"] {
 }
 

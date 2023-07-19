@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import FlightInfo from "../../components/flight-info/flight-info";
+import { Header } from "../../components/header/header";
 import SearchForm from "../../container/search-form/search-form";
 import image from "../../img/homepage.jpg";
 import "./style.css";
-import { Header } from "../../components/header/header";
+import FlightInfo from "../../components/flight-info/flight-info";
 
 export const Home = () => {
   const [flights, setFlights] = useState([]);
@@ -21,7 +20,9 @@ export const Home = () => {
           <SearchForm setFlights={setFlights} />
         </aside>
       </section>
-      {/* <section className="Results-section"><FlightInfo /></section> */}
+      <section className="Results-section">
+        <FlightInfo />
+      </section>
     </div>
   );
 };

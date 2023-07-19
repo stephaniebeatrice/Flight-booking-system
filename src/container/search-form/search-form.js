@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import "./search-form.css";
 
@@ -19,6 +18,7 @@ const ErrorLabel = props => {
 export const SearchForm = props => {
   const [isReturn, setFlightType] = useState(false);
   const [status, setFormValid] = useState({ isValid: false });
+  const [activeBtn, setActiveBtn] = useState("one way");
   const [form, setForm] = useState({
     origin: "",
     destination: "",
@@ -47,41 +47,31 @@ export const SearchForm = props => {
         <form className="search-form" onSubmit={handleSubmit}>
           <div className="flight-type-ctn">
             <div className="flight-type-group">
-              <Button> one way</Button>
-              {/* <Form.Check
-                inline
-                checked={!isReturn}
-                type="radio"
-                label="One way"
-                name="flightType"
-                id="formHorizontalRadios1"
-                onChange={e => setFlightType(false)}
-              /> */}
+              <Button
+                onClick={() => {
+                  setActiveBtn("one way");
+                  setFlightType("one way");
+                }}
+                style={activeBtn === "one way" ? { borderRadius: "1rem" } : { borderRadius: "1rem", backgroundColor: "transparent", color: "#000" }}
+                className={activeBtn !== "one way" ? ".active-btn " : ""}
+              >
+                one way
+              </Button>
             </div>
             <div className="flight-type-group">
-              <Button> round Trip</Button>
-              {/* <Form.Check
-                inline
-                checked={!isReturn}
-                type="radio"
-                label="One way"
-                name="flightType"
-                id="formHorizontalRadios1"
-                onChange={e => setFlightType(false)}
-              /> */}
+              <Button
+                onClick={() => {
+                  setActiveBtn("round trip");
+                  setFlightType("round trip");
+                }}
+                style={
+                  activeBtn === "round trip" ? { borderRadius: "1rem" } : { borderRadius: "1rem", backgroundColor: "transparent", color: "#000" }
+                }
+              >
+                round Trip
+              </Button>
             </div>
           </div>
-          {/* <Form.Group className="flight-type-group">
-              <Form.Check
-                inline
-                checked={isReturn}
-                type="radio"
-                label="Round Trip"
-                name="flightType"
-                id="formHorizontalRadios2"
-                onChange={e => setFlightType(true)}
-              />
-            </Form.Group> */}
           <div className="input-form">
             <div controlId="formGridOrigin" className="form-group">
               <label htmlFor="from">From:</label>
