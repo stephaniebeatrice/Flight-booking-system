@@ -45,12 +45,10 @@ export const BookingForm = () => {
                           name="title"
                           type="text"
                           id="rndTripFrom"
-                          className="rndTripTo select2-hidden-accessible"
+                          className="form-control"
                           style={{ width: "100%" }}
-                          tabIndex={-1}
-                          aria-hidden="false"
                         />
-                        <select>
+                        <select >
                           <option>Mr</option>
                           <option>Mrs</option>
                           <option>Miss</option>
@@ -69,7 +67,7 @@ export const BookingForm = () => {
                           name="firstName"
                           type="text"
                           id="rndTripTo"
-                          className="textbox txtpromo"
+                          className="form-control"
                           placeholder="John"
                           style={{ width: "100%" }}
                           data-select2-id="rndTripTo"
@@ -86,12 +84,10 @@ export const BookingForm = () => {
                           name="lastName"
                           type="text"
                           id="rndTripTo"
-                          className="textbox txtpromo"
+                          className= 'form-control'
                           placeholder="Doe"
                           style={{ width: "100%" }}
                           data-select2-id="rndTripTo"
-                          tabIndex={-1}
-                          aria-hidden="true"
                         />
                       </div>
                     </div>
@@ -154,7 +150,7 @@ export const BookingForm = () => {
                           type="tel"
                           id="rndTripPromoCode"
                           autoComplete="off"
-                          className="textbox txtpromo"
+                          className="form-control"
                           aria-labelledby="lbl_rndTripPromoCode"
                         />
                       </div>
@@ -170,7 +166,7 @@ export const BookingForm = () => {
                           id="rndTripPromoCode"
                           placeholder="eg. johndoe@gmail.com"
                           autoComplete="off"
-                          className="textbox txtpromo"
+                          className="form-control"
                           aria-labelledby="lbl_rndTripPromoCode"
                         />
                       </div>
@@ -179,7 +175,7 @@ export const BookingForm = () => {
 
                   <input
                     type="submit"
-                    name="ctl00$ctBody$Web_Content_Home$BookingEngine$ReturnOneWay$round_trip_btn"
+                    name="btn-primary"
                     value="Next"
                     id="round_trip_btn"
                     className="btn-primary btn-submit-form btn-rnd-trip"
