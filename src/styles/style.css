@@ -3981,11 +3981,7 @@ body.booking-widget-visible .booking-widget {
   font-size: 14px;
 }
 
-<<<<<<< HEAD:src/components/Forms/styles.css
-.booking-form .input-wrapper select{
-=======
 .booking-form .input-wrapper option {
->>>>>>> 74f3cfbd74cea092ed562f498a55757da30657cc:src/styles/style.css
   color: #1b1b1b;
   font-weight: 200px;
   position: absolute;
