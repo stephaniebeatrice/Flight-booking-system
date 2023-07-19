@@ -1,32 +1,51 @@
-.Flight-info {
+/* styles.css */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+.search-container {
   display: flex;
-  display: -webkit-box; 
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
   padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+  font-size: 16px;
 }
 
-.gray-background {
-  background-color: lightgray;
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 640px) {
-  .Flight-info .detail-label:nth-child(2) {
-    flex: 5 1 80%;
-    text-align: end;
-    margin-bottom: 15px;
-  }
-  .Flight-info .detail-label:nth-child(3), .Flight-info .detail-label:nth-child(4) {
-    flex: 2 1 32%;
-  }
-  .Flight-info .detail-label:nth-child(5) {
-    flex: 2 1 25%;
-  }
-  .Flight-info p {
-    flex: 1 1 70%;
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #007bff;
+  color: #fff;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
 }

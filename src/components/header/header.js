@@ -20,7 +20,7 @@ export const Header = () => {
                 </li>
                 <li className="current-menu-item">
                   <Link style={{ textDecoration: "none" }} to={"/Profile"}>
-                    profile
+                    Profile
                   </Link>
                 </li>
                 <li className="has-children">
@@ -30,7 +30,7 @@ export const Header = () => {
                 </li>
                 <li className="has-children">
                   <Link style={{ textDecoration: "none" }} to={"/Admin"}>
-                    admin
+                    Admin
                   </Link>
                 </li>
               </ul>
