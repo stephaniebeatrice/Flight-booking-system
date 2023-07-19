@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import "./search-form.css";
 
-const airports = ["kenya", "Indonesia", "Bengaluru (BLR)", "Mumbai (BOM)"];
+const airports = ["Kenya", "Indonesia", "Uganda", "Tanzania"];
 
 const isDate = date => {
   return new Date(date) !== "Invalid Date" && !isNaN(new Date(date));
@@ -19,7 +18,14 @@ const ErrorLabel = props => {
 export const SearchForm = props => {
   const [isReturn, setFlightType] = useState(false);
   const [status, setFormValid] = useState({ isValid: false });
-  const [form, setForm] = useState({ origin: "", destination: "", passengers: 0, arrivalTime: "", departureTime: "" });
+  const [activeBtn, setActiveBtn] = useState("one way");
+  const [form, setForm] = useState({
+    origin: "",
+    destination: "",
+    passengers: 0,
+    arrivalTime: "",
+    departureTime: "",
+  });
 
   //const isReturn = true;
   const handleSubmit = async event => {
@@ -37,31 +43,37 @@ export const SearchForm = props => {
 
   return (
     <div className="flight-search-container">
-      <Card className="flight-search-card">
-        <Card.Body>
-          <Form className="search-form" onSubmit={handleSubmit}>
-            <Form.Group className="flight-type-group">
-              <Form.Check
-                inline
-                checked={!isReturn}
-                type="radio"
-                label="One way"
-                name="flightType"
-                id="formHorizontalRadios1"
-                onChange={e => setFlightType(false)}
-              />
-              <Form.Check
-                inline
-                checked={isReturn}
-                type="radio"
-                label="Round Trip"
-                name="flightType"
-                id="formHorizontalRadios2"
-                onChange={e => setFlightType(true)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formGridOrigin" className="form-group">
+      <div className="flight-search-card">
+        <form className="search-form" onSubmit={handleSubmit}>
+          <div className="flight-type-ctn">
+            <div className="flight-type-group">
+              <Button
+                onClick={() => {
+                  setActiveBtn("one way");
+                  setFlightType("one way");
+                }}
+                style={activeBtn === "one way" ? { borderRadius: "1rem" } : { borderRadius: "1rem", backgroundColor: "transparent", color: "#000" }}
+                className={activeBtn !== "one way" ? ".active-btn " : ""}
+              >
+                one way
+              </Button>
+            </div>
+            <div className="flight-type-group">
+              <Button
+                onClick={() => {
+                  setActiveBtn("round trip");
+                  setFlightType("round trip");
+                }}
+                style={
+                  activeBtn === "round trip" ? { borderRadius: "1rem" } : { borderRadius: "1rem", backgroundColor: "transparent", color: "#000" }
+                }
+              >
+                round Trip
+              </Button>
+            </div>
+          </div>
+          <div className="input-form">
+            <div controlId="formGridOrigin" className="form-group">
               <label htmlFor="from">From:</label>
               <Typeahead
                 labelKey="origin"
@@ -75,9 +87,9 @@ export const SearchForm = props => {
                 }
               />
               {status.origin && <ErrorLabel message="Please enter a valid airport"></ErrorLabel>}
-            </Form.Group>
+            </div>
 
-            <Form.Group controlId="formGridDestination" className="form-group">
+            <div controlId="formGridDestination" className="form-group">
               <label htmlFor="to">To:</label>
               <Typeahead
                 labelKey="destination"
@@ -91,10 +103,10 @@ export const SearchForm = props => {
                 }
               />
               {status.destination && <ErrorLabel message="Please enter a valid airport but not same as origin"></ErrorLabel>}
-            </Form.Group>
+            </div>
 
-            <Form.Group controlId="formGridDateOfDep" className="form-group">
-              <Form.Label>Departure Date</Form.Label>
+            <div controlId="formGridDateOfDep" className="form-group">
+              <label>Departure Date</label>
               <Form.Control
                 type="date"
                 name="dateOfDep"
@@ -107,17 +119,27 @@ export const SearchForm = props => {
                 }
               />
               {status.departureDate && <ErrorLabel message="Please enter a valid departure date"></ErrorLabel>}
-            </Form.Group>
+            </div>
 
             {isReturn && (
-              <Form.Group controlId="formGridDateOfReturn" className="form-group">
-                <Form.Label>Return Date</Form.Label>
+              <div controlId="formGridDateOfReturn" className="form-group">
+                <label>Return Date</label>
                 <Form.Control type="date" name="dateOfReturn" placeholder="yyyy-mm-dd" required />
                 {status.returnDate && <ErrorLabel message="Please enter a valid return date"></ErrorLabel>}
-              </Form.Group>
+              </div>
             )}
 
-            <Form.Group controlId="exampleForm.ControlSelect1" className="form-group">
+            <div controlId="exampleForm.ControlSelect1" className="form-group">
+              <label htmlFor="departure">Passengers</label>
+              <Form.Control as="select" name="numOfPassengers" placeholder="Number of Passengers">
+                <option>1 adult, Economy</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </Form.Control>
+            </div>
+            <div controlId="exampleForm.ControlSelect1" className="form-group">
               <label htmlFor="departure">Passengers</label>
               <Form.Control
                 as="select"
@@ -135,14 +157,15 @@ export const SearchForm = props => {
                 <option>4</option>
                 <option>5</option>
               </Form.Control>
-            </Form.Group>
-
+            </div>
+          </div>
+          <div className="button-container">
             <Button variant="primary" type="submit">
               Search
             </Button>
-          </Form>
-        </Card.Body>
-      </Card>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
