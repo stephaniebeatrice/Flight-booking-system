@@ -13,35 +13,45 @@ export const Header = () => {
       <section id="bottom-section">
         <div>{/* TODO: ADD AN IMAGE HERE */}</div>
         {/* #1d94f7 */}
-
-        <div className="col right">
-          <span id="ctl00_ctBody_Web_Content_Home_Web_Header_Web_Menu_Web_menu">
-            <nav id="main_nav">
-              <ul>
-                <li className="current-menu-item">
-                  <Link style={{ textDecoration: "none" }} to={"/"}>
-                    Home
-                  </Link>
-                </li>
-                <li className="current-menu-item">
-                  <Link style={{ textDecoration: "none" }} to={"/Profile"}>
-                    Profile
-                  </Link>
-                </li>
-                <li className="has-children">
-                  <Link style={{ textDecoration: "none" }} to={"/Jobs"}>
-                    Jobs
-                  </Link>
-                </li>
-                <li className="has-children">
-                  <Link style={{ textDecoration: "none" }} to={"/Admin"}>
-                    Admin
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </span>
-        </div>
+        {user ? (
+          <div className="col right">
+            <span id="ctl00_ctBody_Web_Content_Home_Web_Header_Web_Menu_Web_menu">
+              <nav id="main_nav">
+                <ul>
+                  <li className="current-menu-item">
+                    <Link style={{ textDecoration: "none" }} to={"/"}>
+                      Home
+                    </Link>
+                  </li>
+                  <li className="current-menu-item">
+                    <Link style={{ textDecoration: "none" }} to={"/booking"}>
+                      Bookings
+                    </Link>
+                  </li>
+                  <li className="has-children">
+                    <Link style={{ textDecoration: "none" }} to={"/Jobs"}>
+                      Jobs
+                    </Link>
+                  </li>
+                  <li className="has-children">
+                    <Link style={{ textDecoration: "none" }} to={"/Admin"}>
+                      admin
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </span>
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", padding: ".2rem 0rem" }}>
+            <Button onClick={() => navigation("/Login")} style={{ margin: "0rem .8rem" }}>
+              Login
+            </Button>
+            <Button onClick={() => navigation("/SignUp")} style={{ margin: "0rem .8rem" }}>
+              Register
+            </Button>
+          </div>
+        )}
       </section>
     </header>
   );
