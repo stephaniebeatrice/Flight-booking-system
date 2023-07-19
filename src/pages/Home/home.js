@@ -3,6 +3,7 @@ import SearchForm from '../../container/search-form/search-form'
 import image from '../../img/homepage.jpg'
 import './style.css'
 import { Header } from '../../components/header/header'
+import { BookingPage } from '../booking/booking'
 
 export const Home = () => {
 	const [flights, setFlights] = useState([])
@@ -22,7 +23,8 @@ export const Home = () => {
 					<p>Search Flight</p>
 				</div>
 				<aside className="Search-section">
-					<SearchForm setFlights={setFlights} />
+					{/* <SearchForm setFlights={setFlights} /> */}
+          <BookingPage/>
 				</aside>
 			</section>
 		</div>

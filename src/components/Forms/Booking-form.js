@@ -74,32 +74,30 @@ export const BookingForm = () => {
                     <p>Please make sure that you fill in the name that is in your passport.</p>
                     <div className="fieldset quarter">
                       <div className="field">
-                        <label id="lbl_rndTripFrom" aria-label="From">
+                        <label htmlFor="rndTripFom" id="lbl_rndTripFrom" aria-label="From" >
                           Title
                         </label>
-                        <div className="input-wrapper">
                           <input
                             name="title"
                             type="text"
                             id="rndTripFrom"
                             className="form-control"
-                            style={{ width: "100%" }}
+                            style={{ width: "100%",}}
                           />
-                          <select >
+                          <select id="titleSelect" >
                             <option>Mr</option>
                             <option>Mrs</option>
                             <option>Miss</option>
                             <option>Dr</option>
                             <option>Prof</option>
                           </select>
-                        </div>
+                         
                       </div>
 
                       <div className="field">
                         <label id="lbl_rndTripTo" aria-label="To">
                           First Name*
                         </label>
-                        <div className="input-wrapper">
                           <input
                             name="firstName"
                             type="text"
@@ -109,14 +107,12 @@ export const BookingForm = () => {
                             style={{ width: "100%" }}
                             data-select2-id="rndTripTo"
                           />
-                        </div>
                       </div>
 
                       <div className="field">
                         <label id="lbl_rndTripTo" aria-label="To">
                           Last Name*
                         </label>
-                        <div className="input-wrapper">
                           <input
                             name="lastName"
                             type="text"
@@ -126,13 +122,11 @@ export const BookingForm = () => {
                             style={{ width: "100%" }}
                             data-select2-id="rndTripTo"
                           />
-                        </div>
                       </div>
                       <div className="field date-field">
                         <label id="lbl_rndTripDates" aria-label="Date">
                           Date of Birth*
                         </label>
-                        <div className="input-wrapper ">
                           <div className="date-field-wrapper date-depart">
                             <input
                               name="DateOfBirth"
@@ -142,7 +136,6 @@ export const BookingForm = () => {
                               style={{ width: "100%" }}
                             />
                           </div>
-                        </div>
                       </div>
                     </div>
 
@@ -151,7 +144,6 @@ export const BookingForm = () => {
                         <label id="lbl_rndTripPromoCode" aria-label="Promo Code">
                           Phone number
                         </label>
-                        <div className="input-wrapper">
                           <input
                             name="phoneNumber"
                             type="tel"
@@ -160,13 +152,11 @@ export const BookingForm = () => {
                             className="form-control"
                             aria-labelledby="lbl_rndTripPromoCode"
                           />
-                        </div>
                       </div>
                       <div className="field">
                         <label id="lbl_rndTripPromoCode" aria-label="Promo Code">
                           Email
                         </label>
-                        <div className="input-wrapper">
                           <input
                             name="email"
                             type="email"
@@ -176,7 +166,6 @@ export const BookingForm = () => {
                             className="form-control"
                             aria-labelledby="lbl_rndTripPromoCode"
                           />
-                        </div>
                       </div>
                     </div>
 

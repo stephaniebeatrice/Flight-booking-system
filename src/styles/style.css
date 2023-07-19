@@ -3984,9 +3984,9 @@ body.booking-widget-visible .booking-widget {
   font-size: 14px;
 }
 
-.booking-form .input-wrapper option {
+.booking-form .input-wrapper select {
   color: #1b1b1b;
-  font-weight: 200px;
+  /* font-weight: 200px; */
   position: absolute;
   top: -20%;
   
@@ -4005,7 +4005,7 @@ body.booking-widget-visible .booking-widget {
   font-size: 16px;
 }
 
-.booking-form .input-wrapper select {
+.booking-form .input-wrapper {
   width: 100% !important;
   position: absolute;
   top: -2px;
