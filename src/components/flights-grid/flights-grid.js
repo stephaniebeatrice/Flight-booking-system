@@ -20,9 +20,9 @@ const FlightsGrid = (props) => {
 			{/* {props.criteria && (
 				<FlightSearchInfo criteria={criteria} count={flightsCount || 0} />
 			)} */}
-			{flights.nonStopFlights.map((flight) => (
+			 {flights.nonStopFlights.map((flight) => (
 				<FlightInfo data={flight} />
-			))}
+			))} 
 		</div>
 	)
 }

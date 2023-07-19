@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./login.css";
+import "./auth.css";
+import { Button } from "react-bootstrap";
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({
@@ -21,17 +22,34 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Email:</label>
-        <input type="email" name="email" value={loginData.email} onChange={handleChange} required />
+    <div className="form">
+      <div className="form-body">
+        <div className="email">
+          <label className="form__label" for="email">
+            Email
+          </label>
+          <input name="email" type="email" className="form__input" value={loginData.email} onChange={e => handleChange(e)} placeholder="Email" />
+        </div>
+        <div className="password">
+          <label className="form__label" for="password">
+            Password
+          </label>
+          <input
+            className="form__input"
+            type="password"
+            name="password"
+            value={loginData.password}
+            onChange={e => handleChange(e)}
+            placeholder="Password"
+          />
+        </div>
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" name="password" value={loginData.password} onChange={handleChange} required />
+      <div class="footer">
+        <Button onClick={() => handleSubmit()} type="submit" class="btn">
+          Login
+        </Button>
       </div>
-      <button type="submit">Login</button>
-    </form>
+    </div>
   );
 };
 
