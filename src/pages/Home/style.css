@@ -1,7 +1,10 @@
 .Login {
-	font-size: 20px;
-	color: black;
-	align-self: left;
-	margin-top: 2px;
-	padding-left: 1400px;
+  font-size: 20px;
+  color: black;
+  align-self: left;
+  margin-top: 2px;
+  padding-left: 1400px;
+}
+.Results-section {
+  margin: 10rem;
 }
