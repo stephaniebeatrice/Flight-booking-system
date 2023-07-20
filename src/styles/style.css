@@ -1,13 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-  box-sizing: border-box;
-}
-
 article,
 aside,
 footer,
@@ -3989,7 +3979,6 @@ body.booking-widget-visible .booking-widget {
   /* font-weight: 200px; */
   position: absolute;
   top: -20%;
-  
 }
 
 .textbox::-webkit-input-placeholder {
@@ -8731,4 +8720,3 @@ header .btn-change-booking.active {
   color: #fff;
   text-decoration: underline;
 }
-
