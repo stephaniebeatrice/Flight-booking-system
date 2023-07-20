@@ -8,7 +8,7 @@ export const Jobs = () => {
     <div className="App">
       <Header />
       <div className="job">
-        <div className="wrapper">
+        <div className="job-wrapper">
           <div className="search-menu">
             <div className="search-salary">
               <input type="text" placeholder="search for a job with title" />
