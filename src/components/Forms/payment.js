@@ -3,6 +3,8 @@ import paypal from "../../img/paypal.png";
 import mastercard from "../../img/mastercard1.png";
 import visa from "../../img/visa.png";
 import discover from "../../img/discover.png";
+import mpesa from "../../img/mpesa.png";
+
 
 
 import {
@@ -37,6 +39,10 @@ export const Payment = () => {
               </div>
               <div className="card-logos">
                 <img src={paypal} alt="PayPal" />
+              </div>
+              <div className="card-logos">
+                <img src={mpesa} alt="Mpesa" 
+                style={{height:" 64px", width : "74px"}}/>
               </div>
             </div>
             <div className="fieldset half">

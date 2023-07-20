@@ -3,9 +3,9 @@ import React from "react";
 export const Ticket = () => {
   return (
     <div class="ticket-container">
-      <div class="ticket basic">
+      {/* <div class="ticket basic">
         <p>Admit One</p>
-      </div>
+      </div> */}
 
       <div class="ticket airline">
         <div class="top">
