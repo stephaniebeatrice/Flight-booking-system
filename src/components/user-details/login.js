@@ -1,12 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/authSlice";
 import "./auth.css";
-import { Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
+  const [msg, setMsg] = useState("");
 
   const handleChange = e => {
     setLoginData({
@@ -14,40 +14,57 @@ const LoginForm = () => {
       [e.target.name]: e.target.value,
     });
   };
+  const dispatch = useDispatch();
+  const navigation = useNavigate();
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     // Perform login logic here
     console.log(loginData);
+    const res = await fetch(`https://flight-booking-server-mu.vercel.app/user/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: loginData.email, password: loginData.password }),
+    });
+
+    const data = await res.json();
+    if (data.message) {
+      dispatch(authActions.login({ email: loginData.email }));
+      return navigation("/");
+    }
+    setMsg(data.error);
+  };
+  const focusChangeHandler = () => {
+    setMsg("");
   };
 
   return (
-    <div className="form">
-      <div className="form-body">
-        <div className="email">
-          <label className="form__label" for="email">
-            Email
-          </label>
-          <input name="email" type="email" className="form__input" value={loginData.email} onChange={e => handleChange(e)} placeholder="Email" />
-        </div>
-        <div className="password">
-          <label className="form__label" for="password">
-            Password
-          </label>
+    <div className="auth-container ">
+      <div className="form-container" id="login-form">
+        <h1>Login</h1>
+        <form className="login_form">
+          <label className="auth_label">Email</label>
+          <input type="email" className="auth_input" value={loginData.email} onChange={e => handleChange(e)} onFocus={focusChangeHandler} required />
+          <label className="auth_label">Password</label>
           <input
-            className="form__input"
             type="password"
+            className="auth_input"
             name="password"
             value={loginData.password}
             onChange={e => handleChange(e)}
-            placeholder="Password"
+            onFocus={focusChangeHandler}
+            required
           />
-        </div>
-      </div>
-      <div class="footer">
-        <Button onClick={() => handleSubmit()} type="submit" class="btn">
-          Login
-        </Button>
+          <p style={{ color: "red" }}>{msg}</p>
+          <button type="submit" className="auth_button" onClick={handleSubmit}>
+            Login
+          </button>
+        </form>
+        <p className="auth_p">
+          Don't have an account? <Link to={"/SignUp"}> Sign up</Link>
+        </p>
       </div>
     </div>
   );

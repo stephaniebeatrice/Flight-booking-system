@@ -2,11 +2,14 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../../styles/style.css";
+import { authActions } from "../../store/authSlice";
 
 export const Header = () => {
   const user = useSelector(state => state.authReducer.user);
+  // const dispatch = useDispatch();
+  // dispatch(authActions.logout());
   const navigation = useNavigate();
   return (
     <header className="animate-search">
