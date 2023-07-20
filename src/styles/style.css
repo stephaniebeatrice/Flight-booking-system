@@ -15,6 +15,7 @@ nav {
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  
 }
 input,
 textarea {
@@ -257,6 +258,7 @@ input:focus {
   width: 100%;
   padding: 160px 20px;
   margin: 0 auto;
+  text-align: start;
 }
 .content-wrapper {
   padding: 50px 0;
