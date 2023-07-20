@@ -3,7 +3,6 @@ import { Header } from "../../components/header/header";
 import SearchForm from "../../container/search-form/search-form";
 import image from "../../img/homepage.jpg";
 import "./style.css";
-import FlightInfo from "../../components/flight-info/flight-info";
 
 export const Home = () => {
   const [flights, setFlights] = useState([]);
@@ -19,9 +18,6 @@ export const Home = () => {
         <aside className="Search-section">
           <SearchForm setFlights={setFlights} />
         </aside>
-      </section>
-      <section className="Results-section">
-        <FlightInfo />
       </section>
     </div>
   );

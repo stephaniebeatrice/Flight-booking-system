@@ -35,7 +35,7 @@ export const Header = () => {
                   </li>
                   <li className="has-children">
                     <Link style={{ textDecoration: "none" }} to={"/Admin"}>
-                      admin
+                      Admin
                     </Link>
                   </li>
                 </ul>
