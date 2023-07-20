@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../store/authSlice";
 import "./auth.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
@@ -15,12 +15,13 @@ const LoginForm = () => {
     });
   };
   const dispatch = useDispatch();
+  const navigation = useNavigate();
 
   const handleSubmit = async e => {
     e.preventDefault();
     // Perform login logic here
     console.log(loginData);
-    const res = await fetch(`http://localhost:4000/user/login`, {
+    const res = await fetch(`https://flight-booking-server-mu.vercel.app/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,15 +32,13 @@ const LoginForm = () => {
     const data = await res.json();
     if (data.message) {
       dispatch(authActions.login({ email: loginData.email }));
-      return; // navigation("/");
+      return navigation("/");
     }
     setMsg(data.error);
   };
   const focusChangeHandler = () => {
     setMsg("");
   };
-  console.log("==========================MESSAGE======================================");
-  console.log(msg);
 
   return (
     <div className="auth-container ">

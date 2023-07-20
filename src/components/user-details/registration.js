@@ -31,7 +31,7 @@ function RegistrationForm(prp) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:4000/user/signup`, {
+    const res = await fetch(`https://flight-booking-server-mu.vercel.app/user/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, firstName: username, lastName: username, password }),
