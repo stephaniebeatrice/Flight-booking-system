@@ -11,6 +11,7 @@ function RegistrationForm(prp) {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
+  const [msg, setMsg] = useState("");
 
   const dispatch = useDispatch();
   const navigation = useNavigate();
@@ -34,10 +35,24 @@ function RegistrationForm(prp) {
     }
   };
 
-  const handleSubmit = () => {
-    dispatch(authActions.login({ email }));
-    navigation("/");
+  const handleSubmit = async () => {
+    const res = await fetch(`http://localhost:4000/user/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, firstName, lastName, password }),
+    });
+
+    const data = await res.json();
+    if (data.message) {
+      // dispatch(authActions.login({ email }));
+      return; // navigation("/");
+    }
+    setMsg(data.error);
   };
+  console.log("==========================MESSAGE======================================");
+  console.log(msg);
 
   return (
     <div className="form">
