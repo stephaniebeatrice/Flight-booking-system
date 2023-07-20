@@ -80,13 +80,13 @@ export const PersonlInfo = ({ psnlInfoRef }) => {
                   onChange={e => setUserInfo(prev => ({ ...prev, lastName: e.target.value }))}
                 />
               </div>
-              <div className="field date-field">
+              <div className="field">
                 <label id="lbl_rndTripDates" aria-label="Date">
                   Date of Birth*
                 </label>
-                <div className="date-field-wrapper date-depart">
                   <input
                     name="DateOfBirth"
+                    id="rndTripTo"
                     type="date"
                     className="form-control"
                     placeholder="mm-dd-yyyy"
@@ -94,7 +94,6 @@ export const PersonlInfo = ({ psnlInfoRef }) => {
                     value={userInfo.DOB}
                     onChange={e => setUserInfo(prev => ({ ...prev, DOB: e.target.value }))}
                   />
-                </div>
               </div>
             </div>
 

@@ -4,6 +4,9 @@ import { Header } from "../../components/header/header";
 import { Payment, SeatSelection, Ticket } from "../../components/Forms";
 import "../../styles/style.css";
 import { useSelector } from "react-redux";
+import { FaAddressCard, FaChair, FaCreditCard, FaMoneyBill, FaPaypal, FaUser } from 'react-icons/fa';
+
+
 
 export const BookingPage = () => {
   const flight = useSelector(state => state.bookingReducer.pendingBooking);
@@ -28,12 +31,13 @@ export const BookingPage = () => {
               <a
                 href="#psnlInfo"
                 onClick={() => scrollToSection(psnlInfoRef, "psnlInfo")}
-                className={selectedTab === "psnlInfo" ? "active icon-book-flight" : "icon-book-flight"}
+                className={selectedTab === "psnlInfo" ? "active  fa fa-user": "fa fa-user"}
                 role="tab"
                 aria-controls="psnlInfo"
                 aria-selected={selectedTab === "psnlInfo"}
               >
-                <span>Personal info</span>
+               <span >
+                 <FaUser className="user-icon"/> Personal info</span>
               </a>
               <a
                 href="#seatSelect"
@@ -43,7 +47,8 @@ export const BookingPage = () => {
                 aria-controls="seatSelect"
                 aria-selected={selectedTab === "seatSelect"}
               >
-                <span>Seat selection</span>
+                <span>
+                <FaChair className="user-icon"/>Seat selection</span>
               </a>
               <a
                 href="#payment"
@@ -53,7 +58,7 @@ export const BookingPage = () => {
                 aria-controls="payment"
                 aria-selected={selectedTab === "payment"}
               >
-                <span>Payment</span>
+               <span> <FaMoneyBill className="user-icon"/>Payment</span>
               </a>
               <a
                 href="#flightTicket"
@@ -63,7 +68,7 @@ export const BookingPage = () => {
                 aria-controls="flightTicket"
                 aria-selected={selectedTab === "flightTicket"}
               >
-                <span>Ticket</span>
+                <span> <FaAddressCard className="user-icon"/>Ticket</span>
               </a>
             </div>
             {activeTab(selectedTab, psnlInfoRef)}
