@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authActions } from "../../store/authSlice";
 import "./auth.css";
 
 function RegistrationForm(prp) {
-  const [firstName, setFirstName] = useState(null);
-  const [lastName, setLastName] = useState(null);
+  const [username, setUsername] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const [confirmPassword, setConfirmPassword] = useState(null);
+
   const [msg, setMsg] = useState("");
 
   const dispatch = useDispatch();
@@ -18,95 +17,88 @@ function RegistrationForm(prp) {
 
   const handleInputChange = e => {
     const { id, value } = e.target;
-    if (id === "firstName") {
-      setFirstName(value);
+    if (id === "username") {
+      setUsername(value);
     }
-    if (id === "lastName") {
-      setLastName(value);
-    }
+
     if (id === "email") {
       setEmail(value);
     }
     if (id === "password") {
       setPassword(value);
     }
-    if (id === "confirmPassword") {
-      setConfirmPassword(value);
-    }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async e => {
+    e.preventDefault();
     const res = await fetch(`http://localhost:4000/user/signup`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, firstName, lastName, password }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, firstName: username, lastName: username, password }),
     });
 
     const data = await res.json();
     if (data.message) {
-      // dispatch(authActions.login({ email }));
-      return; // navigation("/");
+      dispatch(authActions.login({ email }));
+      return navigation("/");
     }
     setMsg(data.error);
   };
   console.log("==========================MESSAGE======================================");
   console.log(msg);
 
+  const focusChangeHandler = () => {
+    setMsg("");
+  };
+
   return (
-    <div className="form">
-      <div className="form-body">
-        <div className="username">
-          <label className="form__label" for="firstName">
-            First Name
-          </label>
-          <input className="form__input" type="text" value={firstName} onChange={e => handleInputChange(e)} id="firstName" placeholder="First Name" />
-        </div>
-        <div className="lastname">
-          <label className="form__label" for="lastName">
-            Last Name
-          </label>
+    <div className="auth-container ">
+      <div className="form-container" id="login-form">
+        <h1>Sign up</h1>
+        <form className="login_form">
+          <label className="auth_label">username</label>
           <input
             type="text"
-            name=""
-            id="lastName"
-            value={lastName}
-            className="form__input"
+            style={{ width: "100%" }}
+            className="auth_input"
+            id="username"
+            name="username"
+            value={username}
             onChange={e => handleInputChange(e)}
-            placeholder="LastName"
+            onFocus={focusChangeHandler}
+            required
           />
-        </div>
-        <div className="email">
-          <label className="form__label" for="email">
-            Email
-          </label>
-          <input type="email" id="email" className="form__input" value={email} onChange={e => handleInputChange(e)} placeholder="Email" />
-        </div>
-        <div className="password">
-          <label className="form__label" for="password">
-            Password
-          </label>
-          <input className="form__input" type="password" id="password" value={password} onChange={e => handleInputChange(e)} placeholder="Password" />
-        </div>
-        <div className="confirm-password">
-          <label className="form__label" for="confirmPassword">
-            Confirm Password
-          </label>
+          <label className="auth_label">Email</label>
           <input
-            className="form__input"
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
+            type="email"
+            className="auth_input"
+            name="email"
+            id="email"
+            value={email}
             onChange={e => handleInputChange(e)}
-            placeholder="Confirm Password"
+            onFocus={focusChangeHandler}
+            required
           />
-        </div>
-      </div>
-      <div class="footer">
-        <Button onClick={() => handleSubmit()} type="submit" class="btn">
-          Register
-        </Button>
+
+          <label className="auth_label">Password</label>
+          <input
+            type="password"
+            className="auth_input"
+            name="password"
+            id="password"
+            value={password}
+            onChange={e => handleInputChange(e)}
+            onFocus={focusChangeHandler}
+            required
+          />
+          <p style={{ color: "red" }}>{msg}</p>
+          <button type="submit" className="auth_button" onClick={handleSubmit}>
+            Sign up
+          </button>
+        </form>
+        <p className="auth_p">
+          Already have an account? <Link to={"/Login"}> Login</Link>
+        </p>
       </div>
     </div>
   );
