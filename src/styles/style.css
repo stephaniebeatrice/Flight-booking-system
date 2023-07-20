@@ -240,19 +240,7 @@ button:focus,
 input:focus {
   outline-offset: 0;
 }
-p {
-  margin-bottom: 20px;
-  line-height: 1.5;
-  color: #1e1e1e;
-}
-img {
-  width: 100%;
-  height: auto;
-  padding: 0;
-  margin: 0;
-  border: none;
-  display: block;
-}
+
 .clearfloat {
   zoom: 1;
 }
