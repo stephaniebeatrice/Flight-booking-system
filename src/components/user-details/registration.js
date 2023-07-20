@@ -6,7 +6,8 @@ import { authActions } from "../../store/authSlice";
 import "./auth.css";
 
 function RegistrationForm(prp) {
-  const [username, setUsername] = useState(null);
+  const [firstname, setFirstname] = useState(null);
+  const [lastname, setLastname] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
@@ -17,10 +18,13 @@ function RegistrationForm(prp) {
 
   const handleInputChange = e => {
     const { id, value } = e.target;
-    if (id === "username") {
-      setUsername(value);
+   
+ if (id === "firstname") {
+      setFirstname(value);
     }
-
+    if (id === "lastname") {
+      setLastname(value);
+    }
     if (id === "email") {
       setEmail(value);
     }
@@ -34,7 +38,7 @@ function RegistrationForm(prp) {
     const res = await fetch(`https://flight-booking-server-mu.vercel.app/user/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, firstName: username, lastName: username, password }),
+      body: JSON.stringify({ email, firstName: firstname, lastName: lastname, password }),
     });
 
     const data = await res.json();
@@ -56,14 +60,26 @@ function RegistrationForm(prp) {
       <div className="form-container" id="login-form">
         <h1>Sign up</h1>
         <form className="login_form">
-          <label className="auth_label">username</label>
+          <label className="auth_label">First Name</label>
           <input
             type="text"
-            style={{ width: "100%" }}
+            style={{ width: "80%", padding:"6px" }}
             className="auth_input"
-            id="username"
-            name="username"
-            value={username}
+            id="firstname"
+            name="firstname"
+            value={firstname}
+            onChange={e => handleInputChange(e)}
+            onFocus={focusChangeHandler}
+            required
+          />
+          <label className="auth_label">Last Name</label>
+          <input
+            type="text"
+            style={{ width: "80%", padding:"6px" }}
+            className="auth_input"
+            id="lastname"
+            name="lastname"
+            value={lastname}
             onChange={e => handleInputChange(e)}
             onFocus={focusChangeHandler}
             required
