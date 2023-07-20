@@ -58,19 +58,6 @@ export const Ticket = () => {
           <div class="bar--code"></div>
         </div>
       </div>
-
-      <div class="info">
-        <p>
-          Based on{" "}
-          <a
-            href="https://dribbble.com/shots/11399236-Boarding-Pass"
-            target="_blank"
-          >
-            this
-          </a>{" "}
-          Dribbble from Barna Erdei
-        </p>
-      </div>
     </div>
   );
 };

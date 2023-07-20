@@ -70,11 +70,11 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 ::-moz-selection {
-  background: #ec0921;
+  /* background: #ec0921; */
   color: #fff;
 }
 ::selection {
-  background: #ec0921;
+  /* background: #ec0921; */
   color: #fff;
 }
 input[type="checkbox"] {
@@ -101,11 +101,6 @@ input[type="radio"] {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.faUser{
-  padding-right: 20px;
-  size: 200px;
-
-}
 
 /*---------- GENERAL STYLES ----------*/
 html,
@@ -143,29 +138,6 @@ h4 {
 a {
   color: #1976d2;
   text-decoration: none;
-}
-a:focus,
-select:focus,
-.select2:focus,
-.main-search .btn-search-go:focus,
-button:focus,
-input:focus {
-  outline-style: solid;
-  outline-color: #ec0921;
-  outline-width: 1px;
-  outline-offset: 5px;
-}
-.select2-container *:focus,
-.select2-container--focus {
-  outline-color: #ec0921;
-  outline-style: solid;
-  outline-width: 1px;
-}
-select:focus,
-.select2:focus,
-button:focus,
-input:focus {
-  outline-offset: 0;
 }
 
 .clearfloat {
@@ -3854,7 +3826,7 @@ body.booking-widget-visible .booking-widget {
 
 .booking-form .invalid .input-wrapper,
 .booking-form .invalid .input-wrapper:before {
-  border-color: #e20714;
+  /* border-color: #e20714; */
 }
 .booking-form .invalid label,
 .booking-form .invalid .select2-container--default .select2-selection--single .select2-selection__placeholder,
@@ -4314,858 +4286,6 @@ body.booking-widget-visible .booking-widget {
   font-size: 12px;
   line-height: 1.58;
   font-family: "LucidaSan-Rom", sans-serif;
-}
-
-/*---------- MULTI-CITY ----------*/
-#mltCity h3.row-title {
-  display: block;
-  font-family: "LucidaSan-Rom", sans-serif;
-  color: #757575;
-  margin: 16px 0 24px 34px;
-  font-size: 12px;
-  line-height: 1.58;
-  text-transform: uppercase;
-  border-bottom: 1px solid #dfdfdf;
-  padding-bottom: 5px;
-}
-
-#mltCity .fieldset {
-  margin-left: -34px;
-}
-#mltCity .fieldset .field {
-  display: inline-block;
-  width: 30%;
-  padding-left: 34px;
-  vertical-align: top;
-}
-#mltCity .fieldset .field.close-field {
-  width: 10%;
-  text-align: center;
-}
-#mltCity .fieldset .field.add-field {
-  padding-top: 14px;
-  padding-bottom: 14px;
-}
-#mltCity .btn-multi-add-flight {
-  height: 45px;
-  display: block;
-  width: 100%;
-  border: 1px solid #1e1e1e;
-  font-size: 15px;
-  margin: 0;
-  font-family: "LucidaSan-Dem", sans-serif;
-  color: #1e1e1e;
-  text-align: center;
-  background-color: #fff;
-  position: relative;
-  cursor: pointer;
-}
-#mltCity .btn-multi-add-flight:disabled {
-  background-color: #dfdfdf;
-  color: #757575;
-  cursor: default;
-  pointer-events: none;
-  border-color: #dfdfdf;
-}
-#mltCity .remove-flight {
-  display: none;
-  vertical-align: top;
-  width: 40px;
-  height: 40px;
-  line-height: 36px;
-  text-align: center;
-  border: 1px solid #1e1e1e;
-  color: #1e1e1e;
-  font-size: 20px;
-  background-color: #fff;
-  position: relative;
-  cursor: pointer;
-  top: 24px;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-}
-#mltCity .remove-flight.show {
-  display: inline-block;
-}
-
-#mltCity .btn-multi-add-flight:hover,
-#mltCity .btn-multi-add-flight:focus,
-#mltCity .remove-flight:hover,
-#mltCity .remove-flight:focus {
-  background-color: #dfdfdf;
-}
-
-.booking-form #mltCity .select2-dropdown {
-  width: 308px !important;
-}
-.booking-form #mltCity .multi-cabin .select2-dropdown {
-  width: 316px !important;
-}
-
-#mltCity .passengers-popup {
-  right: auto;
-  left: 35px;
-}
-
-/*---------- DATEPICKER ----------*/
-.booking-form .fieldset .date-field {
-  position: relative;
-}
-.booking-form .fieldset .date-field:after,
-.booking-form .fieldset .date-field:before {
-  bottom: -13px;
-  left: 60%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  z-index: 100;
-  display: none;
-}
-
-.booking-form .fieldset .date-field:after {
-  border-color: rgba(255, 255, 255, 0);
-  border-bottom-color: #ffffff;
-  border-width: 10px;
-  margin-left: -10px;
-}
-.booking-form .fieldset .date-field:before {
-  border-color: rgba(223, 223, 223, 0);
-  border-bottom-color: #dfdfdf;
-  border-width: 11px;
-  margin-left: -11px;
-}
-.booking-form .fieldset .date-field.show-popup:after,
-.booking-form .fieldset .date-field.show-popup:before {
-  display: block;
-}
-
-.booking-form .fieldset .dates {
-  display: table;
-  width: 100%;
-}
-.booking-form .fieldset .date-field-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-  width: 50%;
-}
-.booking-form .fieldset .date-depart {
-  width: 54%;
-}
-.booking-form .fieldset .date-return {
-  width: 46%;
-}
-.booking-form .fieldset .date-field-wrapper .textbox {
-  padding: 0;
-}
-.booking-form .fieldset .date-depart .textbox {
-  padding: 0 5px 0 50px;
-  font-size: 14px;
-}
-.booking-form .fieldset .date-return {
-  position: relative;
-}
-.booking-form .fieldset .date-return .textbox {
-  padding: 0 10px 0 14px;
-  font-size: 14px;
-}
-.booking-form .fieldset .date-return:before {
-  content: "-";
-  position: absolute;
-  left: 0;
-  top: 0;
-  line-height: 43px;
-  color: #1e1e1e;
-}
-.booking-form .fieldset .date-return .textbox.focus {
-  outline-style: solid;
-  outline-color: #ec0921;
-  outline-width: 1px;
-  outline-offset: 0;
-}
-
-.date-picker-popup {
-  background-color: #ffffff;
-  position: absolute;
-  right: 0;
-  top: 100%;
-  padding: 17px;
-  z-index: 100;
-  width: 722px;
-  margin-top: 13px;
-  display: none;
-  -webkit-box-shadow: 0 2px 16px 0 rgba(33, 43, 54, 0.08), 0 0 0 1px rgba(6, 44, 82, 0.1);
-  box-shadow: 0 2px 16px 0 rgba(33, 43, 54, 0.08), 0 0 0 1px rgba(6, 44, 82, 0.1);
-}
-.date-picker-popup.left {
-  left: 20px;
-  right: auto;
-}
-
-.date-picker-popup h2 {
-  position: relative;
-  border-bottom: 1px solid #dfdfdf;
-  padding-bottom: 12px;
-}
-.date-picker-popup h2:before {
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-  color: #231f20;
-  font-size: 20px;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.date-picker-popup h2 span {
-  font-family: "LucidaSan-Dem", sans-serif;
-  color: #231f20;
-  font-size: 18px;
-  line-height: 1.33;
-  padding-left: 40px;
-  display: block;
-}
-.date-picker-popup .date-picker-container {
-  padding: 17px 0 0 0;
-}
-.date-picker-popup .pika-single.is-bound {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.date-picker-popup .pika-single {
-  border: 0 none;
-  font-family: "LucidaSan-Dem", sans-serif;
-  color: #212b36;
-  font-size: 16px;
-}
-.date-picker-popup .pika-table td {
-  border: 1px solid #dfe3e8;
-}
-.date-picker-popup .pika-button {
-  background-color: #fff;
-  text-align: center;
-  color: #1e1e1e;
-  padding: 10px;
-  font-family: "LucidaSan-Dem", sans-serif;
-  font-size: 14px;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-.date-picker-popup .pika-lendar {
-  width: 327px;
-}
-.date-picker-popup .pika-table th {
-  font-size: 14px;
-  color: #1e1e1e;
-}
-.date-picker-popup .pika-button:hover {
-  background-color: #dfdfdf;
-}
-.date-picker-popup .is-today .pika-button {
-  color: #ec0921;
-  font-weight: normal;
-}
-.date-picker-popup .pika-button {
-  font-weight: normal;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.date-picker-popup .is-selected .pika-button,
-.date-picker-container-depart .is-endrange .pika-button,
-.date-picker-container-return .is-startrange .pika-button {
-  background-color: #e50a22;
-  color: #fff;
-}
-.date-picker-container-depart .is-endrange .pika-button,
-.date-picker-container-return .is-selected.is-endrange .pika-button {
-  background-color: #e50a22;
-}
-.date-picker-container-depart .is-selected.is-startrange .pika-button,
-.date-picker-container-return .is-startrange .pika-button {
-  background-color: #484848;
-}
-.date-picker-popup .is-inrange .pika-button,
-.date-picker-container-return .is-endrange .pika-button {
-  background-color: #d9d9d9;
-}
-
-/*---------- EXPERIENCE ----------*/
-.experience-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-}
-.experience {
-  font-size: 0;
-  display: block;
-}
-.experience .item {
-  display: inline-block;
-  vertical-align: top;
-  width: 25%;
-  padding: 20px 40px;
-}
-.experience a {
-  display: block;
-  outline-offset: 0;
-  padding: 20px;
-}
-.experience .container {
-  max-width: 93px;
-  display: block;
-  margin: 0 auto;
-}
-.experience .icon {
-  width: 70px;
-  margin: 0 auto;
-  display: block;
-}
-.experience .label {
-  display: block;
-  text-align: center;
-  line-height: 1.19;
-  color: #1e1e1e;
-  font-size: 16px;
-  margin-top: 13px;
-  font-family: "LucidaSan-Dem", sans-serif;
-}
-.experience a:hover,
-.experience a:focus {
-  background-color: #dfdfdf;
-}
-.experience a:hover .label,
-.experience a:focus .label {
-  color: #e20714;
-}
-.experience .owl-nav {
-  text-align: center;
-  font-size: 0;
-}
-.experience .owl-nav button {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border: 0 none;
-}
-.experience .owl-nav button i {
-  font-size: 24px;
-}
-
-/*---------- SUBSCRIPTION ----------*/
-.subscription {
-  max-width: 1040px;
-}
-.subscription .tbl {
-  width: 100%;
-  display: table;
-  margin-top: 60px;
-}
-.subscription .tbl .col {
-  display: table-cell;
-  vertical-align: top;
-  width: 50%;
-}
-.subscription .tbl .col.left {
-  padding-right: 13px;
-}
-.subscription .tbl .col.right {
-  padding-left: 13px;
-}
-.subscription .block {
-  border: 1px solid #dfdfdf;
-  position: relative;
-  padding: 54px 42px;
-  min-height: 487px;
-}
-.subscription .subscribe-pic {
-  width: 417px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-.subscription .app-pic {
-  width: 265px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-.subscription .block-content {
-  max-width: 270px;
-  position: relative;
-  z-index: 5;
-}
-.subscription .block h3 {
-  line-height: 1;
-  color: #e70922;
-  font-size: 24px;
-  margin-bottom: 14px;
-}
-.subscription .block p {
-  font-size: 14px;
-}
-.subscription .store-buttons {
-  position: absolute;
-  left: 42px;
-  bottom: 42px;
-}
-.subscription .store-buttons a {
-  display: block;
-  width: 155px;
-  margin-top: 12px;
-}
-.subscription .store-buttons a:hover,
-.subscription .store-buttons a:focus {
-  opacity: 0.8;
-}
-
-/*---------- DEALS ----------*/
-.deals-tbl {
-  display: table;
-  width: 100%;
-}
-.deals-tbl .col {
-  display: table-cell;
-  vertical-align: top;
-}
-.deals-tbl .col.left {
-  padding-right: 10px;
-}
-.deals-tbl .col.right {
-  width: 508px;
-  border: 1px solid #dfdfdf;
-  padding: 30px 30px 10px 30px;
-}
-.deals-tbl .col.right h3 {
-  line-height: 0.79;
-  color: #e70922;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-.featured-deals {
-  font-size: 0;
-  margin: -17px 0 0 -17px;
-}
-.featured-deals .item {
-  display: inline-block;
-  vertical-align: top;
-  width: 50%;
-  padding: 17px 0 0 17px;
-}
-.featured-deals .block {
-  border: 1px solid #dfdfdf;
-  padding: 10px 10px 42px 10px;
-  position: relative;
-}
-.featured-deals .counter {
-  line-height: 21px;
-  padding: 0 12px 0 8px;
-  font-family: "LucidaSan-Rom", sans-serif;
-  font-size: 14px;
-  position: absolute;
-  left: 10px;
-  top: 30px;
-  z-index: 5;
-  background-color: #d0021b;
-  color: #fff;
-  -webkit-border-radius: 0 21px 21px 0;
-  border-radius: 0 21px 21px 0;
-  -webkit-box-shadow: 0 2px 34px 0 rgba(116, 116, 116, 0.25);
-  box-shadow: 0 2px 34px 0 rgba(116, 116, 116, 0.25);
-}
-.featured-deals .counter.white {
-  background-color: #fff;
-  color: #e20714;
-}
-.featured-deals .counter.orange {
-  background-color: #f5a623;
-}
-.featured-deals .counter.green {
-  background-color: #108043;
-}
-.featured-deals .counter.red {
-  background-color: #d0021b;
-}
-.featured-deals .pic-wrapper {
-  height: 150px;
-  overflow: hidden;
-  margin-bottom: 11px;
-}
-.featured-deals img {
-  height: 100%;
-}
-.lazyestload {
-  animation-name: pulse;
-  -webkit-animation-name: pulse;
-
-  animation-duration: 1.5s;
-  -webkit-animation-duration: 1.5s;
-
-  animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
-}
-
-.featured-deals h3 {
-  font-family: "Interstate Lt", sans-serif;
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-.featured-deals .meta-wrapper {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  padding: 0 10px 10px 10px;
-}
-.featured-deals .meta {
-  display: table;
-  width: 100%;
-}
-.featured-deals .meta .cell {
-  display: table-cell;
-  vertical-align: middle;
-}
-.featured-deals .meta .cell.right {
-  text-align: right;
-}
-.featured-deals .price {
-  font-family: "Interstate Reg", sans-serif;
-  font-size: 20px;
-}
-
-.top-destinations li {
-  border-bottom: 1px solid #dcdcdc;
-}
-.top-destinations a {
-  display: table;
-  width: 100%;
-  position: relative;
-  padding-right: 36px;
-  color: #1e1e1e;
-  padding: 13px 0 13px 8px;
-  font-size: 20px;
-}
-.top-destinations a .cell {
-  display: table-cell;
-  vertical-align: middle;
-}
-.top-destinations a .cell.right {
-  width: 192px;
-  font-family: "Interstate Reg", sans-serif;
-  padding: 0 26px;
-}
-.top-destinations a:after {
-  content: "\e915";
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  font-size: 24px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  color: rgba(0, 0, 0, 0.54);
-  font-family: "icomoon" !important;
-
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.top-destinations a:hover,
-.top-destinations a:focus {
-  color: #000;
-  background-color: #dfdfdf;
-}
-.deals-tbl .note {
-  margin: 8px 0 0 0;
-}
-
-.deals-more {
-  display: none;
-}
-
-.deals-filter {
-  font-size: 0;
-}
-.deals-filter .section-title {
-  display: inline-block;
-  vertical-align: middle;
-}
-.deals-filter .filter {
-  margin-left: 10px;
-}
-.deals-filter select {
-  background-color: transparent;
-  border: 0 none;
-  font-family: "LucidaSan-Dem", sans-serif;
-  font-size: 36px;
-  color: #e20714;
-}
-.deals-filter select option {
-  font-size: 16px;
-}
-.deals-filter .select2-container .select2-selection--single {
-  height: auto;
-  border: 0 none;
-  background-color: transparent;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-
-.deals-filter .select2-container--default .select2-selection--single .select2-selection__rendered {
-  line-height: normal;
-  color: #e20714;
-  font-family: "LucidaSan-Dem", sans-serif;
-  font-size: 36px;
-  padding: 0 40px 0 0;
-}
-.deals-filter .select2-container--default .select2-selection--single .select2-selection__arrow {
-  width: 36px;
-  height: 36px;
-}
-.deals-filter .select2-container--default .select2-selection--single .select2-selection__arrow b {
-  font-size: 36px;
-  color: #1e1e1e;
-  width: 36px;
-  height: 36px;
-  line-height: 45px;
-}
-.deals-filter .select2-container--default .select2-selection--single .select2-selection__arrow b:before {
-  line-height: inherit;
-}
-.deals-filter .select2-dropdown {
-  font-size: 16px;
-  border-top: 1px solid #aaa;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-
-.deals-list > li {
-  display: table;
-  width: 100%;
-  border: 1px solid #dfdfdf;
-  background-color: #fff;
-  margin: 30px 0;
-  table-layout: fixed;
-}
-.deals-list > li.focus {
-  position: relative;
-  z-index: 2300;
-}
-.deals-list > li .col {
-  display: table-cell;
-  vertical-align: top;
-  position: relative;
-}
-.deals-list > li .col.left {
-  padding: 10px;
-  width: 450px;
-  border-right: 1px solid #dfdfdf;
-}
-.deals-list > li .col.right {
-  padding: 10px 18px;
-}
-.deals-list .pic-wrapper {
-  border: 1px solid #dfdfdf;
-  position: relative;
-  background-color: #000;
-  max-height: 185px;
-  overflow: hidden;
-}
-.deals-list .pic-wrapper img.lazyestload {
-  width: 100%;
-}
-.deals-list .counter {
-  position: absolute;
-  left: 0;
-  top: 10px;
-  line-height: 32px;
-  background-color: #d0021b;
-  font-size: 16px;
-  color: #fff;
-  font-family: "LucidaSan-Dem", sans-serif;
-  padding: 0 14px;
-  z-index: 5;
-  -webkit-box-shadow: 0 3px 52px 0 rgba(116, 116, 116, 0.25);
-  box-shadow: 0 3px 52px 0 rgba(116, 116, 116, 0.25);
-}
-.deals-list .col.left h2 {
-  position: absolute;
-  left: 15px;
-  bottom: 20px;
-  color: #fff;
-  font-size: 28px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  line-height: 1.02;
-  font-family: "Interstate Reg", sans-serif;
-}
-.deals-list .more {
-  position: absolute;
-  top: 36px;
-  right: 18px;
-  color: #1e1e1e;
-  z-index: 10;
-  display: none !important;
-}
-.deals-list .more:before {
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  font-size: 20px;
-  position: absolute;
-  left: 0;
-  top: 2px;
-  bottom: 0;
-  margin: auto;
-}
-.deals-list .more span {
-  font-size: 16px;
-  text-decoration: underline;
-  font-family: "LucidaSan-Dem", sans-serif;
-  display: block;
-  padding: 0 0 0 26px;
-}
-.deals-list .more:hover span,
-.deals-list .more:focus span {
-  text-decoration: none;
-}
-.deals-list .from,
-.deals-list .price {
-  display: block;
-  font-family: "LucidaSan-Dem", sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  position: relative;
-}
-.deals-list .from {
-  top: 8px;
-}
-.deals-list .price {
-  font-size: 36px;
-  color: #e20714;
-}
-.deals-list p {
-  font-size: 16px;
-  font-family: "Interstate Reg", sans-serif;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-.deals-list .booking-form {
-  position: relative;
-  width: 100%;
-}
-.deals-list .booking-form .fieldset {
-  margin: 0 0 0 -14px;
-  padding-bottom: 0;
-}
-.deals-list .booking-form .field {
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 0 0 14px;
-}
-.deals-list .booking-form .deal-book {
-  position: static;
-}
-
-.deals-list .booking-form .cabin-field .select2-dropdown {
-  width: 234px !important;
-}
-.deals-list .booking-form .date-field {
-  width: 276px;
-}
-.deals-list .booking-form .passengers-field {
-  width: 260px;
-}
-.deals-list .booking-form .btn-book-deal {
-  min-width: inherit;
-}
-.fr .deals-list .booking-form .btn-book-deal {
-  font-size: 10px;
-}
-.small .deals-list .booking-form .btn-book-deal {
-  font-size: 10px;
-}
-.deals-list .date-picker-popup {
-  left: 14px;
-  right: auto;
-  width: 688px;
-}
-.deals-list .date-picker-popup .pika-lendar {
-  width: 310px;
-}
-
-/*---------- DEAL INFO ----------*/
-#deal_info {
-  max-width: 350px;
-  padding: 0;
-  overflow: visible;
-  -webkit-transform: translateY(-80px);
-  transform: translateY(-80px);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-#deal_info .content {
-  text-align: left;
-  background-color: #ffffff;
-  border: solid 1px #dddddd;
-  -webkit-box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
-}
-#deal_info .lockup {
-  width: 70px;
-  height: 70px;
-  background-color: #e42529;
-  margin: -35px auto 0 auto;
-  text-align: center;
-}
-#deal_info .lockup img {
-  display: inline-block;
-  vertical-align: top;
-  width: 45px;
-  margin-top: 14px;
-}
-#deal_info .desc {
-  padding: 20px;
-}
-#deal_info h2 {
-  color: #fff;
-  font-size: 22px;
-  line-height: 1.09;
-  font-family: "LucidaSan-Dem", sans-serif;
-  margin-bottom: 8px;
-}
-#deal_info p {
-  font-size: 16px;
-  line-height: 1.5;
-  opacity: 0.8;
-}
-#deal_info ul,
-#deal_info ol {
-  padding-left: 15px;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  opacity: 0.8;
-}
-#deal_info ul {
-  list-style: disc;
-}
-#deal_info ol {
-  list-style: decimal;
-}
-
-.fancybox-slide--current #deal_info {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-  opacity: 1;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
 }
 
 /*---------- FOOTER ----------*/
@@ -7459,1191 +6579,38 @@ header .btn-change-booking.active {
   }
 }
 
-/*---------- WCAG ----------*/
+/* Payment Section */
 
-/*--- BOW ---*/
-.bow header .talk:hover,
-.bow header .talk:focus,
-.bow header .btn-member:hover,
-.bow header .btn-member:focus,
-.bow .btn-primary,
-.bow .booking-tabs a.active,
-.bow .pill-tabs a.active,
-.bow .date-picker-popup .is-selected .pika-button,
-.bow .date-picker-container-depart .is-endrange .pika-button,
-.bow .date-picker-container-return .is-startrange .pika-button,
-.bow .date-picker-popup .is-inrange.is-selected .pika-button,
-.bow .back-top,
-.bow .footer-links-wrapper,
-.bow .featured-deals .counter,
-.bow .featured-deals .counter.white,
-.bow .featured-deals .counter.orange,
-.bow .featured-deals .counter.green,
-.bow .featured-deals .counter.red,
-.bow .select2-container--default .select2-results__option--highlighted[aria-selected],
-.bow .booking-notification,
-.bow .alert.red,
-.bow .main-search,
-.bow #mobile_nav_wrapper .header,
-.bow .booking-form .invalid .input-wrapper:before,
-.bow .booking-form .general-error,
-.bow .top-destinations a:hover,
-.bow .top-destinations a:focus,
-.bow .experience a:hover,
-.bow .experience a:focus,
-.bow .deals-list .counter {
-  background-color: #000;
-  color: #fff;
+.payment-wrapper {
+  /* background-color: red; */
+  /* max-width: 120rem;
+  height: 50rem;
+  display:flex; */
+  /* grid-template-columns: 1fr 1fr; */
+  /* justify-content: center;
+  align-items: center; */
+  /* padding-top: 20px ; */
+  /* overflow: hidden; */
+  max-width: 1218px;
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: start;
 }
 
-.bow,
-.bow header .talk,
-.bow .select2-container--default .select2-selection--single .select2-selection__rendered,
-.bow .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.bow .mega-menu a,
-.bow .mega-menu .block a:after,
-.bow .mega-menu .block a:hover,
-.bow .mega-menu .block a:focus,
-.bow .mega-menu .block a:hover:after,
-.bow .mega-menu .block a:focus:after,
-.bow header .btn-search,
-.bow header .btn-search:hover:before,
-.bow header .btn-search:focus:before,
-.bow #main_nav > ul > li > a,
-.bow .booking-tabs a,
-.bow .booking-form label,
-.bow .booking-form .select2-container--default .select2-selection--single .select2-selection__placeholder,
-.bow .booking-form .input-wrapper:before,
-.bow .booking-form .input-wrapper.has-arrow:after,
-.bow .date-picker-popup h2:before,
-.bow .date-picker-popup h2 span,
-.bow .booking-form .input-wrapper select,
-.bow .booking-form .input-wrapper .textbox,
-.bow .booking-form .required-note,
-.bow .number-stepper-detail,
-.bow #mltCity h3,
-.bow .section-title.red,
-.bow .subscription .block h3,
-.bow .deals-tbl .col.right h3,
-.bow .top-destinations a,
-.bow .top-destinations a:after,
-.bow .footer-bottom a,
-.bow header .btn-member,
-.bow .country-wrapper select,
-.bow .date-picker-popup .pika-single,
-.bow .date-picker-popup .pika-table th,
-.bow .experience .label,
-.bow .experience a:hover .label,
-.bow .experience a:focus .label,
-.bow .booking-form .fieldset .date-return:before,
-.bow .footer-links-wrapper .social a:before,
-.bow .booking-form .inline-fields .inline-field.or,
-.bow #mltCity .btn-multi-add-flight,
-.bow #mltCity .remove-flight,
-.bow .mobile-nav > li a,
-.bow .mobile-nav li.has-children > a:after,
-.bow .mobile-nav li.go-back > a:before,
-.bow .country-popup h3,
-.bow .country-popup label,
-.bow .booking-form .invalid .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.bow .passengers-popup .error-msg,
-.bow .passengers-popup .error-msg p:before,
-.bow .passengers-popup .error-msg p a,
-.bow .booking-form .invalid .number-stepper-label,
-.bow .passengers-popup .btn-close-passengers,
-.bow .deals-list .price,
-.bow #deal_info h2,
-.bow .deals-list .more {
-  color: #000;
+ .cards{
+  padding: 10px;
+  display: flex;
+  align-items: start;
 }
 
-.bow .textbox::-webkit-input-placeholder {
-  color: #000;
-}
-.bow .textbox::-moz-placeholder {
-  color: #000;
-}
-.bow .textbox:-moz-placeholder {
-  color: #000;
-}
-.bow .textbox:-ms-input-placeholder {
-  color: #000;
+.card-logos{
+  margin-left:20px;
 }
 
-.bow .date-picker-popup .is-today .pika-button {
-  color: #000;
-  font-weight: bold;
+.card-logos:first-child{
+  margin-left: 0;
 }
-
-.bow header .top-section,
-.bow header .top-section .col,
-.bow .country-wrapper .select2-dropdown,
-.bow #main_nav > ul > li > a > span:before,
-.bow .mega-menu .block a,
-.bow header .bottom-section,
-.bow .mega-menu,
-.bow .mega-menu .cell.right,
-.bow header .btn-search span:before,
-.bow .booking-widget,
-.bow .booking-tabs a,
-.bow .booking-tabs,
-.bow .pill-tabs a.active,
-.bow .booking-form .input-wrapper:before,
-.bow .date-picker-popup h2,
-.bow .date-picker-popup .pika-table td,
-.bow #mltCity h3,
-.bow .content-wrapper,
-.bow .subscription .block,
-.bow .section-title-tbl,
-.bow .featured-deals .block,
-.bow .deals-tbl .col.right,
-.bow .top-destinations li,
-.bow .booking-notification,
-.bow .booking-form .input-wrapper,
-.bow .booking-form .select2-dropdown,
-.bow .number-stepper,
-.bow #mltCity .btn-multi-add-flight,
-.bow #mltCity .remove-flight,
-.bow .mobile-nav > li a,
-.bow .country-wrapper .select2-container--default .select2-selection--single,
-.bow .passengers-popup .error-msg,
-.bow .deals-list > li,
-.bow .deals-list > li .col.left,
-.bow .booking-form .invalid .cabin-field .input-wrapper,
-.bow .booking-form .invalid .cabin-field .input-wrapper:before {
-  border-color: #000;
-}
-
-.bow .date-picker-popup,
-.bow .passengers-popup,
-.bow .country-popup {
-  border: 1px solid #000;
-}
-.bow .booking-form .fieldset .date-field:before,
-.bow .booking-form .fieldset .date-field:after,
-.bow .booking-form .fieldset .date-field:before {
-  bottom: -14px;
-}
-
-.bow .main-search .btn-search-go,
-.bow .booking-form .invalid .cabin-field .input-wrapper,
-.bow .booking-form .invalid .cabin-field .input-wrapper:before {
-  background-color: #fff;
-  color: #000;
-}
-.bow .main-search .btn-search-close {
-  color: #fff;
-  opacity: 1;
-}
-
-.bow .main-search input[type="search"]::-webkit-input-placeholder {
-  color: #fff;
-}
-.bow .main-search input[type="search"]::-moz-placeholder {
-  color: #fff;
-}
-.bow .main-search input[type="search"]:-moz-placeholder {
-  color: #fff;
-}
-.bow .main-search input[type="search"]:-ms-input-placeholder {
-  color: #fff;
-}
-
-.bow .back-top {
-  border: 1px solid #fff;
-}
-.bow .booking-notification .btn-close-note,
-.bow .booking-notification p a,
-.bow .alert .btn-close-alert,
-.bow .alert.red p a,
-.bow .cookie-policy p,
-.bow .footer-links-wrapper .social a:before,
-.bow .booking-notification p:before,
-.bow .experience a:hover .label,
-.bow .experience a:focus .label {
-  color: #fff;
-}
-.bow .booking-notification:after,
-.bow .booking-notification:before {
-  border-top-color: #000;
-}
-.bow .alert {
-  border-bottom: 1px solid #fff;
-}
-.bow .passengers-popup h3 {
-  border-bottom: 1px solid #000;
-}
-.bow .passengers-popup:before,
-.bow .country-popup:before {
-  border-bottom-color: #000;
-}
-.bow .passengers-popup:after,
-.bow .country-popup:after {
-  border-bottom-color: #fff;
-}
-.bow .passengers-popup h3 {
-  background-color: #fff;
-}
-
-.bow header .btn-change-booking:hover,
-.bow header .btn-change-booking:focus,
-.bow header .btn-change-booking.active {
-  background-color: #000;
-}
-.bow .change-booking-popup a {
-  color: #000;
-  text-decoration: underline;
-}
-
-/*--- YOB ---*/
-.yob,
-.yob header .talk:hover,
-.yob header .talk:focus,
-.yob header .btn-member:hover,
-.yob header .btn-member:focus,
-.yob .passengers-popup h3,
-.yob .footer-links-wrapper,
-.yob .booking-notification,
-.yob .alert.red,
-.yob .main-search,
-.yob header,
-.yob .mega-menu,
-.yob .select2-container--default .select2-selection--single,
-.yob .select2-dropdown,
-.yob .content-wrapper.dark,
-.yob .booking-widget,
-.yob .booking-tabs a:hover,
-.yob .booking-tabs a:focus,
-.yob .pill-tabs a:hover,
-.yob .pill-tabs a:focus,
-.yob .booking-form .input-wrapper,
-.yob .date-picker-popup,
-.yob .pika-single,
-.yob .pika-label,
-.yob .date-picker-popup .pika-button,
-.yob .footer-bottom,
-.yob .sliding-banner .owl-nav button i,
-.yob .passengers-popup,
-.yob #mobile_nav_wrapper .header,
-.yob #mobile_nav_wrapper,
-.yob .country-popup,
-.yob .deals-list > li,
-.yob .deals-list .counter,
-.yob #deal_info .content,
-.yob .deals-list .col.left h2 {
-  background-color: #000;
-  color: #ff0;
-}
-
-.yob,
-.yob header .talk,
-.yob .select2-container--default .select2-selection--single .select2-selection__rendered,
-.yob .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.yob .mega-menu a,
-.yob .mega-menu .block a:after,
-.yob .mega-menu .block a:hover,
-.yob .mega-menu .block a:focus,
-.yob .mega-menu .block a:hover:after,
-.yob .mega-menu .block a:focus:after,
-.yob header .btn-search,
-.yob header .btn-search:hover:before,
-.yob header .btn-search:focus:before,
-.yob #main_nav > ul > li > a,
-.yob .booking-tabs a,
-.yob .booking-form label,
-.yob .booking-form .select2-container--default .select2-selection--single .select2-selection__placeholder,
-.yob .booking-form .input-wrapper:before,
-.yob .booking-form .input-wrapper.has-arrow:after,
-.yob .date-picker-popup h2:before,
-.yob .date-picker-popup h2 span,
-.yob .booking-form .input-wrapper select,
-.yob .booking-form .input-wrapper .textbox,
-.yob .booking-form .required-note,
-.yob .number-stepper-detail,
-.yob #mltCity h3,
-.yob .section-title.red,
-.yob .subscription .block h3,
-.yob .deals-tbl .col.right h3,
-.yob .top-destinations a,
-.yob .top-destinations a:after,
-.yob .footer-bottom a,
-.yob header .btn-member,
-.yob .main-search input[type="search"],
-.yob .country-wrapper select,
-.yob .pill-tabs a,
-.yob .date-picker-popup .pika-single,
-.yob .date-picker-popup .pika-table th,
-.yob .booking-notification .btn-close-note,
-.yob .booking-notification p a,
-.yob .alert .btn-close-alert,
-.yob .alert.red p a,
-.yob .cookie-policy p,
-.yob .cookie-policy p strong,
-.yob .cookie-policy p a,
-.yob .cookie-policy .btn-close-cookie,
-.yob .sliding-banner .dots .btn-action span,
-.yob .experience .label,
-.yob .experience a:hover .label,
-.yob .experience a:focus .label,
-.yob .sliding-banner h2,
-.yob .footer-links-wrapper .links-block h3,
-.yob .footer-links-wrapper .footer-nav li a,
-.yob .booking-form .fieldset .date-return:before,
-.yob .footer-links-wrapper .social a:before,
-.yob .footer-links-wrapper .social li a:hover:before,
-.yob .footer-links-wrapper .social li a:focus:before,
-.yob .booking-form .inline-fields .inline-field.or,
-.yob header .btn-menu,
-.yob #mobile_nav_wrapper .mobile-menu-close,
-.yob .mobile-nav > li a,
-.yob .mobile-nav li.has-children > a:after,
-.yob .mobile-nav li.go-back > a:before,
-.yob .btn-country span,
-.yob .btn-country:before,
-.yob .country-popup h3,
-.yob .country-popup label,
-.yob .booking-form .invalid .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.yob .passengers-popup .error-msg,
-.yob .passengers-popup .error-msg p:before,
-.yob .passengers-popup .error-msg p a,
-.yob .booking-notification p:before,
-.yob .booking-form .invalid .number-stepper-label,
-.yob .passengers-popup .btn-close-passengers,
-.yob .deals-list .price,
-.yob .deals-list .more,
-.yob #deal_info h2 {
-  color: #ff0;
-}
-
-.yob .fancybox-close-small svg {
-  stroke: #ff0;
-}
-
-.yob .experience a:hover .label,
-.yob .experience a:focus .label {
-  color: #000;
-}
-
-.yob .textbox::-webkit-input-placeholder {
-  color: #ff0;
-}
-.yob .textbox::-moz-placeholder {
-  color: #ff0;
-}
-.yob .textbox:-moz-placeholder {
-  color: #ff0;
-}
-.yob .textbox:-ms-input-placeholder {
-  color: #ff0;
-}
-
-.yob .date-picker-popup .is-today .pika-button {
-  color: #ff0;
-  font-weight: bold;
-}
-
-.yob header .top-section,
-.yob header .top-section .col,
-.yob .country-wrapper .select2-dropdown,
-.yob #main_nav > ul > li > a > span:before,
-.yob .mega-menu .block a,
-.yob header .bottom-section,
-.yob .mega-menu,
-.yob .mega-menu .cell.right,
-.yob header .btn-search span:before,
-.yob .booking-widget,
-.yob .booking-tabs a,
-.yob .booking-tabs,
-.yob .pill-tabs a.active,
-.yob .booking-form .input-wrapper:before,
-.yob .date-picker-popup h2,
-.yob .date-picker-popup .pika-table td,
-.yob #mltCity h3,
-.yob .content-wrapper,
-.yob .subscription .block,
-.yob .section-title-tbl,
-.yob .featured-deals .block,
-.yob .deals-tbl .col.right,
-.yob .top-destinations li,
-.yob .booking-notification,
-.yob .pill-tabs a,
-.yob .booking-form .input-wrapper,
-.yob .booking-form .select2-dropdown,
-.yob .cookie-policy,
-.yob .sliding-banner .dots button span,
-.yob .number-stepper,
-.yob .number-stepper button,
-.yob .mobile-nav > li a,
-.yob .country-wrapper .select2-container--default .select2-selection--single,
-.yob .passengers-popup .error-msg,
-.yob .deals-list > li,
-.yob .deals-list > li .col.left,
-.yob .booking-form .invalid .cabin-field .input-wrapper,
-.yob .booking-form .invalid .cabin-field .input-wrapper:before,
-.yob #deal_info .content {
-  border-color: #ff0;
-}
-
-.yob .date-picker-popup,
-.yob .passengers-popup,
-.yob .country-popup {
-  border: 1px solid #ff0;
-}
-.yob .booking-form .fieldset .date-field:before,
-.yob .passengers-popup:before,
-.yob .country-popup:before {
-  border-bottom-color: #ff0;
-}
-.yob .passengers-popup:after,
-.yob .country-popup:after {
-  border-bottom-color: #000;
-}
-.yob .booking-form .fieldset .date-field:after,
-.yob .booking-form .fieldset .date-field:before {
-  bottom: -14px;
-}
-.yob .booking-form .fieldset .date-field:after {
-  border-bottom-color: #000;
-}
-
-.yob .main-search .btn-search-go,
-.yob .select2-container--default .select2-results__option--highlighted[aria-selected],
-.yob .select2-container--default .select2-results__option[aria-selected="true"],
-.yob .btn-primary,
-.yob .booking-tabs a.active,
-.yob .pill-tabs a.active,
-.yob .date-picker-popup .is-selected .pika-button,
-.yob .date-picker-container-depart .is-endrange .pika-button,
-.yob .date-picker-container-return .is-startrange .pika-button,
-.yob .date-picker-popup .is-inrange.is-selected .pika-button,
-.yob #mltCity .btn-multi-add-flight,
-.yob #mltCity .remove-flight,
-.yob .back-top,
-.yob .booking-form .invalid .input-wrapper:before,
-.yob .booking-form .general-error,
-.yob .top-destinations a:hover,
-.yob .top-destinations a:focus,
-.yob .featured-deals .counter,
-.yob .featured-deals .counter.white,
-.yob .featured-deals .counter.orange,
-.yob .featured-deals .counter.green,
-.yob .featured-deals .counter.red,
-.yob .experience a:hover,
-.yob .experience a:focus {
-  background-color: #ff0;
-  color: #000;
-}
-.yob .main-search .btn-search-close {
-  color: #ff0;
-  opacity: 1;
-}
-
-.yob .main-search input[type="search"]::-webkit-input-placeholder {
-  color: #ff0;
-}
-.yob .main-search input[type="search"]::-moz-placeholder {
-  color: #ff0;
-}
-.yob .main-search input[type="search"]:-moz-placeholder {
-  color: #ff0;
-}
-.yob .main-search input[type="search"]:-ms-input-placeholder {
-  color: #ff0;
-}
-
-.yob .back-top,
-.yob .subscription .store-buttons a {
-  border: 1px solid #ff0;
-}
-.yob .booking-notification:after,
-.yob .booking-notification:before {
-  border-top-color: #000;
-}
-.yob .alert,
-.yob .sliding-banner,
-.yob #mobile_nav_wrapper .header {
-  border-bottom: 1px solid #ff0;
-}
-.yob .sliding-banner .slider-dots button.active span {
-  background-color: #ff0;
-}
-.yob .footer-bottom {
-  border-top: 1px solid #ff0;
-}
-.yob .cookie-policy {
-  background-color: #000;
-}
-.yob .passengers-popup h3 {
-  border-bottom: 1px solid #ff0;
-}
-.yob .number-stepper button,
-.yob .booking-form .invalid .cabin-field .input-wrapper,
-.yob .booking-form .invalid .cabin-field .input-wrapper:before {
-  background-color: #000;
-  color: #ff0;
-}
-.yob .number-stepper button:disabled {
-  border-color: #979797;
-  color: #979797;
-}
-
-.yob header .btn-change-booking {
-  color: #ff0;
-}
-.yob header .btn-change-booking:hover,
-.yob header .btn-change-booking:focus,
-.yob header .btn-change-booking.active {
-  color: #000;
-  background-color: #ff0;
-}
-.yob .change-booking-popup {
-  border: 1px solid #ff0;
-  background-color: #000;
-}
-.yob .change-booking-popup h3 {
-  color: #ff0;
-}
-.yob .change-booking-popup:before {
-  border-bottom-color: #ff0;
-}
-.yob .change-booking-popup:after {
-  border-bottom-color: #000;
-}
-.yob .change-booking-popup a {
-  color: #ff0;
-  text-decoration: underline;
-}
-
-/*--- BOY ---*/
-.boy,
-.boy header .talk:hover,
-.boy header .talk:focus,
-.boy header .btn-member:hover,
-.boy header .btn-member:focus,
-.boy .passengers-popup h3,
-.boy .footer-links-wrapper,
-.boy .booking-notification,
-.boy .alert.red,
-.boy .main-search,
-.boy header,
-.boy .mega-menu,
-.boy .select2-container--default .select2-selection--single,
-.boy .select2-dropdown,
-.boy .content-wrapper.dark,
-.boy .booking-widget,
-.boy .booking-tabs a:hover,
-.boy .booking-tabs a:focus,
-.boy .pill-tabs a:hover,
-.boy .pill-tabs a:focus,
-.boy .booking-form .input-wrapper,
-.boy .date-picker-popup,
-.boy .pika-single,
-.boy .pika-label,
-.boy .date-picker-popup .pika-button,
-.boy .footer-bottom,
-.boy .sliding-banner .owl-nav button i,
-.boy .passengers-popup,
-.boy #mobile_nav_wrapper,
-.boy .country-popup,
-.boy .deals-list > li,
-.boy .booking-form .invalid .cabin-field .input-wrapper,
-.boy .booking-form .invalid .cabin-field .input-wrapper:before,
-.boy #deal_info .content,
-.boy .deals-list .col.left h2 {
-  background-color: #ff0;
-  color: #000;
-}
-
-.boy,
-.boy header .talk,
-.boy .select2-container--default .select2-selection--single .select2-selection__rendered,
-.boy .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.boy .mega-menu a,
-.boy .mega-menu .block a:after,
-.boy .mega-menu .block a:hover,
-.boy .mega-menu .block a:focus,
-.boy .mega-menu .block a:hover:after,
-.boy .mega-menu .block a:focus:after,
-.boy header .btn-search,
-.boy header .btn-search:hover:before,
-.boy header .btn-search:focus:before,
-.boy #main_nav > ul > li > a,
-.boy .booking-tabs a,
-.boy .booking-form label,
-.boy .booking-form .select2-container--default .select2-selection--single .select2-selection__placeholder,
-.boy .booking-form .input-wrapper:before,
-.boy .booking-form .input-wrapper.has-arrow:after,
-.boy .date-picker-popup h2:before,
-.boy .date-picker-popup h2 span,
-.boy .booking-form .input-wrapper select,
-.boy .booking-form .input-wrapper .textbox,
-.boy .booking-form .required-note,
-.boy .number-stepper-detail,
-.boy #mltCity h3,
-.boy .section-title.red,
-.boy .subscription .block h3,
-.boy .deals-tbl .col.right h3,
-.boy .top-destinations a,
-.boy .top-destinations a:after,
-.boy .footer-bottom a,
-.boy header .btn-member,
-.boy .main-search input[type="search"],
-.boy .country-wrapper select,
-.boy .pill-tabs a,
-.boy .date-picker-popup .pika-single,
-.boy .date-picker-popup .pika-table th,
-.boy .booking-notification .btn-close-note,
-.boy .booking-notification p a,
-.boy .alert .btn-close-alert,
-.boy .alert.red p a,
-.boy .experience .label,
-.boy .experience a:hover .label,
-.boy .experience a:focus .label,
-.boy .footer-links-wrapper .links-block h3,
-.boy .footer-links-wrapper .footer-nav li a,
-.boy .booking-form .fieldset .date-return:before,
-.boy .footer-links-wrapper .social a:before,
-.boy .footer-links-wrapper .social li a:hover:before,
-.boy .footer-links-wrapper .social li a:focus:before,
-.boy .booking-form .inline-fields .inline-field.or,
-.boy .mobile-nav > li a,
-.boy .mobile-nav li.has-children > a:after,
-.boy .mobile-nav li.go-back > a:before,
-.boy .btn-country span,
-.boy .btn-country:before,
-.boy .country-popup h3,
-.boy .country-popup label,
-.boy .booking-form .invalid .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.boy .passengers-popup .error-msg,
-.boy .passengers-popup .error-msg p:before,
-.boy .passengers-popup .error-msg p a,
-.boy .booking-notification p:before,
-.boy .booking-form .invalid .number-stepper-label,
-.boy .passengers-popup .btn-close-passengers,
-.boy .deals-list .price,
-.boy #deal_info h2 {
-  color: #000;
-}
-
-.boy .fancybox-close-small svg {
-  stroke: #000;
-}
-
-.boy .textbox::-webkit-input-placeholder {
-  color: #000;
-}
-.boy .textbox::-moz-placeholder {
-  color: #000;
-}
-.boy .textbox:-moz-placeholder {
-  color: #000;
-}
-.boy .textbox:-ms-input-placeholder {
-  color: #000;
-}
-
-.boy .date-picker-popup .is-today .pika-button {
-  color: #000;
-  font-weight: bold;
-}
-
-.boy header .top-section,
-.boy header .top-section .col,
-.boy .country-wrapper .select2-dropdown,
-.boy #main_nav > ul > li > a > span:before,
-.boy .mega-menu .block a,
-.boy header .bottom-section,
-.boy .mega-menu,
-.boy .mega-menu .cell.right,
-.boy header .btn-search span:before,
-.boy .booking-widget,
-.boy .booking-tabs a,
-.boy .booking-tabs,
-.boy .pill-tabs a.active,
-.boy .booking-form .input-wrapper:before,
-.boy .date-picker-popup h2,
-.boy .date-picker-popup .pika-table td,
-.boy #mltCity h3,
-.boy .content-wrapper,
-.boy .subscription .block,
-.boy .section-title-tbl,
-.boy .featured-deals .block,
-.boy .deals-tbl .col.right,
-.boy .top-destinations li,
-.boy .booking-notification,
-.boy .pill-tabs a,
-.boy .booking-form .input-wrapper,
-.boy .booking-form .select2-dropdown,
-.boy .cookie-policy,
-.boy .number-stepper,
-.boy .mobile-nav > li a,
-.boy .country-wrapper .select2-container--default .select2-selection--single,
-.boy .passengers-popup .error-msg,
-.boy .deals-list > li,
-.boy .deals-list > li .col.left,
-.boy .booking-form .invalid .cabin-field .input-wrapper,
-.boy .booking-form .invalid .cabin-field .input-wrapper:before {
-  border-color: #000;
-}
-
-.boy .date-picker-popup,
-.boy .passengers-popup,
-.boy .country-popup {
-  border: 1px solid #000;
-}
-.boy .booking-form .fieldset .date-field:before,
-.boy .passengers-popup:before,
-.boy .country-popup:before {
-  border-bottom-color: #000;
-}
-.boy .passengers-popup:after,
-.boy .country-popup:after {
-  border-bottom-color: #ff0;
-}
-.boy .booking-form .fieldset .date-field:after,
-.boy .booking-form .fieldset .date-field:before {
-  bottom: -14px;
-}
-.boy .booking-form .fieldset .date-field:after {
-  border-bottom-color: #ff0;
-}
-
-.boy .main-search .btn-search-go,
-.boy .select2-container--default .select2-results__option--highlighted[aria-selected],
-.boy .select2-container--default .select2-results__option[aria-selected="true"],
-.boy .btn-primary,
-.boy .booking-tabs a.active,
-.boy .pill-tabs a.active,
-.boy .date-picker-popup .is-selected .pika-button,
-.boy .date-picker-container-depart .is-endrange .pika-button,
-.boy .date-picker-container-return .is-startrange .pika-button,
-.boy .date-picker-popup .is-inrange.is-selected .pika-button,
-.boy #mltCity .btn-multi-add-flight,
-.boy #mltCity .remove-flight,
-.boy #mobile_nav_wrapper .header,
-.boy .back-top,
-.boy .booking-form .invalid .input-wrapper:before,
-.boy .booking-form .general-error,
-.boy .top-destinations a:hover,
-.boy .top-destinations a:focus,
-.boy .featured-deals .counter,
-.boy .featured-deals .counter.white,
-.boy .featured-deals .counter.orange,
-.boy .featured-deals .counter.green,
-.boy .featured-deals .counter.red,
-.boy .experience a:hover,
-.boy .experience a:focus {
-  background-color: #000;
-  color: #ff0;
-}
-.boy .main-search .btn-search-close {
-  color: #000;
-  opacity: 1;
-}
-
-.boy .main-search input[type="search"]::-webkit-input-placeholder {
-  color: #000;
-}
-.boy .main-search input[type="search"]::-moz-placeholder {
-  color: #000;
-}
-.boy .main-search input[type="search"]:-moz-placeholder {
-  color: #000;
-}
-.boy .main-search input[type="search"]:-ms-input-placeholder {
-  color: #000;
-}
-
-.boy .back-top {
-  border: 1px solid #000;
-}
-.boy .booking-notification:after,
-.boy .booking-notification:before {
-  border-top-color: #ff0;
-}
-.boy .alert,
-.boy .sliding-banner {
-  border-bottom: 1px solid #000;
-}
-.boy .sliding-banner .slider-dots button.active span {
-  background-color: #ff0;
-}
-.boy .footer-bottom {
-  border-top: 1px solid #000;
-}
-.boy .sliding-banner h2,
-.boy .sliding-banner .dots .btn-action span,
-.boy .cookie-policy p,
-.boy .cookie-policy p strong,
-.boy .cookie-policy p a,
-.boy .cookie-policy .btn-close-cookie,
-.boy #mobile_nav_wrapper .mobile-menu-close,
-.boy .experience a:hover .label,
-.boy .experience a:focus .label {
-  color: #ff0;
-}
-.boy .sliding-banner .dots button span {
-  border-color: #ff0;
-}
-.boy .cookie-policy {
-  background-color: #000;
-}
-.boy .passengers-popup h3 {
-  border-bottom: 1px solid #000;
-}
-.boy .number-stepper button {
-  background-color: #ff0;
-}
-
-.boy header .btn-change-booking:hover,
-.boy header .btn-change-booking:focus,
-.boy header .btn-change-booking.active {
-  background-color: #000;
-}
-.boy .change-booking-popup {
-  background-color: #ff0;
-  border: 1px solid #000;
-}
-.boy .change-booking-popup:before {
-  border-bottom-color: #000;
-}
-.boy .change-booking-popup:after {
-  border-bottom-color: #ff0;
-}
-.boy .change-booking-popup a {
-  color: #000;
-  text-decoration: underline;
-}
-
-/*--- bfriday ---*/
-.bfriday,
-.bfriday header .talk:hover,
-.bfriday header .talk:focus,
-.bfriday header .btn-member:hover,
-.bfriday header .btn-member:focus,
-.bfriday .passengers-popup h3,
-.bfriday .footer-links-wrapper,
-.bfriday .booking-notification,
-.bfriday .alert.red,
-.bfriday .main-search,
-.bfriday header,
-.bfriday .mega-menu,
-.bfriday .select2-container--default .select2-selection--single,
-.bfriday .select2-dropdown,
-.bfriday .content-wrapper.dark,
-.bfriday .booking-widget,
-.bfriday .booking-tabs a:hover,
-.bfriday .booking-tabs a:focus,
-.bfriday .pill-tabs a:hover,
-.bfriday .pill-tabs a:focus,
-.bfriday .booking-form .input-wrapper,
-.bfriday .date-picker-popup,
-.bfriday .pika-single,
-.bfriday .pika-label,
-.bfriday .date-picker-popup .pika-button,
-.bfriday .footer-bottom,
-.bfriday .sliding-banner .owl-nav button i,
-.bfriday .passengers-popup,
-.bfriday #mobile_nav_wrapper .header,
-.bfriday #mobile_nav_wrapper,
-.bfriday .country-popup,
-.bfriday .deals-list > li,
-.bfriday .deals-list .counter,
-.bfriday #deal_info .content,
-.bfriday .deals-list .col.left h2 {
-  background-color: #000;
-  color: #fff;
-}
-
-.bfriday,
-.bfriday header .talk,
-.bfriday .select2-container--default .select2-selection--single .select2-selection__rendered,
-.bfriday .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.bfriday .mega-menu a,
-.bfriday .mega-menu .block a:after,
-.bfriday .mega-menu .block a:hover,
-.bfriday .mega-menu .block a:focus,
-.bfriday .mega-menu .block a:hover:after,
-.bfriday .mega-menu .block a:focus:after,
-.bfriday header .btn-search,
-.bfriday header .btn-search:hover:before,
-.bfriday header .btn-search:focus:before,
-.bfriday #main_nav > ul > li > a,
-.bfriday .booking-tabs a,
-.bfriday .booking-form label,
-.bfriday .booking-form .select2-container--default .select2-selection--single .select2-selection__placeholder,
-.bfriday .booking-form .input-wrapper:before,
-.bfriday .booking-form .input-wrapper.has-arrow:after,
-.bfriday .date-picker-popup h2:before,
-.bfriday .date-picker-popup h2 span,
-.bfriday .booking-form .input-wrapper select,
-.bfriday .booking-form .input-wrapper .textbox,
-.bfriday .booking-form .required-note,
-.bfriday .number-stepper-detail,
-.bfriday #mltCity h3,
-.bfriday .section-title {
-  color: #fff;
-}
-.bfriday .section-title h2 {
-  color: #fff;
-}
-.bfriday .section-title.red,
-.bfriday .subscription .block h3,
-.bfriday .deals-tbl .col.right h3,
-.bfriday .top-destinations a,
-.bfriday .top-destinations a:after,
-.bfriday .footer-bottom a,
-.bfriday header .btn-member,
-.bfriday .main-search input[type="search"],
-.bfriday .country-wrapper select,
-.bfriday .pill-tabs a,
-.bfriday .date-picker-popup .pika-single,
-.bfriday .date-picker-popup .pika-table th,
-.bfriday .booking-notification .btn-close-note,
-.bfriday .booking-notification p a,
-.bfriday .alert .btn-close-alert,
-.bfriday .alert.red p a,
-.bfriday .cookie-policy p,
-.bfriday .cookie-policy p strong,
-.bfriday .cookie-policy p a,
-.bfriday .cookie-policy .btn-close-cookie,
-.bfriday .sliding-banner .dots .btn-action span,
-.bfriday .experience .label,
-.bfriday .experience a:hover .label,
-.bfriday .experience a:focus .label,
-.bfriday .sliding-banner h2,
-.bfriday .footer-links-wrapper .links-block h3,
-.bfriday .footer-links-wrapper .footer-nav li a,
-.bfriday .booking-form .fieldset .date-return:before,
-.bfriday .footer-links-wrapper .social a:before,
-.bfriday .footer-links-wrapper .social li a:hover:before,
-.bfriday .footer-links-wrapper .social li a:focus:before,
-.bfriday .booking-form .inline-fields .inline-field.or,
-.bfriday header .btn-menu,
-.bfriday #mobile_nav_wrapper .mobile-menu-close,
-.bfriday .mobile-nav > li a,
-.bfriday .mobile-nav li.has-children > a:after,
-.bfriday .mobile-nav li.go-back > a:before,
-.bfriday .btn-country span,
-.bfriday .btn-country:before,
-.bfriday .country-popup h3,
-.bfriday .country-popup label,
-.bfriday .booking-form .invalid .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.bfriday .passengers-popup .error-msg,
-.bfriday .passengers-popup .error-msg p:before,
-.bfriday .passengers-popup .error-msg p a,
-.bfriday .booking-notification p:before,
-.bfriday .booking-form .invalid .number-stepper-label,
-.bfriday .passengers-popup .btn-close-passengers,
-.bfriday .deals-list .price,
-.bfriday .deals-list .more,
-.bfriday #deal_info h2 {
-  color: #fff;
-}
-
-.bfriday .fancybox-close-small svg {
-  stroke: #fff;
-}
-
-.bfriday .experience a:hover .label,
-.bfriday .experience a:focus .label {
-  color: #000;
-}
-
-.bfriday .textbox::-webkit-input-placeholder {
-  color: #fff;
-}
-.bfriday .textbox::-moz-placeholder {
-  color: #fff;
-}
-.bfriday .textbox:-moz-placeholder {
-  color: #fff;
-}
-.bfriday .textbox:-ms-input-placeholder {
-  color: #fff;
-}
-
-.bfriday .date-picker-popup .is-today .pika-button {
-  color: #fff;
-  font-weight: bold;
-}
-
-.bfriday header .top-section,
-.bfriday header .top-section .col,
-.bfriday .country-wrapper .select2-dropdown,
-.bfriday #main_nav > ul > li > a > span:before,
-.bfriday .mega-menu .block a,
-.bfriday header .bottom-section,
-.bfriday .mega-menu,
-.bfriday .mega-menu .cell.right,
-.bfriday header .btn-search span:before,
-.bfriday .booking-widget,
-.bfriday .booking-tabs a,
-.bfriday .booking-tabs,
-.bfriday .pill-tabs a.active,
-.bfriday .booking-form .input-wrapper:before,
-.bfriday .date-picker-popup h2,
-.bfriday .date-picker-popup .pika-table td,
-.bfriday #mltCity h3,
-.bfriday .content-wrapper,
-.bfriday .subscription .block,
-.bfriday .section-title-tbl,
-.bfriday .featured-deals .block,
-.bfriday .deals-tbl .col.right,
-.bfriday .top-destinations li,
-.bfriday .booking-notification,
-.bfriday .pill-tabs a,
-.bfriday .booking-form .input-wrapper,
-.bfriday .booking-form .select2-dropdown,
-.bfriday .cookie-policy,
-.bfriday .sliding-banner .dots button span,
-.bfriday .number-stepper,
-.bfriday .number-stepper button,
-.bfriday .mobile-nav > li a,
-.bfriday .country-wrapper .select2-container--default .select2-selection--single,
-.bfriday .passengers-popup .error-msg,
-.bfriday .deals-list > li,
-.bfriday .deals-list > li .col.left,
-.bfriday .booking-form .invalid .cabin-field .input-wrapper,
-.bfriday .booking-form .invalid .cabin-field .input-wrapper:before,
-.bfriday #deal_info .content {
-  border-color: #fff;
-}
-
-.bfriday .date-picker-popup,
-.bfriday .passengers-popup,
-.bfriday .country-popup {
-  border: 1px solid #fff;
-}
-.bfriday .booking-form .fieldset .date-field:before,
-.bfriday .passengers-popup:before,
-.bfriday .country-popup:before {
-  border-bottom-color: #fff;
-}
-.bfriday .passengers-popup:after,
-.bfriday .country-popup:after {
-  border-bottom-color: #000;
-}
-.bfriday .booking-form .fieldset .date-field:after,
-.bfriday .booking-form .fieldset .date-field:before {
-  bottom: -14px;
-}
-.bfriday .booking-form .fieldset .date-field:after {
-  border-bottom-color: #000;
-}
-
-.bfriday .main-search .btn-search-go,
-.bfriday .select2-container--default .select2-results__option--highlighted[aria-selected],
-.bfriday .select2-container--default .select2-results__option[aria-selected="true"],
-.bfriday .btn-primary,
-.bfriday .booking-tabs a {
-  background-color: #fff;
-  color: #000;
-}
-
-.bfriday .pill-tabs a.active,
-.bfriday .date-picker-popup .is-selected .pika-button,
-.bfriday .date-picker-container-depart .is-endrange .pika-button,
-.bfriday .date-picker-container-return .is-startrange .pika-button,
-.bfriday .date-picker-popup .is-inrange.is-selected .pika-button,
-.bfriday #mltCity .btn-multi-add-flight,
-.bfriday #mltCity .remove-flight,
-.bfriday .back-top,
-.bfriday .booking-form .invalid .input-wrapper:before,
-.bfriday .booking-form .general-error,
-.bfriday .top-destinations a:hover,
-.bfriday .top-destinations a:focus,
-.bfriday .featured-deals .counter,
-.bfriday .featured-deals .counter.white,
-.bfriday .featured-deals .counter.orange,
-.bfriday .featured-deals .counter.green,
-.bfriday .featured-deals .counter.red,
-.bfriday .experience a:hover,
-.bfriday .experience a:focus {
-  background-color: #fff;
-  color: #000;
-}
-.bfriday .main-search .btn-search-close {
-  color: #fff;
-  opacity: 1;
-}
-
-.bfriday .main-search input[type="search"]::-webkit-input-placeholder {
-  color: #fff;
-}
-.bfriday .main-search input[type="search"]::-moz-placeholder {
-  color: #fff;
-}
-.bfriday .main-search input[type="search"]:-moz-placeholder {
-  color: #fff;
-}
-.bfriday .main-search input[type="search"]:-ms-input-placeholder {
-  color: #fff;
-}
-
-.bfriday .back-top,
-.bfriday .subscription .store-buttons a {
-  border: 1px solid #fff;
-}
-.bfriday .booking-notification:after,
-.bfriday .booking-notification:before {
-  border-top-color: #000;
-}
-.bfriday .alert,
-.bfriday .sliding-banner,
-.bfriday #mobile_nav_wrapper .header {
-  border-bottom: 1px solid #fff;
-}
-.bfriday .sliding-banner .slider-dots button.active span {
-  background-color: #fff;
-}
-.bfriday .footer-bottom {
-  border-top: 1px solid #fff;
-}
-.bfriday .cookie-policy {
-  background-color: #000;
-}
-.bfriday .passengers-popup h3 {
-  border-bottom: 1px solid #fff;
-}
-.bfriday .number-stepper button,
-.bfriday .booking-form .invalid .cabin-field .input-wrapper,
-.bfriday .booking-form .invalid .cabin-field .input-wrapper:before {
-  background-color: #000;
-  color: #fff;
-}
-.bfriday .number-stepper button:disabled {
-  border-color: #979797;
-  color: #979797;
-}
-
-.bfriday header .btn-change-booking {
-  color: #fff;
-}
-.bfriday header .btn-change-booking:hover,
-.bfriday header .btn-change-booking:focus,
-.bfriday header .btn-change-booking.active {
-  color: #000;
-  background-color: #fff;
-}
-.bfriday .change-booking-popup {
-  border: 1px solid #fff;
-  background-color: #000;
-}
-.bfriday .change-booking-popup h3 {
-  color: #fff;
-}
-.bfriday .change-booking-popup:before {
-  border-bottom-color: #fff;
-}
-.bfriday .change-booking-popup:after {
-  border-bottom-color: #000;
-}
-.bfriday .change-booking-popup a {
-  color: #fff;
-  text-decoration: underline;
-}
-
 
 em {
   font-style: normal;
@@ -8654,9 +6621,6 @@ hr {
   color: #fff;
   margin-bottom: 1.2rem;
 }
-
-
-/* Payment Section */
 
 .payment-heading {
   font-size: 1.4rem;
@@ -8679,13 +6643,6 @@ hr {
   font-weight: 700;
 }
 
-.form-box input {
-  font-family: inherit;
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  width: 100%;
-}
-
 .form-box select {
   padding: 0.5rem;
 }
@@ -8698,41 +6655,54 @@ hr {
 .cvv-info:visited {
   color: inherit;
   text-decoration: underline;
+  display: flex;  
+  padding-top: 30px;
+  border: none;
+  
 }
 
 .cvv-info:hover,
 .cvv-info:active {
-  color: #5f7986;
+  color: #4c616b;
   text-decoration: none;
+  border: none;
 }
 
 .btn {
-  background-color: #4c616b;
+  background-color: #1d94f7;
   border: none;
   border-radius: 8px;
   color: #eff2f3;
-  font-size: 1.6rem;
+  width: 150px;
+  /* font-size: 1.6rem; */
   font-weight: 700;
-  letter-spacing: 0.5px;
+  /* letter-spacing: 0.5px; */
   margin-bottom: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   cursor: pointer;
+  float: right;
 }
 
 .btn:hover {
-  background-color: #5f7986;
+  background-color:  rgb(4, 110, 196);
   transition: ease-out 0.1s;
+  color: white;
 }
 
 .footer-text {
   font-size: 1rem;
-  text-align: center;
+  
 }
 
 .form-box *:focus {
   outline: none;
   box-shadow: 0 0 0 0.8rem rgba(139, 139, 107, 0.5);
   border-radius: 8px;
+}
+
+.footer-text .faLock{
+  padding-left: 20px;
+  font-size: 20px;
 }
 
 /* ticket section */
@@ -8742,187 +6712,190 @@ hr {
 
 .ticket-container p,
 .ticket-container h1 {
-	margin: 0;
-	padding: 0;
-	font-family: "Open Sans", sans-serif;;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
 }
 
 .ticket-container {
-	/* background: #e0e2e8; */
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	.ticket {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
-	.basic {
-		display: none;
-	}
+  /* background: #e0e2e8; */
+  position: relative;
+  width: 100%;
+  height: 100vh;
 }
+
+.ticket-container .ticket {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ticket-container .basic {
+  display: none;
+}
+
 
 .airline {
-	display: block;
-	height: 575px;
-	width: 270px;
-	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
-	border-radius: 25px;
-	z-index: 3;
-	.top {
-		height: 220px;
-		background:  #ffcc05;
-		border-top-right-radius: 25px;
-		border-top-left-radius: 25px;
-		h1 {
-			text-transform: uppercase;
-			font-size: 12px;
-			letter-spacing: 2;
-			text-align: center;
-			position: absolute;
-			top: 30px;
-			left: 50%;
-			transform: translateX(-50%);
-		}
-	}
-	.bottom {
-		height: 355px;
-		background:  #fff;
-		border-bottom-right-radius: 25px;
-		border-bottom-left-radius: 25px;
-	}
+  display: block;
+  height: 575px;
+  width: 270px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  z-index: 3;
 }
 
-.top {
-	.big {
-		position: absolute;
-		top: 100px;
-		font-size: 65px;
-		font-weight: 700;
-		line-height: 0.8;
-		.from {
-			color:  #ffcc05;
-			text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-		}
-		.to {
-			position: absolute;
-			left: 32px;
-			font-size: 35px;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			i {
-				margin-top: 5px;
-				margin-right: 10px;
-				font-size: 15px;
-			}
-		}
-	}
-	&--side {
-		position: absolute;
-		right: 35px;
-		top: 110px;
-		text-align: right;
-		i {
-			font-size: 25px;
-			margin-bottom: 18px;
-		}
-		p {
-			font-size: 10px;
-			font-weight: 700;
-		}
-		p + p {
-			margin-bottom: 8px;
-		}
-	}
-}
-.bottom {
-	p {
-		display: flex;
-		flex-direction: column;
-		font-size: 13px;
-		font-weight: 700;
-		span {
-			font-weight: 400;
-			font-size: 11px;
-			color: #6c6c6c;
-		}
-	}
-	.column {
-		margin: 0 auto;
-		width: 80%;
-		padding: 2rem 0;
-	}
-	.row {
-		display: flex;
-		justify-content: space-between;
-		&--right {
-			text-align: right;
-		}
-		&--center {
-			text-align: center;
-		}
-		&-2 {
-			margin: 30px 0 60px 0;
-			position: relative;
-			&::after {
-				content: "";
-				position: absolute;
-				width: 100%;
-				bottom: -30px;
-				left: 0;
-				background: #000;
-				height: 1px;
-			}
-		}
-	}
+.airline .top {
+  height: 220px;
+  background: #7cb9e7;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
 }
 
-.bottom {
-	.bar--code {
-		height: 50px;
-		width: 80%;
-		margin: 0 auto;
-		position: relative;
-		&::after {
-			content: "";
-			position: absolute;
-			width: 6px;
-			height: 100%;
-			background: #000;
-			top: 0;
-			left: 0;
-			box-shadow: 10px 0 #000, 30px 0 #000, 40px 0 #000, 67px 0 #000, 90px 0 #000,
-				100px 0 #000, 180px 0 #000, 165px 0 #000, 200px 0 #000, 210px 0 #000,
-				135px 0 #000, 120px 0 #000;
-		}
-		&::before {
-			content: "";
-			position: absolute;
-			width: 3px;
-			height: 100%;
-			background: #000;
-			top: 0;
-			left: 11px;
-			box-shadow: 12px 0 #000, -4px 0 #000, 45px 0 #000, 65px 0 #000, 72px 0 #000,
-				78px 0 #000, 97px 0 #000, 150px 0 #000, 165px 0 #000, 180px 0 #000,
-				135px 0 #000, 120px 0 #000;
-		}
-	}
+.airline .top h1 {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2;
+  text-align: center;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.info {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	bottom: 10px;
-	font-size: 14px;
-	text-align: center;
-	z-index: 1;
-	a {
-		text-decoration: none;
-		color: #000;
-		background:  #ffcc05;
-	}
+.airline .bottom {
+  height: 355px;
+  background: #fff;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
+
+.airline .top .big {
+  position: absolute;
+  top: 100px;
+  font-size: 65px;
+  font-weight: 700;
+  line-height: 0.8;
+}
+
+.airline .top .big .from {
+  color: #7cb9e7;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.airline .top .big .to {
+  position: absolute;
+  left: 32px;
+  font-size: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.airline .top .big .to i {
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.airline .top--side {
+  position: absolute;
+  right: 35px;
+  top: 110px;
+  text-align: right;
+}
+
+.airline .top--side i {
+  font-size: 25px;
+  margin-bottom: 18px;
+}
+
+.airline .top--side p {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.airline .top--side p + p {
+  margin-bottom: 8px;
+}
+
+.airline .bottom p {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.airline .bottom p span {
+  font-weight: 400;
+  font-size: 11px;
+  color: #6c6c6c;
+}
+
+.airline .bottom .column {
+  margin: 0 auto;
+  width: 80%;
+  padding: 2rem 0;
+}
+
+.airline .bottom .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.airline .bottom .row--right {
+  text-align: right;
+}
+
+.airline .bottom .row--center {
+  text-align: center;
+}
+
+.airline .bottom .row-2 {
+  margin: 30px 0 60px 0;
+  position: relative;
+}
+
+.airline .bottom .row-2::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -30px;
+  left: 0;
+  background: #000;
+  height: 1px;
+}
+
+.airline .bottom .bar--code {
+  height: 50px;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.airline .bottom .bar--code::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: #000;
+  top: 0;
+  left: 0;
+  box-shadow: 10px 0 #000, 30px 0 #000, 40px 0 #000, 67px 0 #000, 90px 0 #000,
+    100px 0 #000, 180px 0 #000, 165px 0 #000, 200px 0 #000, 210px 0 #000,
+    135px 0 #000, 120px 0 #000;
+}
+
+.airline .bottom .bar--code::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background: #000;
+  top: 0;
+  left: 11px;
+  box-shadow: 12px 0 #000, -4px 0 #000, 45px 0 #000, 65px 0 #000, 72px 0 #000,
+    78px 0 #000, 97px 0 #000, 150px 0 #000, 165px 0 #000, 180px 0 #000,
+    135px 0 #000, 120px 0 #000;
+}
+
