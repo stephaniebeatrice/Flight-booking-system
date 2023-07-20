@@ -3,17 +3,13 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
 import "./search-form.css";
+import { useDispatch } from "react-redux";
+import { bookingActions } from "../../store/bookingSlice";
 
 const airports = ["Kenya", "Indonesia", "Uganda", "Tanzania"];
 
-// const isDate = (date) => {
-// 	return new Date(date) !== 'Invalid Date' && !isNaN(new Date(date))
-// }
-const handleButtonClick = flightNumber => {
-  // Perform actions when the button is clicked for a specific flight
-  console.log(`Button clicked for flight number: ${flightNumber}`);
-};
 const ErrorLabel = props => {
   return <label style={{ color: "red" }}>{props.message}</label>;
 };
@@ -23,13 +19,10 @@ export const SearchForm = props => {
   const [searchResult, setSearchResult] = useState([]);
   const [showTimetable, setShowTimetable] = useState(false);
   const [status] = useState({ isValid: false });
-  const [form, setForm] = useState({
-    origin: "",
-    destination: "",
-    passengers: 0,
-    arrivalTime: "",
-    departureTime: "",
-  });
+  const [form, setForm] = useState({ origin: "", destination: "", passengers: 1, arrivalTime: "", departureTime: "" });
+
+  const navigation = useNavigate();
+  const dispatch = useDispatch();
 
   //const isReturn = true;
   const handleSubmit = async event => {
@@ -42,6 +35,7 @@ export const SearchForm = props => {
       headers: { "Content-Type": "application/json" },
     });
     const data = await res.json();
+    console.log("===================RESPONSE ON SEARCH FLIGHT=============================");
     if (data.flight) props.setFlights(data.flight.flights);
   };
 
@@ -50,34 +44,18 @@ export const SearchForm = props => {
     // Perform flight search based on user input
     // Replace the following code with your actual flight search logic
     const searchResponse = [
-      {
-        flightNumber: "FL123",
-        origin: "New York",
-        destination: "London",
-        departureTime: "09:00 AM",
-        arrivalTime: "02:00 PM",
-        fare: "$600",
-      },
-      {
-        flightNumber: "FL456",
-        origin: "London",
-        destination: "New York",
-        departureTime: "03:00 PM",
-        arrivalTime: "08:00 PM",
-        fare: "$600",
-      },
-      {
-        flightNumber: "FL789",
-        origin: "Los Angeles",
-        destination: "Tokyo",
-        departureTime: "11:30 PM",
-        arrivalTime: "05:30 AM",
-        fare: "$600",
-      },
+      { flightNumber: "FL123", origin: "New York", destination: "London", departureTime: "09:00 AM", arrivalTime: "02:00 PM", fare: "$600" },
+      { flightNumber: "FL456", origin: "London", destination: "New York", departureTime: "03:00 PM", arrivalTime: "08:00 PM", fare: "$600" },
+      { flightNumber: "FL789", origin: "Los Angeles", destination: "Tokyo", departureTime: "11:30 PM", arrivalTime: "05:30 AM", fare: "$600" },
     ];
     // Update the search result state with the flight search response
     setSearchResult(searchResponse);
     setShowTimetable(true);
+  };
+  const handleButtonClick = flight => {
+    // Perform actions when the button is clicked for a specific flight
+    dispatch(bookingActions.createPendingBooking(flight));
+    navigation("/Booking");
   };
 
   return (
@@ -215,8 +193,8 @@ export const SearchForm = props => {
                 </tr>
               </thead>
               <tbody>
-                {searchResult.map(flight => (
-                  <tr key={flight.flightNumber}>
+                {searchResult.map((flight, index) => (
+                  <tr key={index.toString()}>
                     <td>{flight.flightNumber}</td>
                     <td>{flight.origin}</td>
                     <td>{flight.destination}</td>
@@ -224,7 +202,7 @@ export const SearchForm = props => {
                     <td>{flight.arrivalTime}</td>
                     <td>{flight.fare}</td>
                     <td>
-                      <button onClick={() => handleButtonClick(flight.flightNumber)}>Book</button>
+                      <button onClick={() => handleButtonClick(flight)}>Book</button>
                     </td>
                   </tr>
                 ))}

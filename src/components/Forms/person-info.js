@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import { useDispatch, useSelector } from "react-redux";
+import { bookingActions } from "../../store/bookingSlice";
+import { useEffect } from "react";
 
 export const PersonlInfo = ({ psnlInfoRef }) => {
+  const [userInfo, setUserInfo] = useState({ title: "", firstName: "", lastName: "", DOB: "", number: "", email: "" });
+  const userBookingInfo = useSelector(state => state.bookingReducer.bookingUserInfo);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setUserInfo(userBookingInfo);
+  }, [userBookingInfo]);
+
+  const handlerSubmit = () => {
+    console.log("=============================USER INFO=============================");
+    console.log(userInfo);
+    dispatch(bookingActions.createUserBookigInfo(userInfo));
+  };
   return (
     <div className="booking-form">
       <div id="psnlInfo" className="booking-tab-content active">
@@ -12,14 +30,21 @@ export const PersonlInfo = ({ psnlInfoRef }) => {
                 <label htmlFor="rndTripFom" id="lbl_rndTripFrom" aria-label="From">
                   Title
                 </label>
-                <input name="title" type="text" id="rndTripFrom" className="form-control" style={{ width: "100%" }} />
-                <select id="titleSelect">
-                  <option>Mr</option>
-                  <option>Mrs</option>
-                  <option>Miss</option>
-                  <option>Dr</option>
-                  <option>Prof</option>
-                </select>
+                <Form.Control
+                  as="select"
+                  name="title"
+                  placeholder="title"
+                  value={userInfo.title}
+                  onChange={e =>
+                    setUserInfo(prev => {
+                      return { ...prev, title: e.target.value };
+                    })
+                  }
+                >
+                  <option>mr</option>
+                  <option>mrs</option>
+                  <option>others</option>
+                </Form.Control>
               </div>
 
               <div className="field">
@@ -34,6 +59,8 @@ export const PersonlInfo = ({ psnlInfoRef }) => {
                   placeholder="John"
                   style={{ width: "100%" }}
                   data-select2-id="rndTripTo"
+                  value={userInfo.firstName}
+                  onChange={e => setUserInfo(prev => ({ ...prev, firstName: e.target.value }))}
                 />
               </div>
 
@@ -49,6 +76,8 @@ export const PersonlInfo = ({ psnlInfoRef }) => {
                   placeholder="Doe"
                   style={{ width: "100%" }}
                   data-select2-id="rndTripTo"
+                  value={userInfo.lastName}
+                  onChange={e => setUserInfo(prev => ({ ...prev, lastName: e.target.value }))}
                 />
               </div>
               <div className="field date-field">
@@ -56,7 +85,15 @@ export const PersonlInfo = ({ psnlInfoRef }) => {
                   Date of Birth*
                 </label>
                 <div className="date-field-wrapper date-depart">
-                  <input name="DateOfBirth" type="date" className="form-control" placeholder="mm-dd-yyyy" style={{ width: "100%" }} />
+                  <input
+                    name="DateOfBirth"
+                    type="date"
+                    className="form-control"
+                    placeholder="mm-dd-yyyy"
+                    style={{ width: "100%" }}
+                    value={userInfo.DOB}
+                    onChange={e => setUserInfo(prev => ({ ...prev, DOB: e.target.value }))}
+                  />
                 </div>
               </div>
             </div>
@@ -73,6 +110,8 @@ export const PersonlInfo = ({ psnlInfoRef }) => {
                   autoComplete="off"
                   className="form-control"
                   aria-labelledby="lbl_rndTripPromoCode"
+                  value={userInfo.number}
+                  onChange={e => setUserInfo(prev => ({ ...prev, number: e.target.value }))}
                 />
               </div>
               <div className="field">
@@ -87,11 +126,21 @@ export const PersonlInfo = ({ psnlInfoRef }) => {
                   autoComplete="off"
                   className="form-control"
                   aria-labelledby="lbl_rndTripPromoCode"
+                  value={userInfo.email}
+                  onChange={e => setUserInfo(prev => ({ ...prev, email: e.target.value }))}
                 />
               </div>
             </div>
-
-            <input type="submit" name="btn-primary" value="Next" id="round_trip_btn" className="btn-primary btn-submit-form btn-rnd-trip" />
+            <button
+              type="submit"
+              name="btn-primary"
+              value="Next"
+              id="round_trip_btn"
+              className="btn-primary btn-submit-form btn-rnd-trip"
+              onClick={handlerSubmit}
+            >
+              Next
+            </button>
             <span className="required-note">All fields with * are mandatory</span>
             <div className="general-error" id="oneWayErr">
               <p></p>

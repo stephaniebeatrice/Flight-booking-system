@@ -27,7 +27,7 @@ export const Header = () => {
                     </Link>
                   </li>
                   <li className="current-menu-item">
-                    <Link style={{ textDecoration: "none" }} to={"/booking"}>
+                    <Link style={{ textDecoration: "none" }} to={"/Bookings"}>
                       Bookings
                     </Link>
                   </li>

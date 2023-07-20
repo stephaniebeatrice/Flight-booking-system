@@ -3,8 +3,12 @@ import { PersonlInfo } from "../../components/Forms/person-info";
 import { Header } from "../../components/header/header";
 import { Payment, SeatSelection, Ticket } from "../../components/Forms";
 import "../../styles/style.css";
+import { useSelector } from "react-redux";
 
 export const BookingPage = () => {
+  const flight = useSelector(state => state.bookingReducer.pendingBooking);
+  console.log("====================slected flight=============================");
+  console.log(flight);
   const [selectedTab, setSelectedTab] = useState("psnlInfo");
   const psnlInfoRef = useRef(null);
   const seatSelectRef = useRef(null);

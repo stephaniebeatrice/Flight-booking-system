@@ -12,10 +12,10 @@ export const Home = () => {
     <div className="App">
       <Header />
       <section className="Main-container" style={{ backgroundImage: `url(${image})`, backgroundPosition: "center" }}>
-        {/* <div className="search-flight">
-          <p>Search Flight</p>
-        </div> */}
         <aside className="Search-section">
+          <div className="search-flight">
+            <p style={{ textAlign: "left", marginLeft: "8rem" }}>Search Flight</p>
+          </div>
           <SearchForm setFlights={setFlights} />
         </aside>
       </section>
