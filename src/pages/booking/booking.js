@@ -5,6 +5,9 @@ import { Payment,  Ticket } from "../../components/Forms";
 import  SeatSelection  from "../../components/Forms/seat-selection";
 import "../../styles/style.css";
 import { useSelector } from "react-redux";
+import { FaAddressCard, FaChair, FaCreditCard, FaMoneyBill, FaPaypal, FaUser } from 'react-icons/fa';
+
+
 
 export const BookingPage = () => {
   const flight = useSelector(state => state.bookingReducer.pendingBooking);
@@ -29,7 +32,7 @@ export const BookingPage = () => {
               <a
                 href="#psnlInfo"
                 onClick={() => scrollToSection(psnlInfoRef, "psnlInfo")}
-                className={selectedTab === "psnlInfo" ? "active icon-book-flight" : "icon-book-flight"}
+                className={selectedTab === "psnlInfo" ? "active  fa fa-user": "fa fa-user"}
                 role="tab"
                 aria-controls="psnlInfo"
                 aria-selected={selectedTab === "psnlInfo"}
@@ -54,7 +57,7 @@ export const BookingPage = () => {
                 aria-controls="payment"
                 aria-selected={selectedTab === "payment"}
               >
-                <span>Payment</span>
+               <span> <FaMoneyBill className="user-icon"/>Payment</span>
               </a>
               <a
                 href="#flightTicket"
@@ -64,7 +67,7 @@ export const BookingPage = () => {
                 aria-controls="flightTicket"
                 aria-selected={selectedTab === "flightTicket"}
               >
-                <span>Ticket</span>
+                <span> <FaAddressCard className="user-icon"/>Ticket</span>
               </a>
             </div>
             {activeTab(selectedTab, psnlInfoRef)}
