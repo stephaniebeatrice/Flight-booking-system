@@ -3,9 +3,9 @@ import React from "react";
 export const Ticket = () => {
   return (
     <div class="ticket-container">
-      <div class="ticket basic">
+      {/* <div class="ticket basic">
         <p>Admit One</p>
-      </div>
+      </div> */}
 
       <div class="ticket airline">
         <div class="top">
@@ -57,19 +57,6 @@ export const Ticket = () => {
           </div>
           <div class="bar--code"></div>
         </div>
-      </div>
-
-      <div class="info">
-        <p>
-          Based on{" "}
-          <a
-            href="https://dribbble.com/shots/11399236-Boarding-Pass"
-            target="_blank"
-          >
-            this
-          </a>{" "}
-          Dribbble from Barna Erdei
-        </p>
       </div>
     </div>
   );
