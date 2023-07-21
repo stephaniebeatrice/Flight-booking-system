@@ -61,8 +61,10 @@ export const Jobs = () => {
             </div>
             <div className="searched-jobs">
               <div className="job-cards">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => {
-                  return <JobCard />;
+                {[1,2,3].map((item, index) => {
+                  // return <JobCard />;
+                   return <JobCard key={index} title={`Job ${item}`} description={`Description of Job ${item}`} />;
+
                 })}
               </div>
               <div className="job-overview">
