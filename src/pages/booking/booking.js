@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { PersonlInfo } from "../../components/Forms/person-info";
 import { Header } from "../../components/header/header";
-import { Payment, SeatSelection, Ticket } from "../../components/Forms";
+import { Payment,  Ticket } from "../../components/Forms";
+import  SeatSelection  from "../../components/Forms/seat-selection";
 import "../../styles/style.css";
 import { useSelector } from "react-redux";
 
@@ -33,7 +34,7 @@ export const BookingPage = () => {
                 aria-controls="psnlInfo"
                 aria-selected={selectedTab === "psnlInfo"}
               >
-                <span>Personal info</span>
+                <span>Personal Info</span>
               </a>
               <a
                 href="#seatSelect"
@@ -43,7 +44,7 @@ export const BookingPage = () => {
                 aria-controls="seatSelect"
                 aria-selected={selectedTab === "seatSelect"}
               >
-                <span>Seat selection</span>
+                <span>Seat Selection</span>
               </a>
               <a
                 href="#payment"
