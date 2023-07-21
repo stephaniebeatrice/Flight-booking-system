@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './seat-selection.css';
+import React, { useState } from "react";
+import "./seat-selection.css";
 
 const SEAT_ROWS = 17;
 const SEAT_COLS = 4;
@@ -13,10 +13,7 @@ const Seat = ({ row, col, selected, onClick }) => {
   };
 
   return (
-    <div
-      className={`seat ${selected ? 'selected' : ''}`}
-      onClick={handleClick}
-    >
+    <div className={`seat ${selected ? "selected" : ""}`} onClick={handleClick}>
       {seatNumber}
     </div>
   );
@@ -32,19 +29,14 @@ const SeatRow = ({ seats, onClick }) => {
       {seats.map((seat, colIndex) => (
         <React.Fragment key={colIndex}>
           {colIndex !== 0 && colIndex % SEATS_PER_ROW === 0 && <Aisle />}
-          <Seat
-            row={seat.row}
-            col={seat.col}
-            selected={seat.selected}
-            onClick={onClick}
-          />
+          <Seat row={seat.row} col={seat.col} selected={seat.selected} onClick={onClick} />
         </React.Fragment>
       ))}
     </div>
   );
 };
 
-const SeatSelection= () => {
+export const SeatSelection = () => {
   const [seats, setSeats] = useState(() => {
     const initialSeats = [];
     for (let row = 0; row < SEAT_ROWS; row++) {
@@ -63,12 +55,8 @@ const SeatSelection= () => {
   });
 
   const handleSeatClick = (row, col) => {
-    setSeats((prevSeats) => {
-      const updatedSeats = prevSeats.map((seat) =>
-        seat.row === row && seat.col === col
-          ? { ...seat, selected: !seat.selected }
-          : seat
-      );
+    setSeats(prevSeats => {
+      const updatedSeats = prevSeats.map(seat => (seat.row === row && seat.col === col ? { ...seat, selected: !seat.selected } : seat));
       return updatedSeats;
     });
   };
@@ -79,28 +67,20 @@ const SeatSelection= () => {
       <div className="seats-container">
         {Array.from({ length: SEAT_ROWS }).map((_, rowIndex) => (
           <div key={rowIndex} className="seat-row">
-            <SeatRow
-              seats={seats.slice(
-                rowIndex * SEAT_COLS,
-                rowIndex * SEAT_COLS + SEAT_COLS
-              )}
-              onClick={handleSeatClick}
-            />
+            <SeatRow seats={seats.slice(rowIndex * SEAT_COLS, rowIndex * SEAT_COLS + SEAT_COLS)} onClick={handleSeatClick} />
           </div>
         ))}
       </div>
       <button
-							type="submit"
-							name="btn-primary"
-							value="Next"
-							id="round_trip_btn"
-							className="btn-primary btn-submit-form btn-rnd-trip"
-							// onClick={handlerSubmit}
-						>
-							Next
-						</button>
+        type="submit"
+        name="btn-primary"
+        value="Next"
+        id="round_trip_btn"
+        className="btn-primary btn-submit-form btn-rnd-trip"
+        // onClick={handlerSubmit}
+      >
+        Next
+      </button>
     </div>
   );
 };
-
-export default SeatSelection;

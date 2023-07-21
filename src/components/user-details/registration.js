@@ -18,8 +18,8 @@ function RegistrationForm(prp) {
 
   const handleInputChange = e => {
     const { id, value } = e.target;
-   
- if (id === "firstname") {
+
+    if (id === "firstname") {
       setFirstname(value);
     }
     if (id === "lastname") {
@@ -35,7 +35,7 @@ function RegistrationForm(prp) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const res = await fetch(`https://flight-booking-server-mu.vercel.app/user/signup`, {
+    const res = await fetch(`https://flight-booking-server-rust.vercel.app/user/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, firstName: firstname, lastName: lastname, password }),
@@ -63,7 +63,7 @@ function RegistrationForm(prp) {
           <label className="auth_label">First Name</label>
           <input
             type="text"
-            style={{ width: "80%", padding:"6px" }}
+            style={{ width: "80%", padding: "6px" }}
             className="auth_input"
             id="firstname"
             name="firstname"
@@ -75,7 +75,7 @@ function RegistrationForm(prp) {
           <label className="auth_label">Last Name</label>
           <input
             type="text"
-            style={{ width: "80%", padding:"6px" }}
+            style={{ width: "80%", padding: "6px" }}
             className="auth_input"
             id="lastname"
             name="lastname"

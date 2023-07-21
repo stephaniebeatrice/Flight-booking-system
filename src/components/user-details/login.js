@@ -21,7 +21,7 @@ const LoginForm = () => {
     e.preventDefault();
     // Perform login logic here
     console.log(loginData);
-    const res = await fetch(`https://flight-booking-server-mu.vercel.app/user/login`, {
+    const res = await fetch(`https://flight-booking-server-rust.vercel.app/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
