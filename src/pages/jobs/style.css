@@ -522,3 +522,19 @@ img {
     padding: 0 20px;
   }
 }
+
+.btn-submit {
+  background-color: #1d94f7;
+  border: none;
+  border-radius: 8px;
+  color: #eff2f3;
+  width: 150px;
+  font-weight: 700; 
+  margin-bottom: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  margin-top: 30px;
+ 
+}
+ 
+
