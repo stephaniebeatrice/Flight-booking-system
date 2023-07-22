@@ -31,7 +31,7 @@ export const PersonlInfo = ({ psnlInfoRef }) => {
 		dispatch(bookingActions.createUserBookigInfo(userInfo))
 	}
 	return (
-		<div className="booking-form">
+		<div className="form-content">
 			<div id="psnlInfo" className="booking-tab-content active">
 				<div className="tab-wrapper">
 					<div id="rndTrip" className="pill-tab-content active">

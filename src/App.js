@@ -9,6 +9,7 @@ import { Admin } from "./pages/admin/admin";
 import { Jobs } from "./pages/jobs/jobs";
 import { Login } from "./pages/login/Login";
 import { SignUp } from "./pages/SignUp.js/SignUp";
+import { Application } from "./pages/jobs/apply-page";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Bookings" element={<Bookings />} />
         <Route path="/Admin" element={<Admin />} />
         <Route path="/Jobs" element={<Jobs />} />
+        <Route path="/Apply" element={<Application />} />
       </Routes>
     </Router>
   );
