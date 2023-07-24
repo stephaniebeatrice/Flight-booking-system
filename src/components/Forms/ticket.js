@@ -1,46 +1,52 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 
-export const Ticket = () => {
+export const Ticket = ({ flight }) => {
+  const ticketRef = useRef(null);
+  const handlePrint = useReactToPrint({
+    content: () => ticketRef.current,
+  });
+
   return (
-    <div class="ticket-container">
-      {/* <div class="ticket basic">
-        <p>Admit One</p>
-      </div> */}
-
+    <div class="ticket-container" ref={ticketRef}>
       <div class="ticket airline">
         <div class="top">
           <h1>boarding pass</h1>
           <div class="big">
-            <p class="from">BWI</p>
-            <p class="to">
-              <i class="fas fa-arrow-right"></i> SAN
-            </p>
+            <p class="from">KQ</p>
+            <p class="to">{/* <i class="fas fa-arrow-right"></i> SAN */}</p>
           </div>
           <div class="top--side">
             <i class="fas fa-plane"></i>
-            <p>Baltimore</p>
-            <p>San Diego</p>
+            <p>{flight.origin}</p>
+            <p>{flight.destination}</p>
           </div>
         </div>
         <div class="bottom">
           <div class="column">
             <div class="row row-1">
               <p>
-                <span>Flight</span>AA2005
+                <span>Flight</span>
+                {flight.flightName}
               </p>
-              <p class="row--right">
-                <span>Gate</span>B3
-              </p>
+              <p class="row--right">{/* <span>Gate</span>B3 */}</p>
             </div>
             <div class="row row-2">
               <p>
-                <span>Boards</span>10:25 AM
+                <span>Boards</span>
+                {`${new Date(new Date(flight.departureTime).getTime() - 30 * 60 * 1000).toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: true,
+                })}`}
               </p>
               <p class="row--center">
-                <span>Departs</span>11:00 AM
+                <span>Departs</span>
+                {new Date(flight.departureTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
               </p>
               <p class="row--right">
-                <span>Arrives</span>1:05 PM
+                <span>Arrives</span>
+                {new Date(flight.departureTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
               </p>
             </div>
             <div class="row row-3">
@@ -58,6 +64,9 @@ export const Ticket = () => {
           <div class="bar--code"></div>
         </div>
       </div>
+      <button class="btn" onClick={handlePrint}>
+        print Ticket
+      </button>
     </div>
   );
 };

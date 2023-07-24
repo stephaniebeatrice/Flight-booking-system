@@ -1,26 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { bookingActions } from "../../store/bookingSlice";
-import { useEffect } from "react";
 
-export const PersonlInfo = ({ psnlInfoRef, setSelectedTab }) => {
-  const [userInfo, setUserInfo] = useState({
-    title: "",
-    firstName: "",
-    lastName: "",
-    DOB: "",
-    number: "",
-    email: "",
-  });
-  const userBookingInfo = useSelector(state => state.bookingReducer.bookingUserInfo);
+export const PersonlInfo = ({ setSelectedTab }) => {
+  const { userBookingInfo, pendingBooking } = useSelector(state => state.bookingReducer);
+
+  const [userInfo, setUserInfo] = useState({ title: "", firstName: "", lastName: "", DOB: "", number: "", email: "" });
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     setUserInfo(userBookingInfo);
   }, [userBookingInfo]);
+  console.log(userInfo);
 
   const handlerSubmit = () => {
     dispatch(bookingActions.createUserBookigInfo(userInfo));
+    dispatch(
+      bookingActions.createPendingBooking({ ...pendingBooking, passengersInfo: [{ fullName: userInfo.firstName + " " + userInfo.lastName }] })
+    );
     setSelectedTab("seatSelect");
   };
   return (
@@ -38,7 +37,7 @@ export const PersonlInfo = ({ psnlInfoRef, setSelectedTab }) => {
                   as="select"
                   name="title"
                   placeholder="title"
-                  value={userInfo.title}
+                  value={userInfo?.title}
                   onChange={e =>
                     setUserInfo(prev => {
                       return { ...prev, title: e.target.value };
@@ -63,7 +62,7 @@ export const PersonlInfo = ({ psnlInfoRef, setSelectedTab }) => {
                   placeholder="John"
                   style={{ width: "100%" }}
                   data-select2-id="rndTripTo"
-                  value={userInfo.firstName}
+                  value={userInfo?.firstName}
                   onChange={e =>
                     setUserInfo(prev => ({
                       ...prev,
@@ -72,6 +71,7 @@ export const PersonlInfo = ({ psnlInfoRef, setSelectedTab }) => {
                   }
                 />
               </div>
+
               <div className="field">
                 <label id="lbl_rndTripTo" aria-label="To">
                   Last Name*
@@ -84,7 +84,7 @@ export const PersonlInfo = ({ psnlInfoRef, setSelectedTab }) => {
                   placeholder="Doe"
                   style={{ width: "100%" }}
                   data-select2-id="rndTripTo"
-                  value={userInfo.lastName}
+                  value={userInfo?.lastName}
                   onChange={e =>
                     setUserInfo(prev => ({
                       ...prev,
@@ -104,7 +104,7 @@ export const PersonlInfo = ({ psnlInfoRef, setSelectedTab }) => {
                     className="form-control"
                     placeholder="mm-dd-yyyy"
                     style={{ width: "100%" }}
-                    value={userInfo.DOB}
+                    value={userInfo?.DOB}
                     onChange={e => setUserInfo(prev => ({ ...prev, DOB: e.target.value }))}
                   />
                 </div>
@@ -123,7 +123,7 @@ export const PersonlInfo = ({ psnlInfoRef, setSelectedTab }) => {
                   autoComplete="off"
                   className="form-control"
                   aria-labelledby="lbl_rndTripPromoCode"
-                  value={userInfo.number}
+                  value={userInfo?.number}
                   onChange={e => setUserInfo(prev => ({ ...prev, number: e.target.value }))}
                 />
               </div>
@@ -139,7 +139,7 @@ export const PersonlInfo = ({ psnlInfoRef, setSelectedTab }) => {
                   autoComplete="off"
                   className="form-control"
                   aria-labelledby="lbl_rndTripPromoCode"
-                  value={userInfo.email}
+                  value={userInfo?.email}
                   onChange={e => setUserInfo(prev => ({ ...prev, email: e.target.value }))}
                 />
               </div>
