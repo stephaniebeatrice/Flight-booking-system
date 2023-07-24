@@ -208,12 +208,12 @@ export const Application = () => {
                     <p>Please upload a valid PDF or DOCX file.</p>
                   </div>
                 )}
-                {selectedFile && fileIsValid && submissionSuccess && (
+                {/* {selectedFile && fileIsValid && submissionSuccess && (
                   <div>
-                    {/* Submission success message */}
+                    Submission success message
                     <p>Submission successful!</p>
                   </div>
-                )}
+                )} */}
           </div >
           <div className="fieldset">
             <button className="btn-submit" onClick={handleSubmit}>Submit</button>
