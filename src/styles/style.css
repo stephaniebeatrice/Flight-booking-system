@@ -3643,131 +3643,131 @@ body.booking-widget-visible .booking-widget {
   display: block;
 }
 
-.booking-form {
+.form-content {
   margin-bottom: 40px;
 }
 
-.booking-form .fieldset {
+.form-content .fieldset {
   padding: 0 0 14px 0;
   font-size: 0;
 }
-.booking-form .fieldset .field {
+.form-content .fieldset .field {
   position: relative;
 }
-.booking-form .fieldset.quarter,
-.booking-form .fieldset.half {
+.form-content .fieldset.quarter,
+.form-content .fieldset.half {
   margin: 0 0 0 -34px;
 }
-.booking-form .fieldset.quarter .field,
-.booking-form .fieldset.half .field {
+.form-content .fieldset.quarter .field,
+.form-content .fieldset.half .field {
   display: inline-block;
   vertical-align: top;
   width: 285px;
   padding-left: 34px;
 }
 
-.booking-form .cabin-field {
+.form-content .cabin-field {
   padding: 13px;
 }
 
-.booking-form .fieldset.third {
+.form-content .fieldset.third {
   margin: 0 0 0 -20px;
 }
-.booking-form .fieldset.third .field {
+.form-content .fieldset.third .field {
   display: inline-block;
   vertical-align: top;
   padding-left: 20px;
 }
-.booking-form .fieldset.third .field:first-child {
+.form-content .fieldset.third .field:first-child {
   width: 20%;
 }
-.booking-form .fieldset.third .field.field-etn {
+.form-content .fieldset.third .field.field-etn {
   width: 30%;
 }
-.booking-form .fieldset.third .field:last-child {
+.form-content .fieldset.third .field:last-child {
   width: 50%;
 }
 
-.booking-form .fieldset.third .field.one,
-.booking-form .fieldset.third .field.two {
+.form-content .fieldset.third .field.one,
+.form-content .fieldset.third .field.two {
   width: 35%;
 }
-.booking-form .fieldset.third .field.three {
+.form-content .fieldset.third .field.three {
   width: 30%;
 }
 
-.booking-form .fieldset.two-thirds {
+.form-content .fieldset.two-thirds {
   margin: 0 0 0 -20px;
 }
-.booking-form .fieldset.two-thirds .field {
+.form-content .fieldset.two-thirds .field {
   display: inline-block;
   vertical-align: top;
   padding-left: 20px;
   width: 50%;
 }
-.booking-form .fieldset.two-thirds .field:first-child {
+.form-content .fieldset.two-thirds .field:first-child {
   width: 50%;
 }
 
-.booking-form .fieldset.fifth {
+.form-content .fieldset.fifth {
   margin: 0 0 0 -20px;
 }
-.booking-form .fieldset.fifth .field {
+.form-content .fieldset.fifth .field {
   display: inline-block;
   vertical-align: top;
   padding-left: 20px;
 }
-.booking-form .fieldset.fifth .field.one,
-.booking-form .fieldset.fifth .field.two {
+.form-content .fieldset.fifth .field.one,
+.form-content .fieldset.fifth .field.two {
   width: 22%;
 }
-.booking-form .fieldset.fifth .field.three {
+.form-content .fieldset.fifth .field.three {
   width: 180px;
 }
-.booking-form .fieldset.fifth .field.four {
+.form-content .fieldset.fifth .field.four {
   width: 290px;
 }
-.booking-form .fieldset.fifth .field.five {
+.form-content .fieldset.fifth .field.five {
   width: 160px;
 }
-.booking-form .fieldset.fifth .field.five .btn-primary {
+.form-content .fieldset.fifth .field.five .btn-primary {
   min-width: 100%;
 }
-.booking-form .fieldset.fifth .field.four.trip-oneway {
+.form-content .fieldset.fifth .field.four.trip-oneway {
   display: none;
 }
 
-.booking-form .inline-fields {
+.form-content .inline-fields {
   display: table;
   width: 100%;
 }
-.booking-form .inline-fields .inline-field {
+.form-content .inline-fields .inline-field {
   display: table-cell;
   vertical-align: top;
 }
 
-.booking-form .inline-fields .inline-field.or {
+.form-content .inline-fields .inline-field.or {
   color: #231f20;
   font-size: 15px;
   font-family: "LucidaSan-Dem", sans-serif;
   text-transform: uppercase;
   padding: 32px 20px 0 0;
 }
-.booking-form .inline-fields .inline-field.mngBkBRN {
+.form-content .inline-fields .inline-field.mngBkBRN {
   padding-left: 20px;
 }
-.booking-form .inline-fields .inline-field.mngBkBtn {
+.form-content .inline-fields .inline-field.mngBkBtn {
   padding-left: 20px;
   width: 160px;
 }
-.booking-form .inline-fields .inline-field.mngBkBtn .btn-primary {
+.form-content .inline-fields .inline-field.mngBkBtn .btn-primary {
   min-width: 100%;
 }
 
-.booking-form .fieldset.half .field {
+.form-content .fieldset.half .field {
   width: 50%;
 }
-.booking-form label {
+.form-content label {
   display: block;
   font-family: "LucidaSan-Dem", sans-serif;
   color: #1e1e1e;
@@ -3776,7 +3776,7 @@ body.booking-widget-visible .booking-widget {
   /* text-transform: uppercase; */
   margin-bottom: 3px;
 }
-.booking-form .input-wrapper {
+.form-content .input-wrapper {
   border: 1px solid #aaa;
   border-radius: 5px;
   height: 45px;
@@ -3784,7 +3784,7 @@ body.booking-widget-visible .booking-widget {
   font-size: 15px;
   background-color: #fff;
 }
-.booking-form .input-wrapper:before {
+.form-content .input-wrapper:before {
   width: 44px;
   height: 43px;
   line-height: 43px;
@@ -3797,11 +3797,11 @@ body.booking-widget-visible .booking-widget {
   border-right: 1px solid #1e1e1e;
   z-index: 50;
 }
-.booking-form .input-wrapper.no-icon:before {
+.form-content .input-wrapper.no-icon:before {
   display: none;
 }
 
-.booking-form .input-wrapper.has-arrow:after {
+.form-content .input-wrapper.has-arrow:after {
   width: 24px;
   height: 24px;
   line-height: 24px;
@@ -3824,39 +3824,39 @@ body.booking-widget-visible .booking-widget {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.booking-form .invalid .input-wrapper,
-.booking-form .invalid .input-wrapper:before {
+.form-content .invalid .input-wrapper,
+.form-content .invalid .input-wrapper:before {
   /* border-color: #e20714; */
 }
-.booking-form .invalid label,
-.booking-form .invalid .select2-container--default .select2-selection--single .select2-selection__placeholder,
-.booking-form .invalid .input-wrapper:before,
-.booking-form .invalid .input-wrapper.has-arrow:after,
-.booking-form .invalid .select2-container--default .select2-selection--single .select2-selection__arrow b,
-.booking-form .fieldset .invalid .date-return:before {
+.form-content .invalid label,
+.form-content .invalid .select2-container--default .select2-selection--single .select2-selection__placeholder,
+.form-content .invalid .input-wrapper:before,
+.form-content .invalid .input-wrapper.has-arrow:after,
+.form-content .invalid .select2-container--default .select2-selection--single .select2-selection__arrow b,
+.form-content .fieldset .invalid .date-return:before {
   color: #e20714;
 }
-.booking-form .invalid .input-wrapper {
+.form-content .invalid .input-wrapper {
   background-color: #f8edee;
 }
-.booking-form .invalid .input-wrapper:before {
+.form-content .invalid .input-wrapper:before {
   background-color: rgba(226, 7, 20, 0.3);
 }
 
-.booking-form .invalid .cabin-field .input-wrapper,
-.booking-form .invalid .cabin-field .input-wrapper:before {
+.form-content .invalid .cabin-field .input-wrapper,
+.form-content .invalid .cabin-field .input-wrapper:before {
   border-color: #1e1e1e;
   background-color: #fff;
 }
-.booking-form .invalid .cabin-field .select2-container--default .select2-selection--single .select2-selection__placeholder,
-.booking-form .invalid .cabin-field .input-wrapper:before,
-.booking-form .invalid .cabin-field .input-wrapper.has-arrow:after,
-.booking-form .invalid .cabin-field .select2-container--default .select2-selection--single .select2-selection__arrow b {
+.form-content .invalid .cabin-field .select2-container--default .select2-selection--single .select2-selection__placeholder,
+.form-content .invalid .cabin-field .input-wrapper:before,
+.form-content .invalid .cabin-field .input-wrapper.has-arrow:after,
+.form-content .invalid .cabin-field .select2-container--default .select2-selection--single .select2-selection__arrow b {
   color: #1e1e1e;
 }
 
-.booking-form .input-wrapper select,
-.booking-form .input-wrapper .textbox {
+.form-content .input-wrapper select,
+.form-content .input-wrapper .textbox {
   display: block;
   width: 100%;
   height: 43px;
@@ -3869,7 +3869,7 @@ body.booking-widget-visible .booking-widget {
   font-size: 14px;
 }
 
-.booking-form .input-wrapper select {
+.form-content .input-wrapper select {
   color: #1b1b1b;
   /* font-weight: 200px; */
   position: absolute;
@@ -3889,47 +3889,47 @@ body.booking-widget-visible .booking-widget {
   font-size: 16px;
 }
 
-.booking-form .input-wrapper {
+.form-content .input-wrapper {
   width: 100% !important;
   position: absolute;
   top: -2px;
 }
-.booking-form .input-wrapper.no-icon .textbox {
+.form-content .input-wrapper.no-icon .textbox {
   padding: 0 12px;
 }
-.booking-form .input-wrapper .txtpromo,
-.booking-form .input-wrapper .txtBRN,
-.booking-form .input-wrapper .txtETN {
+.form-content .input-wrapper .txtpromo,
+.form-content .input-wrapper .txtBRN,
+.form-content .input-wrapper .txtETN {
   font-size: 15px;
 }
-.booking-form .inline-field.etncode {
+.form-content .inline-field.etncode {
   width: 120px;
 }
-.booking-form .inline-field.etn,
-.booking-form .inline-field.ffn {
+.form-content .inline-field.etn,
+.form-content .inline-field.ffn {
   padding-left: 14px;
 }
-.booking-form .inline-field.ffn-airline {
+.form-content .inline-field.ffn-airline {
   width: 251px;
 }
-.booking-form .select2-container {
+.form-content .select2-container {
   font-family: "LucidaSan-Rom", sans-serif;
   z-index: 3000 !important;
 }
-.booking-form .select2-container .select2-selection--single {
+.form-content .select2-container .select2-selection--single {
   height: 43px;
   background-color: transparent;
   border: 0 none;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-.booking-form .select2-container--default .select2-selection--single .select2-selection__rendered {
+.form-content .select2-container--default .select2-selection--single .select2-selection__rendered {
   line-height: 43px;
   color: #1e1e1e;
   padding-left: 50px;
   font-family: "LucidaSan-Dem", sans-serif;
 }
-.booking-form .select2-dropdown {
+.form-content .select2-dropdown {
   left: -2px;
   border-color: #1e1e1e;
   font-size: 14px;
@@ -3938,28 +3938,28 @@ body.booking-widget-visible .booking-widget {
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-.booking-form #fltInfo .select2-dropdown {
+.form-content #fltInfo .select2-dropdown {
   width: 227.7px !important;
 }
-.booking-form #fltTimetable .select2-dropdown {
+.form-content #fltTimetable .select2-dropdown {
   width: 160px !important;
 }
-.booking-form .select2-container--default .select2-selection--single .select2-selection__placeholder {
+.form-content .select2-container--default .select2-selection--single .select2-selection__placeholder {
   color: #757575;
   font-size: 12px;
 }
 
-.booking-form .cabin-field .select2-dropdown {
+.form-content .cabin-field .select2-dropdown {
   width: 259px !important;
   left: -1px;
   margin-top: 1px;
 }
 
-.booking-form .hidden_description {
+.form-content .hidden_description {
   display: none;
 }
 
-.booking-form .btn-primary {
+.form-content .btn-primary {
   height: 45px;
   display: block;
   font-size: 22px;
@@ -3970,44 +3970,44 @@ body.booking-widget-visible .booking-widget {
   border-radius: 8px;
   margin-top: 10px;
 }
-.booking-form .btn-primary:disabled {
+.form-content .btn-primary:disabled {
   background-color: #dfdfdf;
   color: #757575;
   cursor: default;
   pointer-events: none;
 }
-.booking-form .btn-confirm-passengers {
+.form-content .btn-confirm-passengers {
   top: auto;
   font-size: 13px;
   padding: 0;
 }
-.booking-form .required-note {
+.form-content .required-note {
   display: block;
   font-family: "LucidaSan-Rom", sans-serif;
   color: #1e1e1e;
   font-size: 12px;
   line-height: 1.58;
 }
-.booking-form input:read-only::-moz-selection {
+.form-content input:read-only::-moz-selection {
   background: transparent;
   color: #757575;
 }
-.booking-form input:read-only::selection {
+.form-content input:read-only::selection {
   background: transparent;
   color: #757575;
 }
 
-.booking-form .general-error {
+.form-content .general-error {
   padding: 9px;
   background-color: #f8dcde;
   margin-top: 10px;
   display: none;
   color: #e20714;
 }
-.booking-form.deal-form .general-error {
+.form-content.deal-form .general-error {
   margin-left: 14px;
 }
-.booking-form .general-error p {
+.form-content .general-error p {
   font-family: "LucidaSan-Dem", sans-serif;
   font-size: 12px;
   margin: 0;
@@ -4270,14 +4270,14 @@ body.booking-widget-visible .booking-widget {
   display: inline-block;
   vertical-align: middle;
 }
-.booking-form .number-stepper-label {
+.form-content .number-stepper-label {
   color: #000;
   font-family: "LucidaSan-Dem", sans-serif;
   font-size: 20px;
   text-transform: none;
   line-height: 0.95;
 }
-.booking-form .invalid .number-stepper-label {
+.form-content .invalid .number-stepper-label {
   color: #000;
 }
 .number-stepper-detail {
@@ -5020,7 +5020,7 @@ header .btn-change-booking.active {
   .small .btn-primary {
     font-size: 16px;
   }
-  .small .deals-list .booking-form .btn-book-deal {
+  .small .deals-list .form-content .btn-book-deal {
     font-size: 10px;
   }
   .small .btn-primary.small {
@@ -5053,7 +5053,7 @@ header .btn-change-booking.active {
   header .bottom-section {
     padding-right: 20px;
   }
-  .booking-form .number-stepper-label {
+  .form-content .number-stepper-label {
     font-size: 16px;
     margin-bottom: 0;
   }
@@ -5200,19 +5200,19 @@ header .btn-change-booking.active {
     padding-right: 10px;
     font-size: 14px;
   }
-  .booking-form .fieldset.quarter {
+  .form-content .fieldset.quarter {
     margin-top: -14px;
     margin-left: -20px;
   }
-  .booking-form .fieldset.quarter .field {
+  .form-content .fieldset.quarter .field {
     padding-top: 14px;
     width: 50%;
     padding-left: 20px;
   }
-  .booking-form .fieldset.half {
+  .form-content .fieldset.half {
     margin-left: -20px;
   }
-  .booking-form .fieldset.half .field {
+  .form-content .fieldset.half .field {
     padding-left: 20px;
   }
   #mltCity h3 {
@@ -5221,79 +5221,79 @@ header .btn-change-booking.active {
   #mltCity .btn-multi-add-flight {
     font-size: 13px;
   }
-  .booking-form .fieldset.third .field:first-child {
+  .form-content .fieldset.third .field:first-child {
     width: 40%;
   }
-  .booking-form .fieldset.third .field.field-etn {
+  .form-content .fieldset.third .field.field-etn {
     width: 60%;
   }
-  .booking-form .inline-fields .inline-field.or {
+  .form-content .inline-fields .inline-field.or {
     width: 44px;
   }
-  .booking-form .fieldset.third .field:last-child {
+  .form-content .fieldset.third .field:last-child {
     width: 100%;
     padding-top: 14px;
     display: block;
   }
-  .booking-form .fieldset.third .field:last-child .inline-fields .inline-field.or {
+  .form-content .fieldset.third .field:last-child .inline-fields .inline-field.or {
     display: block;
     padding: 0 0 14px 0;
   }
-  .booking-form .fieldset.third .field:last-child .inline-fields .inline-field.or + .inline-field {
+  .form-content .fieldset.third .field:last-child .inline-fields .inline-field.or + .inline-field {
     display: block;
   }
-  .booking-form #manageBooking .fieldset.two-thirds .field:first-child {
+  .form-content #manageBooking .fieldset.two-thirds .field:first-child {
     width: 100%;
   }
-  .booking-form #manageBooking .fieldset.two-thirds .field {
+  .form-content #manageBooking .fieldset.two-thirds .field {
     width: 100%;
   }
-  .booking-form .fieldset.two-thirds .inline-fields .inline-field.or {
+  .form-content .fieldset.two-thirds .inline-fields .inline-field.or {
     display: block;
     padding: 14px 0;
   }
-  .booking-form .fieldset.two-thirds .inline-fields .inline-field {
+  .form-content .fieldset.two-thirds .inline-fields .inline-field {
     display: inline-block;
     width: 50%;
   }
-  .booking-form .fieldset.two-thirds .inline-fields .inline-field.etncode {
+  .form-content .fieldset.two-thirds .inline-fields .inline-field.etncode {
     width: 30%;
   }
-  .booking-form .fieldset.two-thirds .inline-fields .inline-field.etn {
+  .form-content .fieldset.two-thirds .inline-fields .inline-field.etn {
     width: 70%;
   }
-  .booking-form .fieldset.fifth .field.one,
-  .booking-form .fieldset.fifth .field.two {
+  .form-content .fieldset.fifth .field.one,
+  .form-content .fieldset.fifth .field.two {
     width: 29.08%;
   }
-  .booking-form .fieldset.fifth .field.five {
+  .form-content .fieldset.fifth .field.five {
     width: 271px;
   }
-  .booking-form .fieldset.fifth .field.four {
+  .form-content .fieldset.fifth .field.four {
     width: 208px;
   }
-  .booking-form .fieldset.third .field.one,
-  .booking-form .fieldset.third .field.two {
+  .form-content .fieldset.third .field.one,
+  .form-content .fieldset.third .field.two {
     width: 35%;
   }
-  .booking-form .fieldset.third .field.three {
+  .form-content .fieldset.third .field.three {
     width: 30%;
     display: inline-block;
     padding-top: 0;
   }
-  .booking-form #psnlInfo .select2-dropdown {
+  .form-content #psnlInfo .select2-dropdown {
     width: 446px !important;
   }
-  .booking-form #multi_flight .select2-dropdown {
+  .form-content #multi_flight .select2-dropdown {
     width: 250px !important;
   }
-  .booking-form #fltInfo .select2-dropdown {
+  .form-content #fltInfo .select2-dropdown {
     width: 251px !important;
   }
-  .booking-form #fltTimetable .select2-dropdown {
+  .form-content #fltTimetable .select2-dropdown {
     width: 160px !important;
   }
-  .booking-form .inline-field.ffn-airline {
+  .form-content .inline-field.ffn-airline {
     width: 39%;
   }
   .date-picker-popup {
@@ -5349,16 +5349,16 @@ header .btn-change-booking.active {
   .subscription .tbl {
     margin-top: 40px;
   }
-  .deals-list .booking-form {
+  .deals-list .form-content {
     position: relative;
     padding: 0;
   }
-  .deals-list .booking-form .field,
-  .deals-list .booking-form .passengers-field,
-  .deals-list .booking-form .date-field {
+  .deals-list .form-content .field,
+  .deals-list .form-content .passengers-field,
+  .deals-list .form-content .date-field {
     width: 50%;
   }
-  .deals-list .booking-form .btn-primary {
+  .deals-list .form-content .btn-primary {
     top: 0;
     margin-top: 14px;
   }
@@ -5384,8 +5384,8 @@ header .btn-change-booking.active {
   .deals-list .date-picker-popup {
     left: -179px;
   }
-  .booking-form .input-wrapper select,
-  .booking-form .input-wrapper .textbox {
+  .form-content .input-wrapper select,
+  .form-content .input-wrapper .textbox {
     font-size: 14px;
   }
   .footer-bottom .footer-kq-logo {
@@ -5404,7 +5404,7 @@ header .btn-change-booking.active {
   .deals-list .col.left h2 {
     font-size: 26px;
   }
-  .deals-list .booking-form .deal-book {
+  .deals-list .form-content .deal-book {
     position: relative;
   }
 }
@@ -5435,22 +5435,22 @@ header .btn-change-booking.active {
     font-size: 16px;
     padding: 8px 0;
   }
-  .booking-form .fieldset.fifth .field.one,
-  .booking-form .fieldset.fifth .field.two,
-  .booking-form .fieldset.fifth .field.three,
-  .booking-form .fieldset.fifth .field.four,
-  .booking-form .fieldset.fifth .field.five {
+  .form-content .fieldset.fifth .field.one,
+  .form-content .fieldset.fifth .field.two,
+  .form-content .fieldset.fifth .field.three,
+  .form-content .fieldset.fifth .field.four,
+  .form-content .fieldset.fifth .field.five {
     width: 50%;
     padding-bottom: 14px;
   }
-  .booking-form .fieldset.fifth .field.four,
-  .booking-form .fieldset.fifth .field.five {
+  .form-content .fieldset.fifth .field.four,
+  .form-content .fieldset.fifth .field.five {
     padding-top: 0;
   }
-  .booking-form .fieldset.fifth .field.five {
+  .form-content .fieldset.fifth .field.five {
     padding-bottom: 0;
   }
-  .booking-form .fieldset.fifth .field.five .btn-primary {
+  .form-content .fieldset.fifth .field.five .btn-primary {
     top: 0;
   }
 }
@@ -5485,13 +5485,13 @@ header .btn-change-booking.active {
     font-size: 20px;
   }
 
-  .booking-form #psnlInfo .select2-dropdown {
+  .form-content #psnlInfo .select2-dropdown {
     width: 414px !important;
   }
-  .booking-form #fltInfo .select2-dropdown {
+  .form-content #fltInfo .select2-dropdown {
     width: 323px !important;
   }
-  .booking-form #fltTimetable .select2-dropdown {
+  .form-content #fltTimetable .select2-dropdown {
     width: 160px !important;
   }
   .subscription .subscribe-pic {
@@ -5798,28 +5798,28 @@ header .btn-change-booking.active {
   .banner h1 {
     font-size: 30px;
   }
-  .booking-form #psnlInfo .select2-dropdown {
+  .form-content #psnlInfo .select2-dropdown {
     width: 354px !important;
     left: -1px;
   }
-  .booking-form #psnlInfo .cabin-field .select2-dropdown {
+  .form-content #psnlInfo .cabin-field .select2-dropdown {
     width: 330px !important;
   }
-  .booking-form #multi_flight .select2-dropdown {
+  .form-content #multi_flight .select2-dropdown {
     width: 194.5px !important;
   }
-  .booking-form #mltCity .multi-cabin .select2-dropdown {
+  .form-content #mltCity .multi-cabin .select2-dropdown {
     width: 330px !important;
   }
-  .booking-form #seatSelect .select2-dropdown {
+  .form-content #seatSelect .select2-dropdown {
     width: 283.3px !important;
     left: -1px;
   }
-  .booking-form #fltInfo .select2-dropdown {
+  .form-content #fltInfo .select2-dropdown {
     width: 354px !important;
     left: -1px;
   }
-  .booking-form #fltTimetable .select2-dropdown {
+  .form-content #fltTimetable .select2-dropdown {
     width: 354px !important;
   }
   #mltCity .fieldset .field.passengers-field {
@@ -6038,28 +6038,28 @@ header .btn-change-booking.active {
   .section-title {
     font-size: 24px;
   }
-  .booking-form #psnlInfo .select2-dropdown {
+  .form-content #psnlInfo .select2-dropdown {
     width: 270px !important;
     left: -1px;
   }
-  .booking-form #psnlInfo .cabin-field .select2-dropdown {
+  .form-content #psnlInfo .cabin-field .select2-dropdown {
     width: 264px !important;
   }
-  .booking-form #multi_flight .select2-dropdown {
+  .form-content #multi_flight .select2-dropdown {
     width: 270px !important;
   }
-  .booking-form #mltCity .multi-cabin .select2-dropdown {
+  .form-content #mltCity .multi-cabin .select2-dropdown {
     width: 264px !important;
   }
-  .booking-form #seatSelect .select2-dropdown {
+  .form-content #seatSelect .select2-dropdown {
     width: 283.3px !important;
     left: -1px;
   }
-  .booking-form #fltInfo .select2-dropdown {
+  .form-content #fltInfo .select2-dropdown {
     width: 270px !important;
     left: -1px;
   }
-  .booking-form #fltTimetable .select2-dropdown {
+  .form-content #fltTimetable .select2-dropdown {
     width: 270px !important;
   }
   .date-picker-popup {
@@ -6086,18 +6086,18 @@ header .btn-change-booking.active {
   #mltCity .fieldset .field.passengers-field {
     width: 50%;
   }
-  .booking-form .fieldset.two-thirds .inline-fields .inline-field {
+  .form-content .fieldset.two-thirds .inline-fields .inline-field {
     width: 100%;
     padding-bottom: 14px;
   }
-  .booking-form .inline-fields .inline-field.mngBkBRN,
-  .booking-form .inline-fields .inline-field.mngBkBtn {
+  .form-content .inline-fields .inline-field.mngBkBRN,
+  .form-content .inline-fields .inline-field.mngBkBtn {
     padding-left: 0;
   }
-  .booking-form .inline-fields .inline-field.mngBkBtn {
+  .form-content .inline-fields .inline-field.mngBkBtn {
     padding-bottom: 0;
   }
-  .booking-form .inline-fields .inline-field.mngBkBtn .btn-primary {
+  .form-content .inline-fields .inline-field.mngBkBtn .btn-primary {
     top: 0;
   }
   .cookie-policy .wrapper {
@@ -6307,52 +6307,52 @@ header .btn-change-booking.active {
   .pill-tabs a {
     padding: 0 8px;
   }
-  .booking-form .fieldset,
-  .booking-form .fieldset.quarter,
-  .booking-form .fieldset.half,
-  .booking-form .fieldset.third,
-  .booking-form .fieldset.two-thirds,
-  .booking-form .fieldset.fifth,
+  .form-content .fieldset,
+  .form-content .fieldset.quarter,
+  .form-content .fieldset.half,
+  .form-content .fieldset.third,
+  .form-content .fieldset.two-thirds,
+  .form-content .fieldset.fifth,
   #mltCity .fieldset {
     padding: 0 0 14px 0;
     margin: 0;
   }
-  .booking-form .fieldset,
-  .booking-form .fieldset.quarter {
+  .form-content .fieldset,
+  .form-content .fieldset.quarter {
     padding-bottom: 0;
   }
-  .booking-form .fieldset.quarter .field,
-  .booking-form .fieldset.half .field,
+  .form-content .fieldset.quarter .field,
+  .form-content .fieldset.half .field,
   #mltCity .fieldset .field {
     width: 100%;
     padding: 14px 0 0 0;
   }
-  .booking-form .btn-primary {
+  .form-content .btn-primary {
     top: 0;
     margin-top: 14px;
   }
-  .booking-form #psnlInfo .select2-dropdown {
+  .form-content #psnlInfo .select2-dropdown {
     width: 280px !important;
     left: -1px;
   }
-  .booking-form #psnlInfo .cabin-field .select2-dropdown {
+  .form-content #psnlInfo .cabin-field .select2-dropdown {
     width: 254px !important;
   }
-  .booking-form #multi_flight .select2-dropdown {
+  .form-content #multi_flight .select2-dropdown {
     width: 280px !important;
   }
-  .booking-form #mltCity .multi-cabin .select2-dropdown {
+  .form-content #mltCity .multi-cabin .select2-dropdown {
     width: 254px !important;
   }
-  .booking-form #seatSelect .select2-dropdown {
+  .form-content #seatSelect .select2-dropdown {
     width: 283.3px !important;
     left: -1px;
   }
-  .booking-form #fltInfo .select2-dropdown {
+  .form-content #fltInfo .select2-dropdown {
     width: 280px !important;
     left: -1px;
   }
-  .booking-form #fltTimetable .select2-dropdown {
+  .form-content #fltTimetable .select2-dropdown {
     width: 280px !important;
   }
   .date-picker-popup,
@@ -6360,8 +6360,8 @@ header .btn-change-booking.active {
     width: 100%;
     left: 0;
   }
-  .booking-form .fieldset .date-field:after,
-  .booking-form .fieldset .date-field:before {
+  .form-content .fieldset .date-field:after,
+  .form-content .fieldset .date-field:before {
     left: 50%;
   }
   .date-picker-popup {
@@ -6403,57 +6403,57 @@ header .btn-change-booking.active {
   #mltCity .passengers-popup {
     left: 0;
   }
-  .booking-form .fieldset.third .field:first-child,
-  .booking-form .fieldset.third .field.field-etn,
-  .booking-form .fieldset.third .field,
-  .booking-form .fieldset.two-thirds .field:first-child,
-  .booking-form .fieldset.two-thirds .field,
-  .booking-form .fieldset.fifth .field.one,
-  .booking-form .fieldset.fifth .field.two,
-  .booking-form .fieldset.fifth .field.three,
-  .booking-form .fieldset.fifth .field.four,
-  .booking-form .fieldset.fifth .field.five,
-  .booking-form .fieldset.third .field.two,
-  .booking-form .fieldset.third .field.three {
+  .form-content .fieldset.third .field:first-child,
+  .form-content .fieldset.third .field.field-etn,
+  .form-content .fieldset.third .field,
+  .form-content .fieldset.two-thirds .field:first-child,
+  .form-content .fieldset.two-thirds .field,
+  .form-content .fieldset.fifth .field.one,
+  .form-content .fieldset.fifth .field.two,
+  .form-content .fieldset.fifth .field.three,
+  .form-content .fieldset.fifth .field.four,
+  .form-content .fieldset.fifth .field.five,
+  .form-content .fieldset.third .field.two,
+  .form-content .fieldset.third .field.three {
     width: 100%;
     padding-left: 0;
   }
-  .booking-form .fieldset.third .field.two {
+  .form-content .fieldset.third .field.two {
     padding-top: 14px;
   }
-  .booking-form .inline-fields .inline-field {
+  .form-content .inline-fields .inline-field {
     display: block;
   }
-  .booking-form .inline-fields .inline-field.or {
+  .form-content .inline-fields .inline-field.or {
     padding: 16px 0;
   }
-  .booking-form .inline-field.etncode,
-  .booking-form .inline-field.etn {
+  .form-content .inline-field.etncode,
+  .form-content .inline-field.etn {
     display: table-cell;
   }
-  .booking-form .inline-field.etncode,
-  .booking-form .fieldset.two-thirds .inline-fields .inline-field.etncode {
+  .form-content .inline-field.etncode,
+  .form-content .fieldset.two-thirds .inline-fields .inline-field.etncode {
     width: 104px;
     display: table-cell;
     vertical-align: top;
     padding-bottom: 0;
   }
-  .booking-form .fieldset.two-thirds .inline-fields .inline-field.etn {
+  .form-content .fieldset.two-thirds .inline-fields .inline-field.etn {
     display: table-cell;
     width: auto;
     vertical-align: top;
     padding-bottom: 0;
   }
-  .booking-form .inline-field.ffn-airline {
+  .form-content .inline-field.ffn-airline {
     width: 100%;
   }
-  .booking-form .inline-field.ffn {
+  .form-content .inline-field.ffn {
     padding: 10px 0 0 0;
   }
-  .booking-form .fieldset.two-thirds .inline-fields .inline-field.mngBkBtn {
+  .form-content .fieldset.two-thirds .inline-fields .inline-field.mngBkBtn {
     padding-bottom: 0;
   }
-  .booking-form .fieldset.two-thirds .inline-fields .inline-field.mngBkBtn .btn-primary {
+  .form-content .fieldset.two-thirds .inline-fields .inline-field.mngBkBtn .btn-primary {
     margin-top: 0;
   }
   .banner .caption .content {
@@ -6511,15 +6511,15 @@ header .btn-change-booking.active {
     font-size: 14px;
     margin: 10px 0;
   }
-  .deals-list .booking-form .fieldset {
+  .deals-list .form-content .fieldset {
     margin: 0;
   }
-  .deals-list .booking-form .field,
-  .deals-list .booking-form .passengers-field,
-  .deals-list .booking-form .date-field {
+  .deals-list .form-content .field,
+  .deals-list .form-content .passengers-field,
+  .deals-list .form-content .date-field {
     width: 100%;
   }
-  .deals-list .booking-form .field {
+  .deals-list .form-content .field {
     padding: 14px 0 0 0;
   }
   .deals-list > li .col.right {
@@ -6528,13 +6528,13 @@ header .btn-change-booking.active {
   .deals-list .date-picker-popup .pika-button {
     padding: 6px;
   }
-  .deals-list .booking-form .btn-primary {
+  .deals-list .form-content .btn-primary {
     margin-top: 0;
   }
   .sliding-banner h2 {
     font-size: 18px;
   }
-  .booking-form.deal-form .general-error {
+  .form-content.deal-form .general-error {
     margin-left: 0;
   }
 
