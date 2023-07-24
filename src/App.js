@@ -5,7 +5,7 @@ import "./App.css";
 import { BookingPage } from "./pages/booking/booking";
 import { Home } from "./pages/Home/home";
 import { Bookings } from "./pages/Bookings/Bookings";
-import { Admin } from "./pages/admin/admin";
+import  Dashboard  from "./pages/admin/Dashboard";
 import { Jobs } from "./pages/jobs/jobs";
 import { Login } from "./pages/login/Login";
 import { SignUp } from "./pages/SignUp.js/SignUp";
@@ -19,7 +19,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Booking" element={<BookingPage />} />
         <Route path="/Bookings" element={<Bookings />} />
-        <Route path="/Admin" element={<Admin />} />
+        <Route path="/Admin" element={<Dashboard />} />
         <Route path="/Jobs" element={<Jobs />} />
       </Routes>
     </Router>

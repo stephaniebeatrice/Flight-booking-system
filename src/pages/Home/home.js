@@ -11,7 +11,7 @@ export const Home = () => {
       <section className="Main-container" style={{ backgroundImage: `url(${image})`, backgroundPosition: "center" }}>
         <aside className="Search-section">
           <div className="search-flight">
-            <p style={{ textAlign: "left", marginLeft: "8rem" }}>Search Flight</p>
+            <p style={{ textAlign: "left", marginLeft: "8rem"}}>Search Flight</p>
           </div>
           <SearchForm />
         </aside>
