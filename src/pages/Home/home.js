@@ -5,9 +5,6 @@ import image from "../../img/homepage.jpg";
 import "./style.css";
 
 export const Home = () => {
-  const [flights, setFlights] = useState([]);
-  console.log("========================FLIGHTS================");
-  console.log(flights);
   return (
     <div className="App">
       <Header />
@@ -16,7 +13,7 @@ export const Home = () => {
           <div className="search-flight">
             <p style={{ textAlign: "left", marginLeft: "8rem" }}>Search Flight</p>
           </div>
-          <SearchForm setFlights={setFlights} />
+          <SearchForm />
         </aside>
       </section>
     </div>
