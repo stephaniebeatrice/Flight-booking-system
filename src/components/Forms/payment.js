@@ -9,7 +9,7 @@ import { FaLock } from "react-icons/fa";
 
 export const Payment = () => {
   return (
-    <div className="booking-form">
+    <div className="form-content">
       <div class="payment-wrapper">
         <div class="tab-wrapper">
           <form

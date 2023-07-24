@@ -72,7 +72,6 @@ export const PersonlInfo = ({ psnlInfoRef, setSelectedTab }) => {
                   }
                 />
               </div>
-
               <div className="field">
                 <label id="lbl_rndTripTo" aria-label="To">
                   Last Name*
