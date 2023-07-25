@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../../components/header/header";
-import { useState } from "react";
 import "./style.css";
 
 export const Application = () => {
@@ -197,7 +196,6 @@ export const Application = () => {
           </div>
         </div>
       </div>
-      //{" "}
     </div>
   );
 };
