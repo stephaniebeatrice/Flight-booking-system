@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import discover from "../../img/discover.png";
 import mastercard from "../../img/mastercard1.png";
 import mpesa from "../../img/mpesa.png";
@@ -6,18 +6,40 @@ import paypal from "../../img/paypal.png";
 import visa from "../../img/visa.png";
 
 import { FaLock } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { bookingActions } from "../../store/bookingSlice";
 
-export const Payment = () => {
+export const Payment = ({ setSelectedTab }) => {
+  const { seatsSelected, bookingUserInfo: user, pendingBooking } = useSelector(state => state.bookingReducer);
+  const [paymentForm, setPaymentForm] = useState({
+    cardHolderFullName: "",
+    cardNumber: "",
+  });
+  const dispatch = useDispatch();
+
+  const submitHandler = async e => {
+    try {
+      e.preventDefault();
+      dispatch(bookingActions.createPayment(paymentForm));
+      const res = await fetch("https://flight-booking-server-rust.vercel.app/flight/create-booking", {
+        method: "POST",
+        body: JSON.stringify(jsonObj(pendingBooking, user, seatsSelected)),
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+      console.log("==============================DATA========================");
+      console.log(data);
+      setSelectedTab("flightTicket");
+    } catch (error) {
+      console.log("====================================error===========================");
+      console.log(error);
+    }
+  };
   return (
     <div className="form-content">
       <div class="payment-wrapper">
         <div class="tab-wrapper">
-          <form
-            //  class="form-box"
-            enctype="text/plain"
-            method="get"
-            target="_blank"
-          >
+          <form enctype="text/plain" method="get" target="_blank" onSubmit={submitHandler}>
             <div className="cards">
               {/* <p>Accepted cards:</p> */}
               <div className="card-logos">
@@ -38,13 +60,37 @@ export const Payment = () => {
             </div>
             <div className="fieldset half">
               <div className="field">
-                <label for="full-name">Full Name</label>
-                <input id="full-name" className="form-control" placeholder="Satoshi Nakamoto" required type="text" />
+                <label for="full-name">Card Holder Full Name</label>
+                <input
+                  id="full-name"
+                  className="form-control"
+                  placeholder="Satoshi Nakamoto"
+                  required
+                  type="text"
+                  value={paymentForm.cardHolderFullName}
+                  onChange={e =>
+                    setPaymentForm(prev => {
+                      return { ...prev, cardHolderFullName: e.target.value };
+                    })
+                  }
+                />
               </div>
 
               <div className="field">
                 <label for="credit-card-num">Card Number</label>
-                <input id="credit-card-num" className="form-control" placeholder="1111-2222-3333-4444" required type="text" />
+                <input
+                  id="credit-card-num"
+                  className="form-control"
+                  placeholder="1111-2222-3333-4444"
+                  required
+                  type="number"
+                  value={paymentForm.cardNumber}
+                  onChange={e =>
+                    setPaymentForm(prev => {
+                      return { ...prev, cardNumber: +e.target.value };
+                    })
+                  }
+                />
               </div>
             </div>
             <div>
@@ -91,7 +137,9 @@ export const Payment = () => {
                 </div>
               </div>
             </div>
-            <button class="btn">Pay Now</button>
+            <button class="btn" type="submit">
+              Pay Now
+            </button>
           </form>
           <div>
             <p class="footer-text">
@@ -103,4 +151,17 @@ export const Payment = () => {
       </div>
     </div>
   );
+};
+
+const jsonObj = (pendingBooking, user, seatsSelected) => {
+  return {
+    bookingId: pendingBooking._id,
+    fullName: user.firstName + " " + user.lastName,
+    class: pendingBooking.class,
+    passengers: pendingBooking.passengers,
+    passengersInfo: pendingBooking.passengersInfo,
+    payment: pendingBooking.fare,
+    paymentMethod: "VISA",
+    seatBooked: seatsSelected,
+  };
 };

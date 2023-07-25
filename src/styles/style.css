@@ -71,11 +71,11 @@ table {
 }
 ::-moz-selection {
   /* background: #ec0921; */
-  color: #fff;
+  /* color: #fff; */
 }
 ::selection {
   /* background: #ec0921; */
-  color: #fff;
+  /* color: #fff; */
 }
 input[type="checkbox"] {
   -webkit-appearance: checkbox;

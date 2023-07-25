@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import "./search-form.css";
@@ -9,8 +8,8 @@ import { useDispatch } from "react-redux";
 import { bookingActions } from "../../store/bookingSlice";
 
 const airports = [
-  "Lumid Pau Airport",
-  "Kelafo East Airport",
+  "Grantsburg Municipal Airport",
+  "Baimuru Airport",
   "Kratie Airport",
   "Malmstrom Air Force Base",
   "Lanzarote Airport",
@@ -26,10 +25,11 @@ export const SearchForm = props => {
   const [searchResult, setSearchResult] = useState([]);
   const [showTimetable, setShowTimetable] = useState(false);
   const [status] = useState({ isValid: false });
-  const [form, setForm] = useState({ origin: "", destination: "", passengers: 1, arrivalTime: "", departureTime: "" });
+  const [form, setForm] = useState({ origin: "", destination: "", passengers: 1, departureTime: "", class: "Executive" });
   const [msg, setMsg] = useState("");
   const navigation = useNavigate();
   const dispatch = useDispatch();
+
   const handleSubmit = async event => {
     try {
       event.preventDefault();
@@ -37,7 +37,7 @@ export const SearchForm = props => {
       setSearchResult([]);
       const res = await fetch("https://flight-booking-server-rust.vercel.app/flight/search", {
         method: "POST",
-        body: JSON.stringify({ destination: form.destination, departureTime: form.departureTime, origin: form.origin }),
+        body: JSON.stringify({ destination: form.destination, departureTime: form.departureTime, origin: form.origin, passengers: form.passengers }),
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
@@ -45,13 +45,25 @@ export const SearchForm = props => {
         setSearchResult(data.flights);
         return setShowTimetable(true);
       } else {
+        setMsg(data.message);
       }
-    } catch (error) {}
+    } catch (error) {
+      setMsg("no flights found");
+      console.log("==================================FETCH DATA ERROR==================================");
+      console.log(error);
+    }
   };
 
   const handleButtonClick = flight => {
     // Perform actions when the button is clicked for a specific flight
-    dispatch(bookingActions.createPendingBooking(flight));
+    dispatch(
+      bookingActions.createPendingBooking({
+        ...flight,
+        passengers: form.passengers,
+        class: form.class,
+        fare: flight.price[form.class.toLowerCase()] ? flight.price[form.class.toLowerCase()] : flight.price.low,
+      })
+    );
     navigation("/Booking");
   };
 
@@ -157,10 +169,20 @@ export const SearchForm = props => {
 
             <div controlId="exampleForm.ControlSelect1" className="form-group">
               <label htmlFor="departure">Class</label>
-              <Form.Control as="select" name="numOfPassengers" placeholder="Number of Passengers" required>
-                <option>Class A-Executive</option>
-                <option>Class B-Middle Class</option>
-                <option>Class C-Low Class</option>
+              <Form.Control
+                as="select"
+                name="numOfPassengers"
+                placeholder="Number of Passengers"
+                required
+                onChange={e =>
+                  setForm(prev => {
+                    return { ...prev, class: e.target.value };
+                  })
+                }
+              >
+                <option>Executive</option>
+                <option>Middle</option>
+                <option>Economy</option>
               </Form.Control>
             </div>
             <div controlId="exampleForm.ControlSelect1" className="form-group">
@@ -186,7 +208,7 @@ export const SearchForm = props => {
             </div>
           </div>
           <div className="button-container">
-            <Button type="submit">Search</Button>
+            <button type="submit">Search</button>
           </div>
           <div style={{ color: "red", textAlign: "center", fontSize: "large" }}>{msg}</div>
         </form>
@@ -206,18 +228,23 @@ export const SearchForm = props => {
               <tbody>
                 {searchResult.map((flight, index) => {
                   const match = new Date(flight.departureTime).toLocaleDateString() === new Date(form.departureTime).toLocaleDateString();
+                  const price = flight.price[form.class.toLowerCase()] ? flight.price[form.class.toLowerCase()] : flight.price.low;
+                  const time = new Date(new Date(flight.departureTime).getTime() + +flight.flightTime * 60 * 60 * 1000);
                   return (
                     <tr key={index.toString()}>
                       <td>{flight.flightName}</td>
                       <td>
                         {new Date(flight.departureTime).toLocaleDateString()}{" "}
-                        {new Date(flight.departureTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
+                        {new Date(flight.departureTime).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })}
                       </td>
                       <td>
-                        {new Date(flight.arrivalTime).toLocaleDateString()}{" "}
-                        {new Date(flight.arrivalTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
+                        {time.toLocaleDateString()} {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
                       </td>
-                      <td>${flight.price}</td>
+                      <td>${price}</td>
                       <td style={{ color: match ? "green" : "orange" }}>{match ? "Match!" : "Recommended"}</td>
                       <td>
                         <button onClick={() => handleButtonClick(flight)}>Book</button>

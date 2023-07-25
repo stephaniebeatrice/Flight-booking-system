@@ -1,17 +1,27 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import "./App.css";
-import { BookingPage } from "./pages/booking/booking";
-import { Home } from "./pages/Home/home";
+import { useSelector } from "react-redux";
 import { Bookings } from "./pages/Bookings/Bookings";
-import { Admin } from "./pages/admin/admin";
+import { Home } from "./pages/Home/home";
+import { SignUp } from "./pages/SignUp.js/SignUp";
+import Dashboard from "./pages/admin/Dashboard";
+import { BookingPage } from "./pages/booking/booking";
+import { Application } from "./pages/jobs/apply-page";
 import { Jobs } from "./pages/jobs/jobs";
 import { Login } from "./pages/login/Login";
-import { SignUp } from "./pages/SignUp.js/SignUp";
-import { Application } from "./pages/jobs/apply-page";
 
-function App() {
+const App = () => {
+  const user = useSelector(state => state.authReducer.user);
+
+  const renderRestrictedComponent = Component => {
+    if (user) {
+      return <Component />;
+    } else {
+      // If the user is not logged in, navigate to the home page
+      return <Navigate to="/" />;
+    }
+  };
   return (
     <Router>
       <Routes>
@@ -19,12 +29,14 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Booking" element={<BookingPage />} />
-        <Route path="/Bookings" element={<Bookings />} />
-        <Route path="/Admin" element={<Admin />} />
-        <Route path="/Jobs" element={<Jobs />} />
-        <Route path="/Apply" element={<Application />} />
+
+        <Route path="/Admin" element={renderRestrictedComponent(Dashboard)} />
+        <Route path="/Jobs" element={renderRestrictedComponent(Jobs)} />
+        <Route path="/Apply" element={renderRestrictedComponent(Application)} />
+        <Route path="/Bookings" element={renderRestrictedComponent(Bookings)} />
       </Routes>
     </Router>
   );
-}
+};
+
 export default App;

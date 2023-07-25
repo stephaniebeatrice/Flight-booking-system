@@ -8,19 +8,12 @@ const LoginForm = () => {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [msg, setMsg] = useState("");
 
-  const handleChange = e => {
-    setLoginData({
-      ...loginData,
-      [e.target.name]: e.target.value,
-    });
-  };
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
   const handleSubmit = async e => {
     e.preventDefault();
     // Perform login logic here
-    console.log(loginData);
     const res = await fetch(`https://flight-booking-server-rust.vercel.app/user/login`, {
       method: "POST",
       headers: {
@@ -40,19 +33,33 @@ const LoginForm = () => {
     setMsg("");
   };
 
+  const handleChange = e => {
+    setLoginData({
+      ...loginData,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <div className="auth-container ">
       <div className="form-container" id="login-form">
         <h1>Login</h1>
         <form className="login_form">
           <label className="auth_label">Email</label>
-          <input type="email" className="auth_input" value={loginData.email} onChange={e => handleChange(e)} onFocus={focusChangeHandler} required />
+          <input
+            type="email"
+            className="auth_input"
+            name="email"
+            value={loginData?.email}
+            onChange={e => handleChange(e)}
+            onFocus={focusChangeHandler}
+            required
+          />
           <label className="auth_label">Password</label>
           <input
             type="password"
             className="auth_input"
             name="password"
-            value={loginData.password}
+            value={loginData?.password}
             onChange={e => handleChange(e)}
             onFocus={focusChangeHandler}
             required

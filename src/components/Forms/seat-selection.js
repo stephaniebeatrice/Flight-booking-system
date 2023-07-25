@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./seat-selection.css";
+import { useDispatch } from "react-redux";
+import { bookingActions } from "../../store/bookingSlice";
 
 const SEAT_ROWS = 17;
 const SEAT_COLS = 4;
@@ -7,7 +9,6 @@ const SEATS_PER_ROW = 2;
 
 const Seat = ({ row, col, selected, onClick }) => {
   const seatNumber = String.fromCharCode(65 + row) + (col + 1);
-
   const handleClick = () => {
     onClick(row, col);
   };
@@ -36,7 +37,9 @@ const SeatRow = ({ seats, onClick }) => {
   );
 };
 
-export const SeatSelection = () => {
+export const SeatSelection = ({ setSelectedTab }) => {
+  const [selectedSeat, setSelectedSeat] = useState([]);
+  const dispatch = useDispatch();
   const [seats, setSeats] = useState(() => {
     const initialSeats = [];
     for (let row = 0; row < SEAT_ROWS; row++) {
@@ -55,12 +58,25 @@ export const SeatSelection = () => {
   });
 
   const handleSeatClick = (row, col) => {
+    setSelectedSeat(prev => {
+      const idx = prev.findIndex(s => s.row === row && s.col === col);
+      if (idx !== -1) {
+        const updatedSeats = [...prev];
+        updatedSeats.splice(idx, 1);
+        return updatedSeats;
+      } else {
+        return [...prev, { row, col }];
+      }
+    });
     setSeats(prevSeats => {
       const updatedSeats = prevSeats.map(seat => (seat.row === row && seat.col === col ? { ...seat, selected: !seat.selected } : seat));
       return updatedSeats;
     });
   };
-
+  const handlerSubmit = () => {
+    dispatch(bookingActions.createSeatSelection(selectedSeat));
+    setSelectedTab("payment");
+  };
   return (
     <div className="container">
       <h1>Select Seat</h1>
@@ -77,7 +93,7 @@ export const SeatSelection = () => {
         value="Next"
         id="round_trip_btn"
         className="btn-primary btn-submit-form btn-rnd-trip"
-        // onClick={handlerSubmit}
+        onClick={handlerSubmit}
       >
         Next
       </button>
