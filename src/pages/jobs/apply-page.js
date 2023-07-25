@@ -38,11 +38,18 @@ export const Application = () => {
       {/* <div className="job">
         <div className="job-wrapper">
           <div className="main-container"> */}
+      {/* <div className="form-content"> */}
       <div className="form-content">
-        <div class="payment-wrapper">
+      <div id="psnlInfo" className="booking-tab-content active">
+        <div className="tab-wrapper">
+          <div id="rndTrip" className="pill-tab-content active">
           <div className="tab-wrapper">
+          <div className="form-content">
+      <div class="payment-wrapper">
+        <div class="tab-wrapper">
+        <h2>Job Application Form</h2>
             <div className="fieldset third">
-                <h2>Job Application Form</h2>
+                
               <div className="field">
                 
                 <label id="lbl_rndTripTo" aria-label="To">
@@ -223,6 +230,11 @@ export const Application = () => {
         </div>
       </div>
     </div>
-    // </div>
+   </div>
+   </div>
+   </div>
+   </div>
+   </div>
+   </div>
   );
 };

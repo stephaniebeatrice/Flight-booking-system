@@ -6654,7 +6654,7 @@ hr {
 .cvv-info:link,
 .cvv-info:visited {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
   display: flex;  
   padding-top: 30px;
   border: none;
