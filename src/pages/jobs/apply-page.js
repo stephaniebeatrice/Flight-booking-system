@@ -41,9 +41,6 @@ export const Application = () => {
       <div className="form-content">
       <div id="psnlInfo" className="booking-tab-content active">
         <div className="tab-wrapper">
-          <div id="rndTrip" className="pill-tab-content active">
-          <div className="tab-wrapper">
-          <div className="form-content">
       <div class="payment-wrapper">
         <div class="tab-wrapper">
         <h2>Job Application Form</h2>
@@ -203,6 +200,8 @@ export const Application = () => {
           </div>
         </div>
       </div>
+    </div>
+     </div>
     </div>
   );
 };
