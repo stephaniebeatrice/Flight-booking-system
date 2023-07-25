@@ -35,7 +35,7 @@ export const SearchForm = props => {
       event.preventDefault();
       setMsg("");
       setSearchResult([]);
-      const res = await fetch("http://localhost:3000/flight/search", {
+      const res = await fetch("https://flight-booking-server-rust.vercel.app/flight/search", {
         method: "POST",
         body: JSON.stringify({ destination: form.destination, departureTime: form.departureTime, origin: form.origin, passengers: form.passengers }),
         headers: { "Content-Type": "application/json" },
@@ -47,7 +47,11 @@ export const SearchForm = props => {
       } else {
         setMsg(data.message);
       }
-    } catch (error) {}
+    } catch (error) {
+      setMsg("no flights found");
+      console.log("==================================FETCH DATA ERROR==================================");
+      console.log(error);
+    }
   };
 
   const handleButtonClick = flight => {
@@ -225,7 +229,7 @@ export const SearchForm = props => {
                 {searchResult.map((flight, index) => {
                   const match = new Date(flight.departureTime).toLocaleDateString() === new Date(form.departureTime).toLocaleDateString();
                   const price = flight.price[form.class.toLowerCase()] ? flight.price[form.class.toLowerCase()] : flight.price.low;
-
+                  const time = new Date(new Date(flight.departureTime).getTime() + +flight.flightTime * 60 * 60 * 1000);
                   return (
                     <tr key={index.toString()}>
                       <td>{flight.flightName}</td>
@@ -238,12 +242,7 @@ export const SearchForm = props => {
                         })}
                       </td>
                       <td>
-                        {new Date(flight.arrivalTime).toLocaleDateString()}{" "}
-                        {new Date(flight.arrivalTime).toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: true,
-                        })}
+                        {time.toLocaleDateString()} {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
                       </td>
                       <td>${price}</td>
                       <td style={{ color: match ? "green" : "orange" }}>{match ? "Match!" : "Recommended"}</td>

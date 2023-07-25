@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { useState } from "react";
 import { Header } from "../../components/header/header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import handlers from "../../img/handlers.jpg";
 import clearance from "../../img/clearance.jpg";
@@ -12,20 +12,24 @@ import operations from "../../img/operations.jpg";
 import pilot from "../../img/pilot.jpg";
 import controllers from "../../img/controllers.jpg";
 import support from "../../img/support.jpg";
+import { useSelector } from "react-redux";
 
 export const Jobs = () => {
   const [selectedJob, setSelectedJob] = useState(null);
- 
-  const handleReadMoreClick = (jobId) => {
+  const user = useSelector(state => state.authReducer.user);
+  const navigation = useNavigate();
+  useLayoutEffect(() => {
+    if (!user) navigation("/");
+  }, [navigation, user]);
+
+  const handleReadMoreClick = jobId => {
     setSelectedJob(jobId === selectedJob ? null : jobId);
   };
-
   const jobData = [
     {
       id: 1,
       title: "Baggage handler",
-      subtitle:
-        "Responsibilities include transferring luggage from check-in areas to departure areas, moving luggage to and from the aircraft.",
+      subtitle: "Responsibilities include transferring luggage from check-in areas to departure areas, moving luggage to and from the aircraft.",
       details: ["Full Time", "Min. 2 Years", "Senior Level"],
       imageUrl: handlers,
       Requirements: "This position requires you to have a diploma or related training",
@@ -105,7 +109,6 @@ export const Jobs = () => {
       imageUrl: controllers,
       Requirements: "This position requires you to have a diploma or related training",
       salary: "20,000 per month",
-      
     },
     {
       id: 9,
@@ -118,7 +121,6 @@ export const Jobs = () => {
       salary: "20,000 per month",
     },
   ];
-
 
   return (
     <div className="App">
@@ -135,9 +137,7 @@ export const Jobs = () => {
             <div className="search-type">
               <div className="alert">
                 <div className="alert-title">Create Job Alert</div>
-                <div className="alert-subtitle">
-                  Create a job alert now and never miss a job
-                </div>
+                <div className="alert-subtitle">Create a job alert now and never miss a job</div>
                 <input type="text" placeholder="Enter job keyword" />
                 <button className="search-buttons">Create Job Alerts</button>
               </div>
@@ -145,12 +145,7 @@ export const Jobs = () => {
                 <div className="job-time-title">Type of Employment</div>
                 <div className="job-wrapper">
                   <div className="type-container">
-                    <input
-                      type="checkbox"
-                      id="job1"
-                      className="job-style"
-                      checked
-                    />
+                    <input type="checkbox" id="job1" className="job-style" checked />
                     <label for="job1">Full Time Jobs</label>
                     <span className="job-number">56</span>
                   </div>
@@ -184,34 +179,28 @@ export const Jobs = () => {
             </div>
             <div className="searched-jobs">
               <div className="job-cards">
-                {jobData.map((job) => (
+                {jobData.map(job => (
                   <div className="job-card" key={job.id}>
                     <div className="job-card-header">
                       <img src={job.imageUrl} alt={job.title} />
                     </div>
-                    <div className="job-card-title"><h3>{job.title}</h3></div>
+                    <div className="job-card-title">
+                      <h3>{job.title}</h3>
+                    </div>
                     <div className="job-card-subtitle">{job.subtitle}</div>
                     <div className="job-detail-buttons">
                       {job.details.map((detail, index) => (
-                        <button
-                          className="search-buttons detail-button"
-                          key={index}
-                        >
+                        <button className="search-buttons detail-button" key={index}>
                           {detail}
                         </button>
                       ))}
                     </div>
                     <div className="job-card-buttons">
-                      <button
-                        className="search-buttons card-buttons"
-                        onClick={() => handleReadMoreClick(job.id)}
-                      >
+                      <button className="search-buttons card-buttons" onClick={() => handleReadMoreClick(job.id)}>
                         Read more
                       </button>
                       <Link to="/Apply">
-                        <button className="search-buttons card-buttons">
-                          Apply Now
-                        </button>
+                        <button className="search-buttons card-buttons">Apply Now</button>
                       </Link>
                     </div>
                     {selectedJob === job.id && (
@@ -232,4 +221,3 @@ export const Jobs = () => {
     </div>
   );
 };
-

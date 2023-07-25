@@ -21,7 +21,7 @@ export const Payment = ({ setSelectedTab }) => {
     try {
       e.preventDefault();
       dispatch(bookingActions.createPayment(paymentForm));
-      const res = await fetch("http://localhost:3000/flight/create-booking", {
+      const res = await fetch("https://flight-booking-server-rust.vercel.app/flight/create-booking", {
         method: "POST",
         body: JSON.stringify(jsonObj(pendingBooking, user, seatsSelected)),
         headers: { "Content-Type": "application/json" },

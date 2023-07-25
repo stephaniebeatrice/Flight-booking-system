@@ -20,7 +20,6 @@ const LoginForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     // Perform login logic here
-    console.log(loginData);
     const res = await fetch(`https://flight-booking-server-rust.vercel.app/user/login`, {
       method: "POST",
       headers: {

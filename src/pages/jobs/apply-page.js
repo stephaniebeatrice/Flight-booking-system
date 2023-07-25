@@ -8,14 +8,14 @@ export const Application = () => {
   const [fileIsValid, setFileIsValid] = useState(true);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
 
-  const handleFileChange = (event) => {
+  const handleFileChange = event => {
     const file = event.target.files[0];
     setSelectedFile(file);
     setFileIsValid(validateFile(file));
   };
 
   // Validation function for allowed file extensions
-  const validateFile = (file) => {
+  const validateFile = file => {
     if (!file) {
       return true; // No file selected, consider as valid
     }
@@ -42,9 +42,8 @@ export const Application = () => {
         <div class="payment-wrapper">
           <div className="tab-wrapper">
             <div className="fieldset third">
-                <h2>Job Application Form</h2>
+              <h2>Job Application Form</h2>
               <div className="field">
-                
                 <label id="lbl_rndTripTo" aria-label="To">
                   First Name*
                 </label>
@@ -77,13 +76,7 @@ export const Application = () => {
                 <label id="lbl_rndTripDates" aria-label="Date">
                   Date of Birth*
                 </label>
-                  <input
-                    name="DateOfBirth"
-                    type="date"
-                    className="form-control"
-                    placeholder="mm-dd-yyyy"
-                    style={{ width: "100%" }}
-                  />
+                <input name="DateOfBirth" type="date" className="form-control" placeholder="mm-dd-yyyy" style={{ width: "100%" }} />
               </div>
             </div>
             <div className="fieldset half">
@@ -149,12 +142,7 @@ export const Application = () => {
             <div className="fieldset third">
               <div className="field">
                 <label class="expiration-year">Position Applying for*</label>
-                <select
-                  id="experation-year"
-                  style={{ width: "100%" }}
-                  className="form-control"
-                  required
-                >
+                <select id="experation-year" style={{ width: "100%" }} className="form-control" required>
                   <option value="">Airline Baggage handler</option>
                   <option value="">Passenger assistant</option>
                   <option value="">Airline Clearance agents</option>
@@ -170,24 +158,11 @@ export const Application = () => {
                 <label id="lbl_rndTripDates" aria-label="Date">
                   Availabe Start Date*
                 </label>
-                  <input
-                    name="DateOfBirth"
-                    type="date"
-                    className="form-control"
-                    placeholder="mm-dd-yyyy"
-                    style={{ width: "100%" }}
-                  />
+                <input name="DateOfBirth" type="date" className="form-control" placeholder="mm-dd-yyyy" style={{ width: "100%" }} />
               </div>
               <div className="field">
-                <label class="expiration-year">
-                  What is your current employment status*
-                </label>
-                <select
-                  id="experation-year"
-                  style={{ width: "100%" }}
-                  className="form-control"
-                  required
-                >
+                <label class="expiration-year">What is your current employment status*</label>
+                <select id="experation-year" style={{ width: "100%" }} className="form-control" required>
                   <option value="">Employed</option>
                   <option value="">Self-Employed</option>
                   <option value="">Unemployed</option>
@@ -196,9 +171,7 @@ export const Application = () => {
               </div>
             </div>
             <div className="field">
-            <label class="expiration-year">
-                Upload your resume/CV*
-                </label>
+              <label class="expiration-year">Upload your resume/CV*</label>
               <div className="resume">
                 <input type="file" onChange={handleFileChange} />
 
@@ -214,15 +187,17 @@ export const Application = () => {
                     <p>Submission successful!</p>
                   </div>
                 )} */}
-          </div >
-          <div className="fieldset">
-            <button className="btn-submit" onClick={handleSubmit}>Submit</button>
-              
+              </div>
+              <div className="fieldset">
+                <button className="btn-submit" onClick={handleSubmit}>
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      //{" "}
     </div>
-    // </div>
   );
 };

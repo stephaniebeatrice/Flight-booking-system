@@ -8,8 +8,8 @@ import { authActions } from "../../store/authSlice";
 
 export const Header = () => {
   const user = useSelector(state => state.authReducer.user);
-  // const dispatch = useDispatch();
-  // dispatch(authActions.logout());
+  const dispatch = useDispatch();
+  dispatch(authActions.logout());
   const navigation = useNavigate();
   return (
     <header className="animate-search">

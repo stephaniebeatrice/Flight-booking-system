@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { bookingActions } from "../../store/bookingSlice";
 
 export const PersonlInfo = ({ setSelectedTab }) => {
-  const { userBookingInfo, pendingBooking } = useSelector(state => state.bookingReducer);
+  const { bookingUserInfo, pendingBooking } = useSelector(state => state.bookingReducer);
 
-  const [userInfo, setUserInfo] = useState({ title: "", firstName: "", lastName: "", DOB: "", number: "", email: "" });
+  const [userInfo, setUserInfo] = useState({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
 
   const dispatch = useDispatch();
-
+  console.log("===========================USER BOOKING INFO====================================");
+  console.log(bookingUserInfo);
   useEffect(() => {
-    setUserInfo(userBookingInfo);
-  }, [userBookingInfo]);
-  console.log(userInfo);
+    setUserInfo(bookingUserInfo);
+  }, [bookingUserInfo]);
 
   const handlerSubmit = () => {
     dispatch(bookingActions.createUserBookigInfo(userInfo));
