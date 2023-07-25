@@ -16,22 +16,24 @@ export const Payment = ({ setSelectedTab }) => {
     cardNumber: "",
   });
   const dispatch = useDispatch();
-  console.log("===========================================jsonObj(pendingBooking, user, seatsSelected)=====================");
-  console.log(jsonObj(pendingBooking, user, seatsSelected));
 
   const submitHandler = async e => {
-    e.preventDefault();
-    dispatch(bookingActions.createPayment(paymentForm));
-    const res = await fetch("http://localhost:3000/flight/create-booking", {
-      method: "POST",
-      body: JSON.stringify(jsonObj(pendingBooking, user, seatsSelected)),
-      headers: { "Content-Type": "application/json" },
-    });
-    const data = await res.json();
-    console.log("==============================DATA========================");
-    console.log(data);
-
-    setSelectedTab("flightTicket");
+    try {
+      e.preventDefault();
+      dispatch(bookingActions.createPayment(paymentForm));
+      const res = await fetch("http://localhost:3000/flight/create-booking", {
+        method: "POST",
+        body: JSON.stringify(jsonObj(pendingBooking, user, seatsSelected)),
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json();
+      console.log("==============================DATA========================");
+      console.log(data);
+      setSelectedTab("flightTicket");
+    } catch (error) {
+      console.log("====================================error===========================");
+      console.log(error);
+    }
   };
   return (
     <div className="form-content">
