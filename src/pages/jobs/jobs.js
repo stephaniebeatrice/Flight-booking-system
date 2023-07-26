@@ -9,7 +9,7 @@ export const Jobs = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("https://flight-booking-server-rust.vercel.app/jobs/get-jobs", {
+      const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/jobs", {
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
