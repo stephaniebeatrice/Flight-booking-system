@@ -1,0 +1,69 @@
+.col {
+    flex: 1 0;
+}
+.bookings .container{
+    margin-top:30px;
+}
+
+@media (max-width: 1333px){
+     .bookings .container{
+        margin-top:90px;
+    }
+}
+@media (max-width: 670px){
+    .bookings .container{
+    margin-top:0px;
+}
+}
+
+.table thead th:first-child,
+ .table tbody td:first-child {
+    border-left:1px solid #ccc;
+}
+
+.table thead th:last-child,
+ .table tbody td:last-child{
+    border-right:1px solid #ccc;
+ }
+
+ .table tbody td{
+    color: #5a5a5a;
+ }
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+ .container-inquiries{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 900px;
+    margin: 0 auto
+ }
+
+ .container-inquiries h4{
+    font-weight: 400;
+    font-size: 23px;
+    color: #4d4d4d;
+
+ }
+  .btn-warning, .btn-success, 
+  .btn-danger, .btn-primary{
+    margin:0;
+    width: 100px;
+   float: none;
+  
+ }
+  
+ .buttons .btn-primary{
+    min-width: 100px;
+    height: inherit;
+ }
+
+ .btn-warning:hover, .btn-success:hover, 
+ .btn-danger:hover, .btn-primary:hover{
+    transform: scale(1.03);
+ }
