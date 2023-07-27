@@ -1,8 +1,29 @@
 import React from "react";
 import { Header } from "../../components/header/header";
 import "./style.css"
+import  { useState } from 'react';
 
 export const Bookings = ({ bookings }) => {
+
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const [bookingToDelete, setBookingToDelete] = useState(null);
+
+  const handleDeleteBooking = (booking) => {
+    setBookingToDelete(booking);
+    setShowDeleteConfirmation(true);
+  };
+
+  const handleConfirmDelete = () => {
+    // Logic to delete the booking and notify the admin
+    setShowDeleteConfirmation(false);
+    setBookingToDelete(null);
+    alert('Forwarded to admin for review');
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeleteConfirmation(false);
+    setBookingToDelete(null);
+  };
   return (
     <div className="App">
       <Header />
@@ -31,7 +52,7 @@ export const Bookings = ({ bookings }) => {
               <td> C3</td>
               <td className="buttons">
                <button className="btn btn-primary">Edit</button>
-                <button className="btn btn-danger">Delete</button>
+                <button className="btn btn-danger" onClick={handleDeleteBooking}>Delete</button>
               </td>
             </tr>
             <tr>
@@ -43,7 +64,7 @@ export const Bookings = ({ bookings }) => {
               <td> C4</td>
               <td className="buttons">
                 <button className="btn btn-primary">Edit</button>
-                <button className="btn btn-danger">Delete</button>
+                <button className="btn btn-danger" onClick={handleDeleteBooking}>Delete</button>
               </td>
             </tr>
           </tbody>
@@ -52,7 +73,7 @@ export const Bookings = ({ bookings }) => {
 
 
       <div className="container"><h2>Booking Inqiriries</h2></div>
-      <div className="container-inquiries"><h4>Delete Bookings</h4>
+      <div className="container-inquiries" ><h4>Delete Bookings</h4>
         <table class="table caption-top bg-white rounded mt-2">
           <thead>
             <tr>
@@ -82,6 +103,7 @@ export const Bookings = ({ bookings }) => {
           </tbody>
         </table>
      </div>
+      </div>
 
         <div className="container-inquiries"><h4>Change Bookings</h4>
           <table class="table caption-top bg-white rounded mt-2">
@@ -113,33 +135,25 @@ export const Bookings = ({ bookings }) => {
               </tbody>
           </table>
         </div>
+      
+
+      {showDeleteConfirmation && (
+        <div className="popup-container">
+          <div className="popup">
+            <p>Are you sure you want to delete the booking?</p>
+            <div className="popup-buttons">
+              <button className="btn btn-success" onClick={handleConfirmDelete}>
+                Yes
+              </button>
+              <button className="btn btn-danger" onClick={handleCancelDelete}>
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       </div>
-    // </div>
-    // <div className="my-bookings">
-    //   <h1>My Bookings</h1>
-    //   {bookings.length > 0 ? (
-    //     <ul className="booking-list">
-    //       {bookings.map((booking, index) => (
-    //         <li key={index} className="booking-item">
-    //           <p>
-    //             <strong>Flight:</strong> {booking.flightName}
-    //           </p>
-    //           <p>
-    //             <strong>Departure Time:</strong> {new Date(booking.departureTime).toLocaleString()}
-    //           </p>
-    //           <p>
-    //             <strong>Passenger:</strong> {booking.passengerName}
-    //           </p>
-    //           <p>
-    //             <strong>Seat:</strong> {booking.seat}
-    //           </p>
-    //           <hr />
-    //         </li>
-    //       ))}
-    //     </ul>
-    //   ) : (
-    //     <p>No bookings found.</p>
-    //   )}
-    // </div>
-  );
-};
+  //  </div>
+
+   );
+ };
