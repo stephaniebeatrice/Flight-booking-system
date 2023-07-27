@@ -21,7 +21,7 @@ export const Home = () => {
       >
         <aside className="Search-section">
           <div className="search-flight">
-            <p style={{ textAlign: "left", marginLeft: "8rem" }}>Search Flight</p>
+            <p style={{ textAlign: "left", marginLeft: "8rem", color: "white", fontSize:"25px"}}>Search Flight</p>
           </div>
           <SearchForm />
         </aside>

@@ -35,7 +35,7 @@ export const SearchForm = props => {
       event.preventDefault();
       setMsg("");
       setSearchResult([]);
-      const res = await fetch("https://flight-booking-server-rust.vercel.app/flight/search", {
+      const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/search", {
         method: "POST",
         body: JSON.stringify({ destination: form.destination, departureTime: form.departureTime, origin: form.origin, passengers: form.passengers }),
         headers: { "Content-Type": "application/json" },
