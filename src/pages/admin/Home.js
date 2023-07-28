@@ -2,6 +2,9 @@ import React from 'react'
 import Nav from './Navbar'
 
 function Home({ Toggle }) {
+	// Click event handler for the "Accept" button
+	const handleClick = () => {}
+
 	return (
 		<div className="px-3">
 			<Nav Toggle={Toggle} />
@@ -51,7 +54,26 @@ function Home({ Toggle }) {
 				<tbody>
 					<tr>
 						<td>
-							<b>Jane Doe</b> has requested for booking changes
+							<b>Jane Doe</b>
+						</td>
+						<td>
+							<button
+								type="button"
+								class="btn btn-primary btn-sm"
+								onClick={handleClick}
+							>
+								Accept
+							</button>
+						</td>
+						<td>
+							<button type="button" class="btn btn-danger btn-sm">
+								Decline
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<b>Mohammed Ali</b>
 						</td>
 						<td>
 							<button type="button" class="btn btn-primary btn-sm">
@@ -66,22 +88,7 @@ function Home({ Toggle }) {
 					</tr>
 					<tr>
 						<td>
-							<b>Mohammed Ali</b> has requested for booking changes
-						</td>
-						<td>
-							<button type="button" class="btn btn-primary btn-sm">
-								Accept
-							</button>
-						</td>
-						<td>
-							<button type="button" class="btn btn-danger btn-sm">
-								Decline
-							</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<b>John Doe</b> has requested for booking changes
+							<b>John Doe</b>
 						</td>
 						<td>
 							<button type="button" class="btn btn-primary btn-sm">
