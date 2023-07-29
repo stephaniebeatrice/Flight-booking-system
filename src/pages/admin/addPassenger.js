@@ -11,20 +11,6 @@ export const ticketEditing = () => {
 						<div className="fieldset quarter">
 							<div className="field">
 								<label id="lbl_rndTripTo" aria-label="To">
-									Ticket ID
-								</label>
-								<input
-									name="ticketId"
-									type="text"
-									id="rndTripTo"
-									className="form-control"
-									placeholder="1234"
-									style={{ width: '100%' }}
-									data-select2-id="rndTripTo"
-								/>
-							</div>
-							<div className="field">
-								<label id="lbl_rndTripTo" aria-label="To">
 									First Name
 								</label>
 								<input
@@ -162,15 +148,6 @@ export const ticketEditing = () => {
 							className="btn-primary btn-submit-form btn-rnd-trip"
 						>
 							Save
-						</button>
-						<button
-							type="submit"
-							name="btn-primary"
-							value="delete"
-							id="round_trip_btn"
-							className="btn-primary btn-submit-form btn-rnd-trip"
-						>
-							Delete
 						</button>
 						<div className="general-error" id="oneWayErr">
 							<p></p>

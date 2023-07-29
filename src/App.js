@@ -12,7 +12,7 @@ import { Jobs } from "./pages/jobs/jobs";
 import { Login } from "./pages/login/Login";
 import { ticketEditing } from "./pages/admin/ticketEditing";
 import { Notification } from "./pages/admin/Notification";
-import { EmployeeMatching } from "./pages/admin/employeeMatching";
+import  EmployeeMatching from "./pages/admin/employeeMatching";
 
 const App = () => {
   const user = useSelector(state => state.authReducer.user);
@@ -36,7 +36,7 @@ const App = () => {
         <Route path="/Admin" element={renderRestrictedComponent(Dashboard)} />
         <Route path="/TicketEdit" element={renderRestrictedComponent(ticketEditing)} />
         <Route path="/Notification" element={renderRestrictedComponent(Notification)} />
-        <Route path="/employeeMatching" element={renderRestrictedComponent(EmployeeMatching)} />
+        <Route path="/EmployeeMatching" element={renderRestrictedComponent(EmployeeMatching)} />
         <Route path="/Jobs" element={renderRestrictedComponent(Jobs)} />
         <Route path="/Apply" element={renderRestrictedComponent(Application)} />
         <Route path="/Bookings" element={renderRestrictedComponent(Bookings)} />
