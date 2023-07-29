@@ -14,6 +14,8 @@ const airports = [
   "Malmstrom Air Force Base",
   "Lanzarote Airport",
   "Gordonsville Municipal Airport",
+  "Huacaraje Airport",
+  "Shahrekord Airport",
 ];
 
 const ErrorLabel = props => {
@@ -43,6 +45,7 @@ export const SearchForm = props => {
       const data = await res.json();
       if (data.flights) {
         setSearchResult(data.flights);
+
         return setShowTimetable(true);
       } else {
         setMsg(data.message);
@@ -56,6 +59,7 @@ export const SearchForm = props => {
 
   const handleButtonClick = flight => {
     // Perform actions when the button is clicked for a specific flight
+    dispatch(bookingActions.clearBooking());
     dispatch(
       bookingActions.createPendingBooking({
         ...flight,
@@ -113,7 +117,7 @@ export const SearchForm = props => {
                 options={airports}
                 id="origin"
                 placeholder="Select Origin"
-                required
+                required={true}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, origin: e[0] };
@@ -131,7 +135,7 @@ export const SearchForm = props => {
                 options={airports}
                 id="destination"
                 placeholder="Select Destination"
-                required
+                required={true}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, destination: e[0] };
@@ -148,7 +152,7 @@ export const SearchForm = props => {
                 type="date"
                 name="dateOfDep"
                 placeholder="yyyy-mm-dd"
-                required
+                required={true}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, departureTime: new Date(e.target.value) };
@@ -173,7 +177,7 @@ export const SearchForm = props => {
                 as="select"
                 name="numOfPassengers"
                 placeholder="Number of Passengers"
-                required
+                required={true}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, class: e.target.value };
@@ -191,7 +195,7 @@ export const SearchForm = props => {
                 as="select"
                 name="numOfPassengers"
                 placeholder="Number of Passengers"
-                required
+                required={true}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, passengers: e.target.value };
