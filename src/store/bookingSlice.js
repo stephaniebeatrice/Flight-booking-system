@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  booking: [],
+  bookings: [],
   pendingBooking: {
     _id: "",
     flightNo: "",
     flightName: "",
+    flightTime: 0,
     origin: "",
     destination: "",
     departureTime: "",
@@ -20,7 +21,6 @@ const initialState = {
     lowClassSeatNumber: 0,
   },
   bookingUserInfo: [],
-  payment: { cardHolderFullName: "", cardNumber: "" },
   seatsSelected: [],
 };
 const bookingSlice = createSlice({
@@ -39,12 +39,13 @@ const bookingSlice = createSlice({
     createSeatSelection(state, action) {
       state.seatsSelected = action.payload;
     },
-    createPayment(state, action) {
-      state.payment = action.payload;
+    createBookings(state, action) {
+      state.bookings.push(action.payload);
     },
     clearBooking(state) {
       state.pendingBooking = {};
-      state.bookingUserInfo = state.bookingUserInfo.splice(1, 1);
+
+      state.bookingUserInfo = state.bookingUserInfo.splice(0, 1);
     },
   },
 });

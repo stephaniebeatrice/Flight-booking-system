@@ -7,13 +7,12 @@ import visa from "../../img/visa.png";
 
 import { FaLock } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { bookingActions } from "../../store/bookingSlice";
 import { Link } from "react-router-dom";
-import { Alert } from "bootstrap";
+import { bookingActions } from "../../store/bookingSlice";
 import { Pop } from "../pop/pop";
 
 export const Payment = ({ setSelectedTab }) => {
-  const { seatsSelected, bookingUserInfo: user, pendingBooking } = useSelector(state => state.bookingReducer);
+  const { seatsSelected, bookingUserInfo: passengers, pendingBooking } = useSelector(state => state.bookingReducer);
 
   const [paymentForm, setPaymentForm] = useState({
     cardHolderFullName: "",
@@ -22,23 +21,31 @@ export const Payment = ({ setSelectedTab }) => {
   const [showPop, setShowPop] = useState(false);
 
   const okHandler = () => setShowPop(false);
-
   const dispatch = useDispatch();
   const submitHandler = async e => {
     try {
       e.preventDefault();
-      if (+pendingBooking.passengers !== user.length || seatsSelected.length !== +pendingBooking.passengers) {
+      if (+pendingBooking.passengers !== passengers.length || seatsSelected.length !== +pendingBooking.passengers) {
         return setShowPop(true);
       }
-      dispatch(bookingActions.createPayment(paymentForm));
+
       const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/create-booking", {
         method: "POST",
-        body: JSON.stringify(jsonObj(pendingBooking, user, seatsSelected)),
+        body: JSON.stringify(jsonObj(pendingBooking, passengers, seatsSelected)),
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
-      console.log("==============================DATA========================");
-      console.log(data);
+      console.log("==============================BOOKING RESPONSE========================");
+      console.log(data.booking);
+      if (data.booking)
+        dispatch(
+          bookingActions.createBookings({
+            ...data.booking,
+            departureTime: pendingBooking.departureTime,
+            flightName: pendingBooking.flightName,
+            status: "successful",
+          })
+        );
       setSelectedTab("flightTicket");
     } catch (error) {
       console.log("====================================error===========================");
@@ -170,10 +177,10 @@ export const Payment = ({ setSelectedTab }) => {
   );
 };
 
-const jsonObj = (pendingBooking, user, seatsSelected) => {
+const jsonObj = (pendingBooking, passengers, seatsSelected) => {
   return {
     bookingId: pendingBooking._id,
-    fullName: user.firstName + " " + user.lastName,
+    fullName: passengers[0].firstName + " " + passengers[0].lastName,
     class: pendingBooking.class,
     passengers: pendingBooking.passengers,
     passengersInfo: pendingBooking.passengersInfo,

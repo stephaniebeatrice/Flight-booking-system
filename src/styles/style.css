@@ -6729,7 +6729,7 @@ hr {
 
 .airline {
   display: block;
-    width: 270px;
+  width: 270px;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
   border-radius: 25px;
   z-index: 3;
@@ -6819,7 +6819,7 @@ hr {
 .airline .bottom .column {
   margin: 0 auto;
   width: 80%;
-  padding: 2rem 0;
+  padding: 0.5rem 0;
 }
 
 .airline .bottom .row {

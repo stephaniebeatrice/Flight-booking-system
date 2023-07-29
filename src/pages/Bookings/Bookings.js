@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Header } from "../../components/header/header";
 import "./style.css";
 import { useState } from "react";
 import { Pop } from "../../components/pop/pop";
+import { useSelector } from "react-redux";
+import { DateTime } from "../../container/search-form/search-form";
 
-export const Bookings = ({ bookings }) => {
+export const Bookings = () => {
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const [bookingToDelete, setBookingToDelete] = useState(null);
+
+  const { bookings } = useSelector(state => state.bookingReducer);
 
   const handleDeleteBooking = booking => {
     setBookingToDelete(booking);
@@ -31,79 +35,26 @@ export const Bookings = ({ bookings }) => {
         <div className="container">
           <h2>My Bookings</h2>
           <table class="table caption-top bg-white rounded mt-2">
-            <thead>
-              <tr>
-                <th scope="col">Passenger</th>
-                <th scope="col">Flight</th>
-                <th scope="col">Departure Time</th>
-                <th scope="col">Arrival Time</th>
-                <th scope="col">Date</th>
-                <th scope="col">Seat</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
+            {TableHeader()}
             <tbody>
-              <tr>
-                <td>John Doe</td>
-                <td>F123</td>
-                <td>0900hrs</td>
-                <td>1000hrs</td>
-                <td>01/09/2023</td>
-                <td> C3</td>
-                <td className="buttons">
-                  <button className="btn btn-primary">Edit</button>
-                  <button className="btn btn-danger" onClick={handleDeleteBooking}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Mary Smith</td>
-                <td>F123</td>
-                <td>0900hrs</td>
-                <td>1000hrs</td>
-                <td>01/09/2023</td>
-                <td> C4</td>
-                <td className="buttons">
-                  <button className="btn btn-primary">Edit</button>
-                  <button className="btn btn-danger" onClick={handleDeleteBooking}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              {bookings.map((booking, index) => {
+                return TableRow(index, booking, handleDeleteBooking);
+              })}
             </tbody>
           </table>
         </div>
 
         <div className="container">
-          <h2>Booking Inqiriries</h2>
+          <h2>Booking inquiries</h2>
         </div>
         <div className="container-inquiries">
           <h4>Delete Bookings</h4>
           <table class="table caption-top bg-white rounded mt-2">
-            <thead>
-              <tr>
-                <th scope="col">Passenger</th>
-                <th scope="col">Flight</th>
-                <th scope="col">Departure Time</th>
-                <th scope="col">Arrival Time</th>
-                <th scope="col">Date</th>
-                <th scope="col">Seat</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
+            {TableHeader()}
             <tbody>
-              <tr>
-                <td>John Doe</td>
-                <td>F582</td>
-                <td>0800hrs</td>
-                <td>1045hrs</td>
-                <td>12/5/2023</td>
-                <td> B6</td>
-                <td>
-                  <button className="btn btn-success">Completed</button>
-                </td>
-              </tr>
+              {bookings.map((booking, index) => {
+                return TableRow(index, booking, handleDeleteBooking);
+              })}
             </tbody>
           </table>
         </div>
@@ -112,29 +63,11 @@ export const Bookings = ({ bookings }) => {
       <div className="container-inquiries">
         <h4>Change Bookings</h4>
         <table class="table caption-top bg-white rounded mt-2">
-          <thead>
-            <tr>
-              <th scope="col">Passenger</th>
-              <th scope="col">Flight</th>
-              <th scope="col">Departure Time</th>
-              <th scope="col">Arrival Time</th>
-              <th scope="col">Date</th>
-              <th scope="col">Seat</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
+          {TableHeader()}
           <tbody>
-            <tr>
-              <td>John Doe</td>
-              <td>F123</td>
-              <td>0900hrs</td>
-              <td>1000hrs</td>
-              <td>22/05/2023</td>
-              <td> D3</td>
-              <td>
-                <button className="btn btn-warning">Ongoing</button>
-              </td>
-            </tr>
+            {bookings.map((booking, index) => {
+              return TableRow(index, booking, handleDeleteBooking);
+            })}
           </tbody>
         </table>
       </div>
@@ -150,5 +83,41 @@ export const Bookings = ({ bookings }) => {
       )}
     </div>
     //  </div>
+  );
+};
+
+const TableHeader = () => {
+  return (
+    <thead>
+      <tr>
+        <th scope="col">Full name</th>
+        <th scope="col">Flight</th>
+        <th scope="col">Departure Time</th>
+        <th scope="col">Arrival Time</th>
+        <th scope="col">passengers</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+  );
+};
+
+const TableRow = (index, booking, deleteHandler) => {
+  console.log(booking);
+  const time = new Date(new Date(booking.departureTime).getTime() + +booking.flightTime * 60 * 60 * 1000);
+  console.log(time);
+  return (
+    <tr key={index}>
+      <td>{booking.fullName}</td>
+      <td>{booking.flightName}</td>
+      <td>{DateTime(booking.departureTime)}</td>
+      <td>{DateTime(time)}</td>
+      <td>{booking.passengersInfo.length}</td>
+      <td className="buttons">
+        <button className="btn btn-primary">Edit</button>
+        <button className="btn btn-danger" onClick={deleteHandler}>
+          Delete
+        </button>
+      </td>
+    </tr>
   );
 };

@@ -17,7 +17,12 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
     if (tab !== "addPassenger") {
       dispatch(bookingActions.createUserBookigInfo(userInfo));
       dispatch(
-        bookingActions.createPendingBooking({ ...pendingBooking, passengersInfo: [{ fullName: userInfo.firstName + " " + userInfo.lastName }] })
+        bookingActions.createPendingBooking({
+          ...pendingBooking,
+          passengersInfo: [
+            { fullName: userInfo.firstName + " " + userInfo.lastName, email: userInfo.email, phoneNo: userInfo.number, dob: userInfo.DOB },
+          ],
+        })
       );
       if (pendingBooking.passengers > 1) {
         setUserInfo({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });

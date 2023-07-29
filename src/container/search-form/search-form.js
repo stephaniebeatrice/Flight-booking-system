@@ -26,8 +26,9 @@ export const SearchForm = props => {
   const [isReturn, setFlightType] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [showTimetable, setShowTimetable] = useState(false);
-  const [status] = useState({ isValid: false });
   const [form, setForm] = useState({ origin: "", destination: "", passengers: 1, departureTime: "", class: "Executive" });
+  const [validation, setValidation] = useState({ origin: true, destination: true, passengers: true, departureTime: true, class: true });
+
   const [msg, setMsg] = useState("");
   const navigation = useNavigate();
   const dispatch = useDispatch();
@@ -35,14 +36,28 @@ export const SearchForm = props => {
   const handleSubmit = async event => {
     try {
       event.preventDefault();
+      const validationStatus = {
+        origin: !!form.origin,
+        destination: !!form.destination,
+        passengers: !!form.passengers,
+        departureTime: !!form.departureTime,
+        class: !!form.class,
+      };
+      // Update the validation state
+      setValidation(validationStatus);
+      // Check if all required fields are filled out
+      const isValidForm = Object.values(validationStatus).every(isValid => isValid);
+      if (!isValidForm) return;
+
       setMsg("");
       setSearchResult([]);
-      const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/search", {
+      const res = await fetch("http://localhost:3000/flight/search", {
         method: "POST",
         body: JSON.stringify({ destination: form.destination, departureTime: form.departureTime, origin: form.origin, passengers: form.passengers }),
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
+      console.log(data);
       if (data.flights) {
         setSearchResult(data.flights);
 
@@ -72,6 +87,7 @@ export const SearchForm = props => {
   };
 
   const focusHandler = () => {
+    setValidation({ origin: true, destination: true, passengers: true, departureTime: true, class: true });
     setShowTimetable(false);
     setSearchResult([]);
     setMsg("");
@@ -117,7 +133,7 @@ export const SearchForm = props => {
                 options={airports}
                 id="origin"
                 placeholder="Select Origin"
-                required={true}
+                style={!validation.origin ? { border: "1px solid red" } : {}}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, origin: e[0] };
@@ -125,7 +141,6 @@ export const SearchForm = props => {
                 }
                 onFocus={focusHandler}
               />
-              {status.origin && <ErrorLabel message="Please enter a valid airport"></ErrorLabel>}
             </div>
 
             <div className="form-group">
@@ -135,7 +150,7 @@ export const SearchForm = props => {
                 options={airports}
                 id="destination"
                 placeholder="Select Destination"
-                required={true}
+                style={!validation.destination ? { border: "1px solid red" } : {}}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, destination: e[0] };
@@ -143,7 +158,6 @@ export const SearchForm = props => {
                 }
                 onFocus={focusHandler}
               />
-              {status.destination && <ErrorLabel message="Please enter a valid airport but not same as origin"></ErrorLabel>}
             </div>
 
             <div className="form-group">
@@ -153,6 +167,7 @@ export const SearchForm = props => {
                 name="dateOfDep"
                 placeholder="yyyy-mm-dd"
                 required={true}
+                style={!validation.departureTime ? { border: "1px solid red" } : {}}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, departureTime: new Date(e.target.value) };
@@ -160,14 +175,12 @@ export const SearchForm = props => {
                 }
                 onFocus={focusHandler}
               />
-              {status.departureDate && <ErrorLabel message="Please enter a valid departure date"></ErrorLabel>}
             </div>
 
             {isReturn && (
               <div className="form-group">
                 <label>Return Date</label>
-                <Form.Control type="date" name="dateOfReturn" placeholder="yyyy-mm-dd" required />
-                {status.returnDate && <ErrorLabel message="Please enter a valid return date"></ErrorLabel>}
+                <Form.Control type="date" name="dateOfReturn" placeholder="yyyy-mm-dd" />
               </div>
             )}
 
@@ -175,9 +188,9 @@ export const SearchForm = props => {
               <label htmlFor="departure">Class</label>
               <Form.Control
                 as="select"
-                name="numOfPassengers"
-                placeholder="Number of Passengers"
-                required={true}
+                name="class"
+                placeholder="class"
+                style={!validation.class ? { border: "1px solid red" } : {}}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, class: e.target.value };
@@ -195,7 +208,7 @@ export const SearchForm = props => {
                 as="select"
                 name="numOfPassengers"
                 placeholder="Number of Passengers"
-                required={true}
+                style={!validation.passengers ? { border: "1px solid red" } : {}}
                 onChange={e =>
                   setForm(prev => {
                     return { ...prev, passengers: e.target.value };
@@ -237,17 +250,8 @@ export const SearchForm = props => {
                   return (
                     <tr key={index.toString()}>
                       <td>{flight.flightName}</td>
-                      <td>
-                        {new Date(flight.departureTime).toLocaleDateString()}{" "}
-                        {new Date(flight.departureTime).toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: true,
-                        })}
-                      </td>
-                      <td>
-                        {time.toLocaleDateString()} {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
-                      </td>
+                      <td>{DateTime(flight.departureTime)}</td>
+                      <td>{DateTime(time)}</td>
                       <td>${price}</td>
                       <td style={{ color: match ? "green" : "orange" }}>{match ? "Match!" : "Recommended"}</td>
                       <td>
@@ -266,3 +270,12 @@ export const SearchForm = props => {
 };
 
 export default SearchForm;
+
+export const DateTime = time => {
+  return `${new Date(time).toLocaleDateString()}{" "}
+                        ${new Date(time).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })}`;
+};
