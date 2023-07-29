@@ -13,10 +13,13 @@ import { Pop } from "../pop/pop";
 
 export const Payment = ({ setSelectedTab }) => {
   const { seatsSelected, bookingUserInfo: passengers, pendingBooking } = useSelector(state => state.bookingReducer);
-
+  const [validation, setValidation] = useState({ cardHolderFullName: true, cardNumber: true, cvv: true });
   const [paymentForm, setPaymentForm] = useState({
     cardHolderFullName: "",
     cardNumber: "",
+    month: "",
+    year: "",
+    cvv: "",
   });
   const [showPop, setShowPop] = useState(false);
 
@@ -25,6 +28,15 @@ export const Payment = ({ setSelectedTab }) => {
   const submitHandler = async e => {
     try {
       e.preventDefault();
+      const validationObj = {
+        cardHolderFullName: !!paymentForm.cardHolderFullName,
+        cardNumber: !!paymentForm.cardNumber,
+
+        cvv: !!paymentForm.cvv,
+      };
+      setValidation(validationObj);
+      const isValid = Object.values(validationObj).every(isValid => isValid);
+      if (!isValid) return;
       if (+pendingBooking.passengers !== passengers.length || seatsSelected.length !== +pendingBooking.passengers) {
         return setShowPop(true);
       }
@@ -35,8 +47,7 @@ export const Payment = ({ setSelectedTab }) => {
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
-      console.log("==============================BOOKING RESPONSE========================");
-      console.log(data.booking);
+
       if (data.booking)
         dispatch(
           bookingActions.createBookings({
@@ -52,6 +63,18 @@ export const Payment = ({ setSelectedTab }) => {
       console.log(error);
     }
   };
+
+  const changeHandler = e => {
+    const { value, name } = e.target;
+
+    setPaymentForm(prev => {
+      return { ...prev, [name]: value };
+    });
+  };
+  const focusHandler = () => {
+    setValidation({ cardHolderFullName: true, cardNumber: true, month: true, year: true, cvv: true });
+  };
+  const img = [visa, mastercard, discover, paypal, mpesa];
   return (
     <div className="form-content">
       <div className="payment-wrapper">
@@ -59,21 +82,7 @@ export const Payment = ({ setSelectedTab }) => {
           <form encType="text/plain" method="get" target="_blank" onSubmit={submitHandler}>
             <div className="cards">
               {/* <p>Accepted cards:</p> */}
-              <div className="card-logos">
-                <img src={visa} alt="Visa" />
-              </div>
-              <div className="card-logos">
-                <img src={mastercard} alt="Mastercard" />
-              </div>
-              <div className="card-logos">
-                <img src={discover} alt="Discover" />
-              </div>
-              <div className="card-logos">
-                <img src={paypal} alt="PayPal" />
-              </div>
-              <div className="card-logos">
-                <img src={mpesa} alt="Mpesa" style={{ height: " 64px", width: "74px" }} />
-              </div>
+              {cards(img)}
             </div>
             <div className="fieldset half">
               <div className="field">
@@ -82,14 +91,12 @@ export const Payment = ({ setSelectedTab }) => {
                   id="full-name"
                   className="form-control"
                   placeholder="Satoshi Nakamoto"
-                  required
+                  name="cardHolderFullName"
+                  style={{ border: !validation.cardHolderFullName ? "1px solid red" : "" }}
+                  onFocus={focusHandler}
                   type="text"
                   value={paymentForm.cardHolderFullName}
-                  onChange={e =>
-                    setPaymentForm(prev => {
-                      return { ...prev, cardHolderFullName: e.target.value };
-                    })
-                  }
+                  onChange={changeHandler}
                 />
               </div>
 
@@ -99,14 +106,12 @@ export const Payment = ({ setSelectedTab }) => {
                   id="credit-card-num"
                   className="form-control"
                   placeholder="1111-2222-3333-4444"
-                  required
                   type="number"
+                  name="cardNumber"
+                  style={{ border: !validation.cardNumber ? "1px solid red" : "" }}
                   value={paymentForm.cardNumber}
-                  onChange={e =>
-                    setPaymentForm(prev => {
-                      return { ...prev, cardNumber: +e.target.value };
-                    })
-                  }
+                  onChange={changeHandler}
+                  onFocus={focusHandler}
                 />
               </div>
             </div>
@@ -116,7 +121,18 @@ export const Payment = ({ setSelectedTab }) => {
                 <div className="fieldset quarter">
                   <div className="field">
                     <label htmlFor="expiration-month">Month</label>
-                    <select id="expiration-month" style={{ width: "100%" }} className="form-control" required>
+                    <select
+                      id="expiration-month"
+                      style={{ width: "100%" }}
+                      className="form-control"
+                      name="month"
+                      onChange={e =>
+                        setPaymentForm(prev => {
+                          return { ...prev, month: e.target.value };
+                        })
+                      }
+                      onFocus={focusHandler}
+                    >
                       <option value="">Month:</option>
                       <option value="">January</option>
                       <option value="">February</option>
@@ -134,7 +150,18 @@ export const Payment = ({ setSelectedTab }) => {
                   </div>
                   <div className="field">
                     <label className="expiration-year">Year</label>
-                    <select id="experation-year" style={{ width: "100%" }} className="form-control" required>
+                    <select
+                      id="experation-year"
+                      style={{ width: "100%" }}
+                      className="form-control"
+                      name="year"
+                      onChange={e =>
+                        setPaymentForm(prev => {
+                          return { ...prev, year: e.target.value };
+                        })
+                      }
+                      onFocus={focusHandler}
+                    >
                       <option value="">Year</option>
                       <option value="">2023</option>
                       <option value="">2024</option>
@@ -144,7 +171,17 @@ export const Payment = ({ setSelectedTab }) => {
                   </div>
                   <div className="field">
                     <label for="cvv">CVV</label>
-                    <input style={{ width: "100%" }} id="cvv" className="form-control" placeholder="415" type="text" required />
+                    <input
+                      style={{ width: "100%", border: !validation.cvv ? "1px solid red" : "" }}
+                      id="cvv"
+                      className="form-control"
+                      placeholder="415"
+                      type="text"
+                      name="cvv"
+                      value={paymentForm.cvv}
+                      onFocus={focusHandler}
+                      onChange={changeHandler}
+                    />
                   </div>
                   <div className="field">
                     <Link
@@ -188,4 +225,11 @@ const jsonObj = (pendingBooking, passengers, seatsSelected) => {
     paymentMethod: "VISA",
     seatBooked: seatsSelected,
   };
+};
+const cards = data => {
+  return data.map((card, index) => (
+    <div key={index} className="card-logos">
+      <img src={card} alt={"card"} style={data.length === index + 1 ? { height: " 64px", width: "74px" } : {}} />
+    </div>
+  ));
 };

@@ -102,7 +102,6 @@ const TableHeader = () => {
 };
 
 const TableRow = (index, booking, deleteHandler) => {
-  console.log(booking);
   const time = new Date(new Date(booking.departureTime).getTime() + +booking.flightTime * 60 * 60 * 1000);
   console.log(time);
   return (

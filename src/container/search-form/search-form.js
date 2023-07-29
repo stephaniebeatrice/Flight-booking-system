@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Form from "react-bootstrap/Form";
@@ -6,24 +6,11 @@ import { useNavigate } from "react-router-dom";
 import "./search-form.css";
 import { useDispatch } from "react-redux";
 import { bookingActions } from "../../store/bookingSlice";
-
-const airports = [
-  "Grantsburg Municipal Airport",
-  "Baimuru Airport",
-  "Kratie Airport",
-  "Malmstrom Air Force Base",
-  "Lanzarote Airport",
-  "Gordonsville Municipal Airport",
-  "Huacaraje Airport",
-  "Shahrekord Airport",
-];
-
-const ErrorLabel = props => {
-  return <label style={{ color: "red" }}>{props.message}</label>;
-};
+import jsonData from "../../MOCK_DATA.json";
 
 export const SearchForm = props => {
   const [isReturn, setFlightType] = useState(false);
+  const [airPorts, setAirports] = useState({ origin: [], destination: [] });
   const [searchResult, setSearchResult] = useState([]);
   const [showTimetable, setShowTimetable] = useState(false);
   const [form, setForm] = useState({ origin: "", destination: "", passengers: 1, departureTime: "", class: "Executive" });
@@ -32,6 +19,12 @@ export const SearchForm = props => {
   const [msg, setMsg] = useState("");
   const navigation = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    (() => {
+      setAirports(fetchAirports());
+    })();
+  }, []);
 
   const handleSubmit = async event => {
     try {
@@ -51,7 +44,7 @@ export const SearchForm = props => {
 
       setMsg("");
       setSearchResult([]);
-      const res = await fetch("http://localhost:3000/flight/search", {
+      const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/search", {
         method: "POST",
         body: JSON.stringify({ destination: form.destination, departureTime: form.departureTime, origin: form.origin, passengers: form.passengers }),
         headers: { "Content-Type": "application/json" },
@@ -130,7 +123,7 @@ export const SearchForm = props => {
               <label htmlFor="from">From</label>
               <Typeahead
                 labelKey="origin"
-                options={airports}
+                options={airPorts.origin}
                 id="origin"
                 placeholder="Select Origin"
                 style={!validation.origin ? { border: "1px solid red" } : {}}
@@ -147,7 +140,7 @@ export const SearchForm = props => {
               <label htmlFor="to">To</label>
               <Typeahead
                 labelKey="destination"
-                options={airports}
+                options={airPorts.destination}
                 id="destination"
                 placeholder="Select Destination"
                 style={!validation.destination ? { border: "1px solid red" } : {}}
@@ -272,10 +265,21 @@ export const SearchForm = props => {
 export default SearchForm;
 
 export const DateTime = time => {
-  return `${new Date(time).toLocaleDateString()}{" "}
+  return `${new Date(time).toLocaleDateString()} 
                         ${new Date(time).toLocaleTimeString([], {
                           hour: "2-digit",
                           minute: "2-digit",
                           hour12: true,
                         })}`;
+};
+
+const fetchAirports = () => {
+  const origin = new Set();
+  const destination = new Set();
+
+  jsonData.forEach(flight => {
+    origin.add(flight.origin);
+    destination.add(flight.destination);
+  });
+  return { origin: [...origin], destination: [...destination] };
 };

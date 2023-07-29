@@ -6,6 +6,7 @@ import { bookingActions } from "../../store/bookingSlice";
 export const PersonlInfo = ({ setSelectedTab, tab }) => {
   const { bookingUserInfo, pendingBooking } = useSelector(state => state.bookingReducer);
   const [userInfo, setUserInfo] = useState({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
+  const [valid, setValid] = useState({ title: true, firstName: true, lastName: true, DOB: true });
 
   const dispatch = useDispatch();
 
@@ -14,6 +15,10 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
   }, []);
 
   const handlerSubmit = () => {
+    const validationObj = { title: !!userInfo.title, firstName: !!userInfo.firstName, lastName: !!userInfo.lastName, DOB: !!userInfo.DOB };
+    setValid(validationObj);
+    const isValid = Object.values(validationObj).every(isValid => isValid);
+    if (!isValid || (tab === "addPassenger" && +pendingBooking.passengers) !== bookingUserInfo.length) return;
     if (tab !== "addPassenger") {
       dispatch(bookingActions.createUserBookigInfo(userInfo));
       dispatch(
@@ -36,6 +41,18 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
     setUserInfo({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
   };
 
+  const changeHandler = e => {
+    const { value, name } = e.target;
+
+    setUserInfo(prev => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const focusHandler = () => {
+    setValid({ title: true, firstName: true, lastName: true, DOB: true });
+  };
+
   return (
     <div className="form-content">
       <div id="psnlInfo" className="booking-tab-content active">
@@ -56,12 +73,9 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                   name="title"
                   placeholder="title"
                   value={userInfo?.title}
-                  required={true}
-                  onChange={e =>
-                    setUserInfo(prev => {
-                      return { ...prev, title: e.target.value };
-                    })
-                  }
+                  onChange={changeHandler}
+                  style={!valid.title ? { border: "1px solid red" } : {}}
+                  onFocus={focusHandler}
                 >
                   <option>Mr.</option>
                   <option>Mrs.</option>
@@ -79,16 +93,11 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                   id="rndTripTo"
                   className="form-control"
                   placeholder="John"
-                  style={{ width: "100%" }}
+                  style={{ width: "100%", border: !valid.firstName ? "1px solid red" : "" }}
+                  onFocus={focusHandler}
                   data-select2-id="rndTripTo"
                   value={userInfo?.firstName}
-                  required={true}
-                  onChange={e =>
-                    setUserInfo(prev => ({
-                      ...prev,
-                      firstName: e.target.value,
-                    }))
-                  }
+                  onChange={changeHandler}
                 />
               </div>
 
@@ -102,16 +111,10 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                   id="rndTripTo"
                   className="form-control"
                   placeholder="Doe"
-                  style={{ width: "100%" }}
-                  data-select2-id="rndTripTo"
+                  style={{ width: "100%", border: !valid.lastName ? "1px solid red" : "" }}
+                  onFocus={focusHandler}
                   value={userInfo?.lastName}
-                  required={true}
-                  onChange={e =>
-                    setUserInfo(prev => ({
-                      ...prev,
-                      lastName: e.target.value,
-                    }))
-                  }
+                  onChange={changeHandler}
                 />
               </div>
               <div className="field date-field">
@@ -120,14 +123,14 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                 </label>
                 <div className="date-field-wrapper date-depart">
                   <input
-                    name="DateOfBirth"
+                    name="DOB"
                     type="date"
                     className="form-control"
                     placeholder="mm-dd-yyyy"
-                    style={{ width: "100%" }}
-                    required={true}
+                    style={{ width: "100%", border: !valid.DOB ? "1px solid red" : "" }}
+                    onFocus={focusHandler}
                     value={userInfo?.DOB}
-                    onChange={e => setUserInfo(prev => ({ ...prev, DOB: e.target.value }))}
+                    onChange={changeHandler}
                   />
                 </div>
               </div>
@@ -138,16 +141,7 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                 <label id="lbl_rndTripPromoCode" aria-label="Promo Code">
                   Phone number
                 </label>
-                <input
-                  name="phoneNumber"
-                  type="tel"
-                  id="rndTripPromoCode"
-                  autoComplete="off"
-                  className="form-control"
-                  aria-labelledby="lbl_rndTripPromoCode"
-                  value={userInfo?.number}
-                  onChange={e => setUserInfo(prev => ({ ...prev, number: e.target.value }))}
-                />
+                <input name="number" type="tel" id="rndTripPromoCode" className="form-control" value={userInfo?.number} onChange={changeHandler} />
               </div>
               <div className="field">
                 <label id="lbl_rndTripPromoCode" aria-label="Promo Code">
@@ -158,11 +152,9 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                   type="email"
                   id="rndTripPromoCode"
                   placeholder="eg. johndoe@gmail.com"
-                  autoComplete="off"
                   className="form-control"
-                  aria-labelledby="lbl_rndTripPromoCode"
                   value={userInfo?.email}
-                  onChange={e => setUserInfo(prev => ({ ...prev, email: e.target.value }))}
+                  onChange={changeHandler}
                 />
               </div>
             </div>
