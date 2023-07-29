@@ -1,72 +1,90 @@
 import React, { useRef } from "react";
+import { useSelector } from "react-redux";
 import { useReactToPrint } from "react-to-print";
+import { seatNumberGenerator } from "./seat-selection";
 
-export const Ticket = ({ flight }) => {
+export const Ticket = () => {
+  const { pendingBooking: flight, bookingUserInfo, seatsSelected } = useSelector(state => state.bookingReducer);
   const ticketRef = useRef(null);
   const handlePrint = useReactToPrint({
     content: () => ticketRef.current,
   });
 
   return (
-    <div class="ticket-container" ref={ticketRef}>
-      <div class="ticket airline">
-        <div class="top">
-          <h1>boarding pass</h1>
-          <div class="big">
-            <p class="from">KQ</p>
-            <p class="to">{/* <i class="fas fa-arrow-right"></i> SAN */}</p>
-          </div>
-          <div class="top--side">
-            <i class="fas fa-plane"></i>
-            <p>{flight.origin}</p>
-            <p>{flight.destination}</p>
-          </div>
-        </div>
-        <div class="bottom">
-          <div class="column">
-            <div class="row row-1">
-              <p>
-                <span>Flight</span>
-                {flight.flightName}
-              </p>
-              <p class="row--right">{/* <span>Gate</span>B3 */}</p>
+    <>
+      <div className="ticket-container" ref={ticketRef}>
+        <div className="ticket airline">
+          <div className="top">
+            <h1 style={{ padding: "1rem 0rem" }}>boarding pass</h1>
+            <div className="big">
+              <p className="from">{flight.flightName}</p>
             </div>
-            <div class="row row-2">
-              <p>
-                <span>Boards</span>
-                {`${new Date(new Date(flight.departureTime).getTime() - 30 * 60 * 1000).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  hour12: true,
-                })}`}
-              </p>
-              <p class="row--center">
-                <span>Departs</span>
-                {new Date(flight.departureTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
-              </p>
-              <p class="row--right">
-                <span>Arrives</span>
-                {new Date(flight.departureTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
-              </p>
-            </div>
-            <div class="row row-3">
-              <p>
-                <span>Passenger</span>Jesus Ramirez
-              </p>
-              <p class="row--center">
-                <span>Seat</span>11E
-              </p>
-              <p class="row--right">
-                <span>Group</span>3
-              </p>
+            <div className="top--side">
+              <i className="fas fa-plane"></i>
+              <p>{flight.origin}</p>
+              <p>{flight.destination}</p>
             </div>
           </div>
-          <div class="bar--code"></div>
+          <div className="bottom">
+            <div className="column">
+              <div className="row row-1">
+                <p>
+                  <span>Flight Number</span>
+                  {flight.flightNo}
+                </p>
+              </div>
+              <div className="row-2">
+                <div>
+                  <p>
+                    <span>Boards</span>
+                    {`${new Date(new Date(flight.departureTime).getTime() - 30 * 60 * 1000).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: true,
+                    })}`}
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    <span>Departs</span>
+                    {new Date(flight.departureTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    <span>Arrives</span>
+                    {new Date(flight.departureTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true })}
+                  </p>
+                </div>
+              </div>
+
+              <div className="row row-3">
+                <p>
+                  <span>class</span>
+                </p>
+                <p>{flight.class}</p>
+              </div>
+
+              {bookingUserInfo.map((passenger, index) => (
+                <div key={index} className="row-2">
+                  <p>
+                    <span>Passenger</span>
+                    {passenger.firstName + " " + passenger.lastName}
+                  </p>
+                  <p className="row--center">
+                    <span>Seat</span>
+                    {seatNumberGenerator(seatsSelected[index].row, seatsSelected[index].col)}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="bar--code"></div>
+          </div>
         </div>
       </div>
-      <button class="btn" onClick={handlePrint}>
-        print Ticket
-      </button>
-    </div>
+      <div style={{ display: "flex", justifyContent: "center", borderRadius: "12px", padding: "1rem 0rem" }}>
+        <button onClick={handlePrint}>print Ticket</button>
+      </div>
+    </>
   );
 };

@@ -17,7 +17,6 @@ nav {
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  
 }
 input,
 textarea {
@@ -100,7 +99,6 @@ input[type="radio"] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 /*---------- GENERAL STYLES ----------*/
 html,
@@ -3584,10 +3582,9 @@ body.booking-widget-visible .booking-widget {
   font-family: "LucidaSan-Dem", sans-serif;
 }
 
-.booking-tabs span .user-icon{
- margin-right:10px;
- font-size: 20px;
- 
+.booking-tabs span .user-icon {
+  margin-right: 10px;
+  font-size: 20px;
 }
 
 .booking-tab-content {
@@ -6598,17 +6595,17 @@ header .btn-change-booking.active {
   text-align: start;
 }
 
- .cards{
+.cards {
   padding: 10px;
   display: flex;
   align-items: start;
 }
 
-.card-logos{
-  margin-left:20px;
+.card-logos {
+  margin-left: 20px;
 }
 
-.card-logos:first-child{
+.card-logos:first-child {
   margin-left: 0;
 }
 
@@ -6655,10 +6652,9 @@ hr {
 .cvv-info:visited {
   color: inherit;
   text-decoration: none;
-  display: flex;  
+  display: flex;
   padding-top: 30px;
   border: none;
-  
 }
 
 .cvv-info:hover,
@@ -6684,14 +6680,13 @@ hr {
 }
 
 .btn:hover {
-  background-color:  rgb(4, 110, 196);
+  background-color: rgb(4, 110, 196);
   transition: ease-out 0.1s;
   color: white;
 }
 
 .footer-text {
   font-size: 1rem;
-  
 }
 
 .form-box *:focus {
@@ -6700,15 +6695,12 @@ hr {
   border-radius: 8px;
 }
 
-.footer-text .faLock{
+.footer-text .faLock {
   padding-left: 20px;
   font-size: 20px;
 }
 
 /* ticket section */
-
-
-
 
 .ticket-container p,
 .ticket-container h1 {
@@ -6735,32 +6727,31 @@ hr {
   display: none;
 }
 
-
 .airline {
   display: block;
-  height: 575px;
-  width: 270px;
+    width: 270px;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
   border-radius: 25px;
   z-index: 3;
 }
 
 .airline .top {
-  height: 220px;
+  height: 165px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   background: #7cb9e7;
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
+  padding: 0rem 1rem;
 }
 
 .airline .top h1 {
+  margin: 1rem, 0rem;
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 2;
   text-align: center;
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .airline .bottom {
@@ -6771,8 +6762,6 @@ hr {
 }
 
 .airline .top .big {
-  position: absolute;
-  top: 100px;
   font-size: 65px;
   font-weight: 700;
   line-height: 0.8;
@@ -6784,8 +6773,6 @@ hr {
 }
 
 .airline .top .big .to {
-  position: absolute;
-  left: 32px;
   font-size: 35px;
   display: flex;
   flex-direction: row;
@@ -6799,9 +6786,6 @@ hr {
 }
 
 .airline .top--side {
-  position: absolute;
-  right: 35px;
-  top: 110px;
   text-align: right;
 }
 
@@ -6841,6 +6825,7 @@ hr {
 .airline .bottom .row {
   display: flex;
   justify-content: space-between;
+  padding: 0.2rem 0rem;
 }
 
 .airline .bottom .row--right {
@@ -6852,8 +6837,9 @@ hr {
 }
 
 .airline .bottom .row-2 {
-  margin: 30px 0 60px 0;
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .airline .bottom .row-2::after {
@@ -6881,8 +6867,7 @@ hr {
   background: #000;
   top: 0;
   left: 0;
-  box-shadow: 10px 0 #000, 30px 0 #000, 40px 0 #000, 67px 0 #000, 90px 0 #000,
-    100px 0 #000, 180px 0 #000, 165px 0 #000, 200px 0 #000, 210px 0 #000,
+  box-shadow: 10px 0 #000, 30px 0 #000, 40px 0 #000, 67px 0 #000, 90px 0 #000, 100px 0 #000, 180px 0 #000, 165px 0 #000, 200px 0 #000, 210px 0 #000,
     135px 0 #000, 120px 0 #000;
 }
 
@@ -6894,8 +6879,6 @@ hr {
   background: #000;
   top: 0;
   left: 11px;
-  box-shadow: 12px 0 #000, -4px 0 #000, 45px 0 #000, 65px 0 #000, 72px 0 #000,
-    78px 0 #000, 97px 0 #000, 150px 0 #000, 165px 0 #000, 180px 0 #000,
+  box-shadow: 12px 0 #000, -4px 0 #000, 45px 0 #000, 65px 0 #000, 72px 0 #000, 78px 0 #000, 97px 0 #000, 150px 0 #000, 165px 0 #000, 180px 0 #000,
     135px 0 #000, 120px 0 #000;
 }
-

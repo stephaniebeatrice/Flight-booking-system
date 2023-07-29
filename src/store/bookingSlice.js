@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const initialState = {
   booking: [],
   pendingBooking: {
     _id: "",
-    flightNumber: "",
+    flightNo: "",
+    flightName: "",
     origin: "",
     destination: "",
     departureTime: "",
@@ -13,6 +13,11 @@ const initialState = {
     class: "",
     passengers: 0,
     passengersInfo: [{ fullName: "" }],
+    rows: 0,
+    seatsBookedAlready: [{ row: 0, col: 0 }],
+    executiveClassSeatNumber: 0,
+    middleClassSeatNumber: 0,
+    lowClassSeatNumber: 0,
   },
   bookingUserInfo: [],
   payment: { cardHolderFullName: "", cardNumber: "" },

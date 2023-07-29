@@ -5,7 +5,6 @@ import { bookingActions } from "../../store/bookingSlice";
 
 export const PersonlInfo = ({ setSelectedTab, tab }) => {
   const { bookingUserInfo, pendingBooking } = useSelector(state => state.bookingReducer);
-
   const [userInfo, setUserInfo] = useState({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
 
   const dispatch = useDispatch();
@@ -39,7 +38,7 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
           <div id="rndTrip" className="pill-tab-content active">
             <p>
               {tab === "addPassenger"
-                ? `please fill in the details of ${pendingBooking.passengers}`
+                ? `please fill in the details of ${+pendingBooking.passengers - 1} passengers`
                 : "Please make sure that you fill in the name that is in your passport."}
             </p>
             <div className="fieldset quarter">

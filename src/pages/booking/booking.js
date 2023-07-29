@@ -8,8 +8,7 @@ import "../../styles/style.css";
 
 export const BookingPage = () => {
   const flight = useSelector(state => state.bookingReducer.pendingBooking);
-  console.log("=========================================PENDING FLIGHT=============================");
-  console.log(flight.passengers);
+
   const [selectedTab, setSelectedTab] = useState("psnlInfo");
   const psnlInfoRef = useRef(null);
   const seatSelectRef = useRef(null);
@@ -94,7 +93,7 @@ export const BookingPage = () => {
                 </span>
               </a>
             </div>
-            {activeTab(selectedTab, setSelectedTab, flight)}
+            {activeTab(selectedTab, setSelectedTab)}
             <span id="ctl00_ctBody_Web_Content_Home_BookingEngine_ManageMyBooking_ekapi_language"></span>
           </div>
         </div>
@@ -103,9 +102,9 @@ export const BookingPage = () => {
   );
 };
 
-const activeTab = (tab, setSelectedTab, flight) => {
+const activeTab = (tab, setSelectedTab) => {
   if (tab === "psnlInfo" || tab === "addPassenger") return <PersonlInfo tab={tab} setSelectedTab={setSelectedTab} />;
   else if (tab === "seatSelect") return <SeatSelection setSelectedTab={setSelectedTab} />;
   else if (tab === "payment") return <Payment setSelectedTab={setSelectedTab} />;
-  else if (tab === "flightTicket") return <Ticket flight={flight} />;
+  else if (tab === "flightTicket") return <Ticket />;
 };

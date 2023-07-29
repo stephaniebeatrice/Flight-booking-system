@@ -110,7 +110,7 @@ export const SearchForm = props => {
             </div>
           </div>
           <div className="input-form">
-            <div controlId="formGridOrigin" className="form-group">
+            <div className="form-group">
               <label htmlFor="from">From</label>
               <Typeahead
                 labelKey="origin"
@@ -128,7 +128,7 @@ export const SearchForm = props => {
               {status.origin && <ErrorLabel message="Please enter a valid airport"></ErrorLabel>}
             </div>
 
-            <div controlId="formGridDestination" className="form-group">
+            <div className="form-group">
               <label htmlFor="to">To</label>
               <Typeahead
                 labelKey="destination"
@@ -146,7 +146,7 @@ export const SearchForm = props => {
               {status.destination && <ErrorLabel message="Please enter a valid airport but not same as origin"></ErrorLabel>}
             </div>
 
-            <div controlId="formGridDateOfDep" className="form-group">
+            <div className="form-group">
               <label>Departure Date</label>
               <Form.Control
                 type="date"
@@ -164,14 +164,14 @@ export const SearchForm = props => {
             </div>
 
             {isReturn && (
-              <div controlId="formGridDateOfReturn" className="form-group">
+              <div className="form-group">
                 <label>Return Date</label>
                 <Form.Control type="date" name="dateOfReturn" placeholder="yyyy-mm-dd" required />
                 {status.returnDate && <ErrorLabel message="Please enter a valid return date"></ErrorLabel>}
               </div>
             )}
 
-            <div controlId="exampleForm.ControlSelect1" className="form-group">
+            <div className="form-group">
               <label htmlFor="departure">Class</label>
               <Form.Control
                 as="select"
@@ -189,7 +189,7 @@ export const SearchForm = props => {
                 <option>Economy</option>
               </Form.Control>
             </div>
-            <div controlId="exampleForm.ControlSelect1" className="form-group">
+            <div className="form-group">
               <label htmlFor="departure">Passengers</label>
               <Form.Control
                 as="select"

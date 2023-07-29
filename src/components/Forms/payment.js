@@ -8,18 +8,28 @@ import visa from "../../img/visa.png";
 import { FaLock } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { bookingActions } from "../../store/bookingSlice";
+import { Link } from "react-router-dom";
+import { Alert } from "bootstrap";
+import { Pop } from "../pop/pop";
 
 export const Payment = ({ setSelectedTab }) => {
   const { seatsSelected, bookingUserInfo: user, pendingBooking } = useSelector(state => state.bookingReducer);
+
   const [paymentForm, setPaymentForm] = useState({
     cardHolderFullName: "",
     cardNumber: "",
   });
-  const dispatch = useDispatch();
+  const [showPop, setShowPop] = useState(false);
 
+  const okHandler = () => setShowPop(false);
+
+  const dispatch = useDispatch();
   const submitHandler = async e => {
     try {
       e.preventDefault();
+      if (+pendingBooking.passengers !== user.length || seatsSelected.length !== +pendingBooking.passengers) {
+        return setShowPop(true);
+      }
       dispatch(bookingActions.createPayment(paymentForm));
       const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/create-booking", {
         method: "POST",
@@ -37,9 +47,9 @@ export const Payment = ({ setSelectedTab }) => {
   };
   return (
     <div className="form-content">
-      <div class="payment-wrapper">
-        <div class="tab-wrapper">
-          <form enctype="text/plain" method="get" target="_blank" onSubmit={submitHandler}>
+      <div className="payment-wrapper">
+        <div className="tab-wrapper">
+          <form encType="text/plain" method="get" target="_blank" onSubmit={submitHandler}>
             <div className="cards">
               {/* <p>Accepted cards:</p> */}
               <div className="card-logos">
@@ -60,7 +70,7 @@ export const Payment = ({ setSelectedTab }) => {
             </div>
             <div className="fieldset half">
               <div className="field">
-                <label for="full-name">Card Holder Full Name</label>
+                <label htmlFor="full-name">Card Holder Full Name</label>
                 <input
                   id="full-name"
                   className="form-control"
@@ -77,7 +87,7 @@ export const Payment = ({ setSelectedTab }) => {
               </div>
 
               <div className="field">
-                <label for="credit-card-num">Card Number</label>
+                <label htmlFor="credit-card-num">Card Number</label>
                 <input
                   id="credit-card-num"
                   className="form-control"
@@ -94,11 +104,11 @@ export const Payment = ({ setSelectedTab }) => {
               </div>
             </div>
             <div>
-              <p class="expires">Expires on:</p>
-              <div class="card-experation">
+              <p className="expires">Expires on:</p>
+              <div className="card-experation">
                 <div className="fieldset quarter">
                   <div className="field">
-                    <label for="expiration-month">Month</label>
+                    <label htmlFor="expiration-month">Month</label>
                     <select id="expiration-month" style={{ width: "100%" }} className="form-control" required>
                       <option value="">Month:</option>
                       <option value="">January</option>
@@ -116,7 +126,7 @@ export const Payment = ({ setSelectedTab }) => {
                     </select>
                   </div>
                   <div className="field">
-                    <label class="expiration-year">Year</label>
+                    <label className="expiration-year">Year</label>
                     <select id="experation-year" style={{ width: "100%" }} className="form-control" required>
                       <option value="">Year</option>
                       <option value="">2023</option>
@@ -130,25 +140,32 @@ export const Payment = ({ setSelectedTab }) => {
                     <input style={{ width: "100%" }} id="cvv" className="form-control" placeholder="415" type="text" required />
                   </div>
                   <div className="field">
-                    <a class="cvv-info" href="#" target="_blank">
+                    <Link
+                      className="cvv-info"
+                      href="https://en.wikipedia.org/wiki/CVV#:~:text=Card%20Verification%20Value%2C%20also%20known,Renaissance%20photographer%20and%20portrait%20artist"
+                      target="_blank"
+                    >
                       What is CVV?
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
-            <button class="btn" type="submit">
+            <button className="btn" type="submit">
               Pay Now
             </button>
           </form>
           <div>
-            <p class="footer-text">
+            <p className="footer-text">
               <FaLock />
               Your credit card information is encrypted
             </p>
           </div>
         </div>
       </div>
+      {showPop && (
+        <Pop text={"Please fill in the previous forms details before making payments"} okText={"Ok"} yesHandler={okHandler} doNotShowCancel={true} />
+      )}
     </div>
   );
 };
