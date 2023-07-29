@@ -195,9 +195,16 @@ export const Payment = ({ setSelectedTab }) => {
                 </div>
               </div>
             </div>
-            <button className="btn" type="submit">
-              Pay Now
-            </button>
+            <button
+                  type="submit"
+                  name="btn-primary"
+                  value="Next"
+                  id="round_trip_btn"
+                  className="btn-primary btn-submit-form btn-rnd-trip"
+                  // onClick={handlerSubmit}
+                >
+                  Pay Now
+                </button>
           </form>
           <div>
             <p className="footer-text">
