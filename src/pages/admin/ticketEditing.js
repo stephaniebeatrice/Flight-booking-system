@@ -1,18 +1,16 @@
-import React from 'react'
+import React from "react";
 import Form from "react-bootstrap/Form";
-import './../../styles/style.css'
+import "./../../styles/style.css";
 
-function ticketEditing (){
-	return (
-		<div className="form-content">
+export const ticketEditing = () => {
+  return (
+    <div className="form-content">
       <div id="psnlInfo" className="booking-tab-content active">
         <div className="tab-wrapper">
           <div id="rndTrip" className="pill-tab-content active">
             <div className="fieldset quarter">
-                
-
               <div className="field">
-              <label id="lbl_rndTripTo" aria-label="To">
+                <label id="lbl_rndTripTo" aria-label="To">
                   Ticket ID
                 </label>
                 <input
@@ -22,9 +20,10 @@ function ticketEditing (){
                   className="form-control"
                   placeholder="1234"
                   style={{ width: "100%" }}
-                  data-select2-id="rndTripTo"/>
-                  </div>
-                  <div className= 'field'>
+                  data-select2-id="rndTripTo"
+                />
+              </div>
+              <div className="field">
                 <label id="lbl_rndTripTo" aria-label="To">
                   First Name
                 </label>
@@ -81,43 +80,43 @@ function ticketEditing (){
                     // value={userInfo?.DOB}
                     // onChange={e => setUserInfo(prev => ({ ...prev, DOB: e.target.value }))}
                   />
-                   <div className="field date-field">
-                   <label id="lbl_rndTripDates" aria-label="Date">
-                  Arrival Date
-                </label>
-                <div className="date-field-wrapper date-depart">
-                  <input
-                    name="DateOfBirth"
-                    type="date"
-                    className="form-control"
-                    placeholder="mm-dd-yyyy"
-                    style={{ width: "100%" }}
-                    // value={userInfo?.DOB}
-                    // onChange={e => setUserInfo(prev => ({ ...prev, DOB: e.target.value }))}
-                  />
+                  <div className="field date-field">
+                    <label id="lbl_rndTripDates" aria-label="Date">
+                      Arrival Date
+                    </label>
+                    <div className="date-field-wrapper date-depart">
+                      <input
+                        name="DateOfBirth"
+                        type="date"
+                        className="form-control"
+                        placeholder="mm-dd-yyyy"
+                        style={{ width: "100%" }}
+                        // value={userInfo?.DOB}
+                        // onChange={e => setUserInfo(prev => ({ ...prev, DOB: e.target.value }))}
+                      />
+                    </div>
                   </div>
+                  <div className="field">
+                    <label id="lbl_rndTripTo" aria-label="To">
+                      Seat No.
+                    </label>
+                    <input
+                      name="seatNo"
+                      type="text"
+                      id="rndTripTo"
+                      className="form-control"
+                      placeholder="A1"
+                      style={{ width: "100%" }}
+                      data-select2-id="rndTripTo"
+                      // value={userInfo?.firstName}
+                      // onChange={e =>
+                      //   setUserInfo(prev => ({
+                      //     ...prev,
+                      //     firstName: e.target.value,
+                      //   }))
+                      // }
+                    />
                   </div>
-                  <div className= 'field'>
-                <label id="lbl_rndTripTo" aria-label="To">
-                  Seat No.
-                </label>
-                <input
-                  name="seatNo"
-                  type="text"
-                  id="rndTripTo"
-                  className="form-control"
-                  placeholder="A1"
-                  style={{ width: "100%" }}
-                  data-select2-id="rndTripTo"
-                  // value={userInfo?.firstName}
-                  // onChange={e =>
-                  //   setUserInfo(prev => ({
-                  //     ...prev,
-                  //     firstName: e.target.value,
-                  //   }))
-                  // }
-                />
-              </div>
                 </div>
               </div>
             </div>
@@ -155,22 +154,10 @@ function ticketEditing (){
                 />
               </div>
             </div>
-            <button
-              type="submit"
-              name="btn-primary"
-              value="update"
-              id="round_trip_btn"
-              className="btn-primary btn-submit-form btn-rnd-trip"
-            >
+            <button type="submit" name="btn-primary" value="update" id="round_trip_btn" className="btn-primary btn-submit-form btn-rnd-trip">
               Save
             </button>
-            <button
-              type="submit"
-              name="btn-primary"
-              value="delete"
-              id="round_trip_btn"
-              className="btn-primary btn-submit-form btn-rnd-trip"
-            >
+            <button type="submit" name="btn-primary" value="delete" id="round_trip_btn" className="btn-primary btn-submit-form btn-rnd-trip">
               Delete
             </button>
             <div className="general-error" id="oneWayErr">
@@ -182,4 +169,3 @@ function ticketEditing (){
     </div>
   );
 };
-export default ticketEditing;
