@@ -3687,6 +3687,28 @@ body.booking-widget-visible .booking-widget {
   margin-bottom: 40px;
 }
 
+
+.field.phone-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+}
+
+.phone-input select {
+  width: 33%; 
+  margin-right: 5px; 
+}
+
+.phone-input input {
+  flex: 1; 
+}
+
+
 .form-content .fieldset {
   padding: 0 0 14px 0;
   font-size: 0;
