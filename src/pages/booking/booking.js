@@ -8,6 +8,8 @@ import "../../styles/style.css";
 
 export const BookingPage = () => {
   const flight = useSelector(state => state.bookingReducer.pendingBooking);
+  console.log("=========================================PENDING FLIGHT=============================");
+  console.log(flight.passengers);
   const [selectedTab, setSelectedTab] = useState("psnlInfo");
   const psnlInfoRef = useRef(null);
   const seatSelectRef = useRef(null);
@@ -36,6 +38,22 @@ export const BookingPage = () => {
                   <FaUser className="user-icon" /> Personal info
                 </span>
               </a>
+              {flight.passengers > 1 && (
+                <a
+                  href="#addPassenger"
+                  onClick={() => scrollToSection(seatSelectRef, "addPassenger")}
+                  className={selectedTab === "addPassenger" ? "active icon-check-in" : "icon-check-in"}
+                  role="tab"
+                  aria-controls="addPassenger"
+                  aria-selected={selectedTab === "addPassenger"}
+                >
+                  <span>
+                    <FaChair className="user-icon" />
+                    add Passenger
+                  </span>
+                </a>
+              )}
+
               <a
                 href="#seatSelect"
                 onClick={() => scrollToSection(seatSelectRef, "seatSelect")}
@@ -86,7 +104,7 @@ export const BookingPage = () => {
 };
 
 const activeTab = (tab, setSelectedTab, flight) => {
-  if (tab === "psnlInfo") return <PersonlInfo setSelectedTab={setSelectedTab} />;
+  if (tab === "psnlInfo" || tab === "addPassenger") return <PersonlInfo tab={tab} setSelectedTab={setSelectedTab} />;
   else if (tab === "seatSelect") return <SeatSelection setSelectedTab={setSelectedTab} />;
   else if (tab === "payment") return <Payment setSelectedTab={setSelectedTab} />;
   else if (tab === "flightTicket") return <Ticket flight={flight} />;

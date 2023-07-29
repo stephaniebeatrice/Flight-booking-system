@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Header } from "../../components/header/header";
 import SearchForm from "../../container/search-form/search-form";
 import image from "../../img/homepage.jpg";
@@ -21,7 +22,7 @@ export const Home = () => {
       >
         <aside className="Search-section">
           <div className="search-flight">
-            <p style={{ textAlign: "left", marginLeft: "8rem", color: "white", fontSize:"25px"}}>Search Flight</p>
+            <p style={{ textAlign: "left", marginLeft: "8rem", color: "white", fontSize: "25px" }}>Search Flight</p>
           </div>
           <SearchForm />
         </aside>

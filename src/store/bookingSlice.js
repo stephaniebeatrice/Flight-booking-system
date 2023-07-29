@@ -14,9 +14,8 @@ const initialState = {
     passengers: 0,
     passengersInfo: [{ fullName: "" }],
   },
-  bookingUserInfo: { title: "", firstName: "", lastName: "", DOB: "", number: "", email: "" },
+  bookingUserInfo: [],
   payment: { cardHolderFullName: "", cardNumber: "" },
-
   seatsSelected: [],
 };
 const bookingSlice = createSlice({
@@ -27,7 +26,10 @@ const bookingSlice = createSlice({
       state.pendingBooking = action.payload;
     },
     createUserBookigInfo(state, action) {
-      state.bookingUserInfo = action.payload;
+      state.bookingUserInfo = [action.payload];
+    },
+    createPassengers(state, action) {
+      state.bookingUserInfo.push(action.payload);
     },
     createSeatSelection(state, action) {
       state.seatsSelected = action.payload;
@@ -35,8 +37,9 @@ const bookingSlice = createSlice({
     createPayment(state, action) {
       state.payment = action.payload;
     },
-    clearBooking(state, action) {
-      state.booking = state.booking.filter(p => !action.payload.includes(p.bookingId));
+    clearBooking(state) {
+      state.pendingBooking = {};
+      state.bookingUserInfo = state.bookingUserInfo.splice(1, 1);
     },
   },
 });
