@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../Navbar";
+import Nav from "./components/Navbar";
 
 function Home({ Toggle }) {
   // Click event handler for the "Accept" button

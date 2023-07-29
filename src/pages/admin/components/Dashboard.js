@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Sidebar from "./Sidebar";
-import Home from "./Home";
+import Home from "../Home";
 import { useState } from "react";
 
 function Dashboard() {

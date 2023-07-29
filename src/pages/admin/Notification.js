@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import { Header } from "../../components/header/header";
 
 export const Notification = () => {
   return (
-    <div>Notification</div>
-  )
-}
+    <div className="App">
+      <Header />
+      <div>Notification</div>
+    </div>
+  );
+};
