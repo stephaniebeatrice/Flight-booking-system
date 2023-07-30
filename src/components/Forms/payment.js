@@ -31,7 +31,6 @@ export const Payment = ({ setSelectedTab }) => {
       const validationObj = {
         cardHolderFullName: !!paymentForm.cardHolderFullName,
         cardNumber: !!paymentForm.cardNumber,
-
         cvv: !!paymentForm.cvv,
       };
       setValidation(validationObj);
@@ -54,6 +53,7 @@ export const Payment = ({ setSelectedTab }) => {
             ...data.booking,
             departureTime: pendingBooking.departureTime,
             flightName: pendingBooking.flightName,
+            flightTime: pendingBooking.flightTime,
             status: "successful",
           })
         );

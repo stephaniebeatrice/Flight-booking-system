@@ -8,25 +8,35 @@ import "./style.css";
 
 export const Bookings = () => {
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
-  const [bookingToDelete, setBookingToDelete] = useState(null);
+  const [bookingToChange, setBookingToChange] = useState(null);
 
   const { bookings } = useSelector(state => state.bookingReducer);
 
   const handleDeleteBooking = booking => {
-    setBookingToDelete(booking);
+    setBookingToChange(booking);
     setShowDeleteConfirmation(true);
   };
 
-  const handleConfirmDelete = () => {
-    // Logic to delete the booking and notify the admin
+  const handleConfirmDelete = async () => {
     setShowDeleteConfirmation(false);
-    setBookingToDelete(null);
+
+    const res = await fetch("http://localhost:3000/flight/inquire-delete", {
+      method: "POST",
+      body: JSON.stringify({ id: bookingToChange._id }),
+      headers: { "Content-Type": "application/json" },
+    });
+    if (res.ok) setBookingToChange(null);
+    const data = await res.json();
+
+    console.log("=========================RESPONSE DATA=====================");
+    console.log(data);
+
     alert("Forwarded to admin for review");
   };
 
   const handleCancelDelete = () => {
     setShowDeleteConfirmation(false);
-    setBookingToDelete(null);
+    setBookingToChange(null);
   };
   return (
     <div className="App">
@@ -104,7 +114,7 @@ const TableHeader = () => {
 
 const TableRow = (index, booking, deleteHandler) => {
   const time = new Date(new Date(booking.departureTime).getTime() + +booking.flightTime * 60 * 60 * 1000);
-  console.log(time);
+
   return (
     <tr key={index}>
       <td>{booking.fullName}</td>
@@ -113,10 +123,10 @@ const TableRow = (index, booking, deleteHandler) => {
       <td>{DateTime(time)}</td>
       <td>{booking.passengersInfo.length}</td>
       <td className="buttons">
-        <Link to="Edit">
+        <Link to="/Edit">
           <button className="btn btn-primary">Edit</button>
         </Link>
-        <button className="btn btn-danger" onClick={deleteHandler}>
+        <button className="btn btn-danger" onClick={() => deleteHandler(booking)}>
           Delete
         </button>
       </td>

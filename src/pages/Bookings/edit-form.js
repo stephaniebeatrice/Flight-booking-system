@@ -7,7 +7,7 @@ import { Header } from "../../components/header/header";
 import "../../styles/style.css";
 
 export const EditForm = () => {
-  const flight = useSelector((state) => state.bookingReducer.pendingBooking);
+  const flight = useSelector(state => state.bookingReducer.pendingBooking);
 
   const [selectedTab, setSelectedTab] = useState("psnlInfo");
   const psnlInfoRef = useRef(null);
@@ -19,13 +19,11 @@ export const EditForm = () => {
   return (
     <div className="App">
       <Header />
-     
       <section className="content-wrapper dark">
-     <h3>Edit Your Information</h3>  
-        <div className="wrapper">  
+        <h3>Edit Your Information</h3>
+        <div className="wrapper">
           <div className="booking-widget">
             <div className="bookingtabs" role="tablist">
-               
               <a
                 href="#psnlInfo"
                 onClick={() => scrollToSection(psnlInfoRef, "psnlInfo")}
@@ -39,20 +37,20 @@ export const EditForm = () => {
                 </span>
               </a>
               <a
-                  href="#addPassenger"
-                  onClick={() => scrollToSection(seatSelectRef, "addPassenger")}
-                  className={selectedTab === "addPassenger" ? "active icon-check-in" : "icon-check-in"}
-                  role="tab"
-                  aria-controls="addPassenger"
-                  aria-selected={selectedTab === "addPassenger"}
-                >
-                  <span>
-                    <FaUserPlus className="user-icon" />
-                    Add Passenger
-                  </span>
-                </a>
+                href="#addPassenger"
+                onClick={() => scrollToSection(seatSelectRef, "addPassenger")}
+                className={selectedTab === "addPassenger" ? "active icon-check-in" : "icon-check-in"}
+                role="tab"
+                aria-controls="addPassenger"
+                aria-selected={selectedTab === "addPassenger"}
+              >
+                <span>
+                  <FaUserPlus className="user-icon" />
+                  Add Passenger
+                </span>
+              </a>
             </div>
-            {activeTab(selectedTab)}
+            {activeTab(setSelectedTab, selectedTab)}
             <span id="ctl00_ctBody_Web_Content_Home_BookingEngine_ManageMyBooking_ekapi_language"></span>
           </div>
         </div>
@@ -61,7 +59,6 @@ export const EditForm = () => {
   );
 };
 
-const activeTab = (tab) => {
-  if (tab === "psnlInfo" || tab === "addPassenger") return <PersonlInfo />;
-  else if (tab === "seatSelect") return <SeatSelection />;
+const activeTab = (setSelectedTab, tab) => {
+  return <PersonlInfo setSelectedTab={setSelectedTab} tab={tab} action={"edit"} />;
 };

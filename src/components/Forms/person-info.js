@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { bookingActions } from "../../store/bookingSlice";
 import countryCodes from "../../PHONEDATA.json";
 
-export const PersonlInfo = ({ setSelectedTab, tab }) => {
+export const PersonlInfo = ({ setSelectedTab, tab, action }) => {
   const { bookingUserInfo, pendingBooking } = useSelector(state => state.bookingReducer);
   const [userInfo, setUserInfo] = useState({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
   const [valid, setValid] = useState({ title: true, firstName: true, lastName: true, DOB: true });
@@ -29,28 +29,27 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
   };
 
   const handlerSubmit = () => {
-    console.log("============================= ============================");
-    console.log(+pendingBooking.passengers);
-    console.log(bookingUserInfo.length);
     const isValid = validHandler();
     if (!isValid || (tab === "addPassenger" && +pendingBooking.passengers !== bookingUserInfo.length)) return;
     if (tab !== "addPassenger") {
       dispatch(bookingActions.createUserBookigInfo(userInfo));
-      dispatch(
-        bookingActions.createPendingBooking({
-          ...pendingBooking,
-          passengersInfo: [
-            { fullName: userInfo.firstName + " " + userInfo.lastName, email: userInfo.email, phoneNo: userInfo.number, dob: userInfo.DOB },
-          ],
-        })
-      );
+      if (!action) {
+        dispatch(
+          bookingActions.createPendingBooking({
+            ...pendingBooking,
+            passengersInfo: [
+              { fullName: userInfo.firstName + " " + userInfo.lastName, email: userInfo.email, phoneNo: userInfo.number, dob: userInfo.DOB },
+            ],
+          })
+        );
+      }
+
       if (pendingBooking.passengers > 1) {
         setUserInfo({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
         return setSelectedTab("addPassenger");
       } else setSelectedTab("seatSelect");
     } else setSelectedTab("seatSelect");
   };
-
   const addHandler = () => {
     const isValid = validHandler();
     if (!isValid) return;
@@ -61,7 +60,6 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
 
   const changeHandler = e => {
     const { value, name } = e.target;
-
     if (name === "countryCode") {
       setSelectedCountryCode(value);
     } else {
@@ -74,6 +72,8 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
   const focusHandler = () => {
     setValid({ title: true, firstName: true, lastName: true, DOB: true });
   };
+
+  const Edithandler = () => {};
 
   return (
     <div className="form-content">
@@ -222,17 +222,31 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
               }}
             >
               {tab === "addPassenger" && +pendingBooking.passengers !== bookingUserInfo.length ? (
-                <button
-                  type="submit"
-                  name="btn-primary"
-                  value="Next"
-                  style={{ margin: "1rem" }}
-                  id="round_trip_btn"
-                  className="btn-primary btn-submit-form btn-rnd-trip"
-                  onClick={addHandler}
-                >
-                  Add
-                </button>
+                <>
+                  <button
+                    type="submit"
+                    name="btn-primary"
+                    value="Next"
+                    style={{ marginRight: "1rem" }}
+                    id="round_trip_btn"
+                    className="btn-primary btn-submit-form btn-rnd-trip"
+                    onClick={addHandler}
+                  >
+                    Add
+                  </button>
+                  {action && (
+                    <button
+                      type="submit"
+                      name="btn-primary"
+                      value="Next"
+                      id="round_trip_btn"
+                      className="btn-primary btn-submit-form btn-rnd-trip"
+                      onClick={Edithandler}
+                    >
+                      Submit
+                    </button>
+                  )}
+                </>
               ) : (
                 <button
                   type="submit"
