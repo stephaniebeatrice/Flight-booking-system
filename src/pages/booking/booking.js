@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { FaAddressCard, FaChair, FaMoneyBill, FaUser ,FaUserPlus} from "react-icons/fa";
+import { FaAddressCard, FaChair, FaMoneyBill, FaUser, FaUserPlus } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Payment, SeatSelection, Ticket } from "../../components/Forms";
 import { PersonlInfo } from "../../components/Forms/person-info";
@@ -14,6 +14,7 @@ export const BookingPage = () => {
   const seatSelectRef = useRef(null);
   const paymentRef = useRef(null);
   const flightTicketRef = useRef(null);
+
   const scrollToSection = (ref, tabId) => {
     // ref.current.scrollIntoView({ behavior: 'smooth', start: 'block' });
     setSelectedTab(tabId);
