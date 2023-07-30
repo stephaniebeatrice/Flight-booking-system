@@ -1,131 +1,168 @@
+/* *{
+  box-sizing: border-box;
+} */
+
 .col {
-    flex: 1 0;
-}
-.bookings .container{
-    margin-top:30px;
+  flex: 1 0;
 }
 
-@media (max-width: 1333px){
-     .bookings .container{
-        margin-top:90px;
-    }
+.mainContainer {
+  background-image: url(../../img/bg2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-@media (max-width: 670px){
-    .bookings .container{
-    margin-top:0px;
+
+
+
+.bookings {
+  /* border: 1px solid #dfdfdf; */
+  min-width: 990px;
+  border-radius: 10px;
+  position: relative;
+  background-color: rgb(252, 252, 252, 0.8);
+  padding: 0 20px 40px 20px;
+  margin: 0 auto;
+  border-radius: 10px;
 }
+
+.bookings .container {
+  margin-top: 30px;
 }
+
+.bookings  h2{
+  text-align: center;
+}
+
+@media (max-width: 1333px) {
+  
+  .bookings .container {
+    margin-top: 90px;
+  }
+}
+@media (max-width: 670px) {
+  .bookings .container {
+    margin-top: 0px;
+  }
+}
+
+
 
 .table thead th:first-child,
- .table tbody td:first-child {
-    border-left:1px solid #ccc;
+.table tbody td:first-child {
+  border-left: 1px solid #ccc;
 }
 
 .table thead th:last-child,
- .table tbody td:last-child{
-    border-right:1px solid #ccc;
- }
+.table tbody td:last-child {
+  border-right: 1px solid #ccc;
+}
 
- .table tbody td{
-    color: #5a5a5a;
- }
+.table tbody td {
+  color: #5a5a5a;
+}
 
 .buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
 
- .container-inquiries{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    max-width: 900px;
-    margin: 0 auto
- }
+.container-inquiries {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
- .container-inquiries h4{
-    font-weight: 400;
-    font-size: 23px;
-    color: #4d4d4d;
+.container-inquiries h4 {
+  font-weight: 400;
+  font-size: 23px;
+  color: #4d4d4d;
+}
+.btn-warning,
+.btn-success,
+.btn-danger,
+.btn-primary {
+  margin: 0;
+  width: 100px;
+  float: none;
+}
 
- }
-  .btn-warning, .btn-success, 
-  .btn-danger, .btn-primary{
-    margin:0;
-    width: 100px;
-   float: none;
-  
- }
-  
- .buttons .btn-primary{
-    min-width: 100px;
-    height: inherit;
- }
+.buttons .btn-primary {
+  min-width: 100px;
+  height: inherit;
+}
 
- .btn-warning:hover, .btn-success:hover, 
- .btn-danger:hover, .btn-primary:hover{
-    transform: scale(1.03);
- }
+.btn-warning:hover,
+.btn-success:hover,
+.btn-danger:hover,
+.btn-primary:hover {
+  transform: scale(1.03);
+}
 
- /* MyBookings.css */
+/* MyBookings.css */
 .my-bookings {
-    padding: 20px;
-  }
-  
-  .booking-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .booking-item {
-    margin-bottom: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  p {
-    margin: 5px 0;
-  }
-  
-  hr {
-    border: 1px solid #ccc;
-  }
-  
-  /* Pop-up styles */
-  .popup-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(240, 240, 240, 0.7); /* Semi-transparent overlay */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-  
-  .popup {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .popup p {
-    margin: 0;
-  }
-  
-  .popup-buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-  }
-  
-  .popup-buttons button {
-    margin-left: 10px;
-  }
-  
+  padding: 20px;
+}
+
+.booking-list {
+  list-style: none;
+  padding: 0;
+}
+
+.booking-item {
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  margin: 5px 0;
+}
+
+hr {
+  border: 1px solid #ccc;
+}
+
+/* Pop-up styles */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(240, 240, 240, 0.7); /* Semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.popup p {
+  margin: 0;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.popup-buttons button {
+  margin-left: 10px;
+}

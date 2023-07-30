@@ -35,7 +35,7 @@ export const Bookings = () => {
         <div className="bookings">
           <div className="container">
             <h2>My Bookings</h2>
-            <table class="table caption-top bg-white rounded mt-2">
+            <table class="table">
               {TableHeader()}
               <tbody>
                 {bookings.map((booking, index) => {
@@ -45,7 +45,7 @@ export const Bookings = () => {
             </table>
           </div>
 
-          <div className="container">
+          <div>
             <h2>Booking inquiries</h2>
           </div>
           <div className="container-inquiries">
@@ -59,29 +59,29 @@ export const Bookings = () => {
               </tbody>
             </table>
           </div>
-        </div>
 
-        <div className="container-inquiries">
-          <h4>Change Bookings</h4>
-          <table class="table caption-top bg-white rounded mt-2">
-            {TableHeader()}
-            <tbody>
-              {bookings.map((booking, index) => {
-                return TableRow(index, booking, handleDeleteBooking);
-              })}
-            </tbody>
-          </table>
-        </div>
+          <div className="container-inquiries">
+            <h4>Change Bookings</h4>
+            <table class="table caption-top bg-white rounded mt-2">
+              {TableHeader()}
+              <tbody>
+                {bookings.map((booking, index) => {
+                  return TableRow(index, booking, handleDeleteBooking);
+                })}
+              </tbody>
+            </table>
+          </div>
 
-        {showDeleteConfirmation && (
-          <Pop
-            text={"Are you sure you want to delete the booking?"}
-            okText={"Yes"}
-            cancelText={"No"}
-            cancelHandler={handleCancelDelete}
-            yesHandler={handleConfirmDelete}
-          />
-        )}
+          {showDeleteConfirmation && (
+            <Pop
+              text={"Are you sure you want to delete the booking?"}
+              okText={"Yes"}
+              cancelText={"No"}
+              cancelHandler={handleCancelDelete}
+              yesHandler={handleConfirmDelete}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

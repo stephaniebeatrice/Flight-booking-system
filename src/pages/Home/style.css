@@ -8,3 +8,26 @@
 .Results-section {
   margin: 10rem;
 }
+
+.Main-container{
+ height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.Search-section{
+ margin-top: -200px;
+}
+
+@media (max-width: 1333px) {
+  
+  .Search-section {
+    margin-top: -30px;
+  }
+}
+@media (max-width: 670px) {
+  .Search-section {
+    margin-top: -200px;
+  }
+}

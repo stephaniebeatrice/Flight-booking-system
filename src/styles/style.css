@@ -3527,7 +3527,7 @@ header .btn-menu {
   position: relative;
   background-color: rgb(252, 252, 252, 0.8);
   z-index: 50;
-  margin-top: -111px;
+  margin-top: -130px;
   overflow: auto;
 }
 body.booking-widget-visible:after {
