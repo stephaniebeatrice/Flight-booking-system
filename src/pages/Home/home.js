@@ -14,6 +14,8 @@ export const Home = () => {
         style={{
           backgroundImage: `url(${image})`,
           backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
           display: "flex",
           flexGrow: " 1",
           paddingTop: "30px",
