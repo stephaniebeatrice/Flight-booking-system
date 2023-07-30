@@ -41,7 +41,7 @@ export const Payment = ({ setSelectedTab }) => {
         return setShowPop(true);
       }
 
-      const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/create-booking", {
+      const res = await fetch("http://localhost:3000/flight/create-booking", {
         method: "POST",
         body: JSON.stringify(jsonObj(pendingBooking, passengers, seatsSelected)),
         headers: { "Content-Type": "application/json" },
@@ -196,15 +196,15 @@ export const Payment = ({ setSelectedTab }) => {
               </div>
             </div>
             <button
-                  type="submit"
-                  name="btn-primary"
-                  value="Next"
-                  id="round_trip_btn"
-                  className="btn-primary btn-submit-form btn-rnd-trip"
-                  // onClick={handlerSubmit}
-                >
-                  Pay Now
-                </button>
+              type="submit"
+              name="btn-primary"
+              value="Next"
+              id="round_trip_btn"
+              className="btn-primary btn-submit-form btn-rnd-trip"
+              // onClick={handlerSubmit}
+            >
+              Pay Now
+            </button>
           </form>
           <div>
             <p className="footer-text">

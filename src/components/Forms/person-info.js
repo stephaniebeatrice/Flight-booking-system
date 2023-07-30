@@ -5,23 +5,9 @@ import { bookingActions } from "../../store/bookingSlice";
 import countryCodes from "../../PHONEDATA.json";
 
 export const PersonlInfo = ({ setSelectedTab, tab }) => {
-  const { bookingUserInfo, pendingBooking } = useSelector(
-    (state) => state.bookingReducer
-  );
-  const [userInfo, setUserInfo] = useState({
-    title: "Mr.",
-    firstName: "",
-    lastName: "",
-    DOB: "",
-    number: "",
-    email: "",
-  });
-  const [valid, setValid] = useState({
-    title: true,
-    firstName: true,
-    lastName: true,
-    DOB: true,
-  });
+  const { bookingUserInfo, pendingBooking } = useSelector(state => state.bookingReducer);
+  const [userInfo, setUserInfo] = useState({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
+  const [valid, setValid] = useState({ title: true, firstName: true, lastName: true, DOB: true });
   const [selectedCountryCode, setSelectedCountryCode] = useState("");
 
   const dispatch = useDispatch();
@@ -30,7 +16,7 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
     setUserInfo(bookingUserInfo[0]);
   }, []);
 
-  const handlerSubmit = () => {
+  const validHandler = () => {
     const validationObj = {
       title: !!userInfo.title,
       firstName: !!userInfo.firstName,
@@ -38,61 +24,48 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
       DOB: !!userInfo.DOB,
     };
     setValid(validationObj);
-    const isValid = Object.values(validationObj).every((isValid) => isValid);
-    if (
-      !isValid ||
-      (tab === "addPassenger" && +pendingBooking.passengers) !==
-        bookingUserInfo.length
-    )
-      return;
+    const isValid = Object.values(validationObj).every(isValid => isValid);
+    return isValid;
+  };
+
+  const handlerSubmit = () => {
+    console.log("============================= ============================");
+    console.log(+pendingBooking.passengers);
+    console.log(bookingUserInfo.length);
+    const isValid = validHandler();
+    if (!isValid || (tab === "addPassenger" && +pendingBooking.passengers !== bookingUserInfo.length)) return;
     if (tab !== "addPassenger") {
       dispatch(bookingActions.createUserBookigInfo(userInfo));
       dispatch(
         bookingActions.createPendingBooking({
           ...pendingBooking,
           passengersInfo: [
-            {
-              fullName: userInfo.firstName + " " + userInfo.lastName,
-              email: userInfo.email,
-              phoneNo: userInfo.number,
-              dob: userInfo.DOB,
-            },
+            { fullName: userInfo.firstName + " " + userInfo.lastName, email: userInfo.email, phoneNo: userInfo.number, dob: userInfo.DOB },
           ],
         })
       );
       if (pendingBooking.passengers > 1) {
-        setUserInfo({
-          title: "Mr.",
-          firstName: "",
-          lastName: "",
-          DOB: "",
-          number: "",
-          email: "",
-        });
+        setUserInfo({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
         return setSelectedTab("addPassenger");
       } else setSelectedTab("seatSelect");
     } else setSelectedTab("seatSelect");
   };
 
   const addHandler = () => {
+    const isValid = validHandler();
+    if (!isValid) return;
     dispatch(bookingActions.createPassengers(userInfo));
-    setUserInfo({
-      title: "Mr.",
-      firstName: "",
-      lastName: "",
-      DOB: "",
-      number: "",
-      email: "",
-    });
+    if (+pendingBooking.passengers - bookingUserInfo.length !== 1)
+      setUserInfo({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
   };
 
-  const changeHandler = (e) => {
+  const changeHandler = e => {
     const { value, name } = e.target;
 
     if (name === "countryCode") {
       setSelectedCountryCode(value);
     } else {
-      setUserInfo((prev) => {
+      setUserInfo(prev => {
         return { ...prev, [name]: value };
       });
     }
@@ -109,18 +82,12 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
           <div id="rndTrip" className="pill-tab-content active">
             <p>
               {tab === "addPassenger"
-                ? `please fill in the details of ${
-                    +pendingBooking.passengers - 1
-                  } passengers`
+                ? `please fill in the details of ${+pendingBooking.passengers - 1} passengers`
                 : "Please make sure that you fill in the name that is in your passport."}
             </p>
             <div className="fieldset quarter">
               <div className="field">
-                <label
-                  htmlFor="rndTripFom"
-                  id="lbl_rndTripFrom"
-                  aria-label="From"
-                >
+                <label htmlFor="rndTripFom" id="lbl_rndTripFrom" aria-label="From">
                   Title*
                 </label>
                 <Form.Control
@@ -211,11 +178,11 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                     name="countryCode"
                     placeholder="Select country code"
                     value={selectedCountryCode}
-                    onChange={(e) => setSelectedCountryCode(e.target.value)}
+                    onChange={e => setSelectedCountryCode(e.target.value)}
                   >
                     <option value="">Select Country Code</option>
-                    {countryCodes.map((country) => (
-                      <option key={country.code} value={country.code}>
+                    {countryCodes.map((country, index) => (
+                      <option key={index} value={country.code}>
                         {`${country.name} (${country.code})`}
                       </option>
                     ))}
@@ -254,8 +221,7 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                 justifyContent: "flex-end",
               }}
             >
-              {tab === "addPassenger" &&
-              +pendingBooking.passengers !== bookingUserInfo.length ? (
+              {tab === "addPassenger" && +pendingBooking.passengers !== bookingUserInfo.length ? (
                 <button
                   type="submit"
                   name="btn-primary"
@@ -281,9 +247,7 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
               )}
             </div>
 
-            <span className="required-note">
-              All fields with * are mandatory
-            </span>
+            <span className="required-note">All fields with * are mandatory</span>
             <div className="general-error" id="oneWayErr">
               <p></p>
             </div>
@@ -301,18 +265,16 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
               </tr>
             </thead>
             <tbody>
-              {[...bookingUserInfo]
-                ?.splice(1, bookingUserInfo.length - 1)
-                .map((passenger, index) => {
-                  return (
-                    <tr key={index.toString()}>
-                      <td>{passenger.firstName}</td>
+              {[...bookingUserInfo]?.splice(1, bookingUserInfo.length - 1).map((passenger, index) => {
+                return (
+                  <tr key={index.toString()}>
+                    <td>{passenger.firstName}</td>
 
-                      <td>${passenger.lastName}</td>
-                      <td>{passenger.DOB}</td>
-                    </tr>
-                  );
-                })}
+                    <td>${passenger.lastName}</td>
+                    <td>{passenger.DOB}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
