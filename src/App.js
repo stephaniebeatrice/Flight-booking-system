@@ -13,7 +13,7 @@ import { Login } from "./pages/login/Login";
 import TicketEditing from "./pages/admin/ticketEditing";
 import { Notification } from "./pages/admin/Notification";
 import EmployeeMatching from "./pages/admin/employeeMatching";
-
+import AddPassenger from "./pages/admin/addPassenger";
 import { EditForm } from "./pages/Bookings/edit-form";
 
 const App = () => {
@@ -39,6 +39,7 @@ const App = () => {
         <Route path="/TicketEdit" element={renderRestrictedComponent(TicketEditing)} />
         <Route path="/Notification" element={renderRestrictedComponent(Notification)} />
         <Route path="/EmployeeMatching" element={renderRestrictedComponent(EmployeeMatching)} />
+        <Route path="/AddPassenger" element={renderRestrictedComponent(AddPassenger)} />
         <Route path="/Jobs" element={renderRestrictedComponent(Jobs)} />
         <Route path="/Apply" element={renderRestrictedComponent(Application)} />
         <Route path="/Bookings" element={renderRestrictedComponent(Bookings)} />
