@@ -1,6 +1,10 @@
-div {
+.content {
   padding: 20px;
   font-family: Arial, sans-serif;
+}
+
+.dropdown-menu{
+  min-width: 90px;
 }
 
 table {

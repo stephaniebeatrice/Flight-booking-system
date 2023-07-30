@@ -47,7 +47,7 @@ const EmployeeMatching = () => {
   };
 
   return (
-    <div>
+    <div className="content">
       <h2>Airport Job Applicants</h2>
       <table>
         <thead>
