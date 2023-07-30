@@ -5,14 +5,15 @@ import { useState } from "react";
 import { Pop } from "../../components/pop/pop";
 import { useSelector } from "react-redux";
 import { DateTime } from "../../container/search-form/search-form";
+import { Link } from "react-router-dom";
 
 export const Bookings = () => {
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const [bookingToDelete, setBookingToDelete] = useState(null);
 
-  const { bookings } = useSelector(state => state.bookingReducer);
+  const { bookings } = useSelector((state) => state.bookingReducer);
 
-  const handleDeleteBooking = booking => {
+  const handleDeleteBooking = (booking) => {
     setBookingToDelete(booking);
     setShowDeleteConfirmation(true);
   };
@@ -31,24 +32,38 @@ export const Bookings = () => {
   return (
     <div className="App">
       <Header />
-      <div className="bookings">
-        <div className="container">
-          <h2>My Bookings</h2>
-          <table class="table caption-top bg-white rounded mt-2">
-            {TableHeader()}
-            <tbody>
-              {bookings.map((booking, index) => {
-                return TableRow(index, booking, handleDeleteBooking);
-              })}
-            </tbody>
-          </table>
+      <div className="mainContainer">
+        <div className="bookings">
+          <div className="container">
+            <h2>My Bookings</h2>
+            <table class="table caption-top bg-white rounded mt-2">
+              {TableHeader()}
+              <tbody>
+                {bookings.map((booking, index) => {
+                  return TableRow(index, booking, handleDeleteBooking);
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="container">
+            <h2>Booking inquiries</h2>
+          </div>
+          <div className="container-inquiries">
+            <h4>Delete Bookings</h4>
+            <table class="table caption-top bg-white rounded mt-2">
+              {TableHeader()}
+              <tbody>
+                {bookings.map((booking, index) => {
+                  return TableRow(index, booking, handleDeleteBooking);
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div className="container">
-          <h2>Booking inquiries</h2>
-        </div>
         <div className="container-inquiries">
-          <h4>Delete Bookings</h4>
+          <h4>Change Bookings</h4>
           <table class="table caption-top bg-white rounded mt-2">
             {TableHeader()}
             <tbody>
@@ -58,31 +73,18 @@ export const Bookings = () => {
             </tbody>
           </table>
         </div>
-      </div>
 
-      <div className="container-inquiries">
-        <h4>Change Bookings</h4>
-        <table class="table caption-top bg-white rounded mt-2">
-          {TableHeader()}
-          <tbody>
-            {bookings.map((booking, index) => {
-              return TableRow(index, booking, handleDeleteBooking);
-            })}
-          </tbody>
-        </table>
+        {showDeleteConfirmation && (
+          <Pop
+            text={"Are you sure you want to delete the booking?"}
+            okText={"Yes"}
+            cancelText={"No"}
+            cancelHandler={handleCancelDelete}
+            yesHandler={handleConfirmDelete}
+          />
+        )}
       </div>
-
-      {showDeleteConfirmation && (
-        <Pop
-          text={"Are you sure you want to delete the booking?"}
-          okText={"Yes"}
-          cancelText={"No"}
-          cancelHandler={handleCancelDelete}
-          yesHandler={handleConfirmDelete}
-        />
-      )}
     </div>
-    //  </div>
   );
 };
 
@@ -102,7 +104,10 @@ const TableHeader = () => {
 };
 
 const TableRow = (index, booking, deleteHandler) => {
-  const time = new Date(new Date(booking.departureTime).getTime() + +booking.flightTime * 60 * 60 * 1000);
+  const time = new Date(
+    new Date(booking.departureTime).getTime() +
+      +booking.flightTime * 60 * 60 * 1000
+  );
   console.log(time);
   return (
     <tr key={index}>
@@ -112,7 +117,9 @@ const TableRow = (index, booking, deleteHandler) => {
       <td>{DateTime(time)}</td>
       <td>{booking.passengersInfo.length}</td>
       <td className="buttons">
-        <button className="btn btn-primary">Edit</button>
+        <Link to="Edit">
+          <button className="btn btn-primary">Edit</button>
+        </Link>
         <button className="btn btn-danger" onClick={deleteHandler}>
           Delete
         </button>

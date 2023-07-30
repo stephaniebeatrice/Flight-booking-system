@@ -2,11 +2,23 @@ import React from "react";
 import { Header } from "../../components/header/header";
 import { useState } from "react";
 import "./style.css";
+import countryCodes from "../../PHONEDATA.json";
+import Form from "react-bootstrap/Form";
 
 export const Application = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileIsValid, setFileIsValid] = useState(true);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
+  const [selectedCountryCode, setSelectedCountryCode] = useState("");
+
+  const [userInfo, setUserInfo] = useState({
+    title: "Mr.",
+    firstName: "",
+    lastName: "",
+    DOB: "",
+    number: "",
+    email: "",
+  });
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -29,6 +41,18 @@ export const Application = () => {
   const handleSubmit = () => {
     if (fileIsValid && selectedFile) {
       setSubmissionSuccess(true);
+    }
+  };
+
+  const changeHandler = (e) => {
+    const { value, name } = e.target;
+
+    if (name === "countryCode") {
+      setSelectedCountryCode(value);
+    } else {
+      setUserInfo((prev) => {
+        return { ...prev, [name]: value };
+      });
     }
   };
 
@@ -71,14 +95,36 @@ export const Application = () => {
               </div>
 
               <div class="form_field">
-                <label for="phoneNumber"> Phone Number </label>
-                <input
-                  type="tel"
-                  id="phoneNumber"
-                  name="phoneNumber"
-                  className="form-control"
-                  placeholder=" +254 712 345 678"
-                />
+              <label >
+                    Phone number
+                  </label>
+                <div className="field phone-field">
+                  <div className="phone-input">
+                    <Form.Control
+                      as="select"
+                      name="countryCode"
+                      placeholder="Select country code"
+                      value={selectedCountryCode}
+                      onChange={(e) => setSelectedCountryCode(e.target.value)}
+                    >
+                      <option value="">Country Code</option>
+                      {countryCodes.map((country) => (
+                        <option key={country.code} value={country.code}>
+                          {`${country.name} (${country.code})`}
+                        </option>
+                      ))}
+                    </Form.Control>
+                    <input
+                      name="phoneNumber"
+                      type="tel"
+                      id="rndTripPromoCode"
+                      className="form-control"
+                      placeholder="712 345 678"
+                      value={userInfo?.phoneNumber}
+                      onChange={changeHandler}
+                    />
+                  </div>
+                </div>
               </div>
 
               <div class="textarea_control">
@@ -115,7 +161,7 @@ export const Application = () => {
               <div class="form_field">
                 <label for="job_role"> Job Role </label>
                 <select id="job_role" name="job_role">
-                <option value="">Flight attendant</option>
+                  <option value="">Flight attendant</option>
                   <option value="">Baggage handler</option>
                   <option value="">Passenger assistant</option>
                   <option value="">Airline Clearance agent</option>

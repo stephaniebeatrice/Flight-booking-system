@@ -410,6 +410,14 @@ img {
   }
 }
 
+
+
+.phone-input select {
+  width: 50%; 
+  margin-right: 5px; 
+}
+
+
 /* .menu-dot {
   background-color: var(--placeholder-color);
   box-shadow: -6px 0 0 0 var(--placeholder-color), 6px 0 0 0 var(--placeholder-color);

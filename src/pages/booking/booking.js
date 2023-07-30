@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { FaAddressCard, FaChair, FaMoneyBill, FaUser } from "react-icons/fa";
+import { FaAddressCard, FaChair, FaMoneyBill, FaUser ,FaUserPlus} from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Payment, SeatSelection, Ticket } from "../../components/Forms";
 import { PersonlInfo } from "../../components/Forms/person-info";
@@ -47,8 +47,8 @@ export const BookingPage = () => {
                   aria-selected={selectedTab === "addPassenger"}
                 >
                   <span>
-                    <FaChair className="user-icon" />
-                    add Passenger
+                    <FaUserPlus className="user-icon" />
+                    Add Passenger
                   </span>
                 </a>
               )}
