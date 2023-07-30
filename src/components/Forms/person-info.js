@@ -2,11 +2,27 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { bookingActions } from "../../store/bookingSlice";
+import countryCodes from "../../PHONEDATA.json";
 
 export const PersonlInfo = ({ setSelectedTab, tab }) => {
-  const { bookingUserInfo, pendingBooking } = useSelector(state => state.bookingReducer);
-  const [userInfo, setUserInfo] = useState({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
-  const [valid, setValid] = useState({ title: true, firstName: true, lastName: true, DOB: true });
+  const { bookingUserInfo, pendingBooking } = useSelector(
+    (state) => state.bookingReducer
+  );
+  const [userInfo, setUserInfo] = useState({
+    title: "Mr.",
+    firstName: "",
+    lastName: "",
+    DOB: "",
+    number: "",
+    email: "",
+  });
+  const [valid, setValid] = useState({
+    title: true,
+    firstName: true,
+    lastName: true,
+    DOB: true,
+  });
+  const [selectedCountryCode, setSelectedCountryCode] = useState("");
 
   const dispatch = useDispatch();
 
@@ -15,22 +31,44 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
   }, []);
 
   const handlerSubmit = () => {
-    const validationObj = { title: !!userInfo.title, firstName: !!userInfo.firstName, lastName: !!userInfo.lastName, DOB: !!userInfo.DOB };
+    const validationObj = {
+      title: !!userInfo.title,
+      firstName: !!userInfo.firstName,
+      lastName: !!userInfo.lastName,
+      DOB: !!userInfo.DOB,
+    };
     setValid(validationObj);
-    const isValid = Object.values(validationObj).every(isValid => isValid);
-    if (!isValid || (tab === "addPassenger" && +pendingBooking.passengers) !== bookingUserInfo.length) return;
+    const isValid = Object.values(validationObj).every((isValid) => isValid);
+    if (
+      !isValid ||
+      (tab === "addPassenger" && +pendingBooking.passengers) !==
+        bookingUserInfo.length
+    )
+      return;
     if (tab !== "addPassenger") {
       dispatch(bookingActions.createUserBookigInfo(userInfo));
       dispatch(
         bookingActions.createPendingBooking({
           ...pendingBooking,
           passengersInfo: [
-            { fullName: userInfo.firstName + " " + userInfo.lastName, email: userInfo.email, phoneNo: userInfo.number, dob: userInfo.DOB },
+            {
+              fullName: userInfo.firstName + " " + userInfo.lastName,
+              email: userInfo.email,
+              phoneNo: userInfo.number,
+              dob: userInfo.DOB,
+            },
           ],
         })
       );
       if (pendingBooking.passengers > 1) {
-        setUserInfo({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
+        setUserInfo({
+          title: "Mr.",
+          firstName: "",
+          lastName: "",
+          DOB: "",
+          number: "",
+          email: "",
+        });
         return setSelectedTab("addPassenger");
       } else setSelectedTab("seatSelect");
     } else setSelectedTab("seatSelect");
@@ -38,15 +76,26 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
 
   const addHandler = () => {
     dispatch(bookingActions.createPassengers(userInfo));
-    setUserInfo({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
+    setUserInfo({
+      title: "Mr.",
+      firstName: "",
+      lastName: "",
+      DOB: "",
+      number: "",
+      email: "",
+    });
   };
 
-  const changeHandler = e => {
+  const changeHandler = (e) => {
     const { value, name } = e.target;
 
-    setUserInfo(prev => {
-      return { ...prev, [name]: value };
-    });
+    if (name === "countryCode") {
+      setSelectedCountryCode(value);
+    } else {
+      setUserInfo((prev) => {
+        return { ...prev, [name]: value };
+      });
+    }
   };
 
   const focusHandler = () => {
@@ -60,12 +109,18 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
           <div id="rndTrip" className="pill-tab-content active">
             <p>
               {tab === "addPassenger"
-                ? `please fill in the details of ${+pendingBooking.passengers - 1} passengers`
+                ? `please fill in the details of ${
+                    +pendingBooking.passengers - 1
+                  } passengers`
                 : "Please make sure that you fill in the name that is in your passport."}
             </p>
             <div className="fieldset quarter">
               <div className="field">
-                <label htmlFor="rndTripFom" id="lbl_rndTripFrom" aria-label="From">
+                <label
+                  htmlFor="rndTripFom"
+                  id="lbl_rndTripFrom"
+                  aria-label="From"
+                >
                   Title*
                 </label>
                 <Form.Control
@@ -93,7 +148,10 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                   id="rndTripTo"
                   className="form-control"
                   placeholder="John"
-                  style={{ width: "100%", border: !valid.firstName ? "1px solid red" : "" }}
+                  style={{
+                    width: "100%",
+                    border: !valid.firstName ? "1px solid red" : "",
+                  }}
                   onFocus={focusHandler}
                   data-select2-id="rndTripTo"
                   value={userInfo?.firstName}
@@ -111,7 +169,10 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                   id="rndTripTo"
                   className="form-control"
                   placeholder="Doe"
-                  style={{ width: "100%", border: !valid.lastName ? "1px solid red" : "" }}
+                  style={{
+                    width: "100%",
+                    border: !valid.lastName ? "1px solid red" : "",
+                  }}
                   onFocus={focusHandler}
                   value={userInfo?.lastName}
                   onChange={changeHandler}
@@ -127,7 +188,10 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                     type="date"
                     className="form-control"
                     placeholder="mm-dd-yyyy"
-                    style={{ width: "100%", border: !valid.DOB ? "1px solid red" : "" }}
+                    style={{
+                      width: "100%",
+                      border: !valid.DOB ? "1px solid red" : "",
+                    }}
                     onFocus={focusHandler}
                     value={userInfo?.DOB}
                     onChange={changeHandler}
@@ -137,12 +201,37 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
             </div>
 
             <div className="fieldset half">
-              <div className="field">
+              <div className="field phone-field">
                 <label id="lbl_rndTripPromoCode" aria-label="Promo Code">
                   Phone number
                 </label>
-                <input name="number" type="tel" id="rndTripPromoCode" className="form-control" value={userInfo?.number} onChange={changeHandler} />
+                <div className="phone-input">
+                  <Form.Control
+                    as="select"
+                    name="countryCode"
+                    placeholder="Select country code"
+                    value={selectedCountryCode}
+                    onChange={(e) => setSelectedCountryCode(e.target.value)}
+                  >
+                    <option value="">Select Country Code</option>
+                    {countryCodes.map((country) => (
+                      <option key={country.code} value={country.code}>
+                        {`${country.name} (${country.code})`}
+                      </option>
+                    ))}
+                  </Form.Control>
+                  <input
+                    name="phoneNumber"
+                    type="tel"
+                    id="rndTripPromoCode"
+                    className="form-control"
+                    placeholder="712 345 678"
+                    value={userInfo?.phoneNumber}
+                    onChange={changeHandler}
+                  />
+                </div>
               </div>
+
               <div className="field">
                 <label id="lbl_rndTripPromoCode" aria-label="Promo Code">
                   Email
@@ -158,8 +247,15 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
                 />
               </div>
             </div>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end" }}>
-              {tab === "addPassenger" && +pendingBooking.passengers !== bookingUserInfo.length ? (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-end",
+              }}
+            >
+              {tab === "addPassenger" &&
+              +pendingBooking.passengers !== bookingUserInfo.length ? (
                 <button
                   type="submit"
                   name="btn-primary"
@@ -185,7 +281,9 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
               )}
             </div>
 
-            <span className="required-note">All fields with * are mandatory</span>
+            <span className="required-note">
+              All fields with * are mandatory
+            </span>
             <div className="general-error" id="oneWayErr">
               <p></p>
             </div>
@@ -203,16 +301,18 @@ export const PersonlInfo = ({ setSelectedTab, tab }) => {
               </tr>
             </thead>
             <tbody>
-              {[...bookingUserInfo]?.splice(1, bookingUserInfo.length - 1).map((passenger, index) => {
-                return (
-                  <tr key={index.toString()}>
-                    <td>{passenger.firstName}</td>
+              {[...bookingUserInfo]
+                ?.splice(1, bookingUserInfo.length - 1)
+                .map((passenger, index) => {
+                  return (
+                    <tr key={index.toString()}>
+                      <td>{passenger.firstName}</td>
 
-                    <td>${passenger.lastName}</td>
-                    <td>{passenger.DOB}</td>
-                  </tr>
-                );
-              })}
+                      <td>${passenger.lastName}</td>
+                      <td>{passenger.DOB}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
