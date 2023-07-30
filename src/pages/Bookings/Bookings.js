@@ -1,19 +1,18 @@
-import React, { useEffect } from "react";
-import { Header } from "../../components/header/header";
-import "./style.css";
-import { useState } from "react";
-import { Pop } from "../../components/pop/pop";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { DateTime } from "../../container/search-form/search-form";
 import { Link } from "react-router-dom";
+import { Header } from "../../components/header/header";
+import { Pop } from "../../components/pop/pop";
+import { DateTime } from "../../container/search-form/search-form";
+import "./style.css";
 
 export const Bookings = () => {
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const [bookingToDelete, setBookingToDelete] = useState(null);
 
-  const { bookings } = useSelector((state) => state.bookingReducer);
+  const { bookings } = useSelector(state => state.bookingReducer);
 
-  const handleDeleteBooking = (booking) => {
+  const handleDeleteBooking = booking => {
     setBookingToDelete(booking);
     setShowDeleteConfirmation(true);
   };
@@ -104,10 +103,7 @@ const TableHeader = () => {
 };
 
 const TableRow = (index, booking, deleteHandler) => {
-  const time = new Date(
-    new Date(booking.departureTime).getTime() +
-      +booking.flightTime * 60 * 60 * 1000
-  );
+  const time = new Date(new Date(booking.departureTime).getTime() + +booking.flightTime * 60 * 60 * 1000);
   console.log(time);
   return (
     <tr key={index}>

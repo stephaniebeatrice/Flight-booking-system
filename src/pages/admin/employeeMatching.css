@@ -1,9 +1,30 @@
+.airport-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.applicants-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 18rem;
+}
+.title {
+  color: white;
+  margin-left: 18rem;
+}
+.header,
+.detail {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 .content {
   padding: 20px;
   font-family: Arial, sans-serif;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   min-width: 90px;
 }
 
@@ -13,17 +34,12 @@ table {
   margin-top: 20px;
 }
 
-th, td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.header {
+  background-color: whitesmoke;
+  color: black;
 }
 
-th {
-  background-color: #348feb;
-}
-
-button {
+.button {
   padding: 6px 12px;
   cursor: pointer;
   border-radius: 5px;
@@ -60,7 +76,7 @@ button {
 
 .modal button {
   padding: 8px 16px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 4px;
