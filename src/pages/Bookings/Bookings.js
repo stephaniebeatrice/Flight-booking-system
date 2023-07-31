@@ -123,7 +123,12 @@ const TableRow = (index, booking, deleteHandler) => {
       <td>{DateTime(time)}</td>
       <td>{booking.passengersInfo.length}</td>
       <td className="buttons">
-        <Link to="/Edit">
+        <Link
+          to={{
+            pathname: "/Edit",
+            state: { test: "Some test objects" },
+          }}
+        >
           <button className="btn btn-primary">Edit</button>
         </Link>
         <button className="btn btn-danger" onClick={() => deleteHandler(booking)}>

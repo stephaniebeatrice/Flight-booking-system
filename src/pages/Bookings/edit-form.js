@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { FaUser, FaUserPlus } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { SeatSelection } from "../../components/Forms";
 import { PersonlInfo } from "../../components/Forms/person-info";
 import { Header } from "../../components/header/header";
 import "../../styles/style.css";
