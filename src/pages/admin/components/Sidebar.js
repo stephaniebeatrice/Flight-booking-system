@@ -27,7 +27,7 @@ function Sidebar() {
         </a>
         <a className="list-group-item py-2">
           <i className="bi bi-people fs-5 me-3"></i>
-          <span>Customers</span>
+          <span>Passengers</span>
         </a>
         <a className="list-group-item py-2">
           <i className="bi bi-power fs-5 me-3"></i>
