@@ -22,7 +22,7 @@ export const Bookings = () => {
   const handleConfirmDelete = async () => {
     setShowDeleteConfirmation(false);
 
-    const res = await fetch("http://localhost:3000/flight/inquire-delete", {
+    const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/inquire-delete", {
       method: "POST",
       body: JSON.stringify({ id: bookingToChange._id }),
       headers: { "Content-Type": "application/json" },
