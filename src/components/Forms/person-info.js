@@ -103,7 +103,7 @@ export const PersonlInfo = ({ setSelectedTab, tab, action, booking }) => {
       id: passengerBookings._id,
     };
     console.log(jsonObj);
-    const res = await fetch("http://localhost:3000/flight/inquire-edit", {
+    const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/inquire-edit", {
       method: "POST",
       body: JSON.stringify(jsonObj),
       headers: { "Content-Type": "application/json" },
