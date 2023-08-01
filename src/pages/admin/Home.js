@@ -40,24 +40,17 @@ function Home({ Toggle }) {
 			</div>
 			<h3 className="color-white">Notifications</h3>
 			<table class="table caption-top bg-white rounded mt-2">
-				{/* <thead>
-					<tr>
-						<th scope="col">Flight ID</th>
-						<th scope="col">Departure City</th>
-						<th scope="col">Departure Time</th>
-						<th scope="col">Arrival City</th>
-						<th scope="col">Arrival Time</th>
-					</tr>
-				</thead> */}
 				<tbody>
 					<tr>
 						<td>
 							<b>Jane Doe</b>
 						</td>
 						<td>
-							<button className="button">View</button>
-							<button className="button">Edit</button>
-							<button className="button">Delete</button>
+							<div className="button-container">
+								<button className="button">View</button>
+								<button className="button">Edit</button>
+								<button className="button">Delete</button>
+							</div>
 						</td>
 					</tr>
 					<tr>
@@ -65,9 +58,11 @@ function Home({ Toggle }) {
 							<b>Mohammed Ali</b>
 						</td>
 						<td>
-							<button className="button">View</button>
-							<button className="button">Edit</button>
-							<button className="button">Delete</button>
+							<div className="button-container">
+								<button className="button">View</button>
+								<button className="button">Edit</button>
+								<button className="button">Delete</button>
+							</div>
 						</td>
 					</tr>
 					<tr>
@@ -75,9 +70,11 @@ function Home({ Toggle }) {
 							<b>John Doe</b>
 						</td>
 						<td>
-							<button className="button">View</button>
-							<button className="button">Edit</button>
-							<button className="button">Delete</button>
+							<div className="button-container">
+								<button className="button">View</button>
+								<button className="button">Edit</button>
+								<button className="button">Delete</button>
+							</div>
 						</td>
 					</tr>
 				</tbody>

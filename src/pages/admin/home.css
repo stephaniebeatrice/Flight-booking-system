@@ -1,4 +1,11 @@
-.button {
-	border-radius: 10px;
+/* CSS */
+.button-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+/* You can add additional spacing between the buttons if needed */
+.button-container button {
+	margin-left: 10px;
 }
 
