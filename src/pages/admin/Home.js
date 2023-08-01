@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Dashboard from "./components/Dashboard";
 import { Inquiries } from "./components/Inquiries";
 import Sidebar from "./components/Sidebar";
-import EmployeeMatching from "./components/employeeMatching";
+import { EmployeeMatching } from "./components/employeeMatching";
 import "./home.css";
 
 export function Admin() {
