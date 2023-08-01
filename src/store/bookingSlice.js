@@ -53,6 +53,13 @@ const bookingSlice = createSlice({
       state.pendingBooking = {};
       state.bookingUserInfo = state.bookingUserInfo.splice(0, 1);
     },
+    clear(state) {
+      state.bookingUserInfo = [];
+
+      state.bookings = [];
+      state.pendingBooking = {};
+      state.seatsSelected = [];
+    },
   },
 });
 
