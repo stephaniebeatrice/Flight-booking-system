@@ -11,11 +11,12 @@ export const Header = () => {
 	// const dispatch = useDispatch();
 	// dispatch(authActions.logout());
 	const navigation = useNavigate()
+
 	return (
 		<header className="animate-search">
 			<section id="bottom-section">
 				<div className="logo">
-					<img url="../../img/logo-color.png" alt="My Logo" />
+					<img src="../../img/logo-color.png" />
 				</div>
 				{/* #1d94f7 */}
 				{user ? (
