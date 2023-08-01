@@ -6966,3 +6966,12 @@ hr {
   box-shadow: 12px 0 #000, -4px 0 #000, 45px 0 #000, 65px 0 #000, 72px 0 #000, 78px 0 #000, 97px 0 #000, 150px 0 #000, 165px 0 #000, 180px 0 #000,
     135px 0 #000, 120px 0 #000;
 }
+.logo img {
+  width: 100px;
+  height: auto;
+  align-items: flex-start;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
