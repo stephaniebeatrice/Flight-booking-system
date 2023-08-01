@@ -3,18 +3,16 @@ import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-d
 
 import { useSelector } from "react-redux";
 import { Bookings } from "./pages/Bookings/Bookings";
+import { EditForm } from "./pages/Bookings/edit-form";
 import { Home } from "./pages/Home/home";
 import { SignUp } from "./pages/SignUp.js/SignUp";
-import Dashboard from "./pages/admin/components/Dashboard";
+import { Admin } from "./pages/admin/Home";
+import AddPassenger from "./pages/admin/addPassenger";
+import TicketEditing from "./pages/admin/ticketEditing";
 import { BookingPage } from "./pages/booking/booking";
 import { Application } from "./pages/jobs/apply-page";
 import { Jobs } from "./pages/jobs/jobs";
 import { Login } from "./pages/login/Login";
-import TicketEditing from "./pages/admin/ticketEditing";
-import { Notification } from "./pages/admin/Notification";
-import EmployeeMatching from "./pages/admin/employeeMatching";
-import AddPassenger from "./pages/admin/addPassenger";
-import { EditForm } from "./pages/Bookings/edit-form";
 
 const App = () => {
   const user = useSelector(state => state.authReducer.user);
@@ -34,11 +32,9 @@ const App = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Booking" element={<BookingPage />} />
-
-        <Route path="/Admin" element={renderRestrictedComponent(Dashboard)} />
+        <Route path="/Admin" element={renderRestrictedComponent(Admin)} />
         <Route path="/TicketEdit" element={renderRestrictedComponent(TicketEditing)} />
-        <Route path="/Notification" element={renderRestrictedComponent(Notification)} />
-        <Route path="/EmployeeMatching" element={renderRestrictedComponent(EmployeeMatching)} />
+
         <Route path="/AddPassenger" element={renderRestrictedComponent(AddPassenger)} />
         <Route path="/Jobs" element={renderRestrictedComponent(Jobs)} />
         <Route path="/Apply" element={renderRestrictedComponent(Application)} />
