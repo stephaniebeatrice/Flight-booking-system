@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/header/header";
 import { Pop } from "../../components/pop/pop";
 import { DateTime } from "../../container/search-form/search-form";
@@ -12,6 +12,8 @@ export const Bookings = () => {
 
   const { bookings } = useSelector(state => state.bookingReducer);
 
+  const nav = useNavigate();
+
   const handleDeleteBooking = booking => {
     setBookingToChange(booking);
     setShowDeleteConfirmation(true);
@@ -20,7 +22,7 @@ export const Bookings = () => {
   const handleConfirmDelete = async () => {
     setShowDeleteConfirmation(false);
 
-    const res = await fetch("http://localhost:3000/flight/inquire-delete", {
+    const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/inquire-delete", {
       method: "POST",
       body: JSON.stringify({ id: bookingToChange._id }),
       headers: { "Content-Type": "application/json" },
@@ -38,6 +40,12 @@ export const Bookings = () => {
     setShowDeleteConfirmation(false);
     setBookingToChange(null);
   };
+
+  const editHandler = booking => {
+    nav("/Edit", {
+      state: { booking },
+    });
+  };
   return (
     <div className="App">
       <Header />
@@ -49,7 +57,7 @@ export const Bookings = () => {
               {TableHeader()}
               <tbody>
                 {bookings.map((booking, index) => {
-                  return TableRow(index, booking, handleDeleteBooking);
+                  if (booking === "successful") return TableRow(index, booking, handleDeleteBooking, editHandler);
                 })}
               </tbody>
             </table>
@@ -64,7 +72,7 @@ export const Bookings = () => {
               {TableHeader()}
               <tbody>
                 {bookings.map((booking, index) => {
-                  return TableRow(index, booking, handleDeleteBooking);
+                  if (booking.status === "delete") return TableRow(index, booking, handleDeleteBooking, editHandler);
                 })}
               </tbody>
             </table>
@@ -76,7 +84,7 @@ export const Bookings = () => {
               {TableHeader()}
               <tbody>
                 {bookings.map((booking, index) => {
-                  return TableRow(index, booking, handleDeleteBooking);
+                  if (booking === "edit") return TableRow(index, booking, handleDeleteBooking, editHandler);
                 })}
               </tbody>
             </table>
@@ -112,7 +120,7 @@ const TableHeader = () => {
   );
 };
 
-const TableRow = (index, booking, deleteHandler) => {
+const TableRow = (index, booking, deleteHandler, editHandler) => {
   const time = new Date(new Date(booking.departureTime).getTime() + +booking.flightTime * 60 * 60 * 1000);
 
   return (
@@ -123,14 +131,10 @@ const TableRow = (index, booking, deleteHandler) => {
       <td>{DateTime(time)}</td>
       <td>{booking.passengersInfo.length}</td>
       <td className="buttons">
-        <Link
-          to={{
-            pathname: "/Edit",
-            state: { test: "Some test objects" },
-          }}
-        >
-          <button className="btn btn-primary">Edit</button>
-        </Link>
+        <button className="btn btn-primary" onClick={() => editHandler(booking)}>
+          Edit
+        </button>
+
         <button className="btn btn-danger" onClick={() => deleteHandler(booking)}>
           Delete
         </button>

@@ -40,7 +40,7 @@ export const Payment = ({ setSelectedTab }) => {
         return setShowPop(true);
       }
 
-      const res = await fetch("http://localhost:3000/flight/create-booking", {
+      const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/create-booking", {
         method: "POST",
         body: JSON.stringify(jsonObj(pendingBooking, passengers, seatsSelected)),
         headers: { "Content-Type": "application/json" },
