@@ -39,6 +39,7 @@ const TicketEditing = ({ passenger, onSave }) => {
 	}
 
 	return (
+		<div className='TicketEditing'>
 		<div className="container-fluid bg-primary min-vh-100 ">
 			<div className="row ">
 				{toggle && (
@@ -122,6 +123,7 @@ const TicketEditing = ({ passenger, onSave }) => {
 					</form>
 				</div>
 			</div>
+		</div>
 		</div>
 	)
 }

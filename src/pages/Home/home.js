@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Header } from "../../components/header/header";
+import { Footer } from "../../components/footer/footer";
 import SearchForm from "../../container/search-form/search-form";
 import image from "../../img/homepage.jpg";
 import "./style.css";
@@ -29,6 +30,7 @@ export const Home = () => {
           <SearchForm />
         </aside>
       </section>
+      <Footer/>
     </div>
   );
 };

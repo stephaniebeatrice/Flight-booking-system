@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/header/header";
+import { Footer } from "../../components/footer/footer";
 import { Pop } from "../../components/pop/pop";
 import { DateTime } from "../../container/search-form/search-form";
 import "./style.css";
@@ -101,6 +102,7 @@ export const Bookings = () => {
           )}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

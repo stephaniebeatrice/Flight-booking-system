@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Payment, SeatSelection, Ticket } from "../../components/Forms";
 import { PersonlInfo } from "../../components/Forms/person-info";
 import { Header } from "../../components/header/header";
+import { Footer } from "../../components/footer/footer";
 import "../../styles/style.css";
 
 export const BookingPage = () => {
@@ -99,6 +100,7 @@ export const BookingPage = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

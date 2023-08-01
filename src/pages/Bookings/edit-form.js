@@ -3,6 +3,7 @@ import { FaUser, FaUserPlus } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PersonlInfo } from "../../components/Forms/person-info";
 import { Header } from "../../components/header/header";
+import { Footer } from "../../components/footer/footer";
 import "../../styles/style.css";
 
 export const EditForm = () => {
@@ -62,6 +63,7 @@ export const EditForm = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

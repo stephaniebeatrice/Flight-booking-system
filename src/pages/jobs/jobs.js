@@ -1,11 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/header/header";
+import { Footer } from "../../components/footer/footer";
 import "./style.css";
 
 export const Jobs = () => {
   const [selectedJob, setSelectedJob] = useState(null);
   const [jobs, setJobs] = useState([]);
+
+  const images = [
+    {
+      imageUrl: ("https://www.pexels.com/photo/photo-of-airplane-1928068/") ,
+      imageUrl: ("https://www.pexels.com/photo/airport-workers-in-reflective-vests-standing-next-to-an-airplane-15923439/"),
+      imageUrl: ("https://www.pexels.com/photo/person-holding-gray-twist-pen-and-white-printer-paper-on-brown-wooden-table-955389/") ,
+      imageUrl: ("https://www.pexels.com/photo/pilots-operating-airplane-in-cockpit-during-flight-4269510/") ,
+      imageUrl: ("https://www.pexels.com/photo/aircraft-2059627/") ,
+      imageUrl: ("https://www.pexels.com/photo/unrecognizable-airport-workers-directing-helicopter-during-arrival-4490704/") ,
+      imageUrl: ("https://www.pexels.com/photo/man-having-a-phone-call-in-front-of-a-laptop-859264/") ,
+      imageUrl: ("https://www.pexels.com/photo/flight-attendants-wearing-face-mask-while-standing-on-the-aisle-of-an-airplane-12870864//") ,
+      imageUrl: ("https://www.pexels.com/photo/a-flight-attendant-standing-in-the-cabin-11989307/") ,
+    }
+  ]
 
   useEffect(() => {
     (async () => {
@@ -118,6 +133,7 @@ export const Jobs = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

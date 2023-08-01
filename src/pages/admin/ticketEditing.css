@@ -79,22 +79,22 @@
 }
 
 /* Table styles */
-.table {
+.TicketEditing .table {
 	margin-top: 20px;
 }
 
-.table table {
+.TicketEditing .table table {
 	width: 100%;
 	border-collapse: collapse;
 }
 
-.table th,
-.table td {
+.TicketEditing .table th,
+.TicketEditing .table td {
 	padding: 8px;
 	border-bottom: 1px solid #ccc;
 	text-align: left;
 }
 
-.table th {
+.TicketEditing .table th {
 	background-color: #f0f0f0;
 }
