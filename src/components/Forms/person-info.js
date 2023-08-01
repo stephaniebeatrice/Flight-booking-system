@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { bookingActions } from "../../store/bookingSlice";
 import countryCodes from "../../PHONEDATA.json";
+import { FaTrash } from "react-icons/fa";
+import { Pencil } from "react-bootstrap-icons";
 
-export const PersonlInfo = ({ setSelectedTab, tab, action }) => {
+export const PersonlInfo = ({ setSelectedTab, tab, action, booking }) => {
   const { bookingUserInfo, pendingBooking } = useSelector(state => state.bookingReducer);
   const [userInfo, setUserInfo] = useState({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
+  const [personInfo, setPersonalInfo] = useState();
   const [valid, setValid] = useState({ title: true, firstName: true, lastName: true, DOB: true });
   const [selectedCountryCode, setSelectedCountryCode] = useState("");
+
+  const [passengerBookings, setPassengersBookings] = useState();
+  const targetDivRef = useRef(null);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setPassengersBookings(booking);
     setUserInfo(bookingUserInfo[0]);
-  }, []);
+  }, [booking, bookingUserInfo]);
 
   const validHandler = () => {
     const validationObj = {
@@ -42,6 +49,8 @@ export const PersonlInfo = ({ setSelectedTab, tab, action }) => {
             ],
           })
         );
+      } else {
+        setPersonalInfo(userInfo);
       }
 
       if (pendingBooking.passengers > 1) {
@@ -53,7 +62,20 @@ export const PersonlInfo = ({ setSelectedTab, tab, action }) => {
   const addHandler = () => {
     const isValid = validHandler();
     if (!isValid) return;
-    dispatch(bookingActions.createPassengers(userInfo));
+    if (!action) dispatch(bookingActions.createPassengers(userInfo));
+    else
+      setPassengersBookings(prev => {
+        console.log("======================PREVIOUS VALUE==============================");
+        console.log(prev);
+        const passengersInfo = {
+          dob: userInfo.DOB,
+          email: userInfo.email,
+          fullName: userInfo.firstName + " " + userInfo.lastName,
+          phoneNo: userInfo.number,
+        };
+        const passengersInfos = passengerBookings ? [...passengerBookings?.passengersInfo, passengersInfo] : [passengersInfo];
+        return { ...prev, passengersInfo: passengersInfos };
+      });
     if (+pendingBooking.passengers - bookingUserInfo.length !== 1)
       setUserInfo({ title: "Mr.", firstName: "", lastName: "", DOB: "", number: "", email: "" });
   };
@@ -73,16 +95,36 @@ export const PersonlInfo = ({ setSelectedTab, tab, action }) => {
     setValid({ title: true, firstName: true, lastName: true, DOB: true });
   };
 
-  const Edithandler = () => {};
+  const Edithandler = async () => {
+    const jsonObj = {
+      fullName: personInfo.firstName + " " + personInfo.lastName,
+      passengersInfo: passengerBookings.passengersInfo,
+      passengers: passengerBookings.passengersInfo.length,
+      id: passengerBookings._id,
+    };
+    console.log(jsonObj);
+    const res = await fetch("http://localhost:3000/flight/inquire-edit", {
+      method: "POST",
+      body: JSON.stringify(jsonObj),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await res.json();
+    console.log("=========================RESPONSE DATA=====================");
+    console.log(data);
+    dispatch(bookingActions.updateBookings(data));
+  };
 
   return (
-    <div className="form-content">
+    <div className="form-content" ref={targetDivRef}>
       <div id="psnlInfo" className="booking-tab-content active">
         <div className="tab-wrapper">
           <div id="rndTrip" className="pill-tab-content active">
             <p>
               {tab === "addPassenger"
-                ? `please fill in the details of ${+pendingBooking.passengers - 1} passengers`
+                ? action
+                  ? "Added, edit or remove existing passengers "
+                  : `please fill in the details of ${+pendingBooking.passengers - 1} passengers`
                 : "Please make sure that you fill in the name that is in your passport."}
             </p>
             <div className="fieldset quarter">
@@ -166,7 +208,6 @@ export const PersonlInfo = ({ setSelectedTab, tab, action }) => {
                 </div>
               </div>
             </div>
-
             <div className="fieldset half">
               <div className="field phone-field">
                 <label id="lbl_rndTripPromoCode" aria-label="Promo Code">
@@ -268,27 +309,82 @@ export const PersonlInfo = ({ setSelectedTab, tab, action }) => {
           </div>
         </div>
       </div>
-      {tab === "addPassenger" && bookingUserInfo.length > 1 && (
-        <div className="table">
+      {tab === "addPassenger" && (
+        /*(bookingUserInfo.length > 1 || passengerBookings?.passengersInfo.length > 1) &&*/ <div className="table">
           <table>
             <thead>
               <tr>
                 <th>firstName</th>
                 <th>lastName</th>
                 <th>date of Birth</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              {[...bookingUserInfo]?.splice(1, bookingUserInfo.length - 1).map((passenger, index) => {
-                return (
-                  <tr key={index.toString()}>
-                    <td>{passenger.firstName}</td>
-
-                    <td>${passenger.lastName}</td>
-                    <td>{passenger.DOB}</td>
-                  </tr>
-                );
-              })}
+              {action
+                ? passengerBookings &&
+                  [...passengerBookings?.passengersInfo].map((passenger, index) => {
+                    const fName = passenger.fullName.split(" ")[0];
+                    const lName = passenger.fullName.split(" ")[1];
+                    return (
+                      <tr key={index.toString()}>
+                        <td>{fName}</td>
+                        <td>${lName}</td>
+                        <td>{passenger.dob}</td>
+                        <td class="options-cell" style={{ position: "relative", padding: "1rem 0rem" }}>
+                          <span class="vertical-dots" style={{ cursor: "pointer", fontSize: "18px" }} onclick={() => {}}>
+                            &#8942;
+                          </span>
+                          <div
+                            style={{
+                              position: "absolute",
+                              top: "auto",
+                              zIndex: "9999",
+                              backgroundColor: "#fff",
+                              border: "1px solid #ccc",
+                              display: "flex",
+                              flexDirection: "column",
+                              padding: "0.5rem",
+                            }}
+                          >
+                            <FaTrash
+                              color="red"
+                              style={{ cursor: "pointer", margin: "0.3rem 0rem" }}
+                              onClick={() => {
+                                const delPassenger = [...passengerBookings?.passengersInfo].filter(p => p.email !== passenger.email);
+                                setPassengersBookings(prev => {
+                                  return { ...prev, passengersInfo: delPassenger };
+                                });
+                              }}
+                            />
+                            <Pencil
+                              color="#0d6efd"
+                              style={{ cursor: "pointer", margin: "0.3rem 0rem" }}
+                              onClick={() => {
+                                setUserInfo({
+                                  DOB: passenger.dob,
+                                  firstName: fName,
+                                  lastName: lName,
+                                  email: passenger.email,
+                                  number: passenger.phoneNo,
+                                });
+                                if (targetDivRef.current) targetDivRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+                              }}
+                            />
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })
+                : [...bookingUserInfo].splice(1, bookingUserInfo.length - 1).map((passenger, index) => {
+                    return (
+                      <tr key={index.toString()}>
+                        <td>{passenger.firstName}</td>
+                        <td>${passenger.lastName}</td>
+                        <td>{passenger.DOB}</td>
+                      </tr>
+                    );
+                  })}
             </tbody>
           </table>
         </div>

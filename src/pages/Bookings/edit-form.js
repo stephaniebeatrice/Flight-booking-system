@@ -1,16 +1,24 @@
-import React, { useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { FaUser, FaUserPlus } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { PersonlInfo } from "../../components/Forms/person-info";
 import { Header } from "../../components/header/header";
 import "../../styles/style.css";
 
 export const EditForm = () => {
-  const flight = useSelector(state => state.bookingReducer.pendingBooking);
-
+  const location = useLocation();
+  const nav = useNavigate();
+  const bookingState = location.state;
+  const [booking, setBooking] = useState();
   const [selectedTab, setSelectedTab] = useState("psnlInfo");
   const psnlInfoRef = useRef(null);
   const seatSelectRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (bookingState) setBooking(bookingState.booking);
+    else nav("/Bookings");
+  }, []);
+
   const scrollToSection = (ref, tabId) => {
     setSelectedTab(tabId);
   };
@@ -49,7 +57,7 @@ export const EditForm = () => {
                 </span>
               </a>
             </div>
-            {activeTab(setSelectedTab, selectedTab)}
+            {activeTab(setSelectedTab, selectedTab, booking)}
             <span id="ctl00_ctBody_Web_Content_Home_BookingEngine_ManageMyBooking_ekapi_language"></span>
           </div>
         </div>
@@ -58,6 +66,6 @@ export const EditForm = () => {
   );
 };
 
-const activeTab = (setSelectedTab, tab) => {
-  return <PersonlInfo setSelectedTab={setSelectedTab} tab={tab} action={"edit"} />;
+const activeTab = (setSelectedTab, tab, booking) => {
+  return <PersonlInfo setSelectedTab={setSelectedTab} tab={tab} action={"edit"} booking={booking} />;
 };

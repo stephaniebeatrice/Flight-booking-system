@@ -42,9 +42,15 @@ const bookingSlice = createSlice({
     createBookings(state, action) {
       state.bookings.push(action.payload);
     },
+    updateBookings(state, action) {
+      const { bookings } = state;
+      const updatedBooking = action.payload;
+      const updatedBookings = bookings.map(booking => (booking._id === updatedBooking._id ? updatedBooking : booking));
+
+      return { ...state, bookings: updatedBookings };
+    },
     clearBooking(state) {
       state.pendingBooking = {};
-
       state.bookingUserInfo = state.bookingUserInfo.splice(0, 1);
     },
   },
