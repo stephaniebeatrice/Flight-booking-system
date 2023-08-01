@@ -2,7 +2,7 @@ import React from "react";
 import { NotificationCard } from "./NotificationCard";
 import { Link } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar({ setActiveTab }) {
   return (
     <nav
       className="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
@@ -24,10 +24,9 @@ function Sidebar() {
           {/* Add an image here */}
           Booking Io
         </Link>
-
         <div className="navbar-user d-lg-none">
           <div className="dropdown">
-            <a href="#" id="sidebarAvatar" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a id="sidebarAvatar" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div className="avatar-parent-child">
                 <img
                   alt="Placeholder"
@@ -39,15 +38,15 @@ function Sidebar() {
             </a>
 
             <div className="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarAvatar">
-              <a href="#" className="dropdown-item">
+              <Link className="dropdown-item" onClick={() => setActiveTab("dashboard")}>
                 Dashboard
-              </a>
-              <a href="#" className="dropdown-item">
+              </Link>
+              <Link className="dropdown-item" onClick={() => setActiveTab("employeeMatching")}>
                 EmployeeMatching
-              </a>
-              <a href="#" className="dropdown-item">
+              </Link>
+              <Link className="dropdown-item" onClick={() => setActiveTab("inquiries")}>
                 Inquiries
-              </a>
+              </Link>
               <hr className="dropdown-divider" />
             </div>
           </div>
@@ -55,20 +54,20 @@ function Sidebar() {
         <div className="collapse navbar-collapse" id="sidebarCollapse">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" href="#" onClick={() => setActiveTab("dashboard")}>
                 <i className="bi bi-house"></i> Dashboard
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" href="#" onClick={() => setActiveTab("employeeMatching")}>
                 <i className="bi bi-bar-chart"></i> EmployeeMatching
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" href="#" onClick={() => setActiveTab("inquiries")}>
                 <i className="bi bi-bookmarks"></i> Inquiries
-              </a>
+              </Link>
             </li>
           </ul>
 
@@ -85,7 +84,6 @@ function Sidebar() {
             <NotificationCard />
             <NotificationCard />
           </ul>
-
           <div className="mt-auto"></div>
         </div>
       </div>
