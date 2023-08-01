@@ -102,7 +102,7 @@ export const Bookings = () => {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
