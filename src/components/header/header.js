@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "../../styles/style.css";
 import { authActions } from "../../store/authSlice";
+import logo from "../../img/logo.png";
 
 export const Header = () => {
   const user = useSelector(state => state.authReducer.user);
@@ -21,7 +22,7 @@ export const Header = () => {
     <header className="animate-search">
       <section id="bottom-section">
         <div className="logo">
-          <img src="../../img/logo-color.png" />
+          <img src={logo} style={{ position: "absolute", top: "0", left: "0", marginLeft: "20px" }} />
         </div>
         {/* #1d94f7 */}
         {user ? (
