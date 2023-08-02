@@ -50,7 +50,7 @@ export const Header = () => {
                     </Link>
                   </li>
                   <li className="has-children" onClick={logoutHandler}>
-                    logout
+                    <Link>logout</Link>
                   </li>
                 </ul>
               </nav>
