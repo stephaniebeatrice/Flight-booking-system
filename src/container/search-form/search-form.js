@@ -59,7 +59,7 @@ export const SearchForm = props => {
         setMsg(data.message);
       }
     } catch (error) {
-      setMsg("no flights found");
+      setMsg("No Flights Found");
       console.log("==================================FETCH DATA ERROR==================================");
       console.log(error);
     }

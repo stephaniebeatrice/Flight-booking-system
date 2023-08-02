@@ -24,7 +24,6 @@ export const Header = () => {
         <div className="logo">
           <img src={logo} style={{ position: "absolute", top: "0", left: "0", marginLeft: "20px" }} />
         </div>
-        {/* #1d94f7 */}
         {user ? (
           <div className="col right">
             <span id="ctl00_ctBody_Web_Content_Home_Web_Header_Web_Menu_Web_menu">
