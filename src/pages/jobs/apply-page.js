@@ -1,56 +1,60 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { Header } from "../../components/header/header";
 import { useState } from "react";
 import "./style.css";
 import countryCodes from "../../PHONEDATA.json";
 import Form from "react-bootstrap/Form";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const Application = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [fileIsValid, setFileIsValid] = useState(true);
-  const [submissionSuccess, setSubmissionSuccess] = useState(false);
+  const location = useLocation();
+  const nav = useNavigate();
+  const state = location.state;
   const [selectedCountryCode, setSelectedCountryCode] = useState("");
-
   const [userInfo, setUserInfo] = useState({
     title: "Mr.",
     firstName: "",
     lastName: "",
-    DOB: "",
-    number: "",
+    dob: "",
+    phoneNo: "",
     email: "",
+    role: "",
+    availableDate: "",
   });
+  const [snackBar, setSnackBar] = useState(false);
+  const [job, setJob] = useState("");
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setSelectedFile(file);
-    setFileIsValid(validateFile(file));
-  };
-
-  // Validation function for allowed file extensions
-  const validateFile = (file) => {
-    if (!file) {
-      return true; // No file selected, consider as valid
+  useLayoutEffect(() => {
+    if (state) {
+      setJob(state.job);
+      setUserInfo(prev => {
+        return { ...prev, role: state.job.title };
+      });
+    } else {
+      nav("/Jobs");
     }
+  }, []);
 
-    const allowedExtensions = ["pdf", "docx"];
-    const fileExtension = file.name.split(".").pop().toLowerCase();
+  const handleSubmit = async e => {
+    e.preventDefault();
 
-    return allowedExtensions.includes(fileExtension);
-  };
-
-  const handleSubmit = () => {
-    if (fileIsValid && selectedFile) {
-      setSubmissionSuccess(true);
+    const res = await fetch(`https://flight-booking-server-3zln.vercel.app/flight/create-application`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jsonObj(userInfo, job._id)),
+    });
+    if (res.ok) {
     }
   };
 
-  const changeHandler = (e) => {
+  const changeHandler = e => {
     const { value, name } = e.target;
-
     if (name === "countryCode") {
       setSelectedCountryCode(value);
     } else {
-      setUserInfo((prev) => {
+      setUserInfo(prev => {
         return { ...prev, [name]: value };
       });
     }
@@ -59,7 +63,6 @@ export const Application = () => {
   return (
     <div className="App">
       <Header />
-
       <div class="container">
         <div class="apply_box">
           <h1>Job Application Form</h1>
@@ -67,37 +70,20 @@ export const Application = () => {
             <div class="form_container">
               <div class="form_field">
                 <label for="first_name"> First Name </label>
-                <input
-                  id="first_name"
-                  name="first_name"
-                  className="form-control"
-                  placeholder="John"
-                />
+                <input id="first_name" name="firstName" className="form-control" placeholder="John" onChange={changeHandler} />
               </div>
               <div class="form_field">
                 <label for="last_name"> Last Name </label>
-                <input
-                  id="last_name"
-                  name="last_name"
-                  className="form-control"
-                  placeholder="Doe"
-                />
+                <input id="last_name" name="lastName" className="form-control" placeholder="Doe" onChange={changeHandler} />
               </div>
 
               <div className="form_field">
                 <label for="DateOfBirth"> Date of Birth</label>
-                <input
-                  name="DateOfBirth"
-                  type="date"
-                  className="form-control"
-                  placeholder="mm-dd-yyyy"
-                />
+                <input name="dob" type="date" className="form-control" placeholder="mm-dd-yyyy" onChange={changeHandler} />
               </div>
 
               <div class="form_field">
-              <label >
-                    Phone number
-                  </label>
+                <label>Phone number</label>
                 <div className="field phone-field">
                   <div className="phone-input">
                     <Form.Control
@@ -105,17 +91,17 @@ export const Application = () => {
                       name="countryCode"
                       placeholder="Select country code"
                       value={selectedCountryCode}
-                      onChange={(e) => setSelectedCountryCode(e.target.value)}
+                      onChange={e => setSelectedCountryCode(e.target.value)}
                     >
                       <option value="">Country Code</option>
-                      {countryCodes.map((country) => (
-                        <option key={country.code} value={country.code}>
+                      {countryCodes.map((country, index) => (
+                        <option key={index} value={country.code}>
                           {`${country.name} (${country.code})`}
                         </option>
                       ))}
                     </Form.Control>
                     <input
-                      name="phoneNumber"
+                      name="phoneNo"
                       type="tel"
                       id="rndTripPromoCode"
                       className="form-control"
@@ -129,87 +115,45 @@ export const Application = () => {
 
               <div class="textarea_control">
                 <label for="email"> Email </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="form-control"
-                  placeholder="johndoe@example.com"
-                />
+                <input type="email" id="email" name="email" className="form-control" placeholder="johndoe@example.com" onChange={changeHandler} />
               </div>
 
               <div class="form_field">
                 <label for="city"> City </label>
-                <input
-                  id="city"
-                  className="form-control"
-                  name="city"
-                  placeholder="Nairobi"
-                />
+                <input id="city" className="form-control" name="city" placeholder="Nairobi" onChange={changeHandler} />
               </div>
 
               <div class="form_field">
                 <label for="address"> Address </label>
-                <input
-                  id="address"
-                  name="address"
-                  className="form-control"
-                  placeholder="11111"
-                />
-              </div>
-
-              <div class="form_field">
-                <label for="job_role"> Job Role </label>
-                <select id="job_role" name="job_role">
-                  <option value="">Flight attendant</option>
-                  <option value="">Baggage handler</option>
-                  <option value="">Passenger assistant</option>
-                  <option value="">Airline Clearance agent</option>
-                  <option value="">Pilot</option>
-                  <option value="">Airline Caterers</option>
-                  <option value="">Avionics technician</option>
-                  <option value="">Air traffic controller</option>
-                  <option value="">Customer service agent</option>
-                </select>
+                <input id="address" name="address" className="form-control" placeholder="11111" onChange={changeHandler} />
               </div>
 
               <div class="form_field">
                 <label for="date"> Available start Date </label>
-                <input
-                  name="DateOfBirth"
-                  type="date"
-                  className="form-control"
-                  placeholder="mm-dd-yyyy"
-                />
-              </div>
-              <div class="form_field">
-                <label for="upload"> Upload your resume/CV* </label>
-                {/* <div className="resume"> */}
-                <input
-                  type="file"
-                  id="upload"
-                  name="upload"
-                  onChange={handleFileChange}
-                />
-
-                {!fileIsValid && (
-                  <div>
-                    {/* Invalid file message */}
-                    <p>Please upload a valid PDF or DOCX file.</p>
-                  </div>
-                )}
-                {/* </div> */}
+                <input name="availableDate" type="date" className="form-control" placeholder="mm-dd-yyyy" onChange={changeHandler} />
               </div>
             </div>
             <div class="button_container">
-              <button className="btn-submit" onClick={handleSubmit}>
+              <button className="btn-submit" type="submit" onClick={handleSubmit}>
                 Submit
               </button>
             </div>
           </form>
         </div>
       </div>
-     
     </div>
   );
+};
+
+const jsonObj = (userInfo, id) => {
+  return {
+    id,
+    fullName: userInfo.firstName + " " + userInfo.lastName,
+    dob: userInfo.dob,
+    phoneNo: userInfo.phoneNo,
+    email: userInfo.email,
+    address: userInfo.address,
+    role: userInfo.role,
+    availableDate: userInfo.role,
+  };
 };

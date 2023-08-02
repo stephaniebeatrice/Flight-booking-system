@@ -21,20 +21,25 @@ export const Bookings = () => {
   };
 
   const handleConfirmDelete = async () => {
-    setShowDeleteConfirmation(false);
+    try {
+      setShowDeleteConfirmation(false);
 
-    const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/inquire-delete", {
-      method: "POST",
-      body: JSON.stringify({ id: bookingToChange._id }),
-      headers: { "Content-Type": "application/json" },
-    });
-    if (res.ok) setBookingToChange(null);
-    const data = await res.json();
+      const res = await fetch("https://flight-booking-server-3zln.vercel.app/flight/inquire-delete", {
+        method: "POST",
+        body: JSON.stringify({ id: bookingToChange._id }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (res.ok) setBookingToChange(null);
+      const data = await res.json();
 
-    console.log("=========================RESPONSE DATA=====================");
-    console.log(data);
+      console.log("=========================RESPONSE DATA=====================");
+      console.log(data);
 
-    alert("Forwarded to admin for review");
+      alert("Forwarded to admin for review");
+    } catch (error) {
+      console.log("=======================ERROR=========================");
+      console.log(error);
+    }
   };
 
   const handleCancelDelete = () => {
@@ -102,7 +107,7 @@ export const Bookings = () => {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
