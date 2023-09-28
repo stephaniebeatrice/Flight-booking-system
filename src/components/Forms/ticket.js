@@ -83,7 +83,7 @@ export const Ticket = () => {
         </div>
       </div>
       <div style={{ display: "flex", justifyContent: "center", borderRadius: "12px", padding: "1rem 0rem" }}>
-        <button onClick={handlePrint}>print Ticket</button>
+        <button onClick={handlePrint}>Print Ticket</button>
       </div>
     </>
   );

@@ -59,7 +59,7 @@ function Dashboard() {
           <div className="mb-npx">
             <div className="row align-items-center">
               <div className="col-sm-6 col-12 mb-4 mb-sm-0">
-                <h1 className="h2 mb-0 ls-tight">flight Summary</h1>
+                <h1 className="h2 mb-0 ls-tight">Flight Summary</h1>
               </div>
             </div>
           </div>
